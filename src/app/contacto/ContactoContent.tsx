@@ -47,6 +47,8 @@ export default function ContactoContent() {
   const [form, setForm] = useState<ContactFormData>({
     nombre: "",
     email: "",
+    telefono: "",
+    empresa: "",
     asunto: "",
     mensaje: "",
   })
@@ -194,7 +196,7 @@ export default function ContactoContent() {
                       Gracias por escribirnos, <strong className="text-gray-700">{form.nombre.split(" ")[0]}</strong>. Te responderemos a la brevedad en <strong className="text-gray-700">{form.email}</strong>.
                     </p>
                     <button
-                      onClick={() => { setSent(false); setForm({ nombre: "", email: "", asunto: "", mensaje: "" }) }}
+                      onClick={() => { setSent(false); setForm({ nombre: "", email: "", telefono: "", empresa: "", asunto: "", mensaje: "" }) }}
                       className="text-sm text-[#6C5CE4] hover:underline"
                     >
                       Enviar otro mensaje
@@ -229,6 +231,34 @@ export default function ContactoContent() {
                           value={form.email}
                           onChange={handleChange}
                           placeholder="tu@email.com"
+                          className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#6C5CE4]/40 focus:border-[#6C5CE4] transition-all placeholder-gray-400"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="grid sm:grid-cols-2 gap-5">
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1.5">
+                          Teléfono <span className="text-gray-400 font-normal">(opcional)</span>
+                        </label>
+                        <input
+                          name="telefono"
+                          type="tel"
+                          value={form.telefono}
+                          onChange={handleChange}
+                          placeholder="+56 9 1234 5678"
+                          className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#6C5CE4]/40 focus:border-[#6C5CE4] transition-all placeholder-gray-400"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1.5">
+                          Empresa o clínica <span className="text-gray-400 font-normal">(opcional)</span>
+                        </label>
+                        <input
+                          name="empresa"
+                          value={form.empresa}
+                          onChange={handleChange}
+                          placeholder="Nombre de tu negocio"
                           className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#6C5CE4]/40 focus:border-[#6C5CE4] transition-all placeholder-gray-400"
                         />
                       </div>
