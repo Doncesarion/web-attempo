@@ -254,23 +254,30 @@ export function ScreenshotsSection() {
   ]
 
   return (
-    <section className="py-24 px-4 bg-gray-950 overflow-hidden">
+    <section className="py-24 px-4 bg-gray-950 overflow-visible">
       <motion.div
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-80px" }}
         variants={stagger}
-        className="max-w-6xl mx-auto"
+        className="max-w-7xl mx-auto"
       >
+        {/* Título grande y destacado */}
         <motion.div variants={fadeUp} className="text-center mb-16">
-          <span className="text-[#8B7FF0] text-sm font-medium uppercase tracking-wider">La plataforma</span>
-          <h2 className="text-4xl font-bold text-white mt-2 mb-4">Diseñada para que trabajes menos</h2>
-          <p className="text-gray-400 max-w-xl mx-auto">Interfaz limpia, rápida y en español. Disponible en computador y celular.</p>
+          <span className="inline-block bg-[#6C5CE4]/20 text-[#8B7FF0] text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full mb-6">
+            La plataforma
+          </span>
+          <h2 className="text-5xl sm:text-6xl font-bold text-white mb-4 leading-tight">
+            Diseñada para que<br />
+            <span className="text-[#8B7FF0]">trabajes menos</span>
+          </h2>
+          <p className="text-gray-400 max-w-xl mx-auto text-lg">Interfaz limpia, rápida y en español. Disponible en computador y celular.</p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left — feature list */}
-          <motion.div variants={fadeUp} className="space-y-3">
+        {/* Grid 2/5 left + 3/5 right */}
+        <div className="grid lg:grid-cols-5 gap-8 items-center">
+          {/* Left — feature list (2 cols) */}
+          <motion.div variants={fadeUp} className="lg:col-span-2 space-y-3">
             {tabs.map((t, i) => (
               <button
                 key={t.label}
@@ -293,61 +300,61 @@ export function ScreenshotsSection() {
             ))}
           </motion.div>
 
-          {/* Right — laptop + phone */}
-          <motion.div variants={fadeUp} className="relative flex justify-center lg:justify-end">
-            <div className="relative w-full">
-              {/* Glow */}
-              <div className="absolute inset-0 bg-[#6C5CE4]/20 blur-3xl rounded-full pointer-events-none" />
-              {/* Laptop frame */}
-              <div className="relative">
-                <div className="bg-gray-800 rounded-t-2xl p-2.5 ring-1 ring-white/10 shadow-2xl">
-                  <div className="flex items-center gap-1.5 mb-2 px-1">
-                    <div className="w-2.5 h-2.5 rounded-full bg-red-500/60" />
-                    <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/60" />
-                    <div className="w-2.5 h-2.5 rounded-full bg-green-500/60" />
-                    <div className="flex-1 mx-3 bg-gray-700 rounded-full h-4 flex items-center px-3">
-                      <span className="text-gray-400 text-[10px]">app.attempo.cl</span>
-                    </div>
+          {/* Right — laptop + phone (3 cols) */}
+          <motion.div variants={fadeUp} className="lg:col-span-3 relative pb-16">
+            {/* Glow */}
+            <div className="absolute inset-0 bg-[#6C5CE4]/15 blur-3xl rounded-full pointer-events-none" />
+
+            {/* Laptop frame */}
+            <div className="relative">
+              <div className="bg-gray-800 rounded-t-2xl p-3 ring-1 ring-white/10 shadow-2xl">
+                <div className="flex items-center gap-1.5 mb-2.5 px-1">
+                  <div className="w-3 h-3 rounded-full bg-red-500/70" />
+                  <div className="w-3 h-3 rounded-full bg-yellow-500/70" />
+                  <div className="w-3 h-3 rounded-full bg-green-500/70" />
+                  <div className="flex-1 mx-3 bg-gray-700 rounded-full h-5 flex items-center px-3">
+                    <span className="text-gray-400 text-[11px]">app.attempo.cl</span>
                   </div>
-                  <motion.div
-                    key={`desktop-${active}`}
-                    initial={{ opacity: 0, y: 6 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.35 }}
-                    className="rounded-lg overflow-hidden"
-                  >
-                    <Image
-                      src={tabs[active].desktop}
-                      alt={`${tabs[active].label} desktop`}
-                      width={900}
-                      height={560}
-                      className="w-full object-cover object-top"
-                    />
-                  </motion.div>
                 </div>
-                <div className="bg-gray-700 h-3 rounded-b-xl mx-4" />
-                <div className="bg-gray-600 h-1.5 rounded-b-2xl mx-8" />
+                <motion.div
+                  key={`desktop-${active}`}
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4 }}
+                  className="rounded-lg overflow-hidden"
+                >
+                  <Image
+                    src={tabs[active].desktop}
+                    alt={`${tabs[active].label} desktop`}
+                    width={1200}
+                    height={750}
+                    className="w-full object-cover object-top"
+                  />
+                </motion.div>
               </div>
-              {/* Phone overlapping bottom-right */}
-              <div className="absolute -bottom-6 -right-5 w-[110px]">
-                <div className="bg-gray-800 rounded-[2rem] p-2 shadow-2xl ring-1 ring-white/20">
-                  <div className="absolute top-3 left-1/2 -translate-x-1/2 w-8 h-2 bg-gray-800 rounded-full z-10" />
-                  <motion.div
-                    key={`mobile-${active}`}
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.35 }}
-                    className="rounded-[1.5rem] overflow-hidden"
-                  >
-                    <Image
-                      src={tabs[active].mobile}
-                      alt={`${tabs[active].label} mobile`}
-                      width={110}
-                      height={220}
-                      className="w-full object-cover"
-                    />
-                  </motion.div>
-                </div>
+              <div className="bg-gray-700 h-4 rounded-b-xl mx-6 shadow-lg" />
+              <div className="bg-gray-600 h-2 rounded-b-2xl mx-12" />
+            </div>
+
+            {/* Phone overlapping bottom-right — más grande */}
+            <div className="absolute -bottom-2 -right-4 w-[160px]">
+              <div className="bg-gray-800 rounded-[2.5rem] p-2.5 shadow-2xl ring-1 ring-white/20">
+                <div className="absolute top-4 left-1/2 -translate-x-1/2 w-10 h-2.5 bg-gray-800 rounded-full z-10" />
+                <motion.div
+                  key={`mobile-${active}`}
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.4 }}
+                  className="rounded-[2rem] overflow-hidden"
+                >
+                  <Image
+                    src={tabs[active].mobile}
+                    alt={`${tabs[active].label} mobile`}
+                    width={160}
+                    height={320}
+                    className="w-full object-cover"
+                  />
+                </motion.div>
               </div>
             </div>
           </motion.div>
