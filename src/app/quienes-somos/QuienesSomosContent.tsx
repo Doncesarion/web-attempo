@@ -158,10 +158,10 @@ export default function QuienesSomosContent() {
               {/* Header row */}
               <div className="grid grid-cols-2">
                 <div className="bg-gray-100 px-5 py-3 text-center">
-                  <span className="text-xs font-bold uppercase tracking-wide text-gray-400">Sin attempo</span>
+                  <span className="text-xs font-bold tracking-wide text-gray-400">Sin attempo</span>
                 </div>
                 <div className="bg-[#6C5CE4] px-5 py-3 text-center">
-                  <span className="text-xs font-bold uppercase tracking-wide text-white">Con attempo</span>
+                  <span className="text-xs font-bold tracking-wide text-white">Con attempo</span>
                 </div>
               </div>
               {/* Rows */}
