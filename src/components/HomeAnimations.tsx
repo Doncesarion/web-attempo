@@ -246,11 +246,11 @@ export function FeaturesSection() {
 export function ScreenshotsSection() {
   const [active, setActive] = useState(0)
   const tabs = [
-    { label: "📅 Agenda", src: "/screenshot-agenda.jpeg", desc: "Vista semanal y diaria de tus citas" },
-    { label: "👥 Clientes", src: "/screenshot-clientes.jpeg", desc: "Ficha completa por cada paciente" },
-    { label: "💰 Ventas", src: "/screenshot-ventas.jpeg", desc: "Controla ingresos y cobros pendientes" },
-    { label: "📊 Reportes", src: "/screenshot-reportes.jpeg", desc: "Métricas y evolución de tu negocio" },
-    { label: "⚙️ Config", src: "/screenshot-config.jpeg", desc: "Configura servicios, horarios y canales" },
+    { label: "📅 Agenda",       mobile: "/screenshot-agenda.jpeg",   desktop: "/desktop-agenda.png",   desc: "Vista semanal y diaria de tus citas" },
+    { label: "👥 Clientes",     mobile: "/screenshot-clientes.jpeg", desktop: "/desktop-clientes.png", desc: "Ficha completa por cada paciente" },
+    { label: "💰 Ventas",       mobile: "/screenshot-ventas.jpeg",   desktop: "/desktop-ventas.png",   desc: "Controla ingresos y cobros pendientes" },
+    { label: "📊 Reportes",     mobile: "/screenshot-reportes.jpeg", desktop: "/desktop-reportes.png", desc: "Métricas y evolución de tu negocio" },
+    { label: "⚙️ Config",       mobile: "/screenshot-config.jpeg",   desktop: "/desktop-config.png",   desc: "Configura servicios, horarios y canales" },
   ]
 
   return (
@@ -265,59 +265,101 @@ export function ScreenshotsSection() {
         <motion.div variants={fadeUp} className="text-center mb-16">
           <span className="text-[#8B7FF0] text-sm font-medium uppercase tracking-wider">La plataforma</span>
           <h2 className="text-4xl font-bold text-white mt-2 mb-4">Diseñada para que trabajes menos</h2>
-          <p className="text-gray-400 max-w-xl mx-auto">Interfaz limpia, rápida y en español. Lista para usar desde el primer día.</p>
+          <p className="text-gray-400 max-w-xl mx-auto">Interfaz limpia, rápida y en español. Disponible en computador y celular.</p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left — feature list */}
-          <motion.div variants={fadeUp} className="space-y-3">
-            {tabs.map((t, i) => (
-              <button
-                key={t.label}
-                onClick={() => setActive(i)}
-                className={`w-full text-left px-5 py-4 rounded-2xl transition-all flex items-center gap-4 ${
-                  active === i
-                    ? "bg-[#6C5CE4] text-white shadow-lg shadow-[#6C5CE4]/30"
-                    : "bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white"
-                }`}
-              >
-                <span className="text-2xl">{t.label.split(" ")[0]}</span>
-                <div>
-                  <p className="font-semibold text-sm">{t.label.split(" ").slice(1).join(" ")}</p>
-                  <p className={`text-xs mt-0.5 ${active === i ? "text-purple-200" : "text-gray-500"}`}>{t.desc}</p>
-                </div>
-                {active === i && (
-                  <motion.div layoutId="active-indicator" className="ml-auto w-1.5 h-8 bg-white/50 rounded-full" />
-                )}
-              </button>
-            ))}
-          </motion.div>
+        {/* Tabs */}
+        <motion.div variants={fadeUp} className="flex flex-wrap gap-2 justify-center mb-12">
+          {tabs.map((t, i) => (
+            <button
+              key={t.label}
+              onClick={() => setActive(i)}
+              className={`flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-medium transition-all ${
+                active === i
+                  ? "bg-[#6C5CE4] text-white shadow-lg shadow-[#6C5CE4]/30"
+                  : "bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white"
+              }`}
+            >
+              <span>{t.label.split(" ")[0]}</span>
+              <span>{t.label.split(" ").slice(1).join(" ")}</span>
+            </button>
+          ))}
+        </motion.div>
 
-          {/* Right — phone */}
-          <motion.div variants={fadeUp} className="flex justify-center">
-            <div className="relative w-[260px]">
-              <div className="absolute inset-0 bg-[#6C5CE4]/30 blur-3xl rounded-full scale-75 pointer-events-none" />
-              <div className="relative bg-gray-800 rounded-[3rem] p-2.5 shadow-2xl ring-1 ring-white/10">
-                <div className="absolute top-5 left-1/2 -translate-x-1/2 w-16 h-4 bg-gray-800 rounded-full z-10" />
+        {/* Desktop + phone mockup */}
+        <motion.div variants={fadeUp} className="relative flex justify-center">
+          {/* Glow */}
+          <div className="absolute inset-0 bg-[#6C5CE4]/20 blur-3xl rounded-full scale-50 pointer-events-none" />
+
+          <div className="relative w-full max-w-3xl">
+            {/* Laptop frame */}
+            <div className="relative">
+              {/* Screen bezel */}
+              <div className="bg-gray-800 rounded-t-2xl p-2 ring-1 ring-white/10 shadow-2xl">
+                <div className="flex items-center gap-1.5 mb-2 px-1">
+                  <div className="w-2.5 h-2.5 rounded-full bg-red-500/60" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/60" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-green-500/60" />
+                  <div className="flex-1 mx-3 bg-gray-700 rounded-full h-4 flex items-center px-3">
+                    <span className="text-gray-400 text-[10px]">app.attempo.cl</span>
+                  </div>
+                </div>
                 <motion.div
-                  key={active}
-                  initial={{ opacity: 0, y: 10 }}
+                  key={`desktop-${active}`}
+                  initial={{ opacity: 0, y: 6 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.35 }}
-                  className="rounded-[2.4rem] overflow-hidden"
+                  className="rounded-lg overflow-hidden"
                 >
                   <Image
-                    src={tabs[active].src}
-                    alt={tabs[active].label}
-                    width={260}
-                    height={520}
+                    src={tabs[active].desktop}
+                    alt={`${tabs[active].label} desktop`}
+                    width={900}
+                    height={560}
+                    className="w-full object-cover object-top"
+                  />
+                </motion.div>
+              </div>
+              {/* Laptop base */}
+              <div className="bg-gray-700 h-3 rounded-b-xl mx-4 shadow-lg" />
+              <div className="bg-gray-600 h-1.5 rounded-b-2xl mx-8" />
+            </div>
+
+            {/* Phone mockup — overlapping bottom right */}
+            <div className="absolute -bottom-6 -right-4 lg:-right-10 w-[90px] sm:w-[110px]">
+              <div className="bg-gray-800 rounded-[1.8rem] p-1.5 shadow-2xl ring-1 ring-white/20">
+                <div className="absolute top-3 left-1/2 -translate-x-1/2 w-8 h-2 bg-gray-800 rounded-full z-10" />
+                <motion.div
+                  key={`mobile-${active}`}
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.35 }}
+                  className="rounded-[1.4rem] overflow-hidden"
+                >
+                  <Image
+                    src={tabs[active].mobile}
+                    alt={`${tabs[active].label} mobile`}
+                    width={110}
+                    height={220}
                     className="w-full object-cover"
                   />
                 </motion.div>
               </div>
             </div>
-          </motion.div>
-        </div>
+          </div>
+        </motion.div>
+
+        {/* Description */}
+        <motion.p
+          key={`desc-${active}`}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.3 }}
+          variants={fadeUp}
+          className="text-center text-gray-400 text-sm mt-12"
+        >
+          {tabs[active].desc}
+        </motion.p>
       </motion.div>
     </section>
   )
