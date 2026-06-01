@@ -250,29 +250,16 @@ export default function QuienesSomosContent() {
                 variants={fadeUp}
                 className="group bg-white rounded-2xl border border-gray-100 hover:border-[#6C5CE4]/30 hover:shadow-lg transition-all duration-300 overflow-hidden"
               >
-                <div className="grid sm:grid-cols-12 items-center gap-0">
-                  {/* Number */}
-                  <div className="sm:col-span-1 flex sm:justify-center px-6 pt-6 sm:pt-0 sm:py-7">
-                    <span className="text-3xl font-black text-[#6C5CE4]/15 group-hover:text-[#6C5CE4]/30 transition-colors">
-                      {v.num}
-                    </span>
-                  </div>
-                  {/* Icon */}
-                  <div className="sm:col-span-1 hidden sm:flex justify-center py-7">
-                    <span className="text-3xl">{v.icon}</span>
-                  </div>
-                  {/* Title */}
-                  <div className="sm:col-span-3 px-6 pb-2 sm:pb-0 sm:py-7">
-                    <p className="font-bold text-gray-900 text-lg group-hover:text-[#6C5CE4] transition-colors">
-                      {v.title}
-                    </p>
-                  </div>
-                  {/* Divider */}
-                  <div className="hidden sm:block sm:col-span-1 h-8 border-l border-gray-100" />
-                  {/* Desc */}
-                  <div className="sm:col-span-6 px-6 pb-6 sm:pb-0 sm:py-7 sm:pr-8">
-                    <p className="text-gray-500 text-sm leading-relaxed">{v.desc}</p>
-                  </div>
+                <div className="flex items-center gap-5 px-6 py-6">
+                  <span className="text-3xl font-black text-[#6C5CE4]/15 group-hover:text-[#6C5CE4]/30 transition-colors w-9 text-center flex-shrink-0">
+                    {v.num}
+                  </span>
+                  <span className="text-2xl flex-shrink-0 hidden sm:block">{v.icon}</span>
+                  <p className="font-bold text-gray-900 text-base group-hover:text-[#6C5CE4] transition-colors w-28 flex-shrink-0">
+                    {v.title}
+                  </p>
+                  <div className="hidden sm:block h-7 border-l border-gray-100 flex-shrink-0" />
+                  <p className="text-gray-500 text-sm leading-relaxed flex-1">{v.desc}</p>
                 </div>
               </motion.div>
             ))}
