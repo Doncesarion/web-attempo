@@ -1,7 +1,7 @@
 "use client"
 
-import { motion } from "framer-motion"
-import { useRef, useState } from "react"
+import { motion, useInView } from "framer-motion"
+import { useRef, useState, useEffect } from "react"
 import Image from "next/image"
 
 const fadeUp = {
@@ -14,12 +14,65 @@ const stagger = {
   visible: { transition: { staggerChildren: 0.12 } },
 }
 
+function useCountUp(end: number, duration = 1500, trigger: boolean) {
+  const [count, setCount] = useState(0)
+  useEffect(() => {
+    if (!trigger || end === 0) return
+    const startTime = performance.now()
+    const tick = (now: number) => {
+      const elapsed = now - startTime
+      const progress = Math.min(elapsed / duration, 1)
+      const eased = 1 - Math.pow(1 - progress, 3)
+      setCount(Math.round(eased * end))
+      if (progress < 1) requestAnimationFrame(tick)
+    }
+    requestAnimationFrame(tick)
+  }, [trigger, end, duration])
+  return count
+}
+
+function AnimatedStat({ value, label }: { value: string; label: string }) {
+  const ref = useRef<HTMLDivElement>(null)
+  const isInView = useInView(ref, { once: true })
+  const match = value.match(/^([+]?)(\d+)(.*)$/)
+  const prefix = match?.[1] ?? ""
+  const num = parseInt(match?.[2] ?? "0")
+  const suffix = match?.[3] ?? ""
+  const count = useCountUp(num, 1500, isInView)
+  return (
+    <motion.div ref={ref} variants={fadeUp}>
+      <p className="text-4xl font-bold text-[#6C5CE4] mb-1">
+        {num > 0 ? `${prefix}${count}${suffix}` : value}
+      </p>
+      <p className="text-sm text-gray-500">{label}</p>
+    </motion.div>
+  )
+}
+
 export function HeroSection() {
   return (
     <section className="relative min-h-[95vh] flex items-center overflow-hidden bg-gradient-to-br from-[#f5f3ff] via-white to-[#ede9fe] px-4">
-      {/* Background blobs */}
-      <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-[#6C5CE4]/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
-      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-[#4F46E5]/10 rounded-full blur-3xl translate-x-1/3 translate-y-1/3 pointer-events-none" />
+      {/* Dot grid */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: "radial-gradient(circle, rgba(108,92,228,0.13) 1px, transparent 1px)",
+          backgroundSize: "32px 32px",
+          maskImage: "radial-gradient(ellipse 80% 80% at 50% 50%, black 50%, transparent 100%)",
+          WebkitMaskImage: "radial-gradient(ellipse 80% 80% at 50% 50%, black 50%, transparent 100%)",
+        }}
+      />
+      {/* Animated blobs */}
+      <motion.div
+        animate={{ scale: [1, 1.12, 1], opacity: [0.1, 0.17, 0.1] }}
+        transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute top-0 left-0 w-[600px] h-[600px] bg-[#6C5CE4] rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+      />
+      <motion.div
+        animate={{ scale: [1, 0.88, 1], opacity: [0.08, 0.15, 0.08] }}
+        transition={{ duration: 11, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+        className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-[#4F46E5] rounded-full blur-3xl translate-x-1/3 translate-y-1/3 pointer-events-none"
+      />
 
       <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-12 items-center py-20">
         {/* Left — copy */}
@@ -41,7 +94,18 @@ export function HeroSection() {
             className="text-5xl sm:text-6xl font-bold text-gray-900 leading-tight mb-6"
           >
             Tu agenda,{" "}
-            <span className="text-[#6C5CE4]">todo a tu tiempo</span>
+            <span
+              style={{
+                backgroundImage: "linear-gradient(135deg, #6C5CE4 0%, #8B7FF0 45%, #4F46E5 100%)",
+                backgroundSize: "200% 200%",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+                animation: "gradient-shift 5s ease infinite",
+              }}
+            >
+              todo a tu tiempo
+            </span>
           </motion.h1>
 
           <motion.p
@@ -83,7 +147,7 @@ export function HeroSection() {
         <motion.div
           initial={{ opacity: 0, x: 40, y: 10 }}
           animate={{ opacity: 1, x: 0, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+          transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] as const }}
           className="flex justify-center lg:justify-end relative"
         >
           <div className="relative">
@@ -151,10 +215,7 @@ export function StatsSection() {
         className="max-w-5xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-8 text-center"
       >
         {stats.map((s) => (
-          <motion.div key={s.label} variants={fadeUp}>
-            <p className="text-4xl font-bold text-[#6C5CE4] mb-1">{s.value}</p>
-            <p className="text-sm text-gray-500">{s.label}</p>
-          </motion.div>
+          <AnimatedStat key={s.label} value={s.value} label={s.label} />
         ))}
       </motion.div>
     </section>
@@ -230,7 +291,7 @@ export function FeaturesSection() {
             <motion.div
               key={f.title}
               variants={fadeUp}
-              className="bg-white p-6 rounded-2xl border border-gray-100 hover:border-[#6C5CE4]/30 hover:shadow-md transition-all group"
+              className="bg-white p-6 rounded-2xl border border-gray-100 hover:border-[#6C5CE4]/30 hover:shadow-lg hover:-translate-y-1 transition-all group"
             >
               <span className="text-3xl mb-4 block">{f.icon}</span>
               <h3 className="font-semibold text-gray-900 text-lg mb-2 group-hover:text-[#6C5CE4] transition-colors">{f.title}</h3>
