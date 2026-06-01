@@ -96,10 +96,14 @@ export default function ContactoContent() {
     }
     setSending(true)
     try {
-      await sendContactEmail({ ...form, telefono: form.telefono ? `${paisCode} ${form.telefono}` : "" })
-      setSent(true)
-    } catch {
-      setError("Ocurrió un error al enviar. Escríbenos a contacto@attempo.cl")
+      const result = await sendContactEmail({ ...form, telefono: form.telefono ? `${paisCode} ${form.telefono}` : "" })
+      if (result.ok) {
+        setSent(true)
+      } else {
+        setError(result.error ?? "Ocurrió un error al enviar. Escríbenos a contacto@attempo.cl")
+      }
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Ocurrió un error al enviar. Escríbenos a contacto@attempo.cl")
     } finally {
       setSending(false)
     }
