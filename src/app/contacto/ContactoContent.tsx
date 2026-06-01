@@ -266,13 +266,13 @@ export default function ContactoContent() {
                         <label className="block text-sm font-medium text-gray-700 mb-1.5">
                           Teléfono
                         </label>
-                        <div className="flex rounded-xl border border-gray-200 focus-within:ring-2 focus-within:ring-[#6C5CE4]/40 focus-within:border-[#6C5CE4] transition-all overflow-hidden">
+                        <div className="flex rounded-xl border border-gray-200 focus-within:ring-2 focus-within:ring-[#6C5CE4]/40 focus-within:border-[#6C5CE4] transition-all">
                           {/* Custom country selector */}
                           <div className="relative">
                             <button
                               type="button"
                               onClick={() => setPaisDropdown((v) => !v)}
-                              className="flex items-center gap-1.5 h-full px-3 bg-gray-50 border-r border-gray-200 hover:bg-gray-100 transition-colors"
+                              className="flex items-center gap-1.5 h-full px-3 bg-gray-50 border-r border-gray-200 hover:bg-gray-100 transition-colors rounded-l-xl"
                             >
                               {/* eslint-disable-next-line @next/next/no-img-element */}
                               <img
@@ -330,7 +330,7 @@ export default function ContactoContent() {
                             onChange={handleChange}
                             placeholder="9 1234 5678"
                             maxLength={12}
-                            className="flex-1 px-4 py-3 text-sm focus:outline-none placeholder-gray-400 bg-white"
+                            className="flex-1 px-4 py-3 text-sm focus:outline-none placeholder-gray-400 bg-white rounded-r-xl"
                           />
                         </div>
                       </div>
