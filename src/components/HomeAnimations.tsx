@@ -323,19 +323,123 @@ export function ScreenshotsSection() {
   )
 }
 
+export function WebpaySection() {
+  const beneficios = [
+    { icon: "🔒", title: "Pago 100% seguro", desc: "Tecnología SSL y estándares de seguridad bancaria de Transbank." },
+    { icon: "💳", title: "Débito y crédito", desc: "Acepta todas las tarjetas: Visa, Mastercard, American Express y más." },
+    { icon: "⚡", title: "Cobro inmediato", desc: "El pago se acredita directamente en tu cuenta. Sin intermediarios." },
+    { icon: "📲", title: "Link de pago", desc: "Envía el link de cobro por WhatsApp o email al confirmar la cita." },
+  ]
+
+  return (
+    <section className="py-24 px-4 bg-white overflow-hidden">
+      <motion.div
+        variants={stagger}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-80px" }}
+        className="max-w-6xl mx-auto"
+      >
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          {/* Left */}
+          <motion.div variants={fadeUp}>
+            <span className="text-[#6C5CE4] text-sm font-medium uppercase tracking-wider">Pagos en línea</span>
+            <h2 className="text-4xl font-bold text-gray-900 mt-2 mb-4">
+              Cobra con Webpay,<br />el estándar de Chile
+            </h2>
+            <p className="text-gray-500 text-lg mb-8 leading-relaxed">
+              Integra el método de pago más utilizado en Chile directamente en tu flujo de agendamiento. Tus clientes pagan al reservar y tú cobras sin perseguir a nadie.
+            </p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
+              {beneficios.map((b) => (
+                <div key={b.title} className="flex gap-3">
+                  <span className="text-2xl flex-shrink-0">{b.icon}</span>
+                  <div>
+                    <p className="font-semibold text-gray-900 text-sm">{b.title}</p>
+                    <p className="text-xs text-gray-500 mt-0.5">{b.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <a
+              href="/precios"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-[#6C5CE4] text-white font-semibold rounded-xl hover:bg-[#4F46E5] transition-all hover:-translate-y-0.5 shadow-lg shadow-[#6C5CE4]/25"
+            >
+              Activar Webpay en mi cuenta →
+            </a>
+          </motion.div>
+
+          {/* Right — visual */}
+          <motion.div variants={fadeUp} className="flex justify-center lg:justify-end">
+            <div className="relative">
+              {/* Glow */}
+              <div className="absolute inset-0 bg-blue-500/10 blur-3xl rounded-full pointer-events-none" />
+              {/* Card mockup */}
+              <div className="relative bg-gradient-to-br from-[#003DA5] to-[#0051CC] rounded-3xl p-8 w-80 shadow-2xl">
+                <div className="flex items-center justify-between mb-8">
+                  <div>
+                    <p className="text-blue-200 text-xs font-medium uppercase tracking-wider">Powered by</p>
+                    <p className="text-white font-bold text-2xl mt-1">WEBPAY</p>
+                    <p className="text-blue-200 text-sm">Transbank</p>
+                  </div>
+                  <div className="w-14 h-14 bg-white/20 rounded-2xl flex items-center justify-center">
+                    <span className="text-3xl">💳</span>
+                  </div>
+                </div>
+
+                <div className="bg-white/10 rounded-2xl p-4 mb-4">
+                  <p className="text-blue-200 text-xs mb-1">Monto a cobrar</p>
+                  <p className="text-white text-3xl font-bold">$45.000</p>
+                  <p className="text-blue-200 text-xs mt-1">Consulta psicológica · 60 min</p>
+                </div>
+
+                <div className="flex gap-2 mb-6">
+                  {["Visa", "MC", "Amex"].map((card) => (
+                    <span key={card} className="bg-white/20 text-white text-xs px-2 py-1 rounded-lg font-medium">
+                      {card}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="bg-white rounded-2xl p-3 flex items-center justify-between">
+                  <span className="text-[#003DA5] font-bold text-sm">Pagar ahora</span>
+                  <div className="w-8 h-8 bg-[#003DA5] rounded-xl flex items-center justify-center">
+                    <span className="text-white text-sm">→</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Floating badge */}
+              <motion.div
+                animate={{ y: [0, -8, 0] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute -top-4 -right-4 bg-green-500 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg"
+              >
+                ✓ Pago confirmado
+              </motion.div>
+            </div>
+          </motion.div>
+        </div>
+      </motion.div>
+    </section>
+  )
+}
+
 export function TestimonialsSection() {
   const testimonials = [
     {
       name: "Valentina Mora",
       role: "Psicóloga clínica",
       avatar: "VM",
-      text: "Antes llevaba todo en papel y me perdía citas. Con Attempo organicé mi agenda en una tarde. Mis pacientes reciben el recordatorio por WhatsApp y ya casi no tengo inasistencias.",
+      text: "Antes llevaba todo en papel y me perdía citas. Con attempo organicé mi agenda en una tarde. Mis pacientes reciben el recordatorio por WhatsApp y ya casi no tengo inasistencias.",
     },
     {
       name: "Diego Fuentes",
       role: "Barbería The Cut",
       avatar: "DF",
-      text: "Empecé a usar Attempo cuando abrí mi barbería. Me ahorró contratar a alguien solo para tomar reservas. El chatbot responde sol ito por Instagram.",
+      text: "Empecé a usar attempo cuando abrí mi barbería. Me ahorró contratar a alguien solo para tomar reservas. El chatbot responde solito por Instagram.",
     },
     {
       name: "Camila Reyes",

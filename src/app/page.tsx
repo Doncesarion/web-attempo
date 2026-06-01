@@ -4,6 +4,7 @@ import {
   StatsSection,
   FeaturesSection,
   ScreenshotsSection,
+  WebpaySection,
   TestimonialsSection,
   EspecialidadesSection,
   CTASection,
@@ -22,6 +23,7 @@ export default function HomePage() {
       <StatsSection />
       <FeaturesSection />
       <ScreenshotsSection />
+      <WebpaySection />
       <EspecialidadesSection />
       <TestimonialsSection />
       <CTASection />
