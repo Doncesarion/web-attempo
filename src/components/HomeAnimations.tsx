@@ -570,14 +570,14 @@ export function TestimonialsSection() {
             <motion.div
               key={t.name}
               variants={fadeUp}
-              className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm"
+              className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm flex flex-col"
             >
               <div className="flex gap-1 mb-4">
                 {[...Array(5)].map((_, i) => (
                   <span key={i} className="text-yellow-400 text-lg">★</span>
                 ))}
               </div>
-              <p className="text-gray-600 text-sm leading-relaxed mb-6">"{t.text}"</p>
+              <p className="text-gray-600 text-sm leading-relaxed mb-6 flex-1">"{t.text}"</p>
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 bg-[#6C5CE4] rounded-full flex items-center justify-center text-white text-sm font-bold">
                   {t.avatar}
