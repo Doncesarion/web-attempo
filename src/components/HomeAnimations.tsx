@@ -1,0 +1,470 @@
+"use client"
+
+import { motion } from "framer-motion"
+import { useRef, useState } from "react"
+import Image from "next/image"
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] as const } },
+}
+
+const stagger = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.12 } },
+}
+
+export function HeroSection() {
+  return (
+    <section className="relative min-h-[95vh] flex items-center overflow-hidden bg-gradient-to-br from-[#f5f3ff] via-white to-[#ede9fe] px-4">
+      {/* Background blobs */}
+      <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-[#6C5CE4]/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-[#4F46E5]/10 rounded-full blur-3xl translate-x-1/3 translate-y-1/3 pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-12 items-center py-20">
+        {/* Left — copy */}
+        <motion.div
+          variants={stagger}
+          initial="hidden"
+          animate="visible"
+          className="text-center lg:text-left"
+        >
+          <motion.div variants={fadeUp}>
+            <span className="inline-flex items-center gap-2 bg-[#6C5CE4]/10 text-[#6C5CE4] px-4 py-1.5 rounded-full text-sm font-medium mb-6">
+              <span className="w-2 h-2 bg-[#6C5CE4] rounded-full animate-pulse" />
+              Chatbot IA · WhatsApp · Instagram · Messenger
+            </span>
+          </motion.div>
+
+          <motion.h1
+            variants={fadeUp}
+            className="text-5xl sm:text-6xl font-bold text-gray-900 leading-tight mb-6"
+          >
+            Tu agenda,{" "}
+            <span className="text-[#6C5CE4]">todo a tu tiempo</span>
+          </motion.h1>
+
+          <motion.p
+            variants={fadeUp}
+            className="text-xl text-gray-600 mb-10 max-w-lg mx-auto lg:mx-0"
+          >
+            La plataforma de agendamiento para profesionales de la salud y servicios en Chile. Recuerda, cobra y atiende sin esfuerzo.
+          </motion.p>
+
+          <motion.div
+            variants={fadeUp}
+            className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+          >
+            <a
+              href="/precios"
+              className="px-8 py-4 bg-[#6C5CE4] hover:bg-[#4F46E5] text-white font-semibold rounded-xl transition-all text-lg shadow-lg shadow-[#6C5CE4]/25 hover:shadow-[#6C5CE4]/40 hover:-translate-y-0.5 active:translate-y-0"
+            >
+              Empieza gratis
+            </a>
+            <a
+              href="https://app.attempo.cl"
+              className="px-8 py-4 bg-white border border-gray-200 text-gray-700 font-semibold rounded-xl hover:border-[#6C5CE4] hover:text-[#6C5CE4] transition-all text-lg hover:-translate-y-0.5 active:translate-y-0"
+            >
+              Ver demo
+            </a>
+          </motion.div>
+
+          <motion.div
+            variants={fadeUp}
+            className="mt-10 flex items-center gap-6 justify-center lg:justify-start text-sm text-gray-500"
+          >
+            <span className="flex items-center gap-1.5">✅ Sin tarjeta de crédito</span>
+            <span className="flex items-center gap-1.5">✅ Listo en 5 minutos</span>
+            <span className="flex items-center gap-1.5">✅ Soporte en español</span>
+          </motion.div>
+        </motion.div>
+
+        {/* Right — phone mockup */}
+        <motion.div
+          initial={{ opacity: 0, x: 40, y: 10 }}
+          animate={{ opacity: 1, x: 0, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+          className="flex justify-center lg:justify-end relative"
+        >
+          <div className="relative">
+            {/* Glow */}
+            <div className="absolute inset-0 bg-[#6C5CE4]/20 blur-3xl rounded-full scale-75 pointer-events-none" />
+            {/* Phone frame */}
+            <div className="relative w-[280px] bg-gray-900 rounded-[3rem] p-3 shadow-2xl ring-1 ring-white/10">
+              <div className="absolute top-6 left-1/2 -translate-x-1/2 w-20 h-5 bg-gray-900 rounded-full z-10" />
+              <div className="rounded-[2.4rem] overflow-hidden">
+                <Image
+                  src="/screenshot-agenda.jpeg"
+                  alt="Agenda Attempo"
+                  width={280}
+                  height={560}
+                  className="w-full object-cover"
+                  priority
+                />
+              </div>
+            </div>
+            {/* Floating cards */}
+            <motion.div
+              animate={{ y: [0, -6, 0] }}
+              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute -left-16 top-1/4 bg-white rounded-2xl shadow-lg p-3 flex items-center gap-3 w-44"
+            >
+              <div className="w-10 h-10 bg-green-100 rounded-xl flex items-center justify-center text-xl">📅</div>
+              <div>
+                <p className="text-xs font-semibold text-gray-800">Nueva cita</p>
+                <p className="text-xs text-gray-500">Hoy 15:00</p>
+              </div>
+            </motion.div>
+            <motion.div
+              animate={{ y: [0, 6, 0] }}
+              transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+              className="absolute -right-12 bottom-1/4 bg-white rounded-2xl shadow-lg p-3 flex items-center gap-3 w-44"
+            >
+              <div className="w-10 h-10 bg-purple-100 rounded-xl flex items-center justify-center text-xl">✅</div>
+              <div>
+                <p className="text-xs font-semibold text-gray-800">Recordatorio enviado</p>
+                <p className="text-xs text-gray-500">WhatsApp</p>
+              </div>
+            </motion.div>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  )
+}
+
+export function StatsSection() {
+  const stats = [
+    { value: "+11", label: "Especialidades" },
+    { value: "3", label: "Canales de comunicación" },
+    { value: "0%", label: "Comisión por cita" },
+    { value: "5 min", label: "Para configurar" },
+  ]
+
+  return (
+    <section className="py-16 px-4 bg-white border-y border-gray-100">
+      <motion.div
+        variants={stagger}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-50px" }}
+        className="max-w-5xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-8 text-center"
+      >
+        {stats.map((s) => (
+          <motion.div key={s.label} variants={fadeUp}>
+            <p className="text-4xl font-bold text-[#6C5CE4] mb-1">{s.value}</p>
+            <p className="text-sm text-gray-500">{s.label}</p>
+          </motion.div>
+        ))}
+      </motion.div>
+    </section>
+  )
+}
+
+export function FeaturesSection() {
+  const features = [
+    {
+      icon: "📅",
+      title: "Agenda inteligente",
+      desc: "Vista semanal, diaria y en lista. Gestiona citas, bloqueos y disponibilidad en tiempo real.",
+    },
+    {
+      icon: "🔔",
+      title: "Recordatorios automáticos",
+      desc: "WhatsApp y email antes de cada cita. Reduce las inasistencias sin hacer nada.",
+    },
+    {
+      icon: "🤖",
+      title: "Chatbot IA",
+      desc: "Attia atiende y agenda por ti en WhatsApp, Instagram y Messenger las 24 horas.",
+    },
+    {
+      icon: "💰",
+      title: "Control de ventas",
+      desc: "Registra pagos, revisa ingresos por día y lleva el control de citas sin cobrar.",
+    },
+    {
+      icon: "👥",
+      title: "Base de clientes",
+      desc: "Ficha completa por paciente con historial, datos de contacto y citas anteriores.",
+    },
+    {
+      icon: "📊",
+      title: "Reportes y métricas",
+      desc: "Evolución de reservas, servicios más populares y rendimiento de tu negocio.",
+    },
+    {
+      icon: "📦",
+      title: "Paquetes de sesiones",
+      desc: "Vende sesiones en bloque y controla el avance de cada paquete por cliente.",
+    },
+    {
+      icon: "📄",
+      title: "Boleta de honorarios",
+      desc: "Genera boletas de honorarios directamente desde la plataforma. Integración SII.",
+    },
+    {
+      icon: "🌐",
+      title: "Página de reservas online",
+      desc: "Tu propio link de reservas personalizado para compartir con tus pacientes.",
+    },
+  ]
+
+  return (
+    <section className="py-24 px-4 bg-gray-50">
+      <motion.div
+        variants={stagger}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-80px" }}
+        className="max-w-7xl mx-auto"
+      >
+        <motion.div variants={fadeUp} className="text-center mb-16">
+          <span className="text-[#6C5CE4] text-sm font-medium uppercase tracking-wider">Funcionalidades</span>
+          <h2 className="text-4xl font-bold text-gray-900 mt-2 mb-4">Todo lo que necesitas en un solo lugar</h2>
+          <p className="text-gray-500 max-w-xl mx-auto">Sin apps extra, sin integraciones complicadas. Attempo centraliza todo tu flujo de trabajo.</p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {features.map((f) => (
+            <motion.div
+              key={f.title}
+              variants={fadeUp}
+              className="bg-white p-6 rounded-2xl border border-gray-100 hover:border-[#6C5CE4]/30 hover:shadow-md transition-all group"
+            >
+              <span className="text-3xl mb-4 block">{f.icon}</span>
+              <h3 className="font-semibold text-gray-900 text-lg mb-2 group-hover:text-[#6C5CE4] transition-colors">{f.title}</h3>
+              <p className="text-sm text-gray-500 leading-relaxed">{f.desc}</p>
+            </motion.div>
+          ))}
+        </div>
+      </motion.div>
+    </section>
+  )
+}
+
+export function ScreenshotsSection() {
+  const [active, setActive] = useState(0)
+  const tabs = [
+    { label: "Agenda", src: "/screenshot-agenda.jpeg" },
+    { label: "Clientes", src: "/screenshot-clientes.jpeg" },
+    { label: "Ventas", src: "/screenshot-ventas.jpeg" },
+    { label: "Reportes", src: "/screenshot-reportes.jpeg" },
+    { label: "Configuración", src: "/screenshot-config.jpeg" },
+  ]
+
+  return (
+    <section className="py-24 px-4 bg-white overflow-hidden">
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-80px" }}
+        variants={stagger}
+        className="max-w-5xl mx-auto"
+      >
+        <motion.div variants={fadeUp} className="text-center mb-12">
+          <span className="text-[#6C5CE4] text-sm font-medium uppercase tracking-wider">La plataforma</span>
+          <h2 className="text-4xl font-bold text-gray-900 mt-2 mb-4">Diseñada para que trabajes menos</h2>
+          <p className="text-gray-500 max-w-xl mx-auto">Interfaz limpia, rápida y en español. Lista para usar desde el primer día.</p>
+        </motion.div>
+
+        {/* Tabs */}
+        <motion.div variants={fadeUp} className="flex flex-wrap gap-2 justify-center mb-8">
+          {tabs.map((t, i) => (
+            <button
+              key={t.label}
+              onClick={() => setActive(i)}
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                active === i
+                  ? "bg-[#6C5CE4] text-white shadow-md"
+                  : "bg-gray-100 text-gray-600 hover:bg-purple-50 hover:text-[#6C5CE4]"
+              }`}
+            >
+              {t.label}
+            </button>
+          ))}
+        </motion.div>
+
+        {/* Phone display */}
+        <motion.div variants={fadeUp} className="flex justify-center">
+          <div className="relative w-[300px]">
+            <div className="bg-gray-900 rounded-[3rem] p-3 shadow-2xl ring-1 ring-white/10">
+              <div className="absolute top-6 left-1/2 -translate-x-1/2 w-20 h-5 bg-gray-900 rounded-full z-10" />
+              <motion.div
+                key={active}
+                initial={{ opacity: 0, scale: 0.97 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.3 }}
+                className="rounded-[2.4rem] overflow-hidden"
+              >
+                <Image
+                  src={tabs[active].src}
+                  alt={tabs[active].label}
+                  width={300}
+                  height={600}
+                  className="w-full object-cover"
+                />
+              </motion.div>
+            </div>
+          </div>
+        </motion.div>
+      </motion.div>
+    </section>
+  )
+}
+
+export function TestimonialsSection() {
+  const testimonials = [
+    {
+      name: "Valentina Mora",
+      role: "Psicóloga clínica",
+      avatar: "VM",
+      text: "Antes llevaba todo en papel y me perdía citas. Con Attempo organicé mi agenda en una tarde. Mis pacientes reciben el recordatorio por WhatsApp y ya casi no tengo inasistencias.",
+    },
+    {
+      name: "Diego Fuentes",
+      role: "Barbería The Cut",
+      avatar: "DF",
+      text: "Empecé a usar Attempo cuando abrí mi barbería. Me ahorró contratar a alguien solo para tomar reservas. El chatbot responde sol ito por Instagram.",
+    },
+    {
+      name: "Camila Reyes",
+      role: "Nutricionista",
+      avatar: "CR",
+      text: "Lo que más me gusta es ver el historial de mis pacientes y los paquetes de sesiones. Todo en un solo lugar, sin andar con mil archivos de Excel.",
+    },
+  ]
+
+  return (
+    <section className="py-24 px-4 bg-gray-50">
+      <motion.div
+        variants={stagger}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-80px" }}
+        className="max-w-7xl mx-auto"
+      >
+        <motion.div variants={fadeUp} className="text-center mb-16">
+          <span className="text-[#6C5CE4] text-sm font-medium uppercase tracking-wider">Testimonios</span>
+          <h2 className="text-4xl font-bold text-gray-900 mt-2 mb-4">Lo que dicen quienes ya usan Attempo</h2>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {testimonials.map((t) => (
+            <motion.div
+              key={t.name}
+              variants={fadeUp}
+              className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm"
+            >
+              <div className="flex gap-1 mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <span key={i} className="text-yellow-400 text-lg">★</span>
+                ))}
+              </div>
+              <p className="text-gray-600 text-sm leading-relaxed mb-6">"{t.text}"</p>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 bg-[#6C5CE4] rounded-full flex items-center justify-center text-white text-sm font-bold">
+                  {t.avatar}
+                </div>
+                <div>
+                  <p className="font-semibold text-gray-900 text-sm">{t.name}</p>
+                  <p className="text-xs text-gray-500">{t.role}</p>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </motion.div>
+    </section>
+  )
+}
+
+export function EspecialidadesSection() {
+  const items = [
+    { slug: "psicologos", nombre: "Psicólogos", emoji: "🧠" },
+    { slug: "psiquiatras", nombre: "Psiquiatras", emoji: "🩺" },
+    { slug: "medicos-generales", nombre: "Médicos", emoji: "👨‍⚕️" },
+    { slug: "centros-clinicos", nombre: "Centros Clínicos", emoji: "🏥" },
+    { slug: "barberias", nombre: "Barberías", emoji: "✂️" },
+    { slug: "nutricion", nombre: "Nutricionistas", emoji: "🥗" },
+    { slug: "matronas", nombre: "Matronas", emoji: "🤱" },
+    { slug: "esteticas", nombre: "Estéticas", emoji: "💆" },
+    { slug: "fisioterapeutas", nombre: "Fisioterapeutas", emoji: "🦴" },
+    { slug: "yoga", nombre: "Yoga", emoji: "🧘" },
+    { slug: "derecho", nombre: "Abogados", emoji: "⚖️" },
+  ]
+
+  return (
+    <section className="py-24 px-4 bg-white">
+      <motion.div
+        variants={stagger}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-80px" }}
+        className="max-w-7xl mx-auto"
+      >
+        <motion.div variants={fadeUp} className="text-center mb-12">
+          <span className="text-[#6C5CE4] text-sm font-medium uppercase tracking-wider">Soluciones</span>
+          <h2 className="text-4xl font-bold text-gray-900 mt-2 mb-4">Diseñado para tu especialidad</h2>
+          <p className="text-gray-500 max-w-xl mx-auto">Attempo se adapta a cualquier tipo de profesional o negocio de servicios.</p>
+        </motion.div>
+
+        <motion.div variants={fadeUp} className="flex flex-wrap gap-3 justify-center">
+          {items.map((e) => (
+            <a
+              key={e.slug}
+              href={`/soluciones/${e.slug}`}
+              className="flex items-center gap-2 px-5 py-3 bg-gray-50 border border-gray-200 rounded-full text-sm font-medium text-gray-700 hover:border-[#6C5CE4] hover:text-[#6C5CE4] hover:bg-purple-50 transition-all"
+            >
+              <span>{e.emoji}</span>
+              {e.nombre}
+            </a>
+          ))}
+          <a
+            href="/soluciones"
+            className="flex items-center gap-2 px-5 py-3 bg-[#6C5CE4]/10 border border-[#6C5CE4]/20 rounded-full text-sm font-medium text-[#6C5CE4] hover:bg-[#6C5CE4] hover:text-white transition-all"
+          >
+            Ver todas →
+          </a>
+        </motion.div>
+      </motion.div>
+    </section>
+  )
+}
+
+export function CTASection() {
+  return (
+    <section className="py-24 px-4 bg-[#6C5CE4] relative overflow-hidden">
+      <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/5 rounded-full blur-3xl pointer-events-none" />
+      <motion.div
+        variants={stagger}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        className="max-w-3xl mx-auto text-center relative"
+      >
+        <motion.h2 variants={fadeUp} className="text-4xl sm:text-5xl font-bold text-white mb-4">
+          Empieza hoy, gratis
+        </motion.h2>
+        <motion.p variants={fadeUp} className="text-purple-200 mb-10 text-xl">
+          Sin tarjeta de crédito. Sin complicaciones. Listo en 5 minutos.
+        </motion.p>
+        <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="/precios"
+            className="px-8 py-4 bg-white text-[#6C5CE4] font-bold rounded-xl hover:bg-purple-50 transition-all text-lg shadow-lg hover:-translate-y-0.5"
+          >
+            Crear cuenta gratis
+          </a>
+          <a
+            href="/contacto"
+            className="px-8 py-4 bg-white/10 text-white font-semibold rounded-xl hover:bg-white/20 transition-all text-lg border border-white/20"
+          >
+            Hablar con nosotros
+          </a>
+        </motion.div>
+      </motion.div>
+    </section>
+  )
+}

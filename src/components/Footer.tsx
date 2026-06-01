@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 
 const footerLinks = {
   Producto: [
@@ -65,9 +66,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-2">
             <Link href="/" className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-[#6C5CE4] flex items-center justify-center">
-                <span className="text-white font-bold text-sm">A</span>
-              </div>
+              <Image src="/logo_attempo.png" alt="Attempo" width={36} height={36} className="rounded-xl" />
               <span className="font-bold text-xl text-white">Attempo</span>
             </Link>
             <p className="text-sm leading-relaxed mb-6 max-w-xs">
