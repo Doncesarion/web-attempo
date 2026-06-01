@@ -3,8 +3,8 @@
 import { motion } from "framer-motion"
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] as const } },
+  hidden: { opacity: 0, y: 28 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.65, ease: [0.25, 0.46, 0.45, 0.94] as const } },
 }
 
 const stagger = {
@@ -13,24 +13,46 @@ const stagger = {
 }
 
 const valores = [
-  { icon: "🎯", title: "Simplicidad", desc: "Sin curvas de aprendizaje. La plataforma está lista para usarse en menos de 5 minutos." },
-  { icon: "🤝", title: "Cercanía", desc: "Soporte humano en español. Construido en Chile, pensado para la realidad chilena." },
-  { icon: "🔒", title: "Confianza", desc: "Datos protegidos y pagos seguros con los mismos estándares de la banca en Chile." },
-  { icon: "🚀", title: "Innovación", desc: "IA y automatización que trabajan para ti, liberando tu tiempo para lo que importa." },
+  {
+    num: "01",
+    icon: "🎯",
+    title: "Simplicidad",
+    desc: "Sin curvas de aprendizaje. La plataforma está lista para usarse en menos de 5 minutos. Si necesitas un manual, algo está mal.",
+  },
+  {
+    num: "02",
+    icon: "🤝",
+    title: "Cercanía",
+    desc: "Soporte humano en español. Construido en Chile, pensado para la realidad chilena. No somos un ticket en una cola.",
+  },
+  {
+    num: "03",
+    icon: "🔒",
+    title: "Confianza",
+    desc: "Datos protegidos y pagos seguros con los mismos estándares de la banca en Chile. Tu información y la de tus pacientes, segura.",
+  },
+  {
+    num: "04",
+    icon: "🚀",
+    title: "Innovación",
+    desc: "IA y automatización que trabajan para ti, liberando tu tiempo. La tecnología debe simplificar, nunca complicar.",
+  },
 ]
 
 const cambios = [
-  { before: "📱 WhatsApps sin responder", after: "🤖 Chatbot atiende 24/7" },
-  { before: "📋 Agenda en Excel o papel", after: "📅 Agenda digital en tiempo real" },
-  { before: "💸 Cobros pendientes", after: "💳 Pago al reservar con Webpay" },
-  { before: "⏰ Inasistencias sin aviso", after: "🔔 Recordatorios automáticos" },
+  { before: "WhatsApps sin responder a toda hora", after: "Chatbot atiende y agenda 24/7" },
+  { before: "Agenda en Excel o libreta de papel", after: "Agenda digital en tiempo real" },
+  { before: "Cobros pendientes y pagos que no llegan", after: "Pago al reservar con Webpay" },
+  { before: "Inasistencias sin previo aviso", after: "Recordatorios automáticos previos" },
 ]
 
 export default function QuienesSomosContent() {
   return (
     <div className="flex flex-col">
-      {/* Hero */}
-      <section className="relative py-28 px-4 bg-gradient-to-br from-[#f5f3ff] via-white to-[#ede9fe] overflow-hidden">
+
+      {/* ── 1. HERO ─────────────────────────────────────────── */}
+      <section className="relative py-32 px-4 bg-gradient-to-br from-[#f5f3ff] via-white to-[#ede9fe] overflow-hidden">
+        {/* Dot grid */}
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
@@ -40,6 +62,13 @@ export default function QuienesSomosContent() {
             WebkitMaskImage: "radial-gradient(ellipse 80% 80% at 50% 50%, black 50%, transparent 100%)",
           }}
         />
+        {/* Glow blob */}
+        <motion.div
+          animate={{ scale: [1, 1.1, 1], opacity: [0.12, 0.2, 0.12] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-[#6C5CE4] rounded-full blur-3xl pointer-events-none"
+        />
+
         <motion.div
           variants={stagger}
           initial="hidden"
@@ -48,166 +77,210 @@ export default function QuienesSomosContent() {
         >
           <motion.span
             variants={fadeUp}
-            className="inline-block bg-[#6C5CE4]/10 text-[#6C5CE4] text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full mb-6"
+            className="inline-block bg-[#6C5CE4]/10 text-[#6C5CE4] text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full mb-8"
           >
             Quiénes somos
           </motion.span>
           <motion.h1
             variants={fadeUp}
-            className="text-5xl sm:text-6xl font-bold text-gray-900 mb-6 leading-tight"
+            className="text-5xl sm:text-6xl lg:text-7xl font-bold text-gray-900 mb-8 leading-[1.05]"
           >
-            Nacimos para simplificar<br />
-            <span className="text-[#6C5CE4]">la agenda de Chile</span>
+            Nacimos para que los<br />
+            profesionales puedan<br />
+            <span className="text-[#6C5CE4]">enfocarse en lo suyo</span>
           </motion.h1>
-          <motion.p variants={fadeUp} className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <motion.p variants={fadeUp} className="text-xl text-gray-500 max-w-2xl mx-auto leading-relaxed">
             Somos un equipo chileno que construyó la herramienta que los profesionales de salud y servicios necesitaban y no encontraban.
           </motion.p>
+
+          {/* Data chips */}
           <motion.div
             variants={fadeUp}
-            className="flex flex-wrap items-center justify-center gap-4 mt-10 text-sm text-gray-500"
+            className="flex flex-wrap items-center justify-center gap-3 mt-12"
           >
-            <span className="flex items-center gap-1.5">📍 Santiago, Chile</span>
-            <span className="w-1 h-1 bg-gray-300 rounded-full" />
-            <span className="flex items-center gap-1.5">🗓 Desde 2025</span>
-            <span className="w-1 h-1 bg-gray-300 rounded-full" />
-            <span className="flex items-center gap-1.5">🇨🇱 Hecho para Chile</span>
+            {[
+              { icon: "📍", label: "Santiago, Chile" },
+              { icon: "🗓", label: "Desde 2025" },
+              { icon: "🇨🇱", label: "Hecho para Chile" },
+              { icon: "💜", label: "Soporte en español" },
+            ].map((chip) => (
+              <span
+                key={chip.label}
+                className="flex items-center gap-2 bg-white border border-gray-200 shadow-sm text-gray-600 text-sm font-medium px-4 py-2 rounded-full"
+              >
+                {chip.icon} {chip.label}
+              </span>
+            ))}
           </motion.div>
         </motion.div>
       </section>
 
-      {/* El origen */}
+      {/* ── 2. ORIGEN ───────────────────────────────────────── */}
       <section className="py-24 px-4 bg-white">
         <motion.div
           variants={stagger}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
-          className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16 items-center"
+          className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16 items-start"
         >
           {/* Left: story */}
           <motion.div variants={fadeUp}>
             <span className="text-[#6C5CE4] text-sm font-medium uppercase tracking-wider">El origen</span>
-            <h2 className="text-4xl font-bold text-gray-900 mt-2 mb-6">Todo partió de una frustración real</h2>
-            <div className="space-y-4 text-gray-600 leading-relaxed">
+            <h2 className="text-4xl font-bold text-gray-900 mt-3 mb-7 leading-tight">
+              Todo partió de<br />una frustración real
+            </h2>
+            <div className="space-y-5 text-gray-600 leading-relaxed text-[1.05rem]">
               <p>
-                Vimos cómo psicólogos, nutricionistas, médicos y otros profesionales dedicaban horas de su día a responder WhatsApps, coordinar horarios y perseguir cobros pendientes. Tiempo valioso que podría estar con sus pacientes.
+                Vimos cómo psicólogos, nutricionistas, médicos y otros profesionales dedicaban horas de su día a responder WhatsApps, coordinar horarios y perseguir cobros. Tiempo valioso que podría estar con sus pacientes.
               </p>
               <p>
                 Las herramientas que existían no estaban pensadas para Chile: sin Webpay, sin boleta de honorarios, sin WhatsApp nativo, sin soporte en español.
               </p>
-              <blockquote className="border-l-4 border-[#6C5CE4] pl-5 py-3 bg-purple-50/60 rounded-r-xl my-6">
-                <p className="text-[#6C5CE4] font-medium italic">"Si no lo usaríamos nosotros mismos, no lo lanzamos."</p>
-                <p className="text-sm text-gray-400 mt-1">El principio que guía cada decisión en attempo</p>
-              </blockquote>
               <p>
-                Construimos attempo desde cero con una premisa simple: resolver el problema real de los profesionales chilenos con tecnología accesible y soporte cercano.
+                Decidimos construir attempo desde cero, con una premisa simple:
+              </p>
+            </div>
+            <div className="mt-7 bg-gradient-to-br from-[#6C5CE4] to-[#4F46E5] rounded-2xl p-6 shadow-lg shadow-[#6C5CE4]/20">
+              <p className="text-white text-xl font-semibold leading-snug">
+                "Si no lo usaríamos nosotros mismos, no lo lanzamos."
+              </p>
+              <p className="text-purple-200 text-sm mt-2">
+                El principio que guía cada decisión en attempo
               </p>
             </div>
           </motion.div>
 
-          {/* Right: before/after visual */}
-          <motion.div variants={fadeUp} className="space-y-3">
-            <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-5">El cambio que hacemos</p>
-            {cambios.map((item, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, x: 24 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1, duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] as const }}
-                className="flex items-center gap-3"
-              >
-                <div className="flex-1 bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-sm text-gray-500">
-                  {item.before}
+          {/* Right: comparison card */}
+          <motion.div variants={fadeUp}>
+            <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-5">El problema que resolvemos</p>
+            <div className="rounded-3xl overflow-hidden border border-gray-200 shadow-sm">
+              {/* Header row */}
+              <div className="grid grid-cols-2">
+                <div className="bg-gray-100 px-5 py-3 text-center">
+                  <span className="text-xs font-bold uppercase tracking-wide text-gray-400">Sin attempo</span>
                 </div>
-                <span className="text-[#6C5CE4] font-bold text-lg flex-shrink-0">→</span>
-                <div className="flex-1 bg-[#6C5CE4]/5 border border-[#6C5CE4]/20 rounded-xl px-4 py-3 text-sm text-[#6C5CE4] font-medium">
-                  {item.after}
+                <div className="bg-[#6C5CE4] px-5 py-3 text-center">
+                  <span className="text-xs font-bold uppercase tracking-wide text-white">Con attempo</span>
                 </div>
-              </motion.div>
-            ))}
+              </div>
+              {/* Rows */}
+              {cambios.map((item, i) => (
+                <div
+                  key={i}
+                  className="grid grid-cols-2 border-t border-gray-100"
+                >
+                  <div className="bg-white px-5 py-4 text-sm text-gray-500 flex items-center gap-2">
+                    <span className="text-red-400 flex-shrink-0">✗</span>
+                    {item.before}
+                  </div>
+                  <div className="bg-[#6C5CE4]/5 px-5 py-4 text-sm text-[#6C5CE4] font-medium flex items-center gap-2">
+                    <span className="text-green-500 flex-shrink-0">✓</span>
+                    {item.after}
+                  </div>
+                </div>
+              ))}
+            </div>
           </motion.div>
         </motion.div>
       </section>
 
-      {/* Misión y visión */}
-      <section className="py-24 px-4 bg-gray-50">
+      {/* ── 3. MISIÓN — sección oscura ──────────────────────── */}
+      <section className="py-28 px-4 bg-gray-950 relative overflow-hidden">
+        {/* Decorative large quote */}
+        <div className="absolute top-4 left-8 text-[220px] font-bold text-white/[0.03] leading-none select-none pointer-events-none">
+          "
+        </div>
+        {/* Purple glow */}
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#6C5CE4]/20 rounded-full blur-3xl pointer-events-none" />
+
         <motion.div
           variants={stagger}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
-          className="max-w-5xl mx-auto"
+          className="max-w-4xl mx-auto text-center relative"
         >
-          <motion.div variants={fadeUp} className="text-center mb-12">
-            <span className="text-[#6C5CE4] text-sm font-medium uppercase tracking-wider">Lo que nos mueve</span>
-            <h2 className="text-4xl font-bold text-gray-900 mt-2">Misión y visión</h2>
-          </motion.div>
+          <motion.span
+            variants={fadeUp}
+            className="inline-block bg-[#6C5CE4]/20 text-[#8B7FF0] text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full mb-8"
+          >
+            Nuestra misión
+          </motion.span>
+          <motion.p
+            variants={fadeUp}
+            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-[1.1] mb-8"
+          >
+            Devolver el tiempo a los profesionales para que puedan enfocarse en lo que más importa.
+          </motion.p>
+          <motion.p variants={fadeUp} className="text-2xl font-light text-[#8B7FF0]">
+            Su trabajo. Sus pacientes. Su vida.
+          </motion.p>
 
-          <div className="grid md:grid-cols-2 gap-6">
-            <motion.div
-              variants={fadeUp}
-              className="bg-white rounded-3xl p-8 border border-gray-100 shadow-sm"
-            >
-              <div className="w-12 h-12 bg-[#6C5CE4]/10 rounded-2xl flex items-center justify-center text-2xl mb-5">
-                🎯
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Misión</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Devolver el tiempo a los profesionales para que puedan enfocarse en lo que más importa: su trabajo y las personas que atienden.
-              </p>
-            </motion.div>
-
-            <motion.div
-              variants={fadeUp}
-              className="bg-[#6C5CE4] rounded-3xl p-8 shadow-lg shadow-[#6C5CE4]/20"
-            >
-              <div className="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center text-2xl mb-5">
-                🌎
-              </div>
-              <h3 className="text-xl font-bold text-white mb-3">Visión</h3>
-              <p className="text-purple-100 leading-relaxed">
-                Ser la plataforma de agendamiento de referencia para profesionales de salud y servicios en Latinoamérica.
-              </p>
-            </motion.div>
-          </div>
-        </motion.div>
-      </section>
-
-      {/* Valores */}
-      <section className="py-24 px-4 bg-white">
-        <motion.div
-          variants={stagger}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-          className="max-w-5xl mx-auto"
-        >
-          <motion.div variants={fadeUp} className="text-center mb-12">
-            <span className="text-[#6C5CE4] text-sm font-medium uppercase tracking-wider">Cómo trabajamos</span>
-            <h2 className="text-4xl font-bold text-gray-900 mt-2 mb-4">Nuestros valores</h2>
-            <p className="text-gray-500 max-w-xl mx-auto">
-              Los principios que guían cada decisión de producto, diseño y atención.
+          <motion.div
+            variants={fadeUp}
+            className="mt-14 pt-14 border-t border-white/10"
+          >
+            <p className="text-gray-500 text-sm uppercase tracking-widest font-medium mb-6">Nuestra visión</p>
+            <p className="text-gray-300 text-xl max-w-2xl mx-auto leading-relaxed">
+              Ser la plataforma de agendamiento de referencia para profesionales de salud y servicios en Latinoamérica.
             </p>
           </motion.div>
+        </motion.div>
+      </section>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {/* ── 4. VALORES ──────────────────────────────────────── */}
+      <section className="py-24 px-4 bg-[#f8f7ff]">
+        <motion.div
+          variants={stagger}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          className="max-w-5xl mx-auto"
+        >
+          <motion.div variants={fadeUp} className="mb-14">
+            <span className="text-[#6C5CE4] text-sm font-medium uppercase tracking-wider">Cómo trabajamos</span>
+            <h2 className="text-4xl font-bold text-gray-900 mt-2">Nuestros valores</h2>
+          </motion.div>
+
+          <div className="space-y-4">
             {valores.map((v) => (
               <motion.div
-                key={v.title}
+                key={v.num}
                 variants={fadeUp}
-                className="bg-gray-50 rounded-2xl p-6 border border-gray-100 hover:border-[#6C5CE4]/30 hover:shadow-md hover:-translate-y-1 transition-all"
+                className="group bg-white rounded-2xl border border-gray-100 hover:border-[#6C5CE4]/30 hover:shadow-lg transition-all duration-300 overflow-hidden"
               >
-                <span className="text-3xl mb-4 block">{v.icon}</span>
-                <h3 className="font-bold text-gray-900 mb-2">{v.title}</h3>
-                <p className="text-sm text-gray-500 leading-relaxed">{v.desc}</p>
+                <div className="grid sm:grid-cols-12 items-center gap-0">
+                  {/* Number */}
+                  <div className="sm:col-span-1 flex sm:justify-center px-6 pt-6 sm:pt-0 sm:py-7">
+                    <span className="text-3xl font-black text-[#6C5CE4]/15 group-hover:text-[#6C5CE4]/30 transition-colors">
+                      {v.num}
+                    </span>
+                  </div>
+                  {/* Icon */}
+                  <div className="sm:col-span-1 hidden sm:flex justify-center py-7">
+                    <span className="text-3xl">{v.icon}</span>
+                  </div>
+                  {/* Title */}
+                  <div className="sm:col-span-3 px-6 pb-2 sm:pb-0 sm:py-7">
+                    <p className="font-bold text-gray-900 text-lg group-hover:text-[#6C5CE4] transition-colors">
+                      {v.title}
+                    </p>
+                  </div>
+                  {/* Divider */}
+                  <div className="hidden sm:block sm:col-span-1 h-8 border-l border-gray-100" />
+                  {/* Desc */}
+                  <div className="sm:col-span-6 px-6 pb-6 sm:pb-0 sm:py-7 sm:pr-8">
+                    <p className="text-gray-500 text-sm leading-relaxed">{v.desc}</p>
+                  </div>
+                </div>
               </motion.div>
             ))}
           </div>
         </motion.div>
       </section>
 
-      {/* CTA */}
+      {/* ── 5. CTA ──────────────────────────────────────────── */}
       <section className="py-24 px-4 bg-[#6C5CE4] relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/5 rounded-full blur-3xl pointer-events-none" />
