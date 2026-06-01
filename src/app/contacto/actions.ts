@@ -33,7 +33,7 @@ export async function sendContactEmail(data: ContactFormData) {
         <div style="background:#f8f7ff;padding:32px;border-radius:0 0 12px 12px;border:1px solid #e5e3ff">
           <p style="margin:0 0 8px"><strong>Nombre:</strong> ${data.nombre}</p>
           <p style="margin:0 0 8px"><strong>Email:</strong> <a href="mailto:${data.email}">${data.email}</a></p>
-          ${data.telefono ? `<p style="margin:0 0 8px"><strong>Teléfono:</strong> <a href="https://wa.me/56${data.telefono.replace(/\s/g, "")}">+56 ${data.telefono}</a></p>` : ""}
+          ${data.telefono ? `<p style="margin:0 0 8px"><strong>Teléfono:</strong> <a href="https://wa.me/${data.telefono.replace(/[^0-9]/g, "")}">${data.telefono}</a></p>` : ""}
           ${data.empresa ? `<p style="margin:0 0 8px"><strong>Empresa/Clínica:</strong> ${data.empresa}</p>` : ""}
           <p style="margin:0 0 24px"><strong>Asunto:</strong> ${data.asunto}</p>
           <div style="background:white;border-radius:8px;padding:20px;border:1px solid #e5e3ff">

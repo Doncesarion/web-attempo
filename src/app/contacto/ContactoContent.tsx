@@ -4,6 +4,28 @@ import { motion, AnimatePresence } from "framer-motion"
 import { useState } from "react"
 import { sendContactEmail, type ContactFormData } from "./actions"
 
+const paises = [
+  { code: "+56", flag: "🇨🇱", name: "Chile" },
+  { code: "+54", flag: "🇦🇷", name: "Argentina" },
+  { code: "+591", flag: "🇧🇴", name: "Bolivia" },
+  { code: "+55", flag: "🇧🇷", name: "Brasil" },
+  { code: "+57", flag: "🇨🇴", name: "Colombia" },
+  { code: "+506", flag: "🇨🇷", name: "Costa Rica" },
+  { code: "+593", flag: "🇪🇨", name: "Ecuador" },
+  { code: "+503", flag: "🇸🇻", name: "El Salvador" },
+  { code: "+34", flag: "🇪🇸", name: "España" },
+  { code: "+502", flag: "🇬🇹", name: "Guatemala" },
+  { code: "+504", flag: "🇭🇳", name: "Honduras" },
+  { code: "+52", flag: "🇲🇽", name: "México" },
+  { code: "+505", flag: "🇳🇮", name: "Nicaragua" },
+  { code: "+507", flag: "🇵🇦", name: "Panamá" },
+  { code: "+595", flag: "🇵🇾", name: "Paraguay" },
+  { code: "+51", flag: "🇵🇪", name: "Perú" },
+  { code: "+1", flag: "🇺🇸", name: "Estados Unidos" },
+  { code: "+598", flag: "🇺🇾", name: "Uruguay" },
+  { code: "+58", flag: "🇻🇪", name: "Venezuela" },
+]
+
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] as const } },
@@ -52,6 +74,7 @@ export default function ContactoContent() {
     asunto: "",
     mensaje: "",
   })
+  const [paisCode, setPaisCode] = useState("+56")
   const [sending, setSending] = useState(false)
   const [sent, setSent] = useState(false)
   const [error, setError] = useState("")
@@ -71,7 +94,7 @@ export default function ContactoContent() {
     }
     setSending(true)
     try {
-      await sendContactEmail(form)
+      await sendContactEmail({ ...form, telefono: form.telefono ? `${paisCode} ${form.telefono}` : "" })
       setSent(true)
     } catch {
       setError("Ocurrió un error al enviar. Escríbenos a contacto@attempo.cl")
@@ -242,9 +265,17 @@ export default function ContactoContent() {
                           Teléfono
                         </label>
                         <div className="flex rounded-xl border border-gray-200 focus-within:ring-2 focus-within:ring-[#6C5CE4]/40 focus-within:border-[#6C5CE4] transition-all overflow-hidden">
-                          <span className="flex items-center px-3 bg-gray-50 border-r border-gray-200 text-sm font-medium text-gray-500 select-none">
-                            +56
-                          </span>
+                          <select
+                            value={paisCode}
+                            onChange={(e) => setPaisCode(e.target.value)}
+                            className="bg-gray-50 border-r border-gray-200 text-sm text-gray-600 px-2 py-3 focus:outline-none cursor-pointer"
+                          >
+                            {paises.map((p) => (
+                              <option key={p.code + p.name} value={p.code}>
+                                {p.flag} {p.code}
+                              </option>
+                            ))}
+                          </select>
                           <input
                             name="telefono"
                             type="tel"
