@@ -70,7 +70,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 flex-shrink-0">
             <Image src="/logo_attempo.png" alt="Attempo" width={36} height={36} className="rounded-xl" />
-            <span className="font-bold text-xl text-gray-900">Attempo</span>
+            <span className="font-bold text-xl text-gray-900">attempo</span>
           </Link>
 
           {/* Desktop nav */}

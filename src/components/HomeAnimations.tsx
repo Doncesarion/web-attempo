@@ -73,9 +73,9 @@ export function HeroSection() {
             variants={fadeUp}
             className="mt-10 flex items-center gap-6 justify-center lg:justify-start text-sm text-gray-500"
           >
-            <span className="flex items-center gap-1.5">✅ Sin tarjeta de crédito</span>
             <span className="flex items-center gap-1.5">✅ Listo en 5 minutos</span>
             <span className="flex items-center gap-1.5">✅ Soporte en español</span>
+            <span className="flex items-center gap-1.5">✅ Pago con Webpay</span>
           </motion.div>
         </motion.div>
 
@@ -222,7 +222,7 @@ export function FeaturesSection() {
         <motion.div variants={fadeUp} className="text-center mb-16">
           <span className="text-[#6C5CE4] text-sm font-medium uppercase tracking-wider">Funcionalidades</span>
           <h2 className="text-4xl font-bold text-gray-900 mt-2 mb-4">Todo lo que necesitas en un solo lugar</h2>
-          <p className="text-gray-500 max-w-xl mx-auto">Sin apps extra, sin integraciones complicadas. Attempo centraliza todo tu flujo de trabajo.</p>
+          <p className="text-gray-500 max-w-xl mx-auto">Sin apps extra, sin integraciones complicadas. attempo centraliza todo tu flujo de trabajo.</p>
         </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -246,68 +246,78 @@ export function FeaturesSection() {
 export function ScreenshotsSection() {
   const [active, setActive] = useState(0)
   const tabs = [
-    { label: "Agenda", src: "/screenshot-agenda.jpeg" },
-    { label: "Clientes", src: "/screenshot-clientes.jpeg" },
-    { label: "Ventas", src: "/screenshot-ventas.jpeg" },
-    { label: "Reportes", src: "/screenshot-reportes.jpeg" },
-    { label: "Configuración", src: "/screenshot-config.jpeg" },
+    { label: "📅 Agenda", src: "/screenshot-agenda.jpeg", desc: "Vista semanal y diaria de tus citas" },
+    { label: "👥 Clientes", src: "/screenshot-clientes.jpeg", desc: "Ficha completa por cada paciente" },
+    { label: "💰 Ventas", src: "/screenshot-ventas.jpeg", desc: "Controla ingresos y cobros pendientes" },
+    { label: "📊 Reportes", src: "/screenshot-reportes.jpeg", desc: "Métricas y evolución de tu negocio" },
+    { label: "⚙️ Config", src: "/screenshot-config.jpeg", desc: "Configura servicios, horarios y canales" },
   ]
 
   return (
-    <section className="py-24 px-4 bg-white overflow-hidden">
+    <section className="py-24 px-4 bg-gray-950 overflow-hidden">
       <motion.div
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-80px" }}
         variants={stagger}
-        className="max-w-5xl mx-auto"
+        className="max-w-6xl mx-auto"
       >
-        <motion.div variants={fadeUp} className="text-center mb-12">
-          <span className="text-[#6C5CE4] text-sm font-medium uppercase tracking-wider">La plataforma</span>
-          <h2 className="text-4xl font-bold text-gray-900 mt-2 mb-4">Diseñada para que trabajes menos</h2>
-          <p className="text-gray-500 max-w-xl mx-auto">Interfaz limpia, rápida y en español. Lista para usar desde el primer día.</p>
+        <motion.div variants={fadeUp} className="text-center mb-16">
+          <span className="text-[#8B7FF0] text-sm font-medium uppercase tracking-wider">La plataforma</span>
+          <h2 className="text-4xl font-bold text-white mt-2 mb-4">Diseñada para que trabajes menos</h2>
+          <p className="text-gray-400 max-w-xl mx-auto">Interfaz limpia, rápida y en español. Lista para usar desde el primer día.</p>
         </motion.div>
 
-        {/* Tabs */}
-        <motion.div variants={fadeUp} className="flex flex-wrap gap-2 justify-center mb-8">
-          {tabs.map((t, i) => (
-            <button
-              key={t.label}
-              onClick={() => setActive(i)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
-                active === i
-                  ? "bg-[#6C5CE4] text-white shadow-md"
-                  : "bg-gray-100 text-gray-600 hover:bg-purple-50 hover:text-[#6C5CE4]"
-              }`}
-            >
-              {t.label}
-            </button>
-          ))}
-        </motion.div>
-
-        {/* Phone display */}
-        <motion.div variants={fadeUp} className="flex justify-center">
-          <div className="relative w-[300px]">
-            <div className="bg-gray-900 rounded-[3rem] p-3 shadow-2xl ring-1 ring-white/10">
-              <div className="absolute top-6 left-1/2 -translate-x-1/2 w-20 h-5 bg-gray-900 rounded-full z-10" />
-              <motion.div
-                key={active}
-                initial={{ opacity: 0, scale: 0.97 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.3 }}
-                className="rounded-[2.4rem] overflow-hidden"
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Left — feature list */}
+          <motion.div variants={fadeUp} className="space-y-3">
+            {tabs.map((t, i) => (
+              <button
+                key={t.label}
+                onClick={() => setActive(i)}
+                className={`w-full text-left px-5 py-4 rounded-2xl transition-all flex items-center gap-4 ${
+                  active === i
+                    ? "bg-[#6C5CE4] text-white shadow-lg shadow-[#6C5CE4]/30"
+                    : "bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white"
+                }`}
               >
-                <Image
-                  src={tabs[active].src}
-                  alt={tabs[active].label}
-                  width={300}
-                  height={600}
-                  className="w-full object-cover"
-                />
-              </motion.div>
+                <span className="text-2xl">{t.label.split(" ")[0]}</span>
+                <div>
+                  <p className="font-semibold text-sm">{t.label.split(" ").slice(1).join(" ")}</p>
+                  <p className={`text-xs mt-0.5 ${active === i ? "text-purple-200" : "text-gray-500"}`}>{t.desc}</p>
+                </div>
+                {active === i && (
+                  <motion.div layoutId="active-indicator" className="ml-auto w-1.5 h-8 bg-white/50 rounded-full" />
+                )}
+              </button>
+            ))}
+          </motion.div>
+
+          {/* Right — phone */}
+          <motion.div variants={fadeUp} className="flex justify-center">
+            <div className="relative w-[260px]">
+              <div className="absolute inset-0 bg-[#6C5CE4]/30 blur-3xl rounded-full scale-75 pointer-events-none" />
+              <div className="relative bg-gray-800 rounded-[3rem] p-2.5 shadow-2xl ring-1 ring-white/10">
+                <div className="absolute top-5 left-1/2 -translate-x-1/2 w-16 h-4 bg-gray-800 rounded-full z-10" />
+                <motion.div
+                  key={active}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.35 }}
+                  className="rounded-[2.4rem] overflow-hidden"
+                >
+                  <Image
+                    src={tabs[active].src}
+                    alt={tabs[active].label}
+                    width={260}
+                    height={520}
+                    className="w-full object-cover"
+                  />
+                </motion.div>
+              </div>
             </div>
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
       </motion.div>
     </section>
   )
@@ -346,7 +356,7 @@ export function TestimonialsSection() {
       >
         <motion.div variants={fadeUp} className="text-center mb-16">
           <span className="text-[#6C5CE4] text-sm font-medium uppercase tracking-wider">Testimonios</span>
-          <h2 className="text-4xl font-bold text-gray-900 mt-2 mb-4">Lo que dicen quienes ya usan Attempo</h2>
+          <h2 className="text-4xl font-bold text-gray-900 mt-2 mb-4">Lo que dicen quienes ya usan attempo</h2>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -406,7 +416,7 @@ export function EspecialidadesSection() {
         <motion.div variants={fadeUp} className="text-center mb-12">
           <span className="text-[#6C5CE4] text-sm font-medium uppercase tracking-wider">Soluciones</span>
           <h2 className="text-4xl font-bold text-gray-900 mt-2 mb-4">Diseñado para tu especialidad</h2>
-          <p className="text-gray-500 max-w-xl mx-auto">Attempo se adapta a cualquier tipo de profesional o negocio de servicios.</p>
+          <p className="text-gray-500 max-w-xl mx-auto">attempo se adapta a cualquier profesional o negocio de servicios en Chile.</p>
         </motion.div>
 
         <motion.div variants={fadeUp} className="flex flex-wrap gap-3 justify-center">

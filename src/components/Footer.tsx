@@ -30,7 +30,7 @@ const footerLinks = {
 
 const socialLinks = [
   {
-    href: "https://instagram.com/attempo.cl",
+    href: "https://www.instagram.com/attempo.app/",
     label: "Instagram",
     svg: (
       <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
@@ -39,7 +39,7 @@ const socialLinks = [
     ),
   },
   {
-    href: "https://facebook.com/attempo.cl",
+    href: "https://www.facebook.com/people/Attempo/61561292586875/",
     label: "Facebook",
     svg: (
       <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
@@ -67,11 +67,16 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <Link href="/" className="flex items-center gap-2 mb-4">
               <Image src="/logo_attempo.png" alt="Attempo" width={36} height={36} className="rounded-xl" />
-              <span className="font-bold text-xl text-white">Attempo</span>
+              <span className="font-bold text-xl text-white">attempo</span>
             </Link>
             <p className="text-sm leading-relaxed mb-6 max-w-xs">
               Todo a tu tiempo. La plataforma de agendamiento para profesionales de la salud y servicios en Chile.
             </p>
+            <p className="text-xs text-gray-600 mb-4">Pagos seguros con</p>
+            <div className="flex items-center gap-2 mb-6">
+              <span className="bg-[#003DA5] text-white text-xs font-bold px-2 py-1 rounded">WEBPAY</span>
+              <span className="text-xs text-gray-500">Transbank</span>
+            </div>
             <div className="flex items-center gap-3">
               {socialLinks.map(({ svg, href, label }) => (
                 <a
@@ -111,7 +116,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="pt-8 border-t border-gray-800 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs">
-            © {new Date().getFullYear()} Attempo. Todos los derechos reservados.
+            © {new Date().getFullYear()} attempo. Todos los derechos reservados.
           </p>
           <div className="flex items-center gap-6 text-xs">
             <Link href="/privacidad" className="hover:text-white transition-colors">
