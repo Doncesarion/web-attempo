@@ -11,14 +11,14 @@ const geist = Geist({
 
 export const metadata: Metadata = {
   title: {
-    default: "Attempo — Todo a tu tiempo",
-    template: "%s | Attempo",
+    default: "attempo — Todo a tu tiempo",
+    template: "%s | attempo",
   },
   description:
-    "Plataforma de agendamiento de citas para profesionales de la salud y servicios en Chile. Recordatorios automáticos, agenda online y más.",
+    "attempo es la plataforma de agendamiento de citas para profesionales de la salud y servicios en Chile. Recordatorios automáticos por WhatsApp, chatbot IA, cobro con Webpay y agenda online. Listo en 5 minutos.",
   metadataBase: new URL("https://attempo.cl"),
   openGraph: {
-    siteName: "Attempo",
+    siteName: "attempo",
     locale: "es_CL",
     type: "website",
   },
