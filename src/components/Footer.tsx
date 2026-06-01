@@ -72,10 +72,9 @@ export default function Footer() {
             <p className="text-sm leading-relaxed mb-6 max-w-xs">
               Todo a tu tiempo. La plataforma de agendamiento para profesionales de la salud y servicios en Chile.
             </p>
-            <p className="text-xs text-gray-600 mb-4">Pagos seguros con</p>
-            <div className="flex items-center gap-2 mb-6">
-              <span className="bg-[#003DA5] text-white text-xs font-bold px-2 py-1 rounded">WEBPAY</span>
-              <span className="text-xs text-gray-500">Transbank</span>
+            <p className="text-xs text-gray-600 mb-3">Pagos seguros con</p>
+            <div className="bg-white rounded-xl px-4 py-2 inline-block mb-6">
+              <Image src="/webpay-logo.png" alt="Webpay Transbank" width={120} height={40} className="object-contain" />
             </div>
             <div className="flex items-center gap-3">
               {socialLinks.map(({ svg, href, label }) => (

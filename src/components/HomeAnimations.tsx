@@ -409,37 +409,37 @@ export function WebpaySection() {
           <motion.div variants={fadeUp} className="flex justify-center lg:justify-end">
             <div className="relative">
               {/* Glow */}
-              <div className="absolute inset-0 bg-blue-500/10 blur-3xl rounded-full pointer-events-none" />
+              <div className="absolute inset-0 bg-purple-500/10 blur-3xl rounded-full pointer-events-none" />
               {/* Card mockup */}
-              <div className="relative bg-gradient-to-br from-[#003DA5] to-[#0051CC] rounded-3xl p-8 w-80 shadow-2xl">
-                <div className="flex items-center justify-between mb-8">
-                  <div>
-                    <p className="text-blue-200 text-xs font-medium uppercase tracking-wider">Powered by</p>
-                    <p className="text-white font-bold text-2xl mt-1">WEBPAY</p>
-                    <p className="text-blue-200 text-sm">Transbank</p>
-                  </div>
-                  <div className="w-14 h-14 bg-white/20 rounded-2xl flex items-center justify-center">
-                    <span className="text-3xl">💳</span>
-                  </div>
+              <div className="relative bg-white rounded-3xl p-8 w-80 shadow-2xl border border-gray-100">
+                {/* Logo oficial Webpay */}
+                <div className="mb-6">
+                  <Image
+                    src="/webpay-logo.png"
+                    alt="Webpay Transbank"
+                    width={180}
+                    height={60}
+                    className="object-contain"
+                  />
                 </div>
 
-                <div className="bg-white/10 rounded-2xl p-4 mb-4">
-                  <p className="text-blue-200 text-xs mb-1">Monto a cobrar</p>
-                  <p className="text-white text-3xl font-bold">$45.000</p>
-                  <p className="text-blue-200 text-xs mt-1">Consulta psicológica · 60 min</p>
+                <div className="bg-gray-50 rounded-2xl p-4 mb-4 border border-gray-100">
+                  <p className="text-gray-400 text-xs mb-1">Monto a cobrar</p>
+                  <p className="text-gray-900 text-3xl font-bold">$45.000</p>
+                  <p className="text-gray-400 text-xs mt-1">Consulta psicológica · 60 min</p>
                 </div>
 
                 <div className="flex gap-2 mb-6">
-                  {["Visa", "MC", "Amex"].map((card) => (
-                    <span key={card} className="bg-white/20 text-white text-xs px-2 py-1 rounded-lg font-medium">
+                  {["Visa", "Mastercard", "Débito"].map((card) => (
+                    <span key={card} className="bg-gray-100 text-gray-600 text-xs px-2.5 py-1.5 rounded-lg font-medium">
                       {card}
                     </span>
                   ))}
                 </div>
 
-                <div className="bg-white rounded-2xl p-3 flex items-center justify-between">
-                  <span className="text-[#003DA5] font-bold text-sm">Pagar ahora</span>
-                  <div className="w-8 h-8 bg-[#003DA5] rounded-xl flex items-center justify-center">
+                <div className="bg-[#6C5CE4] rounded-2xl p-3.5 flex items-center justify-between">
+                  <span className="text-white font-bold text-sm">Pagar ahora</span>
+                  <div className="w-8 h-8 bg-white/20 rounded-xl flex items-center justify-center">
                     <span className="text-white text-sm">→</span>
                   </div>
                 </div>
