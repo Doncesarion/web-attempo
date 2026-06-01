@@ -239,7 +239,7 @@ export default function ContactoContent() {
                     <div className="grid sm:grid-cols-2 gap-5">
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-1.5">
-                          Teléfono <span className="text-gray-400 font-normal">(opcional)</span>
+                          Teléfono
                         </label>
                         <input
                           name="telefono"
@@ -252,7 +252,7 @@ export default function ContactoContent() {
                       </div>
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-1.5">
-                          Empresa o clínica <span className="text-gray-400 font-normal">(opcional)</span>
+                          Empresa
                         </label>
                         <input
                           name="empresa"
