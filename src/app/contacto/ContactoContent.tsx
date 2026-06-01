@@ -5,25 +5,25 @@ import { useState } from "react"
 import { sendContactEmail, type ContactFormData } from "./actions"
 
 const paises = [
-  { code: "+56", flag: "🇨🇱", name: "Chile" },
-  { code: "+54", flag: "🇦🇷", name: "Argentina" },
-  { code: "+591", flag: "🇧🇴", name: "Bolivia" },
-  { code: "+55", flag: "🇧🇷", name: "Brasil" },
-  { code: "+57", flag: "🇨🇴", name: "Colombia" },
-  { code: "+506", flag: "🇨🇷", name: "Costa Rica" },
-  { code: "+593", flag: "🇪🇨", name: "Ecuador" },
-  { code: "+503", flag: "🇸🇻", name: "El Salvador" },
-  { code: "+34", flag: "🇪🇸", name: "España" },
-  { code: "+502", flag: "🇬🇹", name: "Guatemala" },
-  { code: "+504", flag: "🇭🇳", name: "Honduras" },
-  { code: "+52", flag: "🇲🇽", name: "México" },
-  { code: "+505", flag: "🇳🇮", name: "Nicaragua" },
-  { code: "+507", flag: "🇵🇦", name: "Panamá" },
-  { code: "+595", flag: "🇵🇾", name: "Paraguay" },
-  { code: "+51", flag: "🇵🇪", name: "Perú" },
-  { code: "+1", flag: "🇺🇸", name: "Estados Unidos" },
-  { code: "+598", flag: "🇺🇾", name: "Uruguay" },
-  { code: "+58", flag: "🇻🇪", name: "Venezuela" },
+  { code: "+56", iso: "cl", name: "Chile" },
+  { code: "+54", iso: "ar", name: "Argentina" },
+  { code: "+591", iso: "bo", name: "Bolivia" },
+  { code: "+55", iso: "br", name: "Brasil" },
+  { code: "+57", iso: "co", name: "Colombia" },
+  { code: "+506", iso: "cr", name: "Costa Rica" },
+  { code: "+593", iso: "ec", name: "Ecuador" },
+  { code: "+503", iso: "sv", name: "El Salvador" },
+  { code: "+34", iso: "es", name: "España" },
+  { code: "+502", iso: "gt", name: "Guatemala" },
+  { code: "+504", iso: "hn", name: "Honduras" },
+  { code: "+52", iso: "mx", name: "México" },
+  { code: "+505", iso: "ni", name: "Nicaragua" },
+  { code: "+507", iso: "pa", name: "Panamá" },
+  { code: "+595", iso: "py", name: "Paraguay" },
+  { code: "+51", iso: "pe", name: "Perú" },
+  { code: "+1", iso: "us", name: "Estados Unidos" },
+  { code: "+598", iso: "uy", name: "Uruguay" },
+  { code: "+58", iso: "ve", name: "Venezuela" },
 ]
 
 const fadeUp = {
@@ -75,6 +75,8 @@ export default function ContactoContent() {
     mensaje: "",
   })
   const [paisCode, setPaisCode] = useState("+56")
+  const [paisDropdown, setPaisDropdown] = useState(false)
+  const selectedPais = paises.find((p) => p.code === paisCode) ?? paises[0]
   const [sending, setSending] = useState(false)
   const [sent, setSent] = useState(false)
   const [error, setError] = useState("")
@@ -265,17 +267,62 @@ export default function ContactoContent() {
                           Teléfono
                         </label>
                         <div className="flex rounded-xl border border-gray-200 focus-within:ring-2 focus-within:ring-[#6C5CE4]/40 focus-within:border-[#6C5CE4] transition-all overflow-hidden">
-                          <select
-                            value={paisCode}
-                            onChange={(e) => setPaisCode(e.target.value)}
-                            className="bg-gray-50 border-r border-gray-200 text-sm text-gray-600 px-2 py-3 focus:outline-none cursor-pointer"
-                          >
-                            {paises.map((p) => (
-                              <option key={p.code + p.name} value={p.code}>
-                                {p.flag} {p.code}
-                              </option>
-                            ))}
-                          </select>
+                          {/* Custom country selector */}
+                          <div className="relative">
+                            <button
+                              type="button"
+                              onClick={() => setPaisDropdown((v) => !v)}
+                              className="flex items-center gap-1.5 h-full px-3 bg-gray-50 border-r border-gray-200 hover:bg-gray-100 transition-colors"
+                            >
+                              {/* eslint-disable-next-line @next/next/no-img-element */}
+                              <img
+                                src={`https://flagcdn.com/w20/${selectedPais.iso}.png`}
+                                alt={selectedPais.name}
+                                width={20}
+                                height={14}
+                                className="rounded-sm object-cover"
+                              />
+                              <span className="text-sm text-gray-600">{selectedPais.code}</span>
+                              <svg className="w-3 h-3 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                              </svg>
+                            </button>
+                            <AnimatePresence>
+                              {paisDropdown && (
+                                <>
+                                  {/* Overlay to close */}
+                                  <div className="fixed inset-0 z-10" onClick={() => setPaisDropdown(false)} />
+                                  <motion.div
+                                    initial={{ opacity: 0, y: 4 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    exit={{ opacity: 0, y: 4 }}
+                                    transition={{ duration: 0.15 }}
+                                    className="absolute top-full left-0 mt-1 z-20 bg-white rounded-xl shadow-xl border border-gray-100 py-1 w-48 max-h-64 overflow-y-auto"
+                                  >
+                                    {paises.map((p) => (
+                                      <button
+                                        key={p.iso}
+                                        type="button"
+                                        onClick={() => { setPaisCode(p.code); setPaisDropdown(false) }}
+                                        className={`w-full flex items-center gap-2.5 px-3 py-2 text-sm hover:bg-purple-50 hover:text-[#6C5CE4] transition-colors ${paisCode === p.code ? "bg-purple-50 text-[#6C5CE4] font-medium" : "text-gray-700"}`}
+                                      >
+                                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                                        <img
+                                          src={`https://flagcdn.com/w20/${p.iso}.png`}
+                                          alt={p.name}
+                                          width={20}
+                                          height={14}
+                                          className="rounded-sm object-cover flex-shrink-0"
+                                        />
+                                        <span className="flex-1 text-left">{p.name}</span>
+                                        <span className="text-gray-400 text-xs">{p.code}</span>
+                                      </button>
+                                    ))}
+                                  </motion.div>
+                                </>
+                              )}
+                            </AnimatePresence>
+                          </div>
                           <input
                             name="telefono"
                             type="tel"
