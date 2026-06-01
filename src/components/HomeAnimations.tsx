@@ -295,18 +295,18 @@ export function ScreenshotsSection() {
 
           {/* Right — laptop + phone */}
           <motion.div variants={fadeUp} className="relative flex justify-center lg:justify-end">
-            <div className="relative w-full max-w-md">
+            <div className="relative w-full">
               {/* Glow */}
               <div className="absolute inset-0 bg-[#6C5CE4]/20 blur-3xl rounded-full pointer-events-none" />
               {/* Laptop frame */}
               <div className="relative">
-                <div className="bg-gray-800 rounded-t-2xl p-2 ring-1 ring-white/10 shadow-2xl">
+                <div className="bg-gray-800 rounded-t-2xl p-2.5 ring-1 ring-white/10 shadow-2xl">
                   <div className="flex items-center gap-1.5 mb-2 px-1">
-                    <div className="w-2 h-2 rounded-full bg-red-500/60" />
-                    <div className="w-2 h-2 rounded-full bg-yellow-500/60" />
-                    <div className="w-2 h-2 rounded-full bg-green-500/60" />
-                    <div className="flex-1 mx-2 bg-gray-700 rounded-full h-3.5 flex items-center px-2">
-                      <span className="text-gray-400 text-[9px]">app.attempo.cl</span>
+                    <div className="w-2.5 h-2.5 rounded-full bg-red-500/60" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/60" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-green-500/60" />
+                    <div className="flex-1 mx-3 bg-gray-700 rounded-full h-4 flex items-center px-3">
+                      <span className="text-gray-400 text-[10px]">app.attempo.cl</span>
                     </div>
                   </div>
                   <motion.div
@@ -319,31 +319,31 @@ export function ScreenshotsSection() {
                     <Image
                       src={tabs[active].desktop}
                       alt={`${tabs[active].label} desktop`}
-                      width={700}
-                      height={440}
+                      width={900}
+                      height={560}
                       className="w-full object-cover object-top"
                     />
                   </motion.div>
                 </div>
-                <div className="bg-gray-700 h-2.5 rounded-b-xl mx-4" />
+                <div className="bg-gray-700 h-3 rounded-b-xl mx-4" />
                 <div className="bg-gray-600 h-1.5 rounded-b-2xl mx-8" />
               </div>
               {/* Phone overlapping bottom-right */}
-              <div className="absolute -bottom-4 -right-6 w-[80px]">
-                <div className="bg-gray-800 rounded-[1.6rem] p-1.5 shadow-2xl ring-1 ring-white/20">
-                  <div className="absolute top-2.5 left-1/2 -translate-x-1/2 w-7 h-1.5 bg-gray-800 rounded-full z-10" />
+              <div className="absolute -bottom-6 -right-5 w-[110px]">
+                <div className="bg-gray-800 rounded-[2rem] p-2 shadow-2xl ring-1 ring-white/20">
+                  <div className="absolute top-3 left-1/2 -translate-x-1/2 w-8 h-2 bg-gray-800 rounded-full z-10" />
                   <motion.div
                     key={`mobile-${active}`}
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.35 }}
-                    className="rounded-[1.2rem] overflow-hidden"
+                    className="rounded-[1.5rem] overflow-hidden"
                   >
                     <Image
                       src={tabs[active].mobile}
                       alt={`${tabs[active].label} mobile`}
-                      width={80}
-                      height={160}
+                      width={110}
+                      height={220}
                       className="w-full object-cover"
                     />
                   </motion.div>
