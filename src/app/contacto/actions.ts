@@ -1,6 +1,6 @@
 "use server"
 
-import nodemailer from "nodemailer"
+import { Resend } from "resend"
 
 export type ContactFormData = {
   nombre: string
@@ -12,48 +12,44 @@ export type ContactFormData = {
 }
 
 export async function sendContactEmail(data: ContactFormData): Promise<{ ok: boolean; error?: string }> {
-  const user = process.env.GMAIL_USER
-  const pass = process.env.GMAIL_APP_PASSWORD?.replace(/\s/g, "")
+  const apiKey = process.env.RESEND_API_KEY
 
-  if (!user || !pass) {
-    console.error("[contacto] Variables de entorno no configuradas", { user: !!user, pass: !!pass })
+  if (!apiKey) {
+    console.error("[contacto] RESEND_API_KEY no configurada")
     return { ok: false, error: "Configuración de email faltante en el servidor." }
   }
 
-  const transporter = nodemailer.createTransport({
-    service: "gmail",
-    auth: { user, pass },
+  const resend = new Resend(apiKey)
+
+  const { error } = await resend.emails.send({
+    from: "attempo contacto <onboarding@resend.dev>",
+    to: "cesarsalinasmunoz@gmail.com",
+    replyTo: data.email,
+    subject: `[attempo] ${data.asunto}`,
+    html: `
+      <div style="font-family:sans-serif;max-width:600px;margin:0 auto">
+        <div style="background:#6C5CE4;padding:24px 32px;border-radius:12px 12px 0 0">
+          <h2 style="color:white;margin:0;font-size:20px">Nuevo mensaje desde attempo.cl</h2>
+        </div>
+        <div style="background:#f8f7ff;padding:32px;border-radius:0 0 12px 12px;border:1px solid #e5e3ff">
+          <p style="margin:0 0 8px"><strong>Nombre:</strong> ${data.nombre}</p>
+          <p style="margin:0 0 8px"><strong>Email:</strong> <a href="mailto:${data.email}">${data.email}</a></p>
+          ${data.telefono ? `<p style="margin:0 0 8px"><strong>Teléfono:</strong> <a href="https://wa.me/${data.telefono.replace(/[^0-9]/g, "")}">${data.telefono}</a></p>` : ""}
+          ${data.empresa ? `<p style="margin:0 0 8px"><strong>Empresa/Clínica:</strong> ${data.empresa}</p>` : ""}
+          <p style="margin:0 0 24px"><strong>Asunto:</strong> ${data.asunto}</p>
+          <div style="background:white;border-radius:8px;padding:20px;border:1px solid #e5e3ff">
+            <p style="margin:0;white-space:pre-wrap">${data.mensaje}</p>
+          </div>
+          <p style="margin:24px 0 0;font-size:12px;color:#999">Enviado desde attempo.cl/contacto</p>
+        </div>
+      </div>
+    `,
   })
 
-  try {
-    await transporter.sendMail({
-      from: `"attempo contacto" <${user}>`,
-      to: "cesarsalinasmunoz@gmail.com",
-      replyTo: data.email,
-      subject: `[attempo] ${data.asunto}`,
-      html: `
-        <div style="font-family:sans-serif;max-width:600px;margin:0 auto">
-          <div style="background:#6C5CE4;padding:24px 32px;border-radius:12px 12px 0 0">
-            <h2 style="color:white;margin:0;font-size:20px">Nuevo mensaje desde attempo.cl</h2>
-          </div>
-          <div style="background:#f8f7ff;padding:32px;border-radius:0 0 12px 12px;border:1px solid #e5e3ff">
-            <p style="margin:0 0 8px"><strong>Nombre:</strong> ${data.nombre}</p>
-            <p style="margin:0 0 8px"><strong>Email:</strong> <a href="mailto:${data.email}">${data.email}</a></p>
-            ${data.telefono ? `<p style="margin:0 0 8px"><strong>Teléfono:</strong> <a href="https://wa.me/${data.telefono.replace(/[^0-9]/g, "")}">${data.telefono}</a></p>` : ""}
-            ${data.empresa ? `<p style="margin:0 0 8px"><strong>Empresa/Clínica:</strong> ${data.empresa}</p>` : ""}
-            <p style="margin:0 0 24px"><strong>Asunto:</strong> ${data.asunto}</p>
-            <div style="background:white;border-radius:8px;padding:20px;border:1px solid #e5e3ff">
-              <p style="margin:0;white-space:pre-wrap">${data.mensaje}</p>
-            </div>
-            <p style="margin:24px 0 0;font-size:12px;color:#999">Enviado desde attempo.cl/contacto</p>
-          </div>
-        </div>
-      `,
-    })
-    return { ok: true }
-  } catch (err) {
-    const msg = err instanceof Error ? err.message : String(err)
-    console.error("[contacto] Error al enviar email:", msg)
-    return { ok: false, error: msg }
+  if (error) {
+    console.error("[contacto] Error Resend:", error)
+    return { ok: false, error: error.message }
   }
+
+  return { ok: true }
 }
