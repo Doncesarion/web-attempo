@@ -241,14 +241,20 @@ export default function ContactoContent() {
                         <label className="block text-sm font-medium text-gray-700 mb-1.5">
                           Teléfono
                         </label>
-                        <input
-                          name="telefono"
-                          type="tel"
-                          value={form.telefono}
-                          onChange={handleChange}
-                          placeholder="+56 9 1234 5678"
-                          className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#6C5CE4]/40 focus:border-[#6C5CE4] transition-all placeholder-gray-400"
-                        />
+                        <div className="flex rounded-xl border border-gray-200 focus-within:ring-2 focus-within:ring-[#6C5CE4]/40 focus-within:border-[#6C5CE4] transition-all overflow-hidden">
+                          <span className="flex items-center px-3 bg-gray-50 border-r border-gray-200 text-sm font-medium text-gray-500 select-none">
+                            +56
+                          </span>
+                          <input
+                            name="telefono"
+                            type="tel"
+                            value={form.telefono}
+                            onChange={handleChange}
+                            placeholder="9 1234 5678"
+                            maxLength={12}
+                            className="flex-1 px-4 py-3 text-sm focus:outline-none placeholder-gray-400 bg-white"
+                          />
+                        </div>
                       </div>
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-1.5">
