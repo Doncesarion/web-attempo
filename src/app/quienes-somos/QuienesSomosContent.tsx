@@ -141,7 +141,7 @@ export default function QuienesSomosContent() {
                 Decidimos construir attempo desde cero, con una premisa simple:
               </p>
             </div>
-            <div className="mt-7 bg-gradient-to-br from-[#6C5CE4] to-[#4F46E5] rounded-2xl p-6 shadow-lg shadow-[#6C5CE4]/20">
+            <div className="mt-7 bg-gradient-to-br from-[#6C5CE4] to-[#4F46E5] rounded-2xl p-6 shadow-lg shadow-[#6C5CE4]/20 text-center">
               <p className="text-white text-xl font-semibold leading-snug">
                 "Si no lo usaríamos nosotros mismos, no lo lanzamos."
               </p>
