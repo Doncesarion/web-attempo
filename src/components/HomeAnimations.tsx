@@ -79,37 +79,67 @@ export function HeroSection() {
           </motion.div>
         </motion.div>
 
-        {/* Right — phone mockup */}
+        {/* Right — laptop + phone mockup */}
         <motion.div
           initial={{ opacity: 0, x: 40, y: 10 }}
           animate={{ opacity: 1, x: 0, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
           className="flex justify-center lg:justify-end relative"
         >
-          <div className="relative">
+          <div className="relative w-full max-w-lg">
             {/* Glow */}
             <div className="absolute inset-0 bg-[#6C5CE4]/20 blur-3xl rounded-full scale-75 pointer-events-none" />
-            {/* Phone frame */}
-            <div className="relative w-[280px] bg-gray-900 rounded-[3rem] p-3 shadow-2xl ring-1 ring-white/10">
-              <div className="absolute top-6 left-1/2 -translate-x-1/2 w-20 h-5 bg-gray-900 rounded-full z-10" />
-              <div className="rounded-[2.4rem] overflow-hidden">
-                <Image
-                  src="/screenshot-agenda.jpeg"
-                  alt="Agenda Attempo"
-                  width={280}
-                  height={560}
-                  className="w-full object-cover"
-                  priority
-                />
+
+            {/* Laptop frame */}
+            <div className="relative">
+              <div className="bg-gray-900 rounded-t-2xl p-2 shadow-2xl ring-1 ring-white/10">
+                <div className="flex items-center gap-1.5 mb-2 px-1">
+                  <div className="w-2 h-2 rounded-full bg-red-500/60" />
+                  <div className="w-2 h-2 rounded-full bg-yellow-500/60" />
+                  <div className="w-2 h-2 rounded-full bg-green-500/60" />
+                  <div className="flex-1 mx-2 bg-gray-800 rounded-full h-3.5 flex items-center px-2">
+                    <span className="text-gray-500 text-[9px]">app.attempo.cl</span>
+                  </div>
+                </div>
+                <div className="rounded-lg overflow-hidden">
+                  <Image
+                    src="/desktop-agenda.png"
+                    alt="attempo desktop"
+                    width={700}
+                    height={440}
+                    className="w-full object-cover object-top"
+                    priority
+                  />
+                </div>
+              </div>
+              <div className="bg-gray-800 h-2.5 rounded-b-xl mx-4" />
+              <div className="bg-gray-700 h-1.5 rounded-b-2xl mx-8" />
+            </div>
+
+            {/* Phone overlapping bottom-right */}
+            <div className="absolute -bottom-4 -right-4 w-[85px]">
+              <div className="bg-gray-900 rounded-[1.8rem] p-1.5 shadow-2xl ring-1 ring-white/10">
+                <div className="absolute top-3 left-1/2 -translate-x-1/2 w-7 h-1.5 bg-gray-900 rounded-full z-10" />
+                <div className="rounded-[1.3rem] overflow-hidden">
+                  <Image
+                    src="/screenshot-agenda.jpeg"
+                    alt="attempo mobile"
+                    width={85}
+                    height={170}
+                    className="w-full object-cover"
+                    priority
+                  />
+                </div>
               </div>
             </div>
+
             {/* Floating cards */}
             <motion.div
               animate={{ y: [0, -6, 0] }}
               transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -left-16 top-1/4 bg-white rounded-2xl shadow-lg p-3 flex items-center gap-3 w-44"
+              className="absolute -left-4 lg:-left-16 top-1/4 bg-white rounded-2xl shadow-lg p-3 flex items-center gap-3 w-40"
             >
-              <div className="w-10 h-10 bg-green-100 rounded-xl flex items-center justify-center text-xl">📅</div>
+              <div className="w-9 h-9 bg-green-100 rounded-xl flex items-center justify-center text-lg flex-shrink-0">📅</div>
               <div>
                 <p className="text-xs font-semibold text-gray-800">Nueva cita</p>
                 <p className="text-xs text-gray-500">Hoy 15:00</p>
@@ -118,11 +148,11 @@ export function HeroSection() {
             <motion.div
               animate={{ y: [0, 6, 0] }}
               transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-              className="absolute -right-12 bottom-1/4 bg-white rounded-2xl shadow-lg p-3 flex items-center gap-3 w-44"
+              className="absolute -left-4 lg:-left-16 bottom-1/4 bg-white rounded-2xl shadow-lg p-3 flex items-center gap-3 w-40"
             >
-              <div className="w-10 h-10 bg-purple-100 rounded-xl flex items-center justify-center text-xl">✅</div>
+              <div className="w-9 h-9 bg-purple-100 rounded-xl flex items-center justify-center text-lg flex-shrink-0">✅</div>
               <div>
-                <p className="text-xs font-semibold text-gray-800">Recordatorio enviado</p>
+                <p className="text-xs font-semibold text-gray-800">Recordatorio</p>
                 <p className="text-xs text-gray-500">WhatsApp</p>
               </div>
             </motion.div>
@@ -268,98 +298,90 @@ export function ScreenshotsSection() {
           <p className="text-gray-400 max-w-xl mx-auto">Interfaz limpia, rápida y en español. Disponible en computador y celular.</p>
         </motion.div>
 
-        {/* Tabs */}
-        <motion.div variants={fadeUp} className="flex flex-wrap gap-2 justify-center mb-12">
-          {tabs.map((t, i) => (
-            <button
-              key={t.label}
-              onClick={() => setActive(i)}
-              className={`flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-medium transition-all ${
-                active === i
-                  ? "bg-[#6C5CE4] text-white shadow-lg shadow-[#6C5CE4]/30"
-                  : "bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white"
-              }`}
-            >
-              <span>{t.label.split(" ")[0]}</span>
-              <span>{t.label.split(" ").slice(1).join(" ")}</span>
-            </button>
-          ))}
-        </motion.div>
-
-        {/* Desktop + phone mockup */}
-        <motion.div variants={fadeUp} className="relative flex justify-center">
-          {/* Glow */}
-          <div className="absolute inset-0 bg-[#6C5CE4]/20 blur-3xl rounded-full scale-50 pointer-events-none" />
-
-          <div className="relative w-full max-w-3xl">
-            {/* Laptop frame */}
-            <div className="relative">
-              {/* Screen bezel */}
-              <div className="bg-gray-800 rounded-t-2xl p-2 ring-1 ring-white/10 shadow-2xl">
-                <div className="flex items-center gap-1.5 mb-2 px-1">
-                  <div className="w-2.5 h-2.5 rounded-full bg-red-500/60" />
-                  <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/60" />
-                  <div className="w-2.5 h-2.5 rounded-full bg-green-500/60" />
-                  <div className="flex-1 mx-3 bg-gray-700 rounded-full h-4 flex items-center px-3">
-                    <span className="text-gray-400 text-[10px]">app.attempo.cl</span>
-                  </div>
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Left — feature list */}
+          <motion.div variants={fadeUp} className="space-y-3">
+            {tabs.map((t, i) => (
+              <button
+                key={t.label}
+                onClick={() => setActive(i)}
+                className={`w-full text-left px-5 py-4 rounded-2xl transition-all flex items-center gap-4 ${
+                  active === i
+                    ? "bg-[#6C5CE4] text-white shadow-lg shadow-[#6C5CE4]/30"
+                    : "bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white"
+                }`}
+              >
+                <span className="text-2xl flex-shrink-0">{t.label.split(" ")[0]}</span>
+                <div>
+                  <p className="font-semibold text-sm">{t.label.split(" ").slice(1).join(" ")}</p>
+                  <p className={`text-xs mt-0.5 ${active === i ? "text-purple-200" : "text-gray-500"}`}>{t.desc}</p>
                 </div>
-                <motion.div
-                  key={`desktop-${active}`}
-                  initial={{ opacity: 0, y: 6 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.35 }}
-                  className="rounded-lg overflow-hidden"
-                >
-                  <Image
-                    src={tabs[active].desktop}
-                    alt={`${tabs[active].label} desktop`}
-                    width={900}
-                    height={560}
-                    className="w-full object-cover object-top"
-                  />
-                </motion.div>
-              </div>
-              {/* Laptop base */}
-              <div className="bg-gray-700 h-3 rounded-b-xl mx-4 shadow-lg" />
-              <div className="bg-gray-600 h-1.5 rounded-b-2xl mx-8" />
-            </div>
+                {active === i && (
+                  <motion.div layoutId="active-indicator" className="ml-auto w-1.5 h-8 bg-white/40 rounded-full flex-shrink-0" />
+                )}
+              </button>
+            ))}
+          </motion.div>
 
-            {/* Phone mockup — overlapping bottom right */}
-            <div className="absolute -bottom-6 -right-4 lg:-right-10 w-[90px] sm:w-[110px]">
-              <div className="bg-gray-800 rounded-[1.8rem] p-1.5 shadow-2xl ring-1 ring-white/20">
-                <div className="absolute top-3 left-1/2 -translate-x-1/2 w-8 h-2 bg-gray-800 rounded-full z-10" />
-                <motion.div
-                  key={`mobile-${active}`}
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.35 }}
-                  className="rounded-[1.4rem] overflow-hidden"
-                >
-                  <Image
-                    src={tabs[active].mobile}
-                    alt={`${tabs[active].label} mobile`}
-                    width={110}
-                    height={220}
-                    className="w-full object-cover"
-                  />
-                </motion.div>
+          {/* Right — laptop + phone */}
+          <motion.div variants={fadeUp} className="relative flex justify-center lg:justify-end">
+            <div className="relative w-full max-w-md">
+              {/* Glow */}
+              <div className="absolute inset-0 bg-[#6C5CE4]/20 blur-3xl rounded-full pointer-events-none" />
+              {/* Laptop frame */}
+              <div className="relative">
+                <div className="bg-gray-800 rounded-t-2xl p-2 ring-1 ring-white/10 shadow-2xl">
+                  <div className="flex items-center gap-1.5 mb-2 px-1">
+                    <div className="w-2 h-2 rounded-full bg-red-500/60" />
+                    <div className="w-2 h-2 rounded-full bg-yellow-500/60" />
+                    <div className="w-2 h-2 rounded-full bg-green-500/60" />
+                    <div className="flex-1 mx-2 bg-gray-700 rounded-full h-3.5 flex items-center px-2">
+                      <span className="text-gray-400 text-[9px]">app.attempo.cl</span>
+                    </div>
+                  </div>
+                  <motion.div
+                    key={`desktop-${active}`}
+                    initial={{ opacity: 0, y: 6 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.35 }}
+                    className="rounded-lg overflow-hidden"
+                  >
+                    <Image
+                      src={tabs[active].desktop}
+                      alt={`${tabs[active].label} desktop`}
+                      width={700}
+                      height={440}
+                      className="w-full object-cover object-top"
+                    />
+                  </motion.div>
+                </div>
+                <div className="bg-gray-700 h-2.5 rounded-b-xl mx-4" />
+                <div className="bg-gray-600 h-1.5 rounded-b-2xl mx-8" />
+              </div>
+              {/* Phone overlapping bottom-right */}
+              <div className="absolute -bottom-4 -right-6 w-[80px]">
+                <div className="bg-gray-800 rounded-[1.6rem] p-1.5 shadow-2xl ring-1 ring-white/20">
+                  <div className="absolute top-2.5 left-1/2 -translate-x-1/2 w-7 h-1.5 bg-gray-800 rounded-full z-10" />
+                  <motion.div
+                    key={`mobile-${active}`}
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.35 }}
+                    className="rounded-[1.2rem] overflow-hidden"
+                  >
+                    <Image
+                      src={tabs[active].mobile}
+                      alt={`${tabs[active].label} mobile`}
+                      width={80}
+                      height={160}
+                      className="w-full object-cover"
+                    />
+                  </motion.div>
+                </div>
               </div>
             </div>
-          </div>
-        </motion.div>
-
-        {/* Description */}
-        <motion.p
-          key={`desc-${active}`}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.3 }}
-          variants={fadeUp}
-          className="text-center text-gray-400 text-sm mt-12"
-        >
-          {tabs[active].desc}
-        </motion.p>
+          </motion.div>
+        </div>
       </motion.div>
     </section>
   )
