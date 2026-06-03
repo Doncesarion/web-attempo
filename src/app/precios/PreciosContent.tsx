@@ -457,8 +457,10 @@ export default function PreciosContent() {
           initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} variants={stagger}
         >
           <motion.div variants={fadeUp} className="text-center mb-12">
-            <ShieldIcon />
-            <h2 className="text-3xl font-bold text-gray-900 mt-4 mb-3 tracking-tight">Sin riesgos. Empieza gratis.</h2>
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-[#6C5CE4]/10 rounded-2xl mb-4">
+              <ShieldIcon />
+            </div>
+            <h2 className="text-3xl font-bold text-gray-900 mb-3 tracking-tight">Sin riesgos. Empieza gratis.</h2>
             <p className="text-gray-500">12 días de prueba en cualquier plan. Sin tarjeta. Si no es para ti, no pagas nada.</p>
           </motion.div>
           <motion.div variants={stagger} className="grid grid-cols-1 md:grid-cols-3 gap-5">

@@ -1,4 +1,4 @@
-import type { Metadata } from "next"
+import type { Metadata, Viewport } from "next"
 import { Geist } from "next/font/google"
 import Script from "next/script"
 import "./globals.css"
@@ -9,6 +9,12 @@ const geist = Geist({
   variable: "--font-sans",
   subsets: ["latin"],
 })
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#6C5CE4",
+}
 
 export const metadata: Metadata = {
   title: {
@@ -22,6 +28,24 @@ export const metadata: Metadata = {
     siteName: "attempo",
     locale: "es_CL",
     type: "website",
+    title: "attempo — Todo a tu tiempo",
+    description:
+      "Plataforma de agendamiento para profesionales de la salud en Chile. Agenda online, recordatorios automáticos por WhatsApp y cobro con Webpay.",
+    url: "https://attempo.cl",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "attempo — Todo a tu tiempo",
+    description:
+      "Plataforma de agendamiento para profesionales de la salud en Chile. Agenda online, recordatorios automáticos por WhatsApp y cobro con Webpay.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true },
+  },
+  alternates: {
+    canonical: "https://attempo.cl",
   },
 }
 

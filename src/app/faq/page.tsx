@@ -1,61 +1,37 @@
 import type { Metadata } from "next"
+import Script from "next/script"
+import FaqContent from "./FaqContent"
 
 export const metadata: Metadata = {
-  title: "Preguntas Frecuentes",
-  description: "Respuestas a las preguntas más comunes sobre Attempo, la plataforma de agendamiento para profesionales en Chile.",
+  title: "Preguntas frecuentes — attempo",
+  description: "Resolvemos tus dudas sobre attempo: prueba gratis, planes, recordatorios automáticos, seguridad y soporte en Chile.",
+  alternates: { canonical: "https://attempo.cl/faq" },
 }
 
-const faqs = [
-  {
-    pregunta: "¿Qué es Attempo?",
-    respuesta:
-      "Attempo es una plataforma de agendamiento de citas para profesionales de la salud y servicios en Chile. Permite gestionar tu agenda, enviar recordatorios automáticos y mucho más.",
-  },
-  {
-    pregunta: "¿Puedo probarlo gratis?",
-    respuesta:
-      "Sí, ofrecemos un período de prueba para que puedas conocer todas las funcionalidades sin compromiso.",
-  },
-  {
-    pregunta: "¿Cómo funcionan los recordatorios?",
-    respuesta:
-      "Attempo envía recordatorios automáticos a tus pacientes o clientes por WhatsApp, Instagram o correo electrónico antes de cada cita.",
-  },
-  {
-    pregunta: "¿Puedo usar Attempo desde mi celular?",
-    respuesta:
-      "Sí, la plataforma está optimizada para funcionar en dispositivos móviles y de escritorio.",
-  },
-  {
-    pregunta: "¿Mis datos están seguros?",
-    respuesta:
-      "Absolutamente. Usamos cifrado de extremo a extremo y seguimos las mejores prácticas de seguridad para proteger la información de tus pacientes.",
-  },
-]
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    { "@type": "Question", name: "¿Puedo probar attempo gratis?", acceptedAnswer: { "@type": "Answer", text: "Sí. Tienes 12 días de prueba completa en cualquier plan, sin necesidad de ingresar una tarjeta de crédito." } },
+    { "@type": "Question", name: "¿Cuánto cuesta attempo?", acceptedAnswer: { "@type": "Answer", text: "Hay tres planes: Inicio a $24.990/mes, Pro a $44.990/mes y Clínica IA a $119.990/mes. Todos los precios son + IVA. Con pago anual tienes 20% de descuento." } },
+    { "@type": "Question", name: "¿Hay descuento por pago anual?", acceptedAnswer: { "@type": "Answer", text: "Sí, al pagar el año completo obtienes un 20% de descuento en cualquier plan." } },
+    { "@type": "Question", name: "¿Puedo cambiar de plan en cualquier momento?", acceptedAnswer: { "@type": "Answer", text: "Sí. Puedes subir o bajar de plan cuando quieras. El cambio se aplica de forma inmediata." } },
+    { "@type": "Question", name: "¿Cómo funcionan los recordatorios automáticos?", acceptedAnswer: { "@type": "Answer", text: "attempo envía recordatorios automáticos a tus pacientes antes de cada cita por WhatsApp, email o SMS. Tú defines con cuánta anticipación se envían." } },
+    { "@type": "Question", name: "¿Los datos de mis pacientes están seguros?", acceptedAnswer: { "@type": "Answer", text: "Sí. Usamos cifrado TLS y almacenamos los datos en servidores seguros. La información de tus pacientes nunca se comparte con terceros." } },
+    { "@type": "Question", name: "¿Necesito instalar alguna aplicación?", acceptedAnswer: { "@type": "Answer", text: "No. attempo es 100% web y funciona en cualquier navegador, desde tu computador, tablet o celular." } },
+    { "@type": "Question", name: "¿Cómo obtengo ayuda si tengo un problema?", acceptedAnswer: { "@type": "Answer", text: "Puedes contactarnos por el chat dentro de la plataforma o por email. Somos un equipo chileno que responde en español." } },
+  ],
+}
 
-export default function FAQPage() {
+export default function FaqPage() {
   return (
-    <div className="flex flex-col">
-      <section className="py-24 px-4 bg-gradient-to-br from-purple-50 to-white">
-        <div className="max-w-4xl mx-auto text-center">
-          <p className="text-[#6C5CE4] text-sm font-medium uppercase tracking-wider mb-4">FAQ</p>
-          <h1 className="text-5xl font-bold text-gray-900 mb-6">Preguntas frecuentes</h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Todo lo que necesitas saber sobre Attempo.
-          </p>
-        </div>
-      </section>
-
-      <section className="py-24 px-4 bg-white">
-        <div className="max-w-3xl mx-auto space-y-6">
-          {faqs.map((faq, i) => (
-            <div key={i} className="border border-gray-200 rounded-xl p-6">
-              <h3 className="font-semibold text-gray-900 text-lg mb-3">{faq.pregunta}</h3>
-              <p className="text-gray-600">{faq.respuesta}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-    </div>
+    <>
+      <Script
+        id="jsonld-faq"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <FaqContent />
+    </>
   )
 }
