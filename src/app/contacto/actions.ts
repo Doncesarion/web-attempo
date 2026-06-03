@@ -38,11 +38,7 @@ export async function sendContactEmail(data: ContactFormData): Promise<{ ok: boo
 
   <!-- Header morado -->
   <tr><td bgcolor="#6C5CE4" style="border-radius:16px 16px 0 0;padding:28px 24px 24px;text-align:center">
-    <table cellpadding="0" cellspacing="0" align="center" style="margin:0 auto 10px">
-    <tr><td bgcolor="#5a4bd1" style="border-radius:14px;width:54px;height:54px;text-align:center;vertical-align:middle;padding:0">
-      <span style="display:block;font-size:21px;font-weight:900;color:#ffffff;font-family:Georgia,'Times New Roman',serif;letter-spacing:-2px;line-height:54px">tt</span>
-    </td></tr>
-    </table>
+    <img src="https://attempo.cl/logo_attempo.png" alt="attempo" width="60" height="60" style="display:block;margin:0 auto 10px;border-radius:14px">
     <p style="margin:0;font-size:13px;color:#c4b5fd;font-family:Arial,sans-serif;font-weight:500">Todo a tu tiempo</p>
   </td></tr>
 
