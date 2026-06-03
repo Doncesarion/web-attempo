@@ -91,7 +91,7 @@ function BrowserFrame({ children }: { children: React.ReactNode }) {
   )
 }
 
-/* ── Feature block: texto centrado + screenshot ancha ────────────────── */
+/* ── Feature block: 40/60 text/image asimétrico ──────────────────────── */
 function FeatureBlock({
   id,
   badge,
@@ -100,6 +100,7 @@ function FeatureBlock({
   bullets,
   image,
   imageAlt,
+  reverse = false,
   bg = "bg-white",
 }: {
   id?: string
@@ -109,67 +110,69 @@ function FeatureBlock({
   bullets: string[]
   image: string
   imageAlt: string
+  reverse?: boolean
   bg?: string
 }) {
   return (
     <section id={id} className={`py-20 px-4 ${bg}`}>
-      <motion.div
-        className="max-w-5xl mx-auto"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.15 }}
-        variants={stagger}
-      >
-        {/* Texto centrado */}
-        <div className="text-center max-w-2xl mx-auto mb-10">
-          <motion.span
-            variants={fadeUp}
-            className="inline-block text-xs font-semibold text-[#6C5CE4] uppercase tracking-widest bg-[#6C5CE4]/10 px-3 py-1 rounded-full mb-4"
-          >
-            {badge}
-          </motion.span>
-          <motion.h2
-            variants={fadeUp}
-            className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight mb-4 leading-tight"
-          >
-            {title}
-          </motion.h2>
-          <motion.p variants={fadeUp} className="text-gray-500 leading-relaxed">
-            {description}
-          </motion.p>
-        </div>
+      <div className="max-w-7xl mx-auto">
+        <div className={`flex flex-col ${reverse ? "lg:flex-row-reverse" : "lg:flex-row"} items-center gap-10 lg:gap-16`}>
 
-        {/* Bullets en grid */}
-        <motion.div
-          variants={stagger}
-          className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-2xl mx-auto mb-12"
-        >
-          {bullets.map((b) => (
-            <motion.div
-              key={b}
+          {/* Texto — 40% */}
+          <motion.div
+            className="w-full lg:w-2/5 flex-shrink-0"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={stagger}
+          >
+            <motion.span
               variants={fadeUp}
-              className="flex items-start gap-3 bg-white border border-gray-100 rounded-xl px-4 py-3 shadow-sm"
+              className="inline-block text-xs font-semibold text-[#6C5CE4] uppercase tracking-widest bg-[#6C5CE4]/10 px-3 py-1 rounded-full mb-4"
             >
-              <span className="mt-0.5"><CheckIcon /></span>
-              <span className="text-gray-700 text-sm leading-relaxed">{b}</span>
-            </motion.div>
-          ))}
-        </motion.div>
+              {badge}
+            </motion.span>
+            <motion.h2
+              variants={fadeUp}
+              className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight mb-4 leading-tight"
+            >
+              {title}
+            </motion.h2>
+            <motion.p variants={fadeUp} className="text-gray-500 leading-relaxed mb-6">
+              {description}
+            </motion.p>
+            <motion.ul variants={stagger} className="space-y-3">
+              {bullets.map((b) => (
+                <motion.li key={b} variants={fadeUp} className="flex items-start gap-3">
+                  <span className="mt-0.5 flex-shrink-0"><CheckIcon /></span>
+                  <span className="text-gray-700 text-sm leading-relaxed">{b}</span>
+                </motion.li>
+              ))}
+            </motion.ul>
+          </motion.div>
 
-        {/* Screenshot grande con marco browser */}
-        <motion.div variants={fadeUpSlow}>
-          <BrowserFrame>
-            <Image
-              src={image}
-              alt={imageAlt}
-              width={1200}
-              height={750}
-              className="w-full h-auto block"
-              quality={95}
-            />
-          </BrowserFrame>
-        </motion.div>
-      </motion.div>
+          {/* Screenshot — 60% */}
+          <motion.div
+            className="w-full lg:w-3/5"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={fadeUpSlow}
+          >
+            <BrowserFrame>
+              <Image
+                src={image}
+                alt={imageAlt}
+                width={900}
+                height={560}
+                className="w-full h-auto block"
+                quality={95}
+              />
+            </BrowserFrame>
+          </motion.div>
+
+        </div>
+      </div>
     </section>
   )
 }
@@ -278,6 +281,7 @@ export default function PlataformaContent() {
         ]}
         image="/desktop-config.png"
         imageAlt="Configuración de recordatorios en attempo"
+        reverse={true}
         bg="bg-[#fafafa]"
       />
 
@@ -311,6 +315,7 @@ export default function PlataformaContent() {
         ]}
         image="/desktop-ventas.png"
         imageAlt="Módulo de cobro y ventas en attempo"
+        reverse={true}
         bg="bg-[#fafafa]"
       />
 
@@ -417,6 +422,7 @@ export default function PlataformaContent() {
         ]}
         image="/desktop-reportes.png"
         imageAlt="Reportes y estadísticas en attempo"
+        reverse={true}
         bg="bg-[#fafafa]"
       />
 
