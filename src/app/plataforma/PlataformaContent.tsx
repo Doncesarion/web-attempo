@@ -63,20 +63,35 @@ const fadeUp = {
   hidden: { opacity: 0, y: 24 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease } },
 }
-const fadeLeft = {
-  hidden: { opacity: 0, x: -24 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.55, ease } },
-}
-const fadeRight = {
-  hidden: { opacity: 0, x: 24 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.55, ease } },
+const fadeUpSlow = {
+  hidden: { opacity: 0, y: 32 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease } },
 }
 const stagger = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.1 } },
 }
 
-/* ── Feature block component ──────────────────────────────────────────── */
+/* ── Browser frame wrapper ────────────────────────────────────────────── */
+function BrowserFrame({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="rounded-2xl overflow-hidden shadow-2xl border border-gray-200/80 bg-white">
+      <div className="bg-gray-100 px-4 py-3 flex items-center gap-2 border-b border-gray-200">
+        <div className="flex gap-1.5">
+          <div className="w-3 h-3 rounded-full bg-red-400" />
+          <div className="w-3 h-3 rounded-full bg-yellow-400" />
+          <div className="w-3 h-3 rounded-full bg-green-400" />
+        </div>
+        <div className="flex-1 bg-white rounded-full px-3 py-1 ml-2 max-w-xs mx-auto">
+          <span className="text-xs text-gray-400 font-mono">app.attempo.cl</span>
+        </div>
+      </div>
+      {children}
+    </div>
+  )
+}
+
+/* ── Feature block: texto centrado + screenshot ancha ────────────────── */
 function FeatureBlock({
   id,
   badge,
@@ -85,7 +100,6 @@ function FeatureBlock({
   bullets,
   image,
   imageAlt,
-  reverse = false,
   bg = "bg-white",
 }: {
   id?: string
@@ -95,66 +109,67 @@ function FeatureBlock({
   bullets: string[]
   image: string
   imageAlt: string
-  reverse?: boolean
   bg?: string
 }) {
   return (
     <section id={id} className={`py-20 px-4 ${bg}`}>
-      <div className="max-w-6xl mx-auto">
-        <div className={`flex flex-col ${reverse ? "lg:flex-row-reverse" : "lg:flex-row"} items-center gap-12 lg:gap-20`}>
-          {/* Text */}
-          <motion.div
-            className="flex-1"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
-            variants={stagger}
+      <motion.div
+        className="max-w-5xl mx-auto"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.15 }}
+        variants={stagger}
+      >
+        {/* Texto centrado */}
+        <div className="text-center max-w-2xl mx-auto mb-10">
+          <motion.span
+            variants={fadeUp}
+            className="inline-block text-xs font-semibold text-[#6C5CE4] uppercase tracking-widest bg-[#6C5CE4]/10 px-3 py-1 rounded-full mb-4"
           >
-            <motion.span
-              variants={fadeUp}
-              className="inline-block text-xs font-semibold text-[#6C5CE4] uppercase tracking-widest bg-[#6C5CE4]/10 px-3 py-1 rounded-full mb-4"
-            >
-              {badge}
-            </motion.span>
-            <motion.h2
-              variants={fadeUp}
-              className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight mb-4 leading-tight"
-            >
-              {title}
-            </motion.h2>
-            <motion.p variants={fadeUp} className="text-gray-500 leading-relaxed mb-6">
-              {description}
-            </motion.p>
-            <motion.ul variants={stagger} className="space-y-3">
-              {bullets.map((b) => (
-                <motion.li key={b} variants={fadeUp} className="flex items-start gap-3">
-                  <span className="mt-0.5"><CheckIcon /></span>
-                  <span className="text-gray-700 text-sm leading-relaxed">{b}</span>
-                </motion.li>
-              ))}
-            </motion.ul>
-          </motion.div>
-
-          {/* Image */}
-          <motion.div
-            className="flex-1 w-full"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            variants={reverse ? fadeLeft : fadeRight}
+            {badge}
+          </motion.span>
+          <motion.h2
+            variants={fadeUp}
+            className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight mb-4 leading-tight"
           >
-            <div className="relative rounded-2xl overflow-hidden shadow-xl border border-gray-100">
-              <Image
-                src={image}
-                alt={imageAlt}
-                width={720}
-                height={460}
-                className="w-full h-auto object-cover"
-              />
-            </div>
-          </motion.div>
+            {title}
+          </motion.h2>
+          <motion.p variants={fadeUp} className="text-gray-500 leading-relaxed">
+            {description}
+          </motion.p>
         </div>
-      </div>
+
+        {/* Bullets en grid */}
+        <motion.div
+          variants={stagger}
+          className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-2xl mx-auto mb-12"
+        >
+          {bullets.map((b) => (
+            <motion.div
+              key={b}
+              variants={fadeUp}
+              className="flex items-start gap-3 bg-white border border-gray-100 rounded-xl px-4 py-3 shadow-sm"
+            >
+              <span className="mt-0.5"><CheckIcon /></span>
+              <span className="text-gray-700 text-sm leading-relaxed">{b}</span>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {/* Screenshot grande con marco browser */}
+        <motion.div variants={fadeUpSlow}>
+          <BrowserFrame>
+            <Image
+              src={image}
+              alt={imageAlt}
+              width={1200}
+              height={750}
+              className="w-full h-auto block"
+              quality={95}
+            />
+          </BrowserFrame>
+        </motion.div>
+      </motion.div>
     </section>
   )
 }
@@ -239,9 +254,9 @@ export default function PlataformaContent() {
         title="Tu calendario inteligente, disponible 24/7"
         description="Comparte tu link de agendamiento y tus pacientes reservan solos en segundos. Sin llamadas, sin WhatsApp de ida y vuelta."
         bullets={[
-          "Link personalizado (attempo.cl/tu-nombre) para compartir donde quieras",
-          "Bloquea días, feriados o rangos horarios en segundos",
-          "Vista diaria, semanal y mensual desde cualquier dispositivo",
+          "Link personalizado para compartir donde quieras",
+          "Vista diaria, semanal y mensual",
+          "Bloquea días y horarios en segundos",
           "Acepta o rechaza citas con un clic",
         ]}
         image="/desktop-agenda.png"
@@ -256,14 +271,13 @@ export default function PlataformaContent() {
         title="Reduce las inasistencias hasta un 80%"
         description="attempo envía recordatorios automáticos por WhatsApp, email y SMS antes de cada cita. Sin que tengas que hacer nada."
         bullets={[
-          "Recordatorios por WhatsApp, correo electrónico y SMS",
-          "Define con cuánta anticipación: 24h, 48h o 1 semana antes",
-          "Mensajes personalizados con tu nombre y los datos de la cita",
-          "Confirmación de asistencia directamente desde el mensaje",
+          "WhatsApp, correo electrónico y SMS",
+          "24h, 48h o 1 semana antes — tú decides",
+          "Mensajes con el nombre del paciente y detalles de la cita",
+          "Confirmación de asistencia desde el mensaje",
         ]}
         image="/desktop-config.png"
         imageAlt="Configuración de recordatorios en attempo"
-        reverse={true}
         bg="bg-[#fafafa]"
       />
 
@@ -275,8 +289,8 @@ export default function PlataformaContent() {
         bullets={[
           "Historial completo de citas pasadas y próximas",
           "Reagendamiento y cancelación con un clic",
-          "Ficha básica del paciente con notas y documentos",
-          "Acceso seguro sin necesidad de crear cuenta",
+          "Ficha básica con notas y documentos",
+          "Acceso seguro sin crear cuenta",
         ]}
         image="/desktop-clientes.png"
         imageAlt="Portal de pacientes attempo"
@@ -290,14 +304,13 @@ export default function PlataformaContent() {
         title="Cobra con Webpay sin salir de attempo"
         description="Integración nativa con Webpay de Transbank. Envía el link de pago por email y recibe el dinero directo en tu cuenta."
         bullets={[
-          "Pago con tarjetas de crédito y débito (Webpay / Transbank)",
-          "Link de pago enviado automáticamente al confirmar la cita",
-          "Registro automático del estado de pago en cada cita",
+          "Tarjetas de crédito y débito (Webpay / Transbank)",
+          "Link de pago automático al confirmar la cita",
+          "Estado de pago registrado en cada cita",
           "Compatible con cuotas sin interés",
         ]}
         image="/desktop-ventas.png"
         imageAlt="Módulo de cobro y ventas en attempo"
-        reverse={true}
         bg="bg-[#fafafa]"
       />
 
@@ -381,10 +394,10 @@ export default function PlataformaContent() {
         title="Emite boletas electrónicas desde attempo"
         description="Integración directa con el SII. Emite boletas de honorarios electrónicas al finalizar cada sesión, sin salir de la plataforma ni usar el portal del SII."
         bullets={[
-          "Emisión de boleta electrónica con un clic al término de la sesión",
+          "Emisión con un clic al término de la sesión",
           "Sincronización automática con el SII",
-          "Registro contable ordenado por mes y por paciente",
-          "Descarga en PDF para enviar por correo al paciente",
+          "Registro contable por mes y por paciente",
+          "Descarga en PDF para enviar al paciente",
         ]}
         image="/desktop-config.png"
         imageAlt="Módulo de boleta de honorarios en attempo"
@@ -397,66 +410,58 @@ export default function PlataformaContent() {
         title="Entiende tu negocio de un vistazo"
         description="Visualiza tus ingresos, tasa de inasistencia, pacientes más frecuentes y el rendimiento de tu agenda. Todo en tiempo real."
         bullets={[
-          "Dashboard con ingresos del mes, semana y año",
+          "Ingresos del día, semana, mes y año",
           "Tasa de asistencia y análisis de cancelaciones",
           "Ranking de pacientes por frecuencia y monto",
-          "Exportación de datos en Excel o CSV",
+          "Exportación en Excel o CSV",
         ]}
         image="/desktop-reportes.png"
         imageAlt="Reportes y estadísticas en attempo"
-        reverse={true}
         bg="bg-[#fafafa]"
       />
 
       {/* ── Chatbot IA ─────────────────────────────────────────────────── */}
       <section className="py-20 px-4 bg-white">
         <motion.div
-          className="max-w-4xl mx-auto"
+          className="max-w-5xl mx-auto"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
           variants={stagger}
         >
-          <div className="bg-gradient-to-br from-[#f5f3ff] to-white border border-[#e8e4ff] rounded-3xl p-8 lg:p-12">
-            <div className="flex flex-col lg:flex-row items-center gap-8">
-              <div className="flex-1">
-                <motion.span
+          <div className="bg-gradient-to-br from-[#6C5CE4] to-[#5A4BD1] rounded-3xl p-8 lg:p-14 text-center">
+            <motion.span
+              variants={fadeUp}
+              className="inline-flex items-center gap-2 text-xs font-semibold text-white/70 uppercase tracking-widest bg-white/15 px-3 py-1 rounded-full mb-6"
+            >
+              <SparklesIcon />
+              Chatbot IA — Plan Clínica
+            </motion.span>
+            <motion.h2 variants={fadeUp} className="text-3xl sm:text-4xl font-bold text-white tracking-tight mb-4">
+              Un asistente que agenda por ti las 24 horas
+            </motion.h2>
+            <motion.p variants={fadeUp} className="text-white/75 max-w-xl mx-auto leading-relaxed mb-10">
+              El chatbot de IA responde a tus pacientes, consulta disponibilidad y confirma citas automáticamente — incluso cuando estás atendiendo o durmiendo.
+            </motion.p>
+            <motion.div variants={stagger} className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-2xl mx-auto text-left">
+              {[
+                "Responde preguntas frecuentes en segundos",
+                "Agenda citas según tu disponibilidad real",
+                "Disponible por WhatsApp, Instagram y web",
+                "Aprende de tus preferencias con el tiempo",
+              ].map((b) => (
+                <motion.div
+                  key={b}
                   variants={fadeUp}
-                  className="inline-flex items-center gap-2 text-xs font-semibold text-[#6C5CE4] uppercase tracking-widest bg-[#6C5CE4]/10 px-3 py-1 rounded-full mb-4"
+                  className="flex items-start gap-3 bg-white/15 border border-white/20 rounded-xl px-4 py-3"
                 >
-                  <SparklesIcon />
-                  Chatbot IA — Plan Clínica
-                </motion.span>
-                <motion.h2 variants={fadeUp} className="text-3xl font-bold text-gray-900 tracking-tight mb-4">
-                  Un asistente que agenda por ti las 24 horas
-                </motion.h2>
-                <motion.p variants={fadeUp} className="text-gray-500 leading-relaxed mb-6">
-                  El chatbot de IA de attempo responde a tus pacientes, consulta disponibilidad y confirma citas automáticamente — incluso cuando estás atendiendo o durmiendo.
-                </motion.p>
-                <motion.ul variants={stagger} className="space-y-3">
-                  {[
-                    "Responde preguntas frecuentes de tus pacientes en segundos",
-                    "Agenda citas automáticamente según tu disponibilidad",
-                    "Disponible por WhatsApp, Instagram y web",
-                    "Aprende de tus preferencias con el tiempo",
-                  ].map((b) => (
-                    <motion.li key={b} variants={fadeUp} className="flex items-start gap-3">
-                      <span className="mt-0.5"><CheckIcon /></span>
-                      <span className="text-gray-700 text-sm leading-relaxed">{b}</span>
-                    </motion.li>
-                  ))}
-                </motion.ul>
-              </div>
-              <motion.div variants={fadeRight} className="flex-shrink-0">
-                <div className="w-48 h-48 lg:w-56 lg:h-56 rounded-3xl bg-[#6C5CE4]/10 flex items-center justify-center">
-                  <span className="text-[#6C5CE4]">
-                    <svg className="w-24 h-24" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
-                    </svg>
-                  </span>
-                </div>
-              </motion.div>
-            </div>
+                  <svg className="w-4 h-4 text-white/70 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span className="text-white/90 text-sm leading-relaxed">{b}</span>
+                </motion.div>
+              ))}
+            </motion.div>
           </div>
         </motion.div>
       </section>
