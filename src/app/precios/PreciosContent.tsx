@@ -62,8 +62,8 @@ const planes = [
     id: "inicio",
     nombre: "Inicio",
     tag: "Para empezar",
-    mensual: 19990,
-    anual: 191900,
+    mensual: 24990,
+    anual: 239900,
     desc: "Todo lo que necesitas para digitalizar tu agenda y empezar a cobrar online.",
     popular: false,
     cta: "Empieza gratis",
@@ -106,8 +106,8 @@ const planes = [
     id: "clinica",
     nombre: "Clínica IA",
     tag: "Para centros",
-    mensual: 99990,
-    anual: 959900,
+    mensual: 119990,
+    anual: 1151900,
     desc: "Automatización total con IA para centros médicos y clínicas con múltiples profesionales.",
     popular: false,
     cta: "Hablar con ventas",
@@ -383,13 +383,13 @@ export default function PreciosContent() {
                     {ciclo === "mensual" ? "Precio mensual + IVA" : "Precio anual + IVA"}
                   </td>
                   <td className="text-center py-5 px-5 font-bold text-gray-700">
-                    {formatCLP(ciclo === "mensual" ? 19990 : 191900)}
+                    {formatCLP(ciclo === "mensual" ? 24990 : 239900)}
                   </td>
                   <td className="text-center py-5 px-5 bg-[#6C5CE4]/5 border-x border-[#6C5CE4]/10 font-bold text-[#6C5CE4]">
                     {formatCLP(ciclo === "mensual" ? 44990 : 431900)}
                   </td>
                   <td className="text-center py-5 px-5 font-bold text-gray-700">
-                    {formatCLP(ciclo === "mensual" ? 99990 : 959900)}
+                    {formatCLP(ciclo === "mensual" ? 119990 : 1151900)}
                   </td>
                 </tr>
                 <tr className="bg-gray-50">
