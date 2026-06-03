@@ -114,7 +114,7 @@ function FeatureBlock({
   bg?: string
 }) {
   return (
-    <section id={id} className={`py-20 px-4 ${bg}`}>
+    <section id={id} className={`py-20 px-4 scroll-mt-20 ${bg}`}>
       <div className="max-w-7xl mx-auto">
         <div className={`flex flex-col ${reverse ? "lg:flex-row-reverse" : "lg:flex-row"} items-center gap-10 lg:gap-16`}>
 
@@ -320,7 +320,7 @@ export default function PlataformaContent() {
       />
 
       {/* ── Paquetes de sesiones ───────────────────────────────────────── */}
-      <section id="paquetes" className="py-20 px-4 bg-[#6C5CE4]">
+      <section id="paquetes" className="py-20 px-4 scroll-mt-20 bg-[#6C5CE4]">
         <motion.div
           className="max-w-5xl mx-auto"
           initial="hidden"
