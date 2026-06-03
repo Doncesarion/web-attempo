@@ -51,7 +51,7 @@ export default function QuienesSomosContent() {
     <div className="flex flex-col">
 
       {/* ── 1. HERO ─────────────────────────────────────────── */}
-      <section className="relative py-32 px-4 bg-gradient-to-br from-[#f5f3ff] via-white to-[#ede9fe] overflow-hidden">
+      <section className="relative py-20 lg:py-32 px-4 bg-gradient-to-br from-[#f5f3ff] via-white to-[#ede9fe] overflow-hidden">
         {/* Dot grid */}
         <div
           className="absolute inset-0 pointer-events-none"
@@ -83,7 +83,7 @@ export default function QuienesSomosContent() {
           </motion.span>
           <motion.h1
             variants={fadeUp}
-            className="text-5xl sm:text-6xl lg:text-7xl font-bold text-gray-900 mb-8 leading-[1.05]"
+            className="text-4xl sm:text-5xl lg:text-7xl font-bold text-gray-900 mb-6 lg:mb-8 leading-[1.05]"
           >
             Nacimos para que los<br />
             profesionales puedan<br />
@@ -157,26 +157,23 @@ export default function QuienesSomosContent() {
             <div className="rounded-3xl overflow-hidden border border-gray-200 shadow-sm">
               {/* Header row */}
               <div className="grid grid-cols-2">
-                <div className="bg-gray-100 px-5 py-3 text-center">
+                <div className="bg-gray-100 px-4 py-3 text-center">
                   <span className="text-xs font-bold tracking-wide text-gray-400">Sin attempo</span>
                 </div>
-                <div className="bg-[#6C5CE4] px-5 py-3 text-center">
+                <div className="bg-[#6C5CE4] px-4 py-3 text-center">
                   <span className="text-xs font-bold tracking-wide text-white">Con attempo</span>
                 </div>
               </div>
               {/* Rows */}
               {cambios.map((item, i) => (
-                <div
-                  key={i}
-                  className="grid grid-cols-2 border-t border-gray-100"
-                >
-                  <div className="bg-white px-5 py-4 text-sm text-gray-500 flex items-center gap-2">
-                    <span className="text-red-400 flex-shrink-0">✗</span>
-                    {item.before}
+                <div key={i} className="grid grid-cols-2 border-t border-gray-100">
+                  <div className="bg-white px-3 py-3 sm:px-5 sm:py-4 text-xs sm:text-sm text-gray-500 flex items-start gap-1.5">
+                    <span className="text-red-400 flex-shrink-0 mt-0.5">✗</span>
+                    <span>{item.before}</span>
                   </div>
-                  <div className="bg-[#6C5CE4]/5 px-5 py-4 text-sm text-[#6C5CE4] font-medium flex items-center gap-2">
-                    <span className="text-green-500 flex-shrink-0">✓</span>
-                    {item.after}
+                  <div className="bg-[#6C5CE4]/5 px-3 py-3 sm:px-5 sm:py-4 text-xs sm:text-sm text-[#6C5CE4] font-medium flex items-start gap-1.5">
+                    <span className="text-green-500 flex-shrink-0 mt-0.5">✓</span>
+                    <span>{item.after}</span>
                   </div>
                 </div>
               ))}

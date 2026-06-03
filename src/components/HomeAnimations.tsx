@@ -74,7 +74,7 @@ export function HeroSection() {
         className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-[#4F46E5] rounded-full blur-3xl translate-x-1/3 translate-y-1/3 pointer-events-none"
       />
 
-      <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-12 items-center py-20">
+      <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-12 items-center py-10 lg:py-20">
         {/* Left — copy */}
         <motion.div
           variants={stagger}
@@ -91,7 +91,7 @@ export function HeroSection() {
 
           <motion.h1
             variants={fadeUp}
-            className="text-5xl sm:text-6xl font-bold text-gray-900 leading-tight mb-6"
+            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6"
           >
             Tu agenda,{" "}
             <span
@@ -171,7 +171,7 @@ export function HeroSection() {
             <motion.div
               animate={{ y: [0, -6, 0] }}
               transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -left-16 top-1/4 bg-white rounded-2xl shadow-lg p-3 flex items-center gap-3 w-44"
+              className="absolute -left-16 top-1/4 bg-white rounded-2xl shadow-lg p-3 hidden lg:flex items-center gap-3 w-44"
             >
               <div className="w-10 h-10 bg-green-100 rounded-xl flex items-center justify-center text-xl">📅</div>
               <div>
@@ -182,7 +182,7 @@ export function HeroSection() {
             <motion.div
               animate={{ y: [0, 6, 0] }}
               transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-              className="absolute -right-12 bottom-1/4 bg-white rounded-2xl shadow-lg p-3 flex items-center gap-3 w-44"
+              className="absolute -right-12 bottom-1/4 bg-white rounded-2xl shadow-lg p-3 hidden lg:flex items-center gap-3 w-44"
             >
               <div className="w-10 h-10 bg-purple-100 rounded-xl flex items-center justify-center text-xl">✅</div>
               <div>
@@ -338,12 +338,12 @@ export function ScreenshotsSection() {
         {/* Grid 2/5 left + 3/5 right */}
         <div className="grid lg:grid-cols-5 gap-8 items-center">
           {/* Left — feature list (2 cols) */}
-          <motion.div variants={fadeUp} className="lg:col-span-2 space-y-3">
+          <motion.div variants={fadeUp} className="lg:col-span-2 flex flex-row overflow-x-auto gap-2 pb-2 lg:flex-col lg:overflow-visible lg:gap-0 lg:space-y-3 -mx-4 px-4 lg:mx-0 lg:px-0">
             {tabs.map((t, i) => (
               <button
                 key={t.label}
                 onClick={() => setActive(i)}
-                className={`w-full text-left px-5 py-4 rounded-2xl transition-all flex items-center gap-4 ${
+                className={`flex-shrink-0 lg:flex-shrink lg:w-full text-left px-4 py-3 lg:px-5 lg:py-4 rounded-2xl transition-all flex items-center gap-3 lg:gap-4 ${
                   active === i
                     ? "bg-[#6C5CE4] text-white shadow-lg shadow-[#6C5CE4]/30"
                     : "bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white"
@@ -362,7 +362,7 @@ export function ScreenshotsSection() {
           </motion.div>
 
           {/* Right — laptop + phone (3 cols) */}
-          <motion.div variants={fadeUp} className="lg:col-span-3 relative pb-16">
+          <motion.div variants={fadeUp} className="lg:col-span-3 relative pb-4 lg:pb-16">
             {/* Glow */}
             <div className="absolute inset-0 bg-[#6C5CE4]/15 blur-3xl rounded-full pointer-events-none" />
 
@@ -398,7 +398,7 @@ export function ScreenshotsSection() {
             </div>
 
             {/* Phone overlapping bottom-right — más grande */}
-            <div className="absolute -bottom-2 -right-4 w-[160px]">
+            <div className="absolute -bottom-2 -right-4 w-[160px] hidden lg:block">
               <div className="bg-gray-800 rounded-[2.5rem] p-2.5 shadow-2xl ring-1 ring-white/20">
                 <div className="absolute top-4 left-1/2 -translate-x-1/2 w-10 h-2.5 bg-gray-800 rounded-full z-10" />
                 <motion.div
