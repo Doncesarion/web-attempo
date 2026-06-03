@@ -10,16 +10,7 @@ import Image from "next/image"
 
 const navLinks = [
   { label: "Inicio", href: "/" },
-  {
-    label: "Plataforma",
-    href: "/plataforma",
-    dropdown: [
-      { label: "Funcionalidades", href: "/plataforma" },
-      { label: "Recordatorios", href: "/plataforma#recordatorios" },
-      { label: "Paquete de sesiones", href: "/plataforma#paquetes" },
-      { label: "Boleta de honorarios", href: "/plataforma#boleta" },
-    ],
-  },
+  { label: "Plataforma", href: "/plataforma" },
   {
     label: "Soluciones",
     href: "/soluciones",
