@@ -24,7 +24,7 @@ export async function sendContactEmail(data: ContactFormData): Promise<{ ok: boo
   const primerNombre = data.nombre.split(" ")[0]
 
   const { error } = await resend.emails.send({
-    from: "attempo contacto <onboarding@resend.dev>",
+    from: "attempo contacto <contacto@attempo.cl>",
     to: "cesarsalinasmunoz@gmail.com",
     replyTo: data.email,
     subject: `[attempo] ${data.asunto}`,
