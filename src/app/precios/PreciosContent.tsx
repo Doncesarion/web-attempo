@@ -1,28 +1,70 @@
 "use client"
 
-import { useState } from "react"
+import React, { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 28 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.65, ease: [0.25, 0.46, 0.45, 0.94] as const } },
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] as const } },
 }
+const stagger = { hidden: {}, visible: { transition: { staggerChildren: 0.08 } } }
 
-const stagger = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.1 } },
-}
+// ─── SVG Icons ────────────────────────────────────────────────────────────────
+const CheckIcon = ({ className = "" }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="8" cy="8" r="8" fill="currentColor" fillOpacity="0.15" />
+    <path d="M4.5 8l2.5 2.5 4.5-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+)
+const DashIcon = () => (
+  <svg className="w-4 h-4 text-gray-300" viewBox="0 0 16 16" fill="none"><path d="M4 8h8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" /></svg>
+)
+const ChevronIcon = ({ open }: { open: boolean }) => (
+  <svg className={`w-5 h-5 text-[#6C5CE4] transition-transform duration-200 ${open ? "rotate-180" : ""}`} viewBox="0 0 20 20" fill="none">
+    <path d="M5 7.5l5 5 5-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+)
+const GiftIcon = () => (
+  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <polyline points="20 12 20 22 4 22 4 12" /><rect x="2" y="7" width="20" height="5" /><line x1="12" y1="22" x2="12" y2="7" />
+    <path d="M12 7H7.5a2.5 2.5 0 010-5C11 2 12 7 12 7z" /><path d="M12 7h4.5a2.5 2.5 0 000-5C13 2 12 7 12 7z" />
+  </svg>
+)
+const ShieldIcon = () => (
+  <svg className="w-8 h-8 text-[#6C5CE4]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /><polyline points="9 12 11 14 15 10" />
+  </svg>
+)
+const ZapIcon = () => (
+  <svg className="w-6 h-6 text-[#6C5CE4]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+  </svg>
+)
+const ChatIcon = () => (
+  <svg className="w-6 h-6 text-[#6C5CE4]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
+  </svg>
+)
+const UnlockIcon = () => (
+  <svg className="w-6 h-6 text-[#6C5CE4]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="3" y="11" width="18" height="11" rx="2" ry="2" /><path d="M7 11V7a5 5 0 019.9-1" />
+  </svg>
+)
+const BuildingIcon = () => (
+  <svg className="w-10 h-10 text-white opacity-80" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" /><polyline points="9 22 9 12 15 12 15 22" />
+  </svg>
+)
 
-// ─── Datos de planes ────────────────────────────────────────────────
+// ─── Datos ────────────────────────────────────────────────────────────────────
 const planes = [
   {
-    id: "basico",
-    nombre: "Básico",
-    uf: "0,6",
-    mensual: 29020,
-    anual: 289039,
-    ufAnual: "6",
-    desc: "Para profesionales que quieren digitalizar su agenda desde el primer día.",
+    id: "inicio",
+    nombre: "Inicio",
+    tag: "Para empezar",
+    mensual: 19990,
+    anual: 191900,
+    desc: "Todo lo que necesitas para digitalizar tu agenda y empezar a cobrar online.",
     popular: false,
     cta: "Empieza gratis",
     href: "https://app.attempo.cl/registro",
@@ -40,19 +82,18 @@ const planes = [
     ],
   },
   {
-    id: "profesional",
-    nombre: "Profesional",
-    uf: "1",
-    mensual: 48367,
-    anual: 483670,
-    ufAnual: "10",
-    desc: "Para profesionales consolidados que necesitan más herramientas de gestión.",
+    id: "pro",
+    nombre: "Pro",
+    tag: "Para profesionales",
+    mensual: 44990,
+    anual: 431900,
+    desc: "Herramientas avanzadas para profesionales consolidados que quieren crecer.",
     popular: true,
     cta: "Empieza gratis",
     href: "https://app.attempo.cl/registro",
     nota: null,
     features: [
-      "Todo lo del plan Básico",
+      "Todo lo del plan Inicio",
       "Sin costo en transferencias",
       "Transcriptor IA de consultas",
       "Integración con FONASA",
@@ -62,25 +103,24 @@ const planes = [
     ],
   },
   {
-    id: "full",
-    nombre: "Full IA",
-    uf: "3",
-    mensual: 145101,
-    anual: 1451010,
-    ufAnual: "30",
-    desc: "Para centros y clínicas que quieren automatización total con inteligencia artificial.",
+    id: "clinica",
+    nombre: "Clínica IA",
+    tag: "Para centros",
+    mensual: 99990,
+    anual: 959900,
+    desc: "Automatización total con IA para centros médicos y clínicas con múltiples profesionales.",
     popular: false,
-    cta: "Más información",
+    cta: "Hablar con ventas",
     href: "/contacto",
     nota: null,
     features: [
-      "Todo lo del plan Profesional",
+      "Todo lo del plan Pro",
       "Chatbot IA en WhatsApp 24/7",
       "Cobro automático por WhatsApp",
       "Recuperación de citas por IA",
       "WhatsApps de confirmación automáticos",
       "WhatsApp de evaluación post-cita",
-      "Reportes avanzados de tu consulta",
+      "Reportes avanzados",
       "Personalización de colores del perfil",
       "Correos masivos ilimitados",
       "Recetas médicas electrónicas",
@@ -89,97 +129,69 @@ const planes = [
   },
 ]
 
-// ─── Tabla comparativa ───────────────────────────────────────────────
 type CeldaVal = boolean | string
-const categorias: { nombre: string; features: { label: string; basico: CeldaVal; pro: CeldaVal; full: CeldaVal }[] }[] = [
+const categorias: { nombre: string; rows: { label: string; inicio: CeldaVal; pro: CeldaVal; clinica: CeldaVal }[] }[] = [
   {
     nombre: "Agenda y gestión",
-    features: [
-      { label: "Perfil de agendamiento online", basico: true, pro: true, full: true },
-      { label: "Agenda y calendario digital", basico: true, pro: true, full: true },
-      { label: "Servicios ilimitados", basico: true, pro: true, full: true },
-      { label: "Recordatorios por correo y WhatsApp", basico: true, pro: true, full: true },
-      { label: "Fichas clínicas", basico: true, pro: true, full: true },
-      { label: "Marcar citas como pagadas", basico: true, pro: true, full: true },
-      { label: "Evaluaciones en tu perfil", basico: true, pro: true, full: true },
-      { label: "Reportes avanzados", basico: false, pro: false, full: true },
-      { label: "Personalización de colores del perfil", basico: false, pro: false, full: true },
+    rows: [
+      { label: "Perfil de agendamiento online",     inicio: true,     pro: true,        clinica: true },
+      { label: "Agenda y calendario digital",       inicio: true,     pro: true,        clinica: true },
+      { label: "Servicios ilimitados",              inicio: true,     pro: true,        clinica: true },
+      { label: "Recordatorios correo y WhatsApp",   inicio: true,     pro: true,        clinica: true },
+      { label: "Fichas clínicas",                   inicio: true,     pro: true,        clinica: true },
+      { label: "Marcar citas como pagadas",         inicio: true,     pro: true,        clinica: true },
+      { label: "Evaluaciones en tu perfil",         inicio: true,     pro: true,        clinica: true },
+      { label: "Reportes avanzados",                inicio: false,    pro: false,       clinica: true },
+      { label: "Personalización de colores",        inicio: false,    pro: false,       clinica: true },
     ],
   },
   {
     nombre: "Pagos y facturación",
-    features: [
-      { label: "Pagos por transferencia y WebPay", basico: true, pro: true, full: true },
-      { label: "Costo en transferencias", basico: "1%", pro: "Sin costo", full: "Sin costo" },
-      { label: "Comisión débito (WebPay)", basico: "1,49% + IVA", pro: "1,49% + IVA", full: "1,49% + IVA" },
-      { label: "Comisión crédito (WebPay)", basico: "2,95% + IVA", pro: "2,95% + IVA", full: "2,95% + IVA" },
-      { label: "Emisión de boletas electrónicas", basico: false, pro: true, full: true },
-      { label: "Pagos en dólares", basico: false, pro: true, full: true },
-      { label: "Cobro automático por WhatsApp", basico: false, pro: false, full: true },
+    rows: [
+      { label: "Pagos por transferencia y WebPay",  inicio: true,          pro: true,           clinica: true },
+      { label: "Costo en transferencias",           inicio: "1% costo",    pro: "Sin costo",    clinica: "Sin costo" },
+      { label: "Comisión débito (WebPay)",          inicio: "1,49% + IVA", pro: "1,49% + IVA",  clinica: "1,49% + IVA" },
+      { label: "Comisión crédito (WebPay)",         inicio: "2,95% + IVA", pro: "2,95% + IVA",  clinica: "2,95% + IVA" },
+      { label: "Emisión de boletas electrónicas",   inicio: false,         pro: true,           clinica: true },
+      { label: "Pagos en dólares",                  inicio: false,         pro: true,           clinica: true },
+      { label: "Cobro automático por WhatsApp",     inicio: false,         pro: false,          clinica: true },
     ],
   },
   {
-    nombre: "Contenido y marketing",
-    features: [
-      { label: "Vitrina de talleres y contenido", basico: false, pro: true, full: true },
-      { label: "Integración con FONASA", basico: false, pro: true, full: true },
-      { label: "Correos masivos ilimitados", basico: false, pro: false, full: true },
-      { label: "Recetas médicas electrónicas", basico: false, pro: false, full: true },
+    nombre: "Contenido y herramientas",
+    rows: [
+      { label: "Vitrina de talleres y contenido",   inicio: false, pro: true,  clinica: true },
+      { label: "Integración con FONASA",            inicio: false, pro: true,  clinica: true },
+      { label: "Correos masivos ilimitados",        inicio: false, pro: false, clinica: true },
+      { label: "Recetas médicas electrónicas",      inicio: false, pro: false, clinica: true },
     ],
   },
   {
     nombre: "Inteligencia artificial",
-    features: [
-      { label: "Transcriptor IA de consultas", basico: false, pro: true, full: true },
-      { label: "Chatbot IA en WhatsApp 24/7", basico: false, pro: false, full: true },
-      { label: "Recuperación de citas por IA", basico: false, pro: false, full: true },
-      { label: "WhatsApps de confirmación automáticos", basico: false, pro: false, full: true },
-      { label: "WhatsApp de evaluación post-cita", basico: false, pro: false, full: true },
+    rows: [
+      { label: "Transcriptor IA de consultas",         inicio: false, pro: true,  clinica: true },
+      { label: "Chatbot IA en WhatsApp 24/7",          inicio: false, pro: false, clinica: true },
+      { label: "Recuperación de citas por IA",         inicio: false, pro: false, clinica: true },
+      { label: "WhatsApps de confirmación automáticos",inicio: false, pro: false, clinica: true },
     ],
   },
   {
     nombre: "Soporte",
-    features: [
-      { label: "Soporte vía chat", basico: true, pro: true, full: true },
-      { label: "Soporte vía correo y WhatsApp", basico: false, pro: false, full: true },
+    rows: [
+      { label: "Soporte vía chat",                     inicio: true,  pro: true,  clinica: true },
+      { label: "Soporte vía correo y WhatsApp",        inicio: false, pro: false, clinica: true },
     ],
   },
 ]
 
-// ─── FAQ ─────────────────────────────────────────────────────────────
 const faqs = [
-  {
-    q: "¿Cómo funciona el cobro?",
-    a: "Si pagas mensual, el cobro es automático cada mes. Si eliges anual, pagas una sola vez y equivale a 10 meses del plan (ahorras 2 meses). Siempre recibirás un correo antes de cada cobro. Puedes cancelar en cualquier momento.",
-  },
-  {
-    q: "¿Puedo pagar el plan anual en cuotas?",
-    a: "Sí. Tenemos convenio de hasta 12 cuotas sin interés con tarjeta de crédito de cualquier banco. Puedes darte de baja en cualquier momento.",
-  },
-  {
-    q: "¿El precio de los planes es fijo?",
-    a: "Los planes están en UF, que varía diariamente con la inflación. Si pagas anual, fijas el precio por 12 meses y te proteges de los reajustes.",
-  },
-  {
-    q: "¿Qué pasa cuando termina la prueba gratis?",
-    a: "Al terminar los 12 días, te pediremos que elijas un plan. Si no lo haces, tu cuenta queda en modo limitado. No se te cobra nada automáticamente sin que lo confirmes.",
-  },
-  {
-    q: "¿Puedo cambiar de plan en cualquier momento?",
-    a: "Sí. Puedes subir o bajar de plan cuando quieras. Los cambios aplican al siguiente ciclo de facturación.",
-  },
-  {
-    q: "¿Hay comisión en los pagos con tarjeta?",
-    a: "Sí. Los pagos con WebPay tienen una comisión de 1,49% + IVA para tarjeta de débito y 2,95% + IVA para crédito. Esto aplica en todos los planes y lo paga el profesional.",
-  },
-  {
-    q: "¿Los precios incluyen IVA?",
-    a: "No. Los precios mostrados son antes de IVA (19%). El total con IVA se muestra al momento de suscribirte.",
-  },
-  {
-    q: "¿Qué es la UF y por qué se usa en los planes?",
-    a: "La UF es una unidad de cuenta reajustable que se actualiza diariamente. La usamos para mantener precios estables en el tiempo, igual que la mayoría de los servicios profesionales y arriendos en Chile.",
-  },
+  { q: "¿Cómo funciona el cobro?", a: "Si pagas mensual, el cobro es automático cada mes. Si eliges anual, pagas una sola vez y equivale a 10 meses (ahorras 2 meses completos). Siempre recibirás un correo antes de cada cobro. Puedes cancelar en cualquier momento." },
+  { q: "¿Puedo pagar el plan anual en cuotas?", a: "Sí. Tenemos convenio de hasta 12 cuotas sin interés con tarjeta de crédito de cualquier banco. Puedes darte de baja en cualquier momento sin costo adicional." },
+  { q: "¿Hay comisión en los pagos con tarjeta?", a: "Sí. Los pagos con WebPay tienen una comisión de 1,49% + IVA para débito y 2,95% + IVA para crédito. Esto aplica en todos los planes y lo asume el profesional." },
+  { q: "¿Qué pasa cuando termina la prueba gratis?", a: "Al terminar los 12 días, te pedimos que elijas un plan. Si no lo haces, tu cuenta pasa a modo limitado. No se cobra nada sin que tú lo confirmes primero." },
+  { q: "¿Puedo cambiar de plan?", a: "Sí, en cualquier momento. Si subes de plan, el cambio aplica de inmediato. Si bajas, aplica al inicio del siguiente período." },
+  { q: "¿Los precios incluyen IVA?", a: "No. Los precios mostrados son antes de IVA (19%). El total con IVA se detalla al momento de suscribirte." },
+  { q: "¿Los precios son fijos?", a: "Sí. A diferencia de otras plataformas que usan UF, en attempo los precios están en pesos chilenos fijos. Lo que ves es lo que pagas, sin sorpresas por variaciones de la UF." },
 ]
 
 function formatCLP(n: number) {
@@ -187,9 +199,9 @@ function formatCLP(n: number) {
 }
 
 function Celda({ val, popular }: { val: CeldaVal; popular?: boolean }) {
-  if (val === true) return <span className={`text-lg ${popular ? "text-green-300" : "text-[#6C5CE4]"}`}>✓</span>
-  if (val === false) return <span className="text-gray-300 text-lg">—</span>
-  return <span className={`text-xs font-semibold ${popular ? "text-purple-200" : "text-gray-500"}`}>{val}</span>
+  if (val === true) return <CheckIcon className={`w-5 h-5 mx-auto ${popular ? "text-[#6C5CE4]" : "text-[#6C5CE4]"}`} />
+  if (val === false) return <span className="flex justify-center"><DashIcon /></span>
+  return <span className={`text-xs font-medium ${popular ? "text-[#6C5CE4]" : "text-gray-500"}`}>{val}</span>
 }
 
 export default function PreciosContent() {
@@ -197,182 +209,204 @@ export default function PreciosContent() {
   const [faqAbierta, setFaqAbierta] = useState<number | null>(null)
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col bg-white">
 
-      {/* ── Hero ─────────────────────────────────────────── */}
-      <section className="pt-24 pb-12 px-4 bg-gradient-to-br from-purple-50 via-white to-purple-50">
-        <motion.div className="max-w-3xl mx-auto text-center" initial="hidden" animate="visible" variants={stagger}>
-          <motion.p variants={fadeUp} className="text-[#6C5CE4] text-sm font-semibold uppercase tracking-widest mb-4">
-            Precios
-          </motion.p>
-          <motion.h1 variants={fadeUp} className="text-5xl font-bold text-gray-900 mb-5 leading-tight">
-            Planes para cada necesidad
+      {/* ── Hero ──────────────────────────────────────────────────────────── */}
+      <section className="pt-24 pb-16 px-4 bg-gradient-to-b from-[#f5f3ff] to-white">
+        <motion.div className="max-w-2xl mx-auto text-center" initial="hidden" animate="visible" variants={stagger}>
+          <motion.span variants={fadeUp} className="inline-flex items-center gap-2 bg-[#6C5CE4]/10 text-[#6C5CE4] text-sm font-semibold px-4 py-2 rounded-full mb-6">
+            <GiftIcon /> 12 días de prueba gratis · Sin tarjeta de crédito
+          </motion.span>
+          <motion.h1 variants={fadeUp} className="text-5xl font-bold text-gray-900 mb-4 leading-[1.1] tracking-tight">
+            Planes claros,<br />sin sorpresas
           </motion.h1>
-          <motion.p variants={fadeUp} className="text-xl text-gray-500 mb-8">
-            Sin sorpresas. Escala cuando lo necesites.
+          <motion.p variants={fadeUp} className="text-lg text-gray-500 mb-10">
+            Precios en pesos fijos. Sin UF, sin variaciones. Lo que ves es lo que pagas.
           </motion.p>
-          <motion.div variants={fadeUp} className="inline-flex items-center gap-2 bg-[#6C5CE4]/10 text-[#6C5CE4] text-sm font-semibold px-4 py-2 rounded-full mb-10">
-            <span>🎁</span> 12 días de prueba gratis — sin tarjeta de crédito
-          </motion.div>
 
           {/* Toggle */}
-          <motion.div variants={fadeUp} className="flex items-center justify-center gap-3">
-            <span className={`text-sm font-semibold ${ciclo === "mensual" ? "text-gray-900" : "text-gray-400"}`}>Mensual</span>
+          <motion.div variants={fadeUp} className="inline-flex items-center gap-3 bg-gray-100 rounded-full p-1.5">
             <button
-              onClick={() => setCiclo(ciclo === "mensual" ? "anual" : "mensual")}
-              className={`relative w-14 h-7 rounded-full transition-colors duration-300 focus:outline-none ${ciclo === "anual" ? "bg-[#6C5CE4]" : "bg-gray-300"}`}
+              onClick={() => setCiclo("mensual")}
+              className={`px-5 py-2 rounded-full text-sm font-semibold transition-all duration-200 cursor-pointer ${ciclo === "mensual" ? "bg-white text-gray-900 shadow-sm" : "text-gray-500 hover:text-gray-700"}`}
             >
-              <span className={`absolute top-1 w-5 h-5 bg-white rounded-full shadow transition-transform duration-300 ${ciclo === "anual" ? "translate-x-8" : "translate-x-1"}`} />
+              Mensual
             </button>
-            <span className={`text-sm font-semibold ${ciclo === "anual" ? "text-gray-900" : "text-gray-400"}`}>Anual</span>
-            {ciclo === "anual" && (
-              <span className="bg-green-100 text-green-700 text-xs font-bold px-2.5 py-1 rounded-full">17% descuento</span>
-            )}
+            <button
+              onClick={() => setCiclo("anual")}
+              className={`px-5 py-2 rounded-full text-sm font-semibold transition-all duration-200 cursor-pointer flex items-center gap-2 ${ciclo === "anual" ? "bg-white text-gray-900 shadow-sm" : "text-gray-500 hover:text-gray-700"}`}
+            >
+              Anual
+              <span className="bg-green-100 text-green-700 text-xs font-bold px-2 py-0.5 rounded-full">−20%</span>
+            </button>
           </motion.div>
+
+          {ciclo === "anual" && (
+            <motion.p initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} className="text-sm text-green-600 font-medium mt-3">
+              Pagas 10 meses, te regalamos 2 — el descuento más alto del mercado
+            </motion.p>
+          )}
         </motion.div>
       </section>
 
-      {/* ── Cards ────────────────────────────────────────── */}
-      <section className="pb-16 px-4 bg-gradient-to-br from-purple-50 via-white to-purple-50">
+      {/* ── Cards ──────────────────────────────────────────────────────────── */}
+      <section className="pb-20 px-4">
         <motion.div
-          className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 items-start"
+          className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-5 items-stretch"
           initial="hidden" animate="visible" variants={stagger}
         >
           {planes.map((plan) => (
             <motion.div
               key={plan.id}
               variants={fadeUp}
-              className={`relative rounded-2xl flex flex-col ${plan.popular
-                ? "bg-[#6C5CE4] text-white shadow-2xl shadow-purple-300/40 scale-105"
-                : "bg-white border border-purple-100 shadow-sm"}`}
+              className={`relative rounded-2xl flex flex-col border transition-shadow hover:shadow-lg ${
+                plan.popular
+                  ? "border-[#6C5CE4] shadow-xl shadow-purple-100"
+                  : "border-gray-200 shadow-sm"
+              }`}
             >
               {plan.popular && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                  <span className="bg-white text-[#6C5CE4] text-xs font-bold px-4 py-1.5 rounded-full shadow-md">⭐ Más popular</span>
+                <div className="absolute -top-3.5 inset-x-0 flex justify-center">
+                  <span className="bg-[#6C5CE4] text-white text-xs font-bold px-4 py-1 rounded-full shadow">
+                    Más popular
+                  </span>
                 </div>
               )}
-              <div className="p-8 flex flex-col flex-1">
-                <p className={`text-xs font-bold uppercase tracking-widest mb-1 ${plan.popular ? "text-purple-200" : "text-[#6C5CE4]"}`}>{plan.nombre}</p>
-                <p className={`text-sm mb-6 ${plan.popular ? "text-purple-200" : "text-gray-500"}`}>{plan.desc}</p>
 
-                <div className="mb-1">
-                  <span className={`text-4xl font-extrabold ${plan.popular ? "text-white" : "text-gray-900"}`}>
-                    {formatCLP(ciclo === "mensual" ? plan.mensual : Math.round(plan.anual / 12))}
-                  </span>
-                  <span className={`text-sm ml-1 ${plan.popular ? "text-purple-200" : "text-gray-400"}`}>/mes</span>
+              <div className={`p-7 flex flex-col flex-1 ${plan.popular ? "pt-9" : ""}`}>
+                {/* Header */}
+                <div className="mb-6">
+                  <p className="text-xs font-bold uppercase tracking-widest text-[#6C5CE4] mb-0.5">{plan.tag}</p>
+                  <h2 className="text-2xl font-bold text-gray-900">{plan.nombre}</h2>
+                  <p className="text-sm text-gray-400 mt-1 leading-snug">{plan.desc}</p>
                 </div>
-                <p className={`text-xs mb-1 ${plan.popular ? "text-purple-200" : "text-gray-400"}`}>
-                  {ciclo === "mensual"
-                    ? `${plan.uf} UF + IVA /mes`
-                    : `${plan.ufAnual} UF + IVA /año — ${formatCLP(plan.anual)}`}
-                </p>
-                {ciclo === "anual" && (
-                  <p className={`text-xs font-semibold mb-1 ${plan.popular ? "text-green-300" : "text-green-600"}`}>
-                    Ahorras {formatCLP(plan.mensual * 12 - plan.anual)} al año
-                  </p>
-                )}
 
-                <div className={`my-6 border-t ${plan.popular ? "border-white/20" : "border-purple-100"}`} />
-
-                <ul className="flex flex-col gap-3 flex-1 mb-8">
-                  {plan.features.map((f) => (
-                    <li key={f} className="flex items-start gap-2.5">
-                      <span className={`mt-0.5 text-sm ${plan.popular ? "text-green-300" : "text-[#6C5CE4]"}`}>✓</span>
-                      <span className={`text-sm ${plan.popular ? "text-purple-100" : "text-gray-600"}`}>{f}</span>
-                    </li>
-                  ))}
-                  {plan.nota && (
-                    <li className="flex items-start gap-2.5 opacity-60">
-                      <span className="mt-0.5 text-sm text-gray-400">·</span>
-                      <span className="text-sm text-gray-400">{plan.nota}</span>
-                    </li>
+                {/* Precio */}
+                <div className="mb-6">
+                  <div className="flex items-end gap-1">
+                    <span className="text-4xl font-extrabold text-gray-900 tracking-tight">
+                      {formatCLP(ciclo === "mensual" ? plan.mensual : Math.round(plan.anual / 12))}
+                    </span>
+                    <span className="text-gray-400 text-sm mb-1">/mes + IVA</span>
+                  </div>
+                  {ciclo === "anual" ? (
+                    <p className="text-sm text-green-600 font-medium mt-1">
+                      {formatCLP(plan.anual)}/año · ahorras {formatCLP(plan.mensual * 12 - plan.anual)}
+                    </p>
+                  ) : (
+                    <p className="text-xs text-gray-400 mt-1">
+                      o {formatCLP(Math.round(plan.anual / 12))}/mes pagando anual
+                    </p>
                   )}
-                </ul>
+                </div>
 
+                {/* CTA */}
                 <a
                   href={plan.href}
-                  className={`block text-center text-sm font-bold py-3.5 px-6 rounded-xl transition-all duration-200 ${plan.popular
-                    ? "bg-white text-[#6C5CE4] hover:bg-purple-50"
-                    : "bg-[#6C5CE4] text-white hover:bg-[#5b4dd0]"}`}
+                  className={`block text-center text-sm font-bold py-3.5 px-6 rounded-xl transition-all duration-150 cursor-pointer mb-6 ${
+                    plan.popular
+                      ? "bg-[#6C5CE4] text-white hover:bg-[#5b4dd0] shadow-sm"
+                      : "border-2 border-gray-200 text-gray-700 hover:border-[#6C5CE4] hover:text-[#6C5CE4]"
+                  }`}
                 >
                   {plan.cta}
                 </a>
+
+                {/* Separator */}
+                <div className="border-t border-gray-100 mb-5" />
+
+                {/* Features */}
+                <ul className="flex flex-col gap-2.5 flex-1">
+                  {plan.features.map((f) => (
+                    <li key={f} className="flex items-start gap-2.5">
+                      <CheckIcon className="w-4 h-4 mt-0.5 flex-shrink-0 text-[#6C5CE4]" />
+                      <span className="text-sm text-gray-600 leading-snug">{f}</span>
+                    </li>
+                  ))}
+                  {plan.nota && (
+                    <li className="flex items-start gap-2.5 mt-1 opacity-50">
+                      <span className="text-gray-400 text-xs mt-0.5">·</span>
+                      <span className="text-xs text-gray-400">{plan.nota}</span>
+                    </li>
+                  )}
+                </ul>
               </div>
             </motion.div>
           ))}
         </motion.div>
-        <p className="text-center text-xs text-gray-400 mt-8">Todos los precios en pesos chilenos. Valores no incluyen IVA.</p>
+
+        <p className="text-center text-xs text-gray-400 mt-6">Todos los precios en pesos chilenos + IVA.</p>
       </section>
 
-      {/* ── Tabla comparativa ────────────────────────────── */}
-      <section className="py-20 px-4 bg-white">
+      {/* ── Tabla comparativa ──────────────────────────────────────────────── */}
+      <section className="py-20 px-4 bg-gray-50">
         <motion.div
           className="max-w-5xl mx-auto"
-          initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }} variants={stagger}
+          initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.05 }} variants={stagger}
         >
-          <motion.h2 variants={fadeUp} className="text-3xl font-bold text-gray-900 text-center mb-2">
-            Compara los planes
+          <motion.h2 variants={fadeUp} className="text-3xl font-bold text-gray-900 text-center mb-2 tracking-tight">
+            Todo lo que incluye cada plan
           </motion.h2>
-          <motion.p variants={fadeUp} className="text-gray-500 text-center mb-12">
-            Todo lo que incluye cada plan, sin letra chica.
-          </motion.p>
+          <motion.p variants={fadeUp} className="text-gray-500 text-center mb-10">Sin letra chica.</motion.p>
 
-          <motion.div variants={fadeUp} className="overflow-x-auto rounded-2xl border border-purple-100 shadow-sm">
-            <table className="w-full min-w-[560px] text-sm">
+          <motion.div variants={fadeUp} className="overflow-x-auto rounded-2xl border border-gray-200 bg-white shadow-sm">
+            <table className="w-full min-w-[540px] text-sm">
               <thead>
-                <tr className="border-b border-purple-100">
+                <tr className="border-b border-gray-100">
                   <th className="text-left py-4 px-6 text-gray-400 font-medium w-1/2">Característica</th>
-                  <th className="text-center py-4 px-4 text-gray-700 font-bold">Básico</th>
-                  <th className="text-center py-4 px-4 bg-[#6C5CE4] text-white font-bold rounded-t-xl">Profesional</th>
-                  <th className="text-center py-4 px-4 text-gray-700 font-bold">Full IA</th>
+                  <th className="text-center py-4 px-5 text-gray-600 font-bold">Inicio</th>
+                  <th className="text-center py-4 px-5 text-[#6C5CE4] font-bold bg-[#6C5CE4]/5 border-x border-[#6C5CE4]/10">Pro</th>
+                  <th className="text-center py-4 px-5 text-gray-600 font-bold">Clínica IA</th>
                 </tr>
               </thead>
               <tbody>
                 {categorias.map((cat, ci) => (
-                  <>
-                    <tr key={`cat-${ci}`} className="bg-purple-50">
-                      <td colSpan={4} className="py-3 px-6 text-xs font-bold text-[#6C5CE4] uppercase tracking-widest">
+                  <React.Fragment key={`cat-${ci}`}>
+                    <tr className="bg-gray-50 border-y border-gray-100">
+                      <td colSpan={4} className="py-2.5 px-6 text-[11px] font-bold text-gray-400 uppercase tracking-widest">
                         {cat.nombre}
                       </td>
                     </tr>
-                    {cat.features.map((f, fi) => (
-                      <tr key={`f-${ci}-${fi}`} className="border-t border-purple-50 hover:bg-purple-50/30 transition-colors">
-                        <td className="py-3.5 px-6 text-gray-600">{f.label}</td>
-                        <td className="text-center py-3.5 px-4"><Celda val={f.basico} /></td>
-                        <td className="text-center py-3.5 px-4 bg-[#6C5CE4]/5"><Celda val={f.pro} popular /></td>
-                        <td className="text-center py-3.5 px-4"><Celda val={f.full} /></td>
+                    {cat.rows.map((row, ri) => (
+                      <tr key={`r-${ci}-${ri}`} className="border-b border-gray-50 hover:bg-gray-50/60 transition-colors">
+                        <td className="py-3 px-6 text-gray-600 text-sm">{row.label}</td>
+                        <td className="text-center py-3 px-5"><Celda val={row.inicio} /></td>
+                        <td className="text-center py-3 px-5 bg-[#6C5CE4]/5 border-x border-[#6C5CE4]/10"><Celda val={row.pro} popular /></td>
+                        <td className="text-center py-3 px-5"><Celda val={row.clinica} /></td>
                       </tr>
                     ))}
-                  </>
+                  </React.Fragment>
                 ))}
-                {/* Fila precio */}
-                <tr className="border-t-2 border-purple-200 bg-purple-50">
-                  <td className="py-4 px-6 font-bold text-gray-900">Precio mensual</td>
-                  <td className="text-center py-4 px-4 font-bold text-gray-700">{formatCLP(29020)}</td>
-                  <td className="text-center py-4 px-4 bg-[#6C5CE4] text-white font-bold">{formatCLP(48367)}</td>
-                  <td className="text-center py-4 px-4 font-bold text-gray-700">{formatCLP(145101)}</td>
+                {/* Precios finales */}
+                <tr className="border-t-2 border-gray-200 bg-gray-50">
+                  <td className="py-5 px-6 font-bold text-gray-900">
+                    {ciclo === "mensual" ? "Precio mensual + IVA" : "Precio anual + IVA"}
+                  </td>
+                  <td className="text-center py-5 px-5 font-bold text-gray-700">
+                    {formatCLP(ciclo === "mensual" ? 19990 : 191900)}
+                  </td>
+                  <td className="text-center py-5 px-5 bg-[#6C5CE4]/5 border-x border-[#6C5CE4]/10 font-bold text-[#6C5CE4]">
+                    {formatCLP(ciclo === "mensual" ? 44990 : 431900)}
+                  </td>
+                  <td className="text-center py-5 px-5 font-bold text-gray-700">
+                    {formatCLP(ciclo === "mensual" ? 99990 : 959900)}
+                  </td>
                 </tr>
-                <tr className="border-t border-purple-100 bg-purple-50">
-                  <td className="py-4 px-6 text-gray-500 text-xs">UF + IVA /mes</td>
-                  <td className="text-center py-4 px-4 text-xs text-gray-500">0,6 UF</td>
-                  <td className="text-center py-4 px-4 bg-[#6C5CE4]/10 text-xs text-[#6C5CE4] font-semibold">1 UF</td>
-                  <td className="text-center py-4 px-4 text-xs text-gray-500">3 UF</td>
-                </tr>
-                <tr className="border-t border-purple-100 bg-purple-50">
-                  <td className="py-4 px-6 text-gray-500 text-xs"></td>
-                  <td className="text-center py-4 px-4">
-                    <a href="https://app.attempo.cl/registro" className="inline-block text-xs font-bold text-[#6C5CE4] border border-[#6C5CE4] px-4 py-2 rounded-lg hover:bg-[#6C5CE4] hover:text-white transition-colors">
+                <tr className="bg-gray-50">
+                  <td className="py-4 px-6" />
+                  <td className="text-center py-4 px-5">
+                    <a href="https://app.attempo.cl/registro" className="inline-block min-h-[44px] leading-[44px] text-xs font-bold text-[#6C5CE4] border border-[#6C5CE4] px-5 rounded-xl hover:bg-[#6C5CE4] hover:text-white transition-colors cursor-pointer">
                       Empieza gratis
                     </a>
                   </td>
-                  <td className="text-center py-4 px-4 bg-[#6C5CE4]/5">
-                    <a href="https://app.attempo.cl/registro" className="inline-block text-xs font-bold bg-[#6C5CE4] text-white px-4 py-2 rounded-lg hover:bg-[#5b4dd0] transition-colors">
+                  <td className="text-center py-4 px-5 bg-[#6C5CE4]/5 border-x border-[#6C5CE4]/10">
+                    <a href="https://app.attempo.cl/registro" className="inline-block min-h-[44px] leading-[44px] text-xs font-bold bg-[#6C5CE4] text-white px-5 rounded-xl hover:bg-[#5b4dd0] transition-colors cursor-pointer">
                       Empieza gratis
                     </a>
                   </td>
-                  <td className="text-center py-4 px-4">
-                    <a href="/contacto" className="inline-block text-xs font-bold text-[#6C5CE4] border border-[#6C5CE4] px-4 py-2 rounded-lg hover:bg-[#6C5CE4] hover:text-white transition-colors">
-                      Más información
+                  <td className="text-center py-4 px-5">
+                    <a href="/contacto" className="inline-block min-h-[44px] leading-[44px] text-xs font-bold text-[#6C5CE4] border border-[#6C5CE4] px-5 rounded-xl hover:bg-[#6C5CE4] hover:text-white transition-colors cursor-pointer">
+                      Contactar
                     </a>
                   </td>
                 </tr>
@@ -382,133 +416,117 @@ export default function PreciosContent() {
         </motion.div>
       </section>
 
-      {/* ── ¿Tienes equipo o centro? ─────────────────────── */}
-      <section className="py-20 px-4 bg-gradient-to-br from-[#6C5CE4] to-[#4c3abf]">
+      {/* ── Para equipos ────────────────────────────────────────────────────── */}
+      <section className="py-20 px-4 bg-[#6C5CE4]">
         <motion.div
-          className="max-w-4xl mx-auto"
+          className="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-12"
           initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} variants={stagger}
         >
-          <div className="flex flex-col md:flex-row items-center gap-10">
-            <motion.div variants={fadeUp} className="flex-1 text-center md:text-left">
-              <p className="text-purple-300 text-sm font-semibold uppercase tracking-widest mb-3">Para equipos y centros</p>
-              <h2 className="text-4xl font-bold text-white mb-4 leading-tight">
-                ¿Trabajas con un equipo<br />o tienes un centro?
-              </h2>
-              <p className="text-purple-200 text-lg mb-8">
-                Tenemos planes multi-profesional con gestión centralizada, facturación del centro y soporte dedicado. Cuéntanos tu caso y te armamos una propuesta.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
-                <a
-                  href="/contacto"
-                  className="inline-block bg-white text-[#6C5CE4] font-bold text-sm px-7 py-3.5 rounded-xl hover:bg-purple-50 transition-colors"
-                >
-                  Hablar con el equipo →
-                </a>
-                <a
-                  href="mailto:contacto@attempo.cl"
-                  className="inline-block border border-white/40 text-white font-semibold text-sm px-7 py-3.5 rounded-xl hover:bg-white/10 transition-colors"
-                >
-                  contacto@attempo.cl
-                </a>
+          <motion.div variants={fadeUp} className="flex-1 text-center md:text-left">
+            <p className="text-purple-300 text-xs font-bold uppercase tracking-widest mb-3">Para equipos y centros</p>
+            <h2 className="text-4xl font-bold text-white mb-4 leading-tight tracking-tight">
+              ¿Tienes un equipo<br />o un centro médico?
+            </h2>
+            <p className="text-purple-200 text-lg mb-8 leading-relaxed">
+              Plan multi-profesional con gestión centralizada, facturación del centro y soporte dedicado. Cuéntanos tu caso y armamos una propuesta a medida.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
+              <a href="/contacto" className="inline-flex items-center justify-center min-h-[48px] bg-white text-[#6C5CE4] font-bold text-sm px-7 rounded-xl hover:bg-purple-50 transition-colors cursor-pointer">
+                Hablar con el equipo →
+              </a>
+              <a href="mailto:contacto@attempo.cl" className="inline-flex items-center justify-center min-h-[48px] border border-white/30 text-white font-medium text-sm px-7 rounded-xl hover:bg-white/10 transition-colors cursor-pointer">
+                contacto@attempo.cl
+              </a>
+            </div>
+          </motion.div>
+          <motion.div variants={fadeUp} className="grid grid-cols-2 gap-3 flex-shrink-0">
+            {["Centros médicos", "Clínicas dentales", "Salud mental", "Bienestar y spa"].map((label) => (
+              <div key={label} className="bg-white/10 rounded-2xl p-5 text-center w-36">
+                <BuildingIcon />
+                <p className="text-white text-xs font-semibold mt-2 leading-tight">{label}</p>
               </div>
-            </motion.div>
-            <motion.div variants={fadeUp} className="flex-shrink-0 grid grid-cols-2 gap-4">
-              {[
-                { icon: "🏥", label: "Centros médicos" },
-                { icon: "🦷", label: "Clínicas dentales" },
-                { icon: "🧠", label: "Centros de salud mental" },
-                { icon: "💆", label: "Centros de bienestar" },
-              ].map((item) => (
-                <div key={item.label} className="bg-white/10 backdrop-blur rounded-2xl p-5 text-center">
-                  <div className="text-3xl mb-2">{item.icon}</div>
-                  <p className="text-white text-xs font-semibold">{item.label}</p>
-                </div>
-              ))}
-            </motion.div>
-          </div>
+            ))}
+          </motion.div>
         </motion.div>
       </section>
 
-      {/* ── Garantía ─────────────────────────────────────── */}
+      {/* ── Garantía ────────────────────────────────────────────────────────── */}
       <section className="py-20 px-4 bg-white">
         <motion.div
-          className="max-w-3xl mx-auto text-center"
+          className="max-w-3xl mx-auto"
           initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} variants={stagger}
         >
-          <motion.div variants={fadeUp} className="text-5xl mb-6">🛡️</motion.div>
-          <motion.h2 variants={fadeUp} className="text-3xl font-bold text-gray-900 mb-4">Sin riesgos. Empieza gratis.</motion.h2>
-          <motion.p variants={fadeUp} className="text-gray-500 text-lg mb-10">
-            12 días de prueba gratis en cualquier plan. Sin tarjeta de crédito.<br />Si no es para ti, no pagas nada.
-          </motion.p>
-          <motion.div variants={stagger} className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+          <motion.div variants={fadeUp} className="text-center mb-12">
+            <ShieldIcon />
+            <h2 className="text-3xl font-bold text-gray-900 mt-4 mb-3 tracking-tight">Sin riesgos. Empieza gratis.</h2>
+            <p className="text-gray-500">12 días de prueba en cualquier plan. Sin tarjeta. Si no es para ti, no pagas nada.</p>
+          </motion.div>
+          <motion.div variants={stagger} className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {[
-              { icon: "⚡", title: "Listo en 5 minutos", desc: "Configura tu perfil y empieza a recibir citas en minutos." },
-              { icon: "💬", title: "Soporte en español", desc: "Equipo chileno disponible por chat para ayudarte en cada paso." },
-              { icon: "🔓", title: "Sin permanencia", desc: "Cancela cuando quieras. Sin letras chicas ni compromisos." },
+              { icon: <ZapIcon />, title: "Listo en 5 minutos", desc: "Configura tu perfil y empieza a recibir citas en menos de 5 minutos." },
+              { icon: <ChatIcon />, title: "Soporte en español", desc: "Equipo chileno disponible por chat. Una persona real, no un bot." },
+              { icon: <UnlockIcon />, title: "Sin permanencia", desc: "Cancela cuando quieras. Sin letras chicas ni compromisos forzados." },
             ].map((item) => (
-              <motion.div key={item.title} variants={fadeUp} className="bg-purple-50 rounded-2xl p-6">
-                <div className="text-3xl mb-3">{item.icon}</div>
-                <h3 className="font-bold text-gray-900 mb-2">{item.title}</h3>
-                <p className="text-sm text-gray-500">{item.desc}</p>
+              <motion.div key={item.title} variants={fadeUp} className="bg-[#f5f3ff] rounded-2xl p-6">
+                <div className="mb-3">{item.icon}</div>
+                <h3 className="font-bold text-gray-900 mb-1.5">{item.title}</h3>
+                <p className="text-sm text-gray-500 leading-relaxed">{item.desc}</p>
               </motion.div>
             ))}
           </motion.div>
         </motion.div>
       </section>
 
-      {/* ── FAQ accordion ────────────────────────────────── */}
-      <section className="py-20 px-4 bg-gradient-to-br from-purple-50 to-white">
+      {/* ── FAQ ─────────────────────────────────────────────────────────────── */}
+      <section className="py-20 px-4 bg-gray-50">
         <motion.div
           className="max-w-2xl mx-auto"
           initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }} variants={stagger}
         >
-          <motion.h2 variants={fadeUp} className="text-3xl font-bold text-gray-900 text-center mb-12">
+          <motion.h2 variants={fadeUp} className="text-3xl font-bold text-gray-900 text-center mb-10 tracking-tight">
             Preguntas frecuentes
           </motion.h2>
-
-          {faqs.map((faq, i) => (
-            <motion.div key={i} variants={fadeUp} className="border-b border-purple-100">
-              <button
-                onClick={() => setFaqAbierta(faqAbierta === i ? null : i)}
-                className="w-full flex items-center justify-between py-5 text-left gap-4 group"
-              >
-                <span className="font-semibold text-gray-900 group-hover:text-[#6C5CE4] transition-colors">
-                  {faq.q}
-                </span>
-                <span className={`flex-shrink-0 w-6 h-6 rounded-full border-2 border-purple-200 flex items-center justify-center text-[#6C5CE4] font-bold transition-transform duration-200 ${faqAbierta === i ? "rotate-45" : ""}`}>
-                  +
-                </span>
-              </button>
-              <AnimatePresence>
-                {faqAbierta === i && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.25, ease: [0.25, 0.46, 0.45, 0.94] as const }}
-                    className="overflow-hidden"
-                  >
-                    <p className="pb-5 text-gray-500 text-sm leading-relaxed">{faq.a}</p>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.div>
-          ))}
+          <div className="bg-white rounded-2xl border border-gray-200 divide-y divide-gray-100 overflow-hidden">
+            {faqs.map((faq, i) => (
+              <motion.div key={i} variants={fadeUp}>
+                <button
+                  onClick={() => setFaqAbierta(faqAbierta === i ? null : i)}
+                  className="w-full flex items-center justify-between py-4 px-6 text-left gap-4 cursor-pointer hover:bg-gray-50 transition-colors min-h-[56px]"
+                >
+                  <span className="font-semibold text-gray-900 text-sm">{faq.q}</span>
+                  <ChevronIcon open={faqAbierta === i} />
+                </button>
+                <AnimatePresence>
+                  {faqAbierta === i && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.22, ease: [0.25, 0.46, 0.45, 0.94] as const }}
+                      className="overflow-hidden"
+                    >
+                      <p className="px-6 pb-5 text-gray-500 text-sm leading-relaxed">{faq.a}</p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            ))}
+          </div>
         </motion.div>
       </section>
 
-      {/* ── CTA final ────────────────────────────────────── */}
-      <section className="py-20 px-4 bg-[#6C5CE4]">
+      {/* ── CTA final ───────────────────────────────────────────────────────── */}
+      <section className="py-20 px-4 bg-white">
         <motion.div
-          className="max-w-2xl mx-auto text-center"
+          className="max-w-xl mx-auto text-center"
           initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} variants={stagger}
         >
-          <motion.h2 variants={fadeUp} className="text-4xl font-bold text-white mb-4">¿Listo para empezar?</motion.h2>
-          <motion.p variants={fadeUp} className="text-purple-200 text-lg mb-8">12 días gratis. Sin tarjeta. Sin letra chica.</motion.p>
+          <motion.h2 variants={fadeUp} className="text-4xl font-bold text-gray-900 mb-3 tracking-tight">¿Listo para empezar?</motion.h2>
+          <motion.p variants={fadeUp} className="text-gray-500 mb-8">12 días gratis. Sin tarjeta. Sin letra chica.</motion.p>
           <motion.a
             variants={fadeUp}
             href="https://app.attempo.cl/registro"
-            className="inline-block bg-white text-[#6C5CE4] font-bold text-base px-8 py-4 rounded-xl hover:bg-purple-50 transition-colors"
+            className="inline-flex items-center justify-center min-h-[52px] bg-[#6C5CE4] text-white font-bold text-base px-10 rounded-xl hover:bg-[#5b4dd0] transition-colors cursor-pointer shadow-lg shadow-purple-200"
           >
             Crear cuenta gratis →
           </motion.a>
