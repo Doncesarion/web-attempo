@@ -85,7 +85,8 @@ export default function Navbar() {
                   onMouseEnter={() => setOpenDropdown(link.label)}
                   onMouseLeave={() => setOpenDropdown(null)}
                 >
-                  <button
+                  <Link
+                    href={link.href}
                     className={`flex items-center gap-1 px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                       pathname.startsWith(link.href) && link.href !== "/"
                         ? "text-[#6C5CE4]"
@@ -98,7 +99,7 @@ export default function Navbar() {
                         openDropdown === link.label ? "rotate-180" : ""
                       }`}
                     />
-                  </button>
+                  </Link>
 
                   <AnimatePresence>
                     {openDropdown === link.label && (
@@ -218,10 +219,18 @@ export default function Navbar() {
                           exit={{ opacity: 0, height: 0 }}
                           className="ml-3 mt-1 space-y-1 overflow-hidden"
                         >
+                          <Link
+                            href={link.href}
+                            onClick={() => setMobileOpen(false)}
+                            className="block px-3 py-2 text-sm font-semibold text-[#6C5CE4] rounded-lg hover:bg-purple-50"
+                          >
+                            Ver todo →
+                          </Link>
                           {link.dropdown.map((item) => (
                             <Link
                               key={item.href}
                               href={item.href}
+                              onClick={() => setMobileOpen(false)}
                               className="block px-3 py-2 text-sm text-gray-600 rounded-lg hover:bg-purple-50 hover:text-[#6C5CE4]"
                             >
                               {item.label}
