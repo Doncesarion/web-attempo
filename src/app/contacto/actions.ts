@@ -98,7 +98,11 @@ export async function sendContactEmail(data: ContactFormData, turnstileToken: st
     primerNombre: escHtml(data.nombre.split(" ")[0]),
   }
 
-  const contactEmail = process.env.CONTACT_EMAIL ?? "cesarsalinasmunoz@gmail.com"
+  const contactEmail = process.env.CONTACT_EMAIL
+  if (!contactEmail) {
+    console.error("[contacto] CONTACT_EMAIL no configurada")
+    return { ok: false, error: "Configuración de email faltante en el servidor." }
+  }
 
   const { error } = await resend.emails.send({
     from: "attempo contacto <contacto@attempo.cl>",
