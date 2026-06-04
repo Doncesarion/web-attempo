@@ -17,8 +17,15 @@ export async function generateMetadata({
   const data = getEspecialidadBySlug(especialidad)
   if (!data) return { title: "No encontrado" }
   return {
-    title: `Attempo para ${data.nombre}`,
+    title: `attempo para ${data.nombre}`,
     description: data.descripcion,
+    alternates: { canonical: `https://attempo.cl/soluciones/${especialidad}` },
+    openGraph: {
+      title: `attempo para ${data.nombre}`,
+      description: data.descripcion,
+      url: `https://attempo.cl/soluciones/${especialidad}`,
+      type: "website",
+    },
   }
 }
 

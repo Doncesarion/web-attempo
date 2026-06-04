@@ -1,8 +1,15 @@
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Centro de Ayuda",
-  description: "Encuentra guías, tutoriales y soporte para sacar el máximo provecho de Attempo.",
+  title: "Centro de ayuda",
+  description: "Encuentra guías, tutoriales y soporte para sacar el máximo provecho de attempo.",
+  alternates: { canonical: "https://attempo.cl/centro-de-ayuda" },
+  openGraph: {
+    title: "Centro de ayuda — attempo",
+    description: "Encuentra guías, tutoriales y soporte para sacar el máximo provecho de attempo.",
+    url: "https://attempo.cl/centro-de-ayuda",
+    type: "website",
+  },
 }
 
 export default function CentroDeAyudaPage() {

@@ -214,19 +214,19 @@ export function StatsSection() {
 
 export function FeaturesSection() {
   const features = [
-    { icon: "📅", title: "Agenda inteligente", desc: "Vista semanal, diaria y en lista. Gestiona citas, bloqueos y disponibilidad en tiempo real." },
-    { icon: "🔔", title: "Recordatorios automáticos", desc: "WhatsApp y email antes de cada cita. Reduce las inasistencias sin hacer nada." },
-    { icon: "🤖", title: "Chatbot IA", desc: "Attia atiende y agenda por ti en WhatsApp, Instagram y Messenger las 24 horas." },
-    { icon: "💰", title: "Control de ventas", desc: "Registra pagos, revisa ingresos por día y lleva el control de citas sin cobrar." },
-    { icon: "👥", title: "Base de clientes", desc: "Ficha completa por paciente con historial, datos de contacto y citas anteriores." },
-    { icon: "📊", title: "Reportes y métricas", desc: "Evolución de reservas, servicios más populares y rendimiento de tu negocio." },
-    { icon: "📦", title: "Paquetes de sesiones", desc: "Vende sesiones en bloque y controla el avance de cada paquete por cliente." },
-    { icon: "📄", title: "Boleta de honorarios", desc: "Genera boletas de honorarios directamente desde la plataforma. Integración SII." },
-    { icon: "🌐", title: "Página de reservas online", desc: "Tu propio link de reservas personalizado para compartir con tus pacientes." },
+    { n: "01", title: "Agenda inteligente", desc: "Vista semanal, diaria y en lista. Gestiona citas, bloqueos y disponibilidad en tiempo real." },
+    { n: "02", title: "Recordatorios automáticos", desc: "WhatsApp y email antes de cada cita. Reduce las inasistencias sin hacer nada." },
+    { n: "03", title: "Chatbot IA", desc: "Attia atiende y agenda por ti en WhatsApp, Instagram y Messenger las 24 horas." },
+    { n: "04", title: "Control de ventas", desc: "Registra pagos, revisa ingresos por día y lleva el control de citas sin cobrar." },
+    { n: "05", title: "Base de clientes", desc: "Ficha completa por paciente con historial, datos de contacto y citas anteriores." },
+    { n: "06", title: "Reportes y métricas", desc: "Evolución de reservas, servicios más populares y rendimiento de tu negocio." },
+    { n: "07", title: "Paquetes de sesiones", desc: "Vende sesiones en bloque y controla el avance de cada paquete por cliente." },
+    { n: "08", title: "Boleta de honorarios", desc: "Genera boletas de honorarios directamente desde la plataforma. Integración SII." },
+    { n: "09", title: "Página de reservas online", desc: "Tu propio link de reservas personalizado para compartir con tus pacientes." },
   ]
 
   return (
-    <section className="py-24 px-4 bg-gray-50">
+    <section className="py-24 px-4 bg-white">
       <m.div
         variants={stagger}
         initial="hidden"
@@ -234,21 +234,23 @@ export function FeaturesSection() {
         viewport={{ once: true, margin: "-80px" }}
         className="max-w-7xl mx-auto"
       >
-        <m.div variants={fadeUp} className="text-center mb-16">
-          <span className="text-[#6C5CE4] text-sm font-medium uppercase tracking-wider">Funcionalidades</span>
-          <h2 className="text-4xl font-bold text-gray-900 mt-2 mb-4">Todo lo que necesitas en un solo lugar</h2>
-          <p className="text-gray-500 max-w-xl mx-auto">Sin apps extra, sin integraciones complicadas. attempo centraliza todo tu flujo de trabajo.</p>
+        <m.div variants={fadeUp} className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-16 pb-8 border-b border-gray-100">
+          <div>
+            <span className="text-[#6C5CE4] text-sm font-medium uppercase tracking-wider">Funcionalidades</span>
+            <h2 className="text-4xl font-bold text-gray-900 mt-2">Todo lo que necesitas<br className="hidden sm:block" /> en un solo lugar</h2>
+          </div>
+          <p className="text-gray-500 text-sm leading-relaxed max-w-xs lg:text-right">
+            Sin apps extra, sin integraciones complicadas. attempo centraliza todo tu flujo de trabajo.
+          </p>
         </m.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-12">
           {features.map((f) => (
-            <m.div
-              key={f.title}
-              variants={fadeUp}
-              className="bg-white p-6 rounded-2xl border border-gray-100 hover:border-[#6C5CE4]/30 hover:shadow-lg hover:-translate-y-1 transition-all group"
-            >
-              <span className="text-3xl mb-4 block">{f.icon}</span>
-              <h3 className="font-semibold text-gray-900 text-lg mb-2 group-hover:text-[#6C5CE4] transition-colors">{f.title}</h3>
+            <m.div key={f.title} variants={fadeUp} className="group">
+              <span className="block text-6xl font-bold text-gray-100 group-hover:text-[#6C5CE4]/20 transition-colors leading-none mb-4 tabular-nums">
+                {f.n}
+              </span>
+              <h3 className="font-semibold text-gray-900 text-base mb-2 group-hover:text-[#6C5CE4] transition-colors">{f.title}</h3>
               <p className="text-sm text-gray-500 leading-relaxed">{f.desc}</p>
             </m.div>
           ))}
@@ -441,14 +443,19 @@ export function WebpaySection() {
 }
 
 export function TestimonialsSection() {
-  const testimonials = [
-    { name: "Valentina Mora", role: "Psicóloga clínica", avatar: "VM", text: "Antes llevaba todo en papel y me perdía citas. Con attempo organicé mi agenda en una tarde. Mis pacientes reciben el recordatorio por WhatsApp y ya casi no tengo inasistencias." },
-    { name: "Diego Fuentes", role: "Barbería The Cut", avatar: "DF", text: "Empecé a usar attempo cuando abrí mi barbería. Me ahorró contratar a alguien solo para tomar reservas. El chatbot responde solito por Instagram." },
-    { name: "Camila Reyes", role: "Nutricionista", avatar: "CR", text: "Lo que más me gusta es ver el historial de mis pacientes y los paquetes de sesiones. Todo en un solo lugar, sin andar con mil archivos de Excel." },
+  const featured = {
+    name: "Valentina Mora",
+    role: "Psicóloga clínica",
+    initials: "VM",
+    text: "Antes llevaba todo en papel y me perdía citas. Con attempo organicé mi agenda en una tarde. Mis pacientes reciben el recordatorio por WhatsApp y ya casi no tengo inasistencias.",
+  }
+  const others = [
+    { name: "Diego Fuentes", role: "Barbería The Cut", initials: "DF", text: "El chatbot responde solito por Instagram. Me ahorró contratar a alguien solo para tomar reservas." },
+    { name: "Camila Reyes", role: "Nutricionista", initials: "CR", text: "El historial de pacientes y los paquetes de sesiones, todo en un solo lugar. Sin mil archivos de Excel." },
   ]
 
   return (
-    <section className="py-24 px-4 bg-gray-50">
+    <section className="py-24 px-4 bg-gray-950">
       <m.div
         variants={stagger}
         initial="hidden"
@@ -456,26 +463,44 @@ export function TestimonialsSection() {
         viewport={{ once: true, margin: "-80px" }}
         className="max-w-7xl mx-auto"
       >
-        <m.div variants={fadeUp} className="text-center mb-16">
-          <span className="text-[#6C5CE4] text-sm font-medium uppercase tracking-wider">Testimonios</span>
-          <h2 className="text-4xl font-bold text-gray-900 mt-2 mb-4">Lo que dicen quienes ya usan attempo</h2>
+        <m.div variants={fadeUp} className="mb-16">
+          <span className="text-[#8B7FF0] text-sm font-medium uppercase tracking-wider">Testimonios</span>
+          <h2 className="text-4xl font-bold text-white mt-2">Lo que dicen quienes ya usan attempo</h2>
         </m.div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {testimonials.map((t) => (
-            <m.div key={t.name} variants={fadeUp} className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm flex flex-col">
-              <div className="flex gap-1 mb-4">
-                {[...Array(5)].map((_, i) => <span key={i} className="text-yellow-400 text-lg">★</span>)}
+
+        <div className="grid lg:grid-cols-5 gap-6">
+          <m.div variants={fadeUp} className="lg:col-span-3 border border-white/10 rounded-3xl p-10 flex flex-col">
+            <span className="text-[#6C5CE4] text-8xl font-serif leading-none select-none -mt-4 mb-2">"</span>
+            <p className="text-white text-xl sm:text-2xl font-medium leading-relaxed flex-1">
+              {featured.text}
+            </p>
+            <div className="mt-8 pt-6 border-t border-white/10 flex items-center gap-3">
+              <div className="w-10 h-10 bg-[#6C5CE4] rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0">
+                {featured.initials}
               </div>
-              <p className="text-gray-600 text-sm leading-relaxed mb-6 flex-1">"{t.text}"</p>
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-[#6C5CE4] rounded-full flex items-center justify-center text-white text-sm font-bold">{t.avatar}</div>
-                <div>
-                  <p className="font-semibold text-gray-900 text-sm">{t.name}</p>
-                  <p className="text-xs text-gray-500">{t.role}</p>
+              <div>
+                <p className="text-white font-semibold text-sm">{featured.name}</p>
+                <p className="text-gray-500 text-xs">{featured.role}</p>
+              </div>
+            </div>
+          </m.div>
+
+          <div className="lg:col-span-2 flex flex-col gap-6">
+            {others.map((t) => (
+              <m.div key={t.name} variants={fadeUp} className="border border-white/10 rounded-2xl p-7 flex flex-col flex-1">
+                <p className="text-gray-300 text-sm leading-relaxed flex-1">"{t.text}"</p>
+                <div className="mt-6 flex items-center gap-3">
+                  <div className="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center text-white text-xs font-bold flex-shrink-0">
+                    {t.initials}
+                  </div>
+                  <div>
+                    <p className="text-white font-semibold text-xs">{t.name}</p>
+                    <p className="text-gray-500 text-xs">{t.role}</p>
+                  </div>
                 </div>
-              </div>
-            </m.div>
-          ))}
+              </m.div>
+            ))}
+          </div>
         </div>
       </m.div>
     </section>
