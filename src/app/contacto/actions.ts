@@ -1,6 +1,28 @@
 "use server"
 
 import { Resend } from "resend"
+import { headers } from "next/headers"
+
+const ipSubmissions = new Map<string, number[]>()
+const RATE_WINDOW_MS = 60 * 60 * 1000
+const RATE_MAX = 5
+
+function checkRateLimit(ip: string): boolean {
+  const now = Date.now()
+  const times = (ipSubmissions.get(ip) ?? []).filter((t) => now - t < RATE_WINDOW_MS)
+  if (times.length >= RATE_MAX) return false
+  ipSubmissions.set(ip, [...times, now])
+  return true
+}
+
+function escHtml(str: string): string {
+  return str
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;")
+}
 
 export type ContactFormData = {
   nombre: string
@@ -11,9 +33,34 @@ export type ContactFormData = {
   mensaje: string
 }
 
-export async function sendContactEmail(data: ContactFormData): Promise<{ ok: boolean; error?: string }> {
-  const apiKey = process.env.RESEND_API_KEY
+const MAX_LENGTHS: Record<keyof ContactFormData, number> = {
+  nombre: 100,
+  email: 200,
+  telefono: 30,
+  empresa: 150,
+  asunto: 200,
+  mensaje: 2000,
+}
 
+export async function sendContactEmail(data: ContactFormData): Promise<{ ok: boolean; error?: string }> {
+  const headersList = await headers()
+  const ip = headersList.get("x-forwarded-for")?.split(",")[0].trim() ?? "unknown"
+  if (!checkRateLimit(ip)) {
+    return { ok: false, error: "Demasiados intentos. Inténtalo más tarde." }
+  }
+
+  if (!data.nombre?.trim() || !data.email?.trim() || !data.asunto?.trim() || !data.mensaje?.trim()) {
+    return { ok: false, error: "Por favor completa todos los campos requeridos." }
+  }
+
+  for (const [field, max] of Object.entries(MAX_LENGTHS)) {
+    const val = data[field as keyof ContactFormData]
+    if (val && val.length > max) {
+      return { ok: false, error: `El campo ${field} excede el largo permitido.` }
+    }
+  }
+
+  const apiKey = process.env.RESEND_API_KEY
   if (!apiKey) {
     console.error("[contacto] RESEND_API_KEY no configurada")
     return { ok: false, error: "Configuración de email faltante en el servidor." }
@@ -21,13 +68,23 @@ export async function sendContactEmail(data: ContactFormData): Promise<{ ok: boo
 
   const resend = new Resend(apiKey)
 
-  const primerNombre = data.nombre.split(" ")[0]
+  const safe = {
+    nombre: escHtml(data.nombre),
+    email: escHtml(data.email),
+    telefono: escHtml(data.telefono),
+    empresa: escHtml(data.empresa),
+    asunto: escHtml(data.asunto),
+    mensaje: escHtml(data.mensaje),
+    primerNombre: escHtml(data.nombre.split(" ")[0]),
+  }
+
+  const contactEmail = process.env.CONTACT_EMAIL ?? "cesarsalinasmunoz@gmail.com"
 
   const { error } = await resend.emails.send({
     from: "attempo contacto <contacto@attempo.cl>",
-    to: "cesarsalinasmunoz@gmail.com",
+    to: contactEmail,
     replyTo: data.email,
-    subject: `[attempo] ${data.asunto}`,
+    subject: `[attempo] ${safe.asunto}`,
     html: `<!DOCTYPE html>
 <html lang="es">
 <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>
@@ -45,7 +102,7 @@ export async function sendContactEmail(data: ContactFormData): Promise<{ ok: boo
   <!-- Cuerpo blanco -->
   <tr><td bgcolor="#ffffff" style="padding:28px 32px 8px;text-align:center">
     <p style="margin:0 0 4px;font-size:22px;font-weight:700;color:#111827;font-family:Arial,sans-serif">Nuevo mensaje ✉️</p>
-    <p style="margin:0;font-size:14px;color:#6b7280;font-family:Arial,sans-serif"><strong style="color:#374151">${primerNombre}</strong> quiere conocer attempo</p>
+    <p style="margin:0;font-size:14px;color:#6b7280;font-family:Arial,sans-serif"><strong style="color:#374151">${safe.primerNombre}</strong> quiere conocer attempo</p>
   </td></tr>
 
   <!-- Card de datos -->
@@ -57,7 +114,7 @@ export async function sendContactEmail(data: ContactFormData): Promise<{ ok: boo
       <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:16px">
       <tr><td style="text-align:center">
         <p style="margin:0 0 2px;font-size:11px;font-weight:700;color:#8b7ff0;text-transform:uppercase;letter-spacing:1.5px">Nombre</p>
-        <p style="margin:0;font-size:15px;font-weight:600;color:#111827">${data.nombre}</p>
+        <p style="margin:0;font-size:15px;font-weight:600;color:#111827">${safe.nombre}</p>
       </td></tr>
       </table>
 
@@ -65,7 +122,7 @@ export async function sendContactEmail(data: ContactFormData): Promise<{ ok: boo
       <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:16px">
       <tr><td style="text-align:center">
         <p style="margin:0 0 2px;font-size:11px;font-weight:700;color:#8b7ff0;text-transform:uppercase;letter-spacing:1.5px">Asunto</p>
-        <p style="margin:0;font-size:15px;font-weight:600;color:#111827">${data.asunto}</p>
+        <p style="margin:0;font-size:15px;font-weight:600;color:#111827">${safe.asunto}</p>
       </td></tr>
       </table>
 
@@ -73,7 +130,7 @@ export async function sendContactEmail(data: ContactFormData): Promise<{ ok: boo
       <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:${data.telefono || data.empresa ? "16px" : "0"}">
       <tr><td style="text-align:center">
         <p style="margin:0 0 2px;font-size:11px;font-weight:700;color:#8b7ff0;text-transform:uppercase;letter-spacing:1.5px">Email</p>
-        <p style="margin:0;font-size:15px"><a href="mailto:${data.email}" style="color:#6C5CE4;font-weight:600;text-decoration:none">${data.email}</a></p>
+        <p style="margin:0;font-size:15px"><a href="mailto:${safe.email}" style="color:#6C5CE4;font-weight:600;text-decoration:none">${safe.email}</a></p>
       </td></tr>
       </table>
 
@@ -82,7 +139,7 @@ export async function sendContactEmail(data: ContactFormData): Promise<{ ok: boo
       <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:${data.empresa ? "16px" : "0"}">
       <tr><td style="text-align:center">
         <p style="margin:0 0 2px;font-size:11px;font-weight:700;color:#8b7ff0;text-transform:uppercase;letter-spacing:1.5px">Teléfono</p>
-        <p style="margin:0;font-size:15px"><a href="https://wa.me/${data.telefono.replace(/[^0-9]/g, "")}" style="color:#6C5CE4;font-weight:600;text-decoration:none">${data.telefono}</a></p>
+        <p style="margin:0;font-size:15px"><a href="https://wa.me/${escHtml(data.telefono.replace(/[^0-9]/g, ""))}" style="color:#6C5CE4;font-weight:600;text-decoration:none">${safe.telefono}</a></p>
       </td></tr>
       </table>` : ""}
 
@@ -91,7 +148,7 @@ export async function sendContactEmail(data: ContactFormData): Promise<{ ok: boo
       <table width="100%" cellpadding="0" cellspacing="0">
       <tr><td style="text-align:center">
         <p style="margin:0 0 2px;font-size:11px;font-weight:700;color:#8b7ff0;text-transform:uppercase;letter-spacing:1.5px">Empresa</p>
-        <p style="margin:0;font-size:15px;font-weight:600;color:#111827">${data.empresa}</p>
+        <p style="margin:0;font-size:15px;font-weight:600;color:#111827">${safe.empresa}</p>
       </td></tr>
       </table>` : ""}
 
@@ -104,15 +161,15 @@ export async function sendContactEmail(data: ContactFormData): Promise<{ ok: boo
     <p style="margin:0 0 8px;font-size:11px;font-weight:700;color:#8b7ff0;text-transform:uppercase;letter-spacing:1.5px;text-align:center">Mensaje</p>
     <table width="100%" cellpadding="0" cellspacing="0">
     <tr><td bgcolor="#f9f7ff" style="padding:16px 20px;border-radius:10px;border-left:3px solid #6C5CE4">
-      <p style="margin:0;font-size:15px;color:#374151;line-height:1.7;white-space:pre-wrap">${data.mensaje}</p>
+      <p style="margin:0;font-size:15px;color:#374151;line-height:1.7;white-space:pre-wrap">${safe.mensaje}</p>
     </td></tr>
     </table>
   </td></tr>
 
   <!-- CTA -->
   <tr><td bgcolor="#ffffff" style="padding:0 32px 32px;text-align:center;border-radius:0 0 16px 16px">
-    <a href="mailto:${data.email}" style="display:inline-block;background-color:#6C5CE4;color:#ffffff;font-size:14px;font-weight:700;text-decoration:none;padding:13px 36px;border-radius:10px;font-family:Arial,sans-serif">
-      Responder a ${primerNombre} →
+    <a href="mailto:${safe.email}" style="display:inline-block;background-color:#6C5CE4;color:#ffffff;font-size:14px;font-weight:700;text-decoration:none;padding:13px 36px;border-radius:10px;font-family:Arial,sans-serif">
+      Responder a ${safe.primerNombre} →
     </a>
   </td></tr>
 

@@ -2,6 +2,8 @@ import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 import { getEspecialidadBySlug, especialidades } from "@/lib/especialidades"
 
+export const dynamicParams = false
+
 export async function generateStaticParams() {
   return especialidades.map((e) => ({ especialidad: e.slug }))
 }
