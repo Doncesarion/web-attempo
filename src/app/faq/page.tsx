@@ -6,6 +6,12 @@ export const metadata: Metadata = {
   title: "Preguntas frecuentes — attempo",
   description: "Resolvemos tus dudas sobre attempo: prueba gratis, planes, recordatorios automáticos, seguridad y soporte en Chile.",
   alternates: { canonical: "https://attempo.cl/faq" },
+  openGraph: {
+    title: "Preguntas frecuentes — attempo",
+    description: "Resolvemos tus dudas sobre attempo: prueba gratis, planes, recordatorios automáticos, seguridad y soporte en Chile.",
+    url: "https://attempo.cl/faq",
+    type: "website",
+  },
 }
 
 const jsonLd = {

@@ -6,6 +6,12 @@ export const metadata: Metadata = {
   title: "Blog — attempo",
   description: "Guías, consejos y recursos para profesionales de la salud que quieren optimizar su tiempo y hacer crecer su consulta en Chile.",
   alternates: { canonical: "https://attempo.cl/blog" },
+  openGraph: {
+    title: "Blog — attempo",
+    description: "Guías, consejos y recursos para profesionales de la salud que quieren optimizar su tiempo y hacer crecer su consulta en Chile.",
+    url: "https://attempo.cl/blog",
+    type: "website",
+  },
 }
 
 function formatFecha(fecha: string) {

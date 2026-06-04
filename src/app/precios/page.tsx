@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import Script from "next/script"
 import PreciosContent from "./PreciosContent"
 
 export const metadata: Metadata = {
@@ -13,6 +14,47 @@ export const metadata: Metadata = {
   },
 }
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "attempo",
+  applicationCategory: "BusinessApplication",
+  operatingSystem: "Web",
+  url: "https://attempo.cl",
+  description: "Plataforma de agendamiento de citas para profesionales de la salud y servicios en Chile.",
+  offers: [
+    {
+      "@type": "Offer",
+      name: "Inicio",
+      price: "24990",
+      priceCurrency: "CLP",
+      description: "Plan para profesionales independientes. Agenda, recordatorios y gestión básica.",
+      url: "https://attempo.cl/precios",
+    },
+    {
+      "@type": "Offer",
+      name: "Pro",
+      price: "44990",
+      priceCurrency: "CLP",
+      description: "Plan profesional con Webpay, chatbot IA, boleta de honorarios y más.",
+      url: "https://attempo.cl/precios",
+    },
+    {
+      "@type": "Offer",
+      name: "Clínica IA",
+      price: "119990",
+      priceCurrency: "CLP",
+      description: "Plan para centros y clínicas con múltiples profesionales y todas las funcionalidades.",
+      url: "https://attempo.cl/precios",
+    },
+  ],
+}
+
 export default function PreciosPage() {
-  return <PreciosContent />
+  return (
+    <>
+      <Script id="jsonld-precios" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <PreciosContent />
+    </>
+  )
 }

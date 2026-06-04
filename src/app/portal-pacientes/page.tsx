@@ -1,8 +1,16 @@
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Portal Pacientes",
-  description: "Accede al portal de pacientes de Attempo para gestionar tus citas.",
+  title: "Portal Pacientes — attempo",
+  description: "Accede al portal de pacientes de attempo para ver y gestionar tus citas online.",
+  alternates: { canonical: "https://attempo.cl/portal-pacientes" },
+  openGraph: {
+    title: "Portal Pacientes — attempo",
+    description: "Accede al portal de pacientes de attempo para ver y gestionar tus citas online.",
+    url: "https://attempo.cl/portal-pacientes",
+    type: "website",
+  },
+  robots: { index: false, follow: false },
 }
 
 export default function PortalPacientesPage() {
