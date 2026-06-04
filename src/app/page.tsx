@@ -37,7 +37,18 @@ const jsonLd = {
       email: "contacto@attempo.cl",
       foundingDate: "2025",
       areaServed: { "@type": "Country", name: "Chile" },
-      sameAs: [],
+      contactPoint: {
+        "@type": "ContactPoint",
+        email: "contacto@attempo.cl",
+        contactType: "customer support",
+        availableLanguage: "Spanish",
+        areaServed: "CL",
+      },
+      sameAs: [
+        "https://www.instagram.com/attempo.app/",
+        "https://www.facebook.com/people/Attempo/61561292586875/",
+        "https://linkedin.com/company/attempo",
+      ],
     },
     {
       "@type": "WebSite",

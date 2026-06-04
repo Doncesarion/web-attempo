@@ -33,17 +33,25 @@ export const metadata: Metadata = {
     description:
       "Plataforma de agendamiento para profesionales de la salud en Chile. Agenda online, recordatorios automáticos por WhatsApp y cobro con Webpay.",
     url: "https://attempo.cl",
+    images: [{ url: "https://attempo.cl/opengraph-image", width: 1200, height: 630, alt: "attempo — Todo a tu tiempo" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "attempo — Todo a tu tiempo",
     description:
       "Plataforma de agendamiento para profesionales de la salud en Chile. Agenda online, recordatorios automáticos por WhatsApp y cobro con Webpay.",
+    images: ["https://attempo.cl/opengraph-image"],
   },
   robots: {
     index: true,
     follow: true,
-    googleBot: { index: true, follow: true },
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
   alternates: {
     canonical: "https://attempo.cl",

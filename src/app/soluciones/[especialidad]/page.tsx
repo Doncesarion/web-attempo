@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import { notFound } from "next/navigation"
+import Script from "next/script"
 import { getEspecialidadBySlug, especialidades } from "@/lib/especialidades"
 
 export const dynamicParams = false
@@ -39,8 +40,33 @@ export default async function EspecialidadPage({
 
   if (!data) notFound()
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": `https://attempo.cl/soluciones/${especialidad}`,
+        url: `https://attempo.cl/soluciones/${especialidad}`,
+        name: `attempo para ${data.nombre}`,
+        description: data.descripcion,
+        inLanguage: "es-CL",
+        isPartOf: { "@id": "https://attempo.cl/#website" },
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "attempo", item: "https://attempo.cl" },
+          { "@type": "ListItem", position: 2, name: "Soluciones", item: "https://attempo.cl/soluciones" },
+          { "@type": "ListItem", position: 3, name: data.nombre, item: `https://attempo.cl/soluciones/${especialidad}` },
+        ],
+      },
+    ],
+  }
+
   return (
-    <div className="flex flex-col">
+    <>
+      <Script id={`jsonld-${especialidad}`} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <div className="flex flex-col">
       <section className="py-24 px-4 bg-gradient-to-br from-purple-50 to-white">
         <div className="max-w-4xl mx-auto text-center">
           <span className="text-6xl mb-4 block">{data.emoji}</span>
@@ -94,5 +120,6 @@ export default async function EspecialidadPage({
         </div>
       </section>
     </div>
+    </>
   )
 }

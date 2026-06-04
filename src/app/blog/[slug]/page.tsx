@@ -23,6 +23,7 @@ export async function generateMetadata({
     openGraph: {
       title: post.titulo,
       description: post.excerpt,
+      url: `https://attempo.cl/blog/${post.slug}`,
       type: "article",
       publishedTime: post.fecha,
       authors: [post.autor],
@@ -96,17 +97,34 @@ export default async function BlogPostPage({
 
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    headline: post.titulo,
-    description: post.excerpt,
-    datePublished: post.fecha,
-    author: { "@type": "Organization", name: post.autor },
-    publisher: {
-      "@type": "Organization",
-      name: "attempo",
-      logo: { "@type": "ImageObject", url: "https://attempo.cl/logo_attempo.png" },
-    },
-    mainEntityOfPage: { "@type": "WebPage", "@id": `https://attempo.cl/blog/${post.slug}` },
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        "@id": `https://attempo.cl/blog/${post.slug}#article`,
+        headline: post.titulo,
+        description: post.excerpt,
+        datePublished: post.fecha,
+        dateModified: post.fecha,
+        inLanguage: "es-CL",
+        author: { "@type": "Organization", name: "attempo", url: "https://attempo.cl" },
+        publisher: {
+          "@type": "Organization",
+          name: "attempo",
+          url: "https://attempo.cl",
+          logo: { "@type": "ImageObject", url: "https://attempo.cl/logo_attempo.png" },
+        },
+        mainEntityOfPage: { "@type": "WebPage", "@id": `https://attempo.cl/blog/${post.slug}` },
+        isPartOf: { "@id": "https://attempo.cl/#website" },
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "attempo", item: "https://attempo.cl" },
+          { "@type": "ListItem", position: 2, name: "Blog", item: "https://attempo.cl/blog" },
+          { "@type": "ListItem", position: 3, name: post.titulo, item: `https://attempo.cl/blog/${post.slug}` },
+        ],
+      },
+    ],
   }
 
   return (
