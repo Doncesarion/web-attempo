@@ -2,6 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion"
 import { useState } from "react"
+import { Turnstile } from "@marsidev/react-turnstile"
 import { sendContactEmail, type ContactFormData } from "./actions"
 
 const paises = [
@@ -80,6 +81,7 @@ export default function ContactoContent() {
   const [sending, setSending] = useState(false)
   const [sent, setSent] = useState(false)
   const [error, setError] = useState("")
+  const [turnstileToken, setTurnstileToken] = useState("")
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -96,7 +98,10 @@ export default function ContactoContent() {
     }
     setSending(true)
     try {
-      const result = await sendContactEmail({ ...form, telefono: form.telefono ? `${paisCode} ${form.telefono}` : "" })
+      const result = await sendContactEmail(
+        { ...form, telefono: form.telefono ? `${paisCode} ${form.telefono}` : "" },
+        turnstileToken
+      )
       if (result.ok) {
         setSent(true)
       } else {
@@ -383,6 +388,14 @@ export default function ContactoContent() {
                       />
                     </div>
 
+                    <Turnstile
+                      siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!}
+                      onSuccess={(token) => setTurnstileToken(token)}
+                      onExpire={() => setTurnstileToken("")}
+                      onError={() => setTurnstileToken("")}
+                      options={{ theme: "light", size: "normal", language: "es" }}
+                    />
+
                     {error && (
                       <p className="text-red-500 text-sm bg-red-50 px-4 py-2.5 rounded-xl border border-red-100">
                         {error}
@@ -391,7 +404,7 @@ export default function ContactoContent() {
 
                     <button
                       type="submit"
-                      disabled={sending}
+                      disabled={sending || !turnstileToken}
                       className="w-full py-3.5 bg-[#6C5CE4] hover:bg-[#4F46E5] disabled:opacity-60 text-white font-semibold rounded-xl transition-all hover:-translate-y-0.5 shadow-lg shadow-[#6C5CE4]/25 text-sm"
                     >
                       {sending ? "Enviando..." : "Enviar mensaje →"}
