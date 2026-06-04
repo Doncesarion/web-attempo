@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
+import { m, AnimatePresence } from "framer-motion"
 import Link from "next/link"
 
 const ChevronIcon = () => (
@@ -170,24 +170,24 @@ const stagger = {
 
 function AccordionItem({ item, isOpen, onToggle }: { item: Pregunta; isOpen: boolean; onToggle: () => void }) {
   return (
-    <motion.div variants={fadeUp} className="border border-gray-200 rounded-2xl overflow-hidden">
+    <m.div variants={fadeUp} className="border border-gray-200 rounded-2xl overflow-hidden">
       <button
         onClick={onToggle}
         className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left cursor-pointer hover:bg-[#f5f3ff] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6C5CE4] focus-visible:ring-inset"
         aria-expanded={isOpen}
       >
         <span className="font-semibold text-gray-900 text-base leading-snug">{item.q}</span>
-        <motion.span
+        <m.span
           animate={{ rotate: isOpen ? 180 : 0 }}
           transition={{ duration: 0.25 }}
           className="flex-shrink-0"
         >
           <ChevronIcon />
-        </motion.span>
+        </m.span>
       </button>
       <AnimatePresence initial={false}>
         {isOpen && (
-          <motion.div
+          <m.div
             key="content"
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
@@ -197,10 +197,10 @@ function AccordionItem({ item, isOpen, onToggle }: { item: Pregunta; isOpen: boo
             <div className="px-6 pb-5 text-gray-600 leading-relaxed text-sm border-t border-gray-100 pt-4">
               {item.a}
             </div>
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
-    </motion.div>
+    </m.div>
   )
 }
 
@@ -220,20 +220,20 @@ export default function FaqContent() {
 
       {/* ── Hero ──────────────────────────────────────────────────────────────── */}
       <section className="py-20 lg:py-28 px-4 bg-gradient-to-b from-[#f5f3ff] to-white">
-        <motion.div
+        <m.div
           className="max-w-3xl mx-auto text-center"
           initial="hidden" animate="visible" variants={stagger}
         >
-          <motion.p variants={fadeUp} className="text-[#6C5CE4] text-xs font-semibold uppercase tracking-widest mb-4">
+          <m.p variants={fadeUp} className="text-[#6C5CE4] text-xs font-semibold uppercase tracking-widest mb-4">
             Preguntas frecuentes
-          </motion.p>
-          <motion.h1 variants={fadeUp} className="text-4xl sm:text-5xl font-bold text-gray-900 tracking-tight mb-4">
+          </m.p>
+          <m.h1 variants={fadeUp} className="text-4xl sm:text-5xl font-bold text-gray-900 tracking-tight mb-4">
             Todo lo que necesitas saber
-          </motion.h1>
-          <motion.p variants={fadeUp} className="text-lg text-gray-500">
+          </m.h1>
+          <m.p variants={fadeUp} className="text-lg text-gray-500">
             {totalPreguntas} preguntas respondidas. Si no encuentras lo que buscas, escríbenos.
-          </motion.p>
-        </motion.div>
+          </m.p>
+        </m.div>
       </section>
 
       {/* ── Filtro de categorías ────────────────────────────────────────────── */}
@@ -262,16 +262,16 @@ export default function FaqContent() {
         <div className="max-w-3xl mx-auto space-y-12">
           <AnimatePresence mode="wait">
             {categoriasFiltradas.map((cat) => (
-              <motion.div
+              <m.div
                 key={cat.id}
                 initial="hidden" animate="visible" variants={stagger}
               >
-                <motion.h2
+                <m.h2
                   variants={fadeUp}
                   className="text-sm font-semibold text-[#6C5CE4] uppercase tracking-widest mb-5"
                 >
                   {cat.titulo}
-                </motion.h2>
+                </m.h2>
                 <div className="space-y-3">
                   {cat.preguntas.map((item) => (
                     <AccordionItem
@@ -282,7 +282,7 @@ export default function FaqContent() {
                     />
                   ))}
                 </div>
-              </motion.div>
+              </m.div>
             ))}
           </AnimatePresence>
         </div>
@@ -290,20 +290,20 @@ export default function FaqContent() {
 
       {/* ── CTA ─────────────────────────────────────────────────────────────── */}
       <section className="py-20 px-4 bg-[#6C5CE4]">
-        <motion.div
+        <m.div
           className="max-w-2xl mx-auto text-center"
           initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.5 }} variants={stagger}
         >
-          <motion.div variants={fadeUp} className="inline-flex items-center justify-center w-14 h-14 bg-white/20 rounded-2xl mb-6">
+          <m.div variants={fadeUp} className="inline-flex items-center justify-center w-14 h-14 bg-white/20 rounded-2xl mb-6">
             <MessageIcon />
-          </motion.div>
-          <motion.h2 variants={fadeUp} className="text-3xl font-bold text-white mb-3 tracking-tight">
+          </m.div>
+          <m.h2 variants={fadeUp} className="text-3xl font-bold text-white mb-3 tracking-tight">
             ¿Tienes otra pregunta?
-          </motion.h2>
-          <motion.p variants={fadeUp} className="text-white/80 mb-8">
+          </m.h2>
+          <m.p variants={fadeUp} className="text-white/80 mb-8">
             Nuestro equipo chileno está disponible para ayudarte. Sin bots, sin demoras.
-          </motion.p>
-          <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-3 justify-center">
+          </m.p>
+          <m.div variants={fadeUp} className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link
               href="/contacto"
               className="inline-flex items-center justify-center px-7 py-3.5 bg-white text-[#6C5CE4] font-semibold rounded-xl hover:bg-[#f5f3ff] transition-colors duration-200 cursor-pointer"
@@ -316,8 +316,8 @@ export default function FaqContent() {
             >
               Probar gratis 12 días
             </Link>
-          </motion.div>
-        </motion.div>
+          </m.div>
+        </m.div>
       </section>
 
     </div>

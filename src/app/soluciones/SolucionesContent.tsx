@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
+import { m, AnimatePresence } from "framer-motion"
 import Link from "next/link"
 import { especialidades } from "@/lib/especialidades"
 
@@ -131,25 +131,25 @@ export default function SolucionesContent() {
 
       {/* ── Hero ─────────────────────────────────────────────────────── */}
       <section className="py-20 lg:py-28 px-4 bg-gradient-to-b from-[#f5f3ff] to-white">
-        <motion.div
+        <m.div
           className="max-w-3xl mx-auto text-center"
           initial="hidden"
           animate="visible"
           variants={stagger}
         >
-          <motion.p variants={fadeUp} className="text-[#6C5CE4] text-xs font-semibold uppercase tracking-widest mb-4">
+          <m.p variants={fadeUp} className="text-[#6C5CE4] text-xs font-semibold uppercase tracking-widest mb-4">
             Soluciones
-          </motion.p>
-          <motion.h1
+          </m.p>
+          <m.h1
             variants={fadeUp}
             className="text-4xl sm:text-5xl font-bold text-gray-900 tracking-tight mb-5 leading-tight"
           >
             Diseñado para tu especialidad
-          </motion.h1>
-          <motion.p variants={fadeUp} className="text-lg text-gray-500 max-w-xl mx-auto">
+          </m.h1>
+          <m.p variants={fadeUp} className="text-lg text-gray-500 max-w-xl mx-auto">
             attempo se adapta a cualquier tipo de profesional. Menos tiempo en la agenda, más tiempo en lo que importa.
-          </motion.p>
-        </motion.div>
+          </m.p>
+        </m.div>
       </section>
 
       {/* ── Grid de especialidades ────────────────────────────────────── */}
@@ -174,13 +174,13 @@ export default function SolucionesContent() {
           </div>
 
           {/* Cards */}
-          <motion.div
+          <m.div
             layout
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
           >
             <AnimatePresence mode="popLayout">
               {filtradas.map((e) => (
-                <motion.div
+                <m.div
                   key={e.slug}
                   layout
                   initial={{ opacity: 0, scale: 0.95 }}
@@ -212,29 +212,29 @@ export default function SolucionesContent() {
                       </svg>
                     </div>
                   </Link>
-                </motion.div>
+                </m.div>
               ))}
             </AnimatePresence>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
       {/* ── Beneficios comunes ────────────────────────────────────────── */}
       <section className="py-20 px-4 bg-[#fafafa] border-t border-gray-100">
-        <motion.div
+        <m.div
           className="max-w-5xl mx-auto"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
           variants={stagger}
         >
-          <motion.div variants={fadeUp} className="text-center mb-12">
+          <m.div variants={fadeUp} className="text-center mb-12">
             <p className="text-[#6C5CE4] text-xs font-semibold uppercase tracking-widest mb-3">Para todas las especialidades</p>
             <h2 className="text-3xl font-bold text-gray-900 tracking-tight">
               Lo mismo que usan todos, adaptado a ti
             </h2>
-          </motion.div>
-          <motion.div variants={stagger} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          </m.div>
+          <m.div variants={stagger} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {[
               {
                 icon: (
@@ -273,7 +273,7 @@ export default function SolucionesContent() {
                 desc: "Ingresos, asistencia y rendimiento en tiempo real.",
               },
             ].map((item) => (
-              <motion.div
+              <m.div
                 key={item.titulo}
                 variants={fadeUp}
                 className="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm"
@@ -283,28 +283,28 @@ export default function SolucionesContent() {
                 </div>
                 <h3 className="font-semibold text-gray-900 mb-1.5">{item.titulo}</h3>
                 <p className="text-sm text-gray-500 leading-relaxed">{item.desc}</p>
-              </motion.div>
+              </m.div>
             ))}
-          </motion.div>
-        </motion.div>
+          </m.div>
+        </m.div>
       </section>
 
       {/* ── CTA ──────────────────────────────────────────────────────── */}
       <section className="py-20 px-4 bg-[#6C5CE4]">
-        <motion.div
+        <m.div
           className="max-w-2xl mx-auto text-center"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.5 }}
           variants={stagger}
         >
-          <motion.h2 variants={fadeUp} className="text-3xl font-bold text-white tracking-tight mb-4">
+          <m.h2 variants={fadeUp} className="text-3xl font-bold text-white tracking-tight mb-4">
             ¿No encuentras tu especialidad?
-          </motion.h2>
-          <motion.p variants={fadeUp} className="text-white/80 mb-8">
+          </m.h2>
+          <m.p variants={fadeUp} className="text-white/80 mb-8">
             attempo funciona para cualquier profesional que trabaje con citas. Escríbenos y te ayudamos.
-          </motion.p>
-          <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-3 justify-center">
+          </m.p>
+          <m.div variants={fadeUp} className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link
               href="https://app.attempo.cl/registro"
               className="inline-flex items-center justify-center px-7 py-3.5 bg-white text-[#6C5CE4] font-semibold rounded-xl hover:bg-[#f5f3ff] transition-colors duration-200 cursor-pointer"
@@ -317,8 +317,8 @@ export default function SolucionesContent() {
             >
               Hablar con el equipo
             </Link>
-          </motion.div>
-        </motion.div>
+          </m.div>
+        </m.div>
       </section>
 
     </div>

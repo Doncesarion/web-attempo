@@ -1,7 +1,7 @@
 "use client"
 
 import React from "react"
-import { motion } from "framer-motion"
+import { m } from "framer-motion"
 import Image from "next/image"
 import Link from "next/link"
 
@@ -119,40 +119,40 @@ function FeatureBlock({
         <div className={`flex flex-col ${reverse ? "lg:flex-row-reverse" : "lg:flex-row"} items-center gap-10 lg:gap-16`}>
 
           {/* Texto — 40% */}
-          <motion.div
+          <m.div
             className="w-full lg:w-2/5 flex-shrink-0"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
             variants={stagger}
           >
-            <motion.span
+            <m.span
               variants={fadeUp}
               className="inline-block text-xs font-semibold text-[#6C5CE4] uppercase tracking-widest bg-[#6C5CE4]/10 px-3 py-1 rounded-full mb-4"
             >
               {badge}
-            </motion.span>
-            <motion.h2
+            </m.span>
+            <m.h2
               variants={fadeUp}
               className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight mb-4 leading-tight"
             >
               {title}
-            </motion.h2>
-            <motion.p variants={fadeUp} className="text-gray-500 leading-relaxed mb-6">
+            </m.h2>
+            <m.p variants={fadeUp} className="text-gray-500 leading-relaxed mb-6">
               {description}
-            </motion.p>
-            <motion.ul variants={stagger} className="space-y-3">
+            </m.p>
+            <m.ul variants={stagger} className="space-y-3">
               {bullets.map((b) => (
-                <motion.li key={b} variants={fadeUp} className="flex items-start gap-3">
+                <m.li key={b} variants={fadeUp} className="flex items-start gap-3">
                   <span className="mt-0.5 flex-shrink-0"><CheckIcon /></span>
                   <span className="text-gray-700 text-sm leading-relaxed">{b}</span>
-                </motion.li>
+                </m.li>
               ))}
-            </motion.ul>
-          </motion.div>
+            </m.ul>
+          </m.div>
 
           {/* Screenshot — 60% */}
-          <motion.div
+          <m.div
             className="w-full lg:w-3/5"
             initial="hidden"
             whileInView="visible"
@@ -169,7 +169,7 @@ function FeatureBlock({
                 quality={95}
               />
             </BrowserFrame>
-          </motion.div>
+          </m.div>
 
         </div>
       </div>
@@ -195,25 +195,25 @@ export default function PlataformaContent() {
 
       {/* ── Hero ───────────────────────────────────────────────────────── */}
       <section className="py-20 lg:py-28 px-4 bg-gradient-to-b from-[#f5f3ff] to-white">
-        <motion.div
+        <m.div
           className="max-w-4xl mx-auto text-center"
           initial="hidden"
           animate="visible"
           variants={stagger}
         >
-          <motion.p variants={fadeUp} className="text-[#6C5CE4] text-xs font-semibold uppercase tracking-widest mb-4">
+          <m.p variants={fadeUp} className="text-[#6C5CE4] text-xs font-semibold uppercase tracking-widest mb-4">
             Plataforma
-          </motion.p>
-          <motion.h1
+          </m.p>
+          <m.h1
             variants={fadeUp}
             className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 tracking-tight mb-5 leading-tight"
           >
             Todo lo que necesitas,<br className="hidden sm:block" /> en un solo lugar
-          </motion.h1>
-          <motion.p variants={fadeUp} className="text-lg text-gray-500 max-w-2xl mx-auto mb-10">
+          </m.h1>
+          <m.p variants={fadeUp} className="text-lg text-gray-500 max-w-2xl mx-auto mb-10">
             Desde que agendas una cita hasta que emites la boleta — attempo cubre cada paso de tu flujo de trabajo sin complicaciones.
-          </motion.p>
-          <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-3 justify-center">
+          </m.p>
+          <m.div variants={fadeUp} className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link
               href="https://app.attempo.cl/registro"
               className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#6C5CE4] text-white font-semibold rounded-xl hover:bg-[#5A4BD1] transition-colors duration-200 cursor-pointer"
@@ -226,11 +226,11 @@ export default function PlataformaContent() {
             >
               Ver planes <ArrowRightIcon />
             </Link>
-          </motion.div>
-        </motion.div>
+          </m.div>
+        </m.div>
 
         {/* Feature pills */}
-        <motion.div
+        <m.div
           className="max-w-3xl mx-auto mt-14"
           initial="hidden"
           animate="visible"
@@ -238,17 +238,17 @@ export default function PlataformaContent() {
         >
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             {features.map((f) => (
-              <motion.div
+              <m.div
                 key={f.label}
                 variants={fadeUp}
                 className="flex items-center gap-3 bg-white border border-gray-100 rounded-xl px-4 py-3 shadow-sm"
               >
                 <span className="text-[#6C5CE4]">{f.icon}</span>
                 <span className="text-sm font-medium text-gray-700">{f.label}</span>
-              </motion.div>
+              </m.div>
             ))}
           </div>
-        </motion.div>
+        </m.div>
       </section>
 
       {/* ── Agenda online ──────────────────────────────────────────────── */}
@@ -321,7 +321,7 @@ export default function PlataformaContent() {
 
       {/* ── Paquetes de sesiones ───────────────────────────────────────── */}
       <section id="paquetes" className="py-20 px-4 scroll-mt-20 bg-[#6C5CE4]">
-        <motion.div
+        <m.div
           className="max-w-5xl mx-auto"
           initial="hidden"
           whileInView="visible"
@@ -329,21 +329,21 @@ export default function PlataformaContent() {
           variants={stagger}
         >
           <div className="text-center mb-12">
-            <motion.span
+            <m.span
               variants={fadeUp}
               className="inline-block text-xs font-semibold text-white/70 uppercase tracking-widest bg-white/15 px-3 py-1 rounded-full mb-4"
             >
               Paquetes de sesiones
-            </motion.span>
-            <motion.h2 variants={fadeUp} className="text-3xl sm:text-4xl font-bold text-white tracking-tight mb-4">
+            </m.span>
+            <m.h2 variants={fadeUp} className="text-3xl sm:text-4xl font-bold text-white tracking-tight mb-4">
               Vende paquetes de sesiones con descuento
-            </motion.h2>
-            <motion.p variants={fadeUp} className="text-white/75 max-w-xl mx-auto leading-relaxed">
+            </m.h2>
+            <m.p variants={fadeUp} className="text-white/75 max-w-xl mx-auto leading-relaxed">
               Ofrece paquetes de 4, 8 o 12 sesiones a precio especial. Tus pacientes pagan por adelantado y tú garantizas la continuidad del tratamiento.
-            </motion.p>
+            </m.p>
           </div>
 
-          <motion.div variants={stagger} className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+          <m.div variants={stagger} className="grid grid-cols-1 sm:grid-cols-3 gap-5">
             {[
               {
                 titulo: "Para el profesional",
@@ -370,7 +370,7 @@ export default function PlataformaContent() {
                 ],
               },
             ].map((card) => (
-              <motion.div
+              <m.div
                 key={card.titulo}
                 variants={fadeUp}
                 className="bg-white/15 border border-white/20 rounded-2xl p-6"
@@ -386,10 +386,10 @@ export default function PlataformaContent() {
                     </li>
                   ))}
                 </ul>
-              </motion.div>
+              </m.div>
             ))}
-          </motion.div>
-        </motion.div>
+          </m.div>
+        </m.div>
       </section>
 
       {/* ── Boleta de honorarios ───────────────────────────────────────── */}
@@ -428,7 +428,7 @@ export default function PlataformaContent() {
 
       {/* ── Chatbot IA ─────────────────────────────────────────────────── */}
       <section className="py-20 px-4 bg-white">
-        <motion.div
+        <m.div
           className="max-w-5xl mx-auto"
           initial="hidden"
           whileInView="visible"
@@ -436,27 +436,27 @@ export default function PlataformaContent() {
           variants={stagger}
         >
           <div className="bg-gradient-to-br from-[#6C5CE4] to-[#5A4BD1] rounded-3xl p-8 lg:p-14 text-center">
-            <motion.span
+            <m.span
               variants={fadeUp}
               className="inline-flex items-center gap-2 text-xs font-semibold text-white/70 uppercase tracking-widest bg-white/15 px-3 py-1 rounded-full mb-6"
             >
               <SparklesIcon />
               Chatbot IA — Plan Clínica
-            </motion.span>
-            <motion.h2 variants={fadeUp} className="text-3xl sm:text-4xl font-bold text-white tracking-tight mb-4">
+            </m.span>
+            <m.h2 variants={fadeUp} className="text-3xl sm:text-4xl font-bold text-white tracking-tight mb-4">
               Un asistente que agenda por ti las 24 horas
-            </motion.h2>
-            <motion.p variants={fadeUp} className="text-white/75 max-w-xl mx-auto leading-relaxed mb-10">
+            </m.h2>
+            <m.p variants={fadeUp} className="text-white/75 max-w-xl mx-auto leading-relaxed mb-10">
               El chatbot de IA responde a tus pacientes, consulta disponibilidad y confirma citas automáticamente — incluso cuando estás atendiendo o durmiendo.
-            </motion.p>
-            <motion.div variants={stagger} className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-2xl mx-auto text-left">
+            </m.p>
+            <m.div variants={stagger} className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-2xl mx-auto text-left">
               {[
                 "Responde preguntas frecuentes en segundos",
                 "Agenda citas según tu disponibilidad real",
                 "Disponible por WhatsApp, Instagram y web",
                 "Aprende de tus preferencias con el tiempo",
               ].map((b) => (
-                <motion.div
+                <m.div
                   key={b}
                   variants={fadeUp}
                   className="flex items-start gap-3 bg-white/15 border border-white/20 rounded-xl px-4 py-3"
@@ -465,29 +465,29 @@ export default function PlataformaContent() {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                   </svg>
                   <span className="text-white/90 text-sm leading-relaxed">{b}</span>
-                </motion.div>
+                </m.div>
               ))}
-            </motion.div>
+            </m.div>
           </div>
-        </motion.div>
+        </m.div>
       </section>
 
       {/* ── CTA ────────────────────────────────────────────────────────── */}
       <section className="py-20 px-4 bg-[#fafafa] border-t border-gray-100">
-        <motion.div
+        <m.div
           className="max-w-2xl mx-auto text-center"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.5 }}
           variants={stagger}
         >
-          <motion.h2 variants={fadeUp} className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight mb-4">
+          <m.h2 variants={fadeUp} className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight mb-4">
             Empieza gratis hoy
-          </motion.h2>
-          <motion.p variants={fadeUp} className="text-gray-500 mb-8">
+          </m.h2>
+          <m.p variants={fadeUp} className="text-gray-500 mb-8">
             12 días de prueba en cualquier plan. Sin tarjeta de crédito. Sin compromiso.
-          </motion.p>
-          <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-3 justify-center">
+          </m.p>
+          <m.div variants={fadeUp} className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link
               href="https://app.attempo.cl/registro"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#6C5CE4] text-white font-semibold rounded-xl hover:bg-[#5A4BD1] transition-colors duration-200 cursor-pointer text-base"
@@ -500,8 +500,8 @@ export default function PlataformaContent() {
             >
               Ver planes y precios <ArrowRightIcon />
             </Link>
-          </motion.div>
-        </motion.div>
+          </m.div>
+        </m.div>
       </section>
 
     </div>

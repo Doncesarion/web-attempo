@@ -1,6 +1,6 @@
 "use client"
 
-import { motion, AnimatePresence } from "framer-motion"
+import { m, AnimatePresence } from "framer-motion"
 import { useState } from "react"
 import { Turnstile } from "@marsidev/react-turnstile"
 import { sendContactEmail, type ContactFormData } from "./actions"
@@ -127,29 +127,29 @@ export default function ContactoContent() {
             WebkitMaskImage: "radial-gradient(ellipse 80% 80% at 50% 50%, black 50%, transparent 100%)",
           }}
         />
-        <motion.div
+        <m.div
           variants={stagger}
           initial="hidden"
           animate="visible"
           className="max-w-3xl mx-auto text-center relative"
         >
-          <motion.span
+          <m.span
             variants={fadeUp}
             className="inline-block bg-[#6C5CE4]/10 text-[#6C5CE4] text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full mb-6"
           >
             Contacto
-          </motion.span>
-          <motion.h1
+          </m.span>
+          <m.h1
             variants={fadeUp}
             className="text-5xl sm:text-6xl font-bold text-gray-900 mb-5 leading-tight"
           >
             ¿En qué podemos<br />
             <span className="text-[#6C5CE4]">ayudarte?</span>
-          </motion.h1>
-          <motion.p variants={fadeUp} className="text-xl text-gray-500 max-w-xl mx-auto">
+          </m.h1>
+          <m.p variants={fadeUp} className="text-xl text-gray-500 max-w-xl mx-auto">
             Cuéntanos tu consulta y te respondemos en menos de 24 horas hábiles.
-          </motion.p>
-        </motion.div>
+          </m.p>
+        </m.div>
       </section>
 
       {/* Contenido principal */}
@@ -157,22 +157,22 @@ export default function ContactoContent() {
         <div className="max-w-6xl mx-auto grid lg:grid-cols-5 gap-12 items-start">
 
           {/* Left: info */}
-          <motion.div
+          <m.div
             variants={stagger}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             className="lg:col-span-2 space-y-4"
           >
-            <motion.div variants={fadeUp}>
+            <m.div variants={fadeUp}>
               <h2 className="text-2xl font-bold text-gray-900 mb-2">Estamos para ayudarte</h2>
               <p className="text-gray-500 text-sm leading-relaxed">
                 Sea una duda, un problema técnico o que quieras conocer attempo — escríbenos y te atendemos rápido.
               </p>
-            </motion.div>
+            </m.div>
 
             {infoCards.map((card) => (
-              <motion.div
+              <m.div
                 key={card.title}
                 variants={fadeUp}
                 className="flex items-start gap-4 bg-gray-50 rounded-2xl p-5 border border-gray-100"
@@ -190,10 +190,10 @@ export default function ContactoContent() {
                     <p className="text-sm font-medium text-gray-700">{card.value}</p>
                   )}
                 </div>
-              </motion.div>
+              </m.div>
             ))}
 
-            <motion.div variants={fadeUp} className="bg-[#6C5CE4] rounded-2xl p-5 text-white">
+            <m.div variants={fadeUp} className="bg-[#6C5CE4] rounded-2xl p-5 text-white">
               <p className="font-semibold mb-1">¿Prefieres hablar ahora?</p>
               <p className="text-purple-200 text-sm mb-4">Revisa nuestras preguntas frecuentes — puede que tu respuesta ya esté ahí.</p>
               <a
@@ -202,11 +202,11 @@ export default function ContactoContent() {
               >
                 Ver preguntas frecuentes →
               </a>
-            </motion.div>
-          </motion.div>
+            </m.div>
+          </m.div>
 
           {/* Right: form */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -216,7 +216,7 @@ export default function ContactoContent() {
             <div className="bg-white rounded-3xl border border-gray-100 shadow-xl shadow-gray-100/60 p-8">
               <AnimatePresence mode="wait">
                 {sent ? (
-                  <motion.div
+                  <m.div
                     key="success"
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
@@ -235,9 +235,9 @@ export default function ContactoContent() {
                     >
                       Enviar otro mensaje
                     </button>
-                  </motion.div>
+                  </m.div>
                 ) : (
-                  <motion.form
+                  <m.form
                     key="form"
                     onSubmit={handleSubmit}
                     className="space-y-5"
@@ -301,7 +301,7 @@ export default function ContactoContent() {
                                 <>
                                   {/* Overlay to close */}
                                   <div className="fixed inset-0 z-10" onClick={() => setPaisDropdown(false)} />
-                                  <motion.div
+                                  <m.div
                                     initial={{ opacity: 0, y: 4 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     exit={{ opacity: 0, y: 4 }}
@@ -327,7 +327,7 @@ export default function ContactoContent() {
                                         <span className="text-gray-400 text-xs">{p.code}</span>
                                       </button>
                                     ))}
-                                  </motion.div>
+                                  </m.div>
                                 </>
                               )}
                             </AnimatePresence>
@@ -416,11 +416,11 @@ export default function ContactoContent() {
                         contacto@attempo.cl
                       </a>
                     </p>
-                  </motion.form>
+                  </m.form>
                 )}
               </AnimatePresence>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
     </div>

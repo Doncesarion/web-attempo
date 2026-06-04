@@ -1,6 +1,6 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { m } from "framer-motion"
 
 const fadeUp = {
   hidden: { opacity: 0, y: 28 },
@@ -63,38 +63,38 @@ export default function QuienesSomosContent() {
           }}
         />
         {/* Glow blob */}
-        <motion.div
+        <m.div
           animate={{ scale: [1, 1.1, 1], opacity: [0.12, 0.2, 0.12] }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-[#6C5CE4] rounded-full blur-3xl pointer-events-none"
         />
 
-        <motion.div
+        <m.div
           variants={stagger}
           initial="hidden"
           animate="visible"
           className="max-w-4xl mx-auto text-center relative"
         >
-          <motion.span
+          <m.span
             variants={fadeUp}
             className="inline-block bg-[#6C5CE4]/10 text-[#6C5CE4] text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full mb-8"
           >
             Quiénes somos
-          </motion.span>
-          <motion.h1
+          </m.span>
+          <m.h1
             variants={fadeUp}
             className="text-4xl sm:text-5xl lg:text-7xl font-bold text-gray-900 mb-6 lg:mb-8 leading-[1.05]"
           >
             Nacimos para que los<br />
             profesionales puedan<br />
             <span className="text-[#6C5CE4]">enfocarse en lo suyo</span>
-          </motion.h1>
-          <motion.p variants={fadeUp} className="text-xl text-gray-500 max-w-2xl mx-auto leading-relaxed">
+          </m.h1>
+          <m.p variants={fadeUp} className="text-xl text-gray-500 max-w-2xl mx-auto leading-relaxed">
             Somos un equipo chileno que construyó la herramienta que los profesionales de salud y servicios necesitaban y no encontraban.
-          </motion.p>
+          </m.p>
 
           {/* Data chips */}
-          <motion.div
+          <m.div
             variants={fadeUp}
             className="flex flex-wrap items-center justify-center gap-3 mt-12"
           >
@@ -111,13 +111,13 @@ export default function QuienesSomosContent() {
                 {chip.icon} {chip.label}
               </span>
             ))}
-          </motion.div>
-        </motion.div>
+          </m.div>
+        </m.div>
       </section>
 
       {/* ── 2. ORIGEN ───────────────────────────────────────── */}
       <section className="py-24 px-4 bg-white">
-        <motion.div
+        <m.div
           variants={stagger}
           initial="hidden"
           whileInView="visible"
@@ -125,7 +125,7 @@ export default function QuienesSomosContent() {
           className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16 items-start"
         >
           {/* Left: story */}
-          <motion.div variants={fadeUp}>
+          <m.div variants={fadeUp}>
             <span className="text-[#6C5CE4] text-sm font-medium uppercase tracking-wider">El origen</span>
             <h2 className="text-4xl font-bold text-gray-900 mt-3 mb-7 leading-tight">
               Todo partió de<br />una frustración real
@@ -149,10 +149,10 @@ export default function QuienesSomosContent() {
                 El principio que guía cada decisión en attempo
               </p>
             </div>
-          </motion.div>
+          </m.div>
 
           {/* Right: comparison card */}
-          <motion.div variants={fadeUp}>
+          <m.div variants={fadeUp}>
             <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-5">El problema que resolvemos</p>
             <div className="rounded-3xl overflow-hidden border border-gray-200 shadow-sm">
               {/* Header row */}
@@ -178,8 +178,8 @@ export default function QuienesSomosContent() {
                 </div>
               ))}
             </div>
-          </motion.div>
-        </motion.div>
+          </m.div>
+        </m.div>
       </section>
 
       {/* ── 3. MISIÓN — sección oscura ──────────────────────── */}
@@ -191,30 +191,30 @@ export default function QuienesSomosContent() {
         {/* Purple glow */}
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#6C5CE4]/20 rounded-full blur-3xl pointer-events-none" />
 
-        <motion.div
+        <m.div
           variants={stagger}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
           className="max-w-4xl mx-auto text-center relative"
         >
-          <motion.span
+          <m.span
             variants={fadeUp}
             className="inline-block bg-[#6C5CE4]/20 text-[#8B7FF0] text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full mb-8"
           >
             Nuestra misión
-          </motion.span>
-          <motion.p
+          </m.span>
+          <m.p
             variants={fadeUp}
             className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-[1.1] mb-8"
           >
             Devolver el tiempo a los profesionales para que puedan enfocarse en lo que más importa.
-          </motion.p>
-          <motion.p variants={fadeUp} className="text-2xl font-light text-[#8B7FF0]">
+          </m.p>
+          <m.p variants={fadeUp} className="text-2xl font-light text-[#8B7FF0]">
             Su trabajo. Sus pacientes. Su vida.
-          </motion.p>
+          </m.p>
 
-          <motion.div
+          <m.div
             variants={fadeUp}
             className="mt-14 pt-14 border-t border-white/10"
           >
@@ -222,27 +222,27 @@ export default function QuienesSomosContent() {
             <p className="text-gray-300 text-xl max-w-2xl mx-auto leading-relaxed">
               Ser la plataforma de agendamiento de referencia para profesionales de salud y servicios en Latinoamérica.
             </p>
-          </motion.div>
-        </motion.div>
+          </m.div>
+        </m.div>
       </section>
 
       {/* ── 4. VALORES ──────────────────────────────────────── */}
       <section className="py-24 px-4 bg-[#f8f7ff]">
-        <motion.div
+        <m.div
           variants={stagger}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
           className="max-w-5xl mx-auto"
         >
-          <motion.div variants={fadeUp} className="mb-14">
+          <m.div variants={fadeUp} className="mb-14">
             <span className="text-[#6C5CE4] text-sm font-medium uppercase tracking-wider">Cómo trabajamos</span>
             <h2 className="text-4xl font-bold text-gray-900 mt-2">Nuestros valores</h2>
-          </motion.div>
+          </m.div>
 
           <div className="space-y-4">
             {valores.map((v) => (
-              <motion.div
+              <m.div
                 key={v.num}
                 variants={fadeUp}
                 className="group bg-white rounded-2xl border border-gray-100 hover:border-[#6C5CE4]/30 hover:shadow-lg transition-all duration-300 overflow-hidden"
@@ -258,30 +258,30 @@ export default function QuienesSomosContent() {
                   <div className="hidden sm:block h-7 border-l border-gray-100 flex-shrink-0" />
                   <p className="text-gray-500 text-sm leading-relaxed flex-1">{v.desc}</p>
                 </div>
-              </motion.div>
+              </m.div>
             ))}
           </div>
-        </motion.div>
+        </m.div>
       </section>
 
       {/* ── 5. CTA ──────────────────────────────────────────── */}
       <section className="py-24 px-4 bg-[#6C5CE4] relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/5 rounded-full blur-3xl pointer-events-none" />
-        <motion.div
+        <m.div
           variants={stagger}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
           className="max-w-3xl mx-auto text-center relative"
         >
-          <motion.h2 variants={fadeUp} className="text-4xl sm:text-5xl font-bold text-white mb-4">
+          <m.h2 variants={fadeUp} className="text-4xl sm:text-5xl font-bold text-white mb-4">
             ¿Listo para trabajar menos?
-          </motion.h2>
-          <motion.p variants={fadeUp} className="text-purple-200 mb-10 text-xl">
+          </m.h2>
+          <m.p variants={fadeUp} className="text-purple-200 mb-10 text-xl">
             Únete a los profesionales chilenos que ya usan attempo.
-          </motion.p>
-          <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4 justify-center">
+          </m.p>
+          <m.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="/precios"
               className="px-8 py-4 bg-white text-[#6C5CE4] font-bold rounded-xl hover:bg-purple-50 transition-all text-lg shadow-lg hover:-translate-y-0.5"
@@ -294,8 +294,8 @@ export default function QuienesSomosContent() {
             >
               Hablar con nosotros
             </a>
-          </motion.div>
-        </motion.div>
+          </m.div>
+        </m.div>
       </section>
     </div>
   )

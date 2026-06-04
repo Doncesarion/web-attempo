@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
+import { m, AnimatePresence } from "framer-motion"
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -213,19 +213,19 @@ export default function PreciosContent() {
 
       {/* ── Hero ──────────────────────────────────────────────────────────── */}
       <section className="pt-20 pb-10 lg:pt-24 lg:pb-16 px-4 bg-gradient-to-b from-[#f5f3ff] to-white">
-        <motion.div className="max-w-2xl mx-auto text-center" initial="hidden" animate="visible" variants={stagger}>
-          <motion.span variants={fadeUp} className="inline-flex items-center gap-2 bg-[#6C5CE4]/10 text-[#6C5CE4] text-sm font-semibold px-4 py-2 rounded-full mb-6">
+        <m.div className="max-w-2xl mx-auto text-center" initial="hidden" animate="visible" variants={stagger}>
+          <m.span variants={fadeUp} className="inline-flex items-center gap-2 bg-[#6C5CE4]/10 text-[#6C5CE4] text-sm font-semibold px-4 py-2 rounded-full mb-6">
             <GiftIcon /> 12 días de prueba gratis · Sin tarjeta de crédito
-          </motion.span>
-          <motion.h1 variants={fadeUp} className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4 leading-[1.1] tracking-tight">
+          </m.span>
+          <m.h1 variants={fadeUp} className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4 leading-[1.1] tracking-tight">
             Planes claros,<br />sin sorpresas
-          </motion.h1>
-          <motion.p variants={fadeUp} className="text-lg text-gray-500 mb-10">
+          </m.h1>
+          <m.p variants={fadeUp} className="text-lg text-gray-500 mb-10">
             Precios en pesos fijos. Sin UF, sin variaciones. Lo que ves es lo que pagas.
-          </motion.p>
+          </m.p>
 
           {/* Toggle */}
-          <motion.div variants={fadeUp} className="inline-flex items-center gap-3 bg-gray-100 rounded-full p-1.5">
+          <m.div variants={fadeUp} className="inline-flex items-center gap-3 bg-gray-100 rounded-full p-1.5">
             <button
               onClick={() => setCiclo("mensual")}
               className={`px-5 py-2 rounded-full text-sm font-semibold transition-all duration-200 cursor-pointer ${ciclo === "mensual" ? "bg-white text-gray-900 shadow-sm" : "text-gray-500 hover:text-gray-700"}`}
@@ -239,24 +239,24 @@ export default function PreciosContent() {
               Anual
               <span className="bg-green-100 text-green-700 text-xs font-bold px-2 py-0.5 rounded-full">−20%</span>
             </button>
-          </motion.div>
+          </m.div>
 
           {ciclo === "anual" && (
-            <motion.p initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} className="text-sm text-green-600 font-medium mt-3">
+            <m.p initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} className="text-sm text-green-600 font-medium mt-3">
               Pagas 10 meses, te regalamos 2 — el descuento más alto del mercado
-            </motion.p>
+            </m.p>
           )}
-        </motion.div>
+        </m.div>
       </section>
 
       {/* ── Cards ──────────────────────────────────────────────────────────── */}
       <section className="pb-20 px-4">
-        <motion.div
+        <m.div
           className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-5 items-stretch"
           initial="hidden" animate="visible" variants={stagger}
         >
           {planes.map((plan) => (
-            <motion.div
+            <m.div
               key={plan.id}
               variants={fadeUp}
               className={`relative rounded-2xl flex flex-col border transition-shadow hover:shadow-lg ${
@@ -331,25 +331,25 @@ export default function PreciosContent() {
                   )}
                 </ul>
               </div>
-            </motion.div>
+            </m.div>
           ))}
-        </motion.div>
+        </m.div>
 
         <p className="text-center text-xs text-gray-400 mt-6">Todos los precios en pesos chilenos + IVA.</p>
       </section>
 
       {/* ── Tabla comparativa ──────────────────────────────────────────────── */}
       <section className="py-20 px-4 bg-gray-50">
-        <motion.div
+        <m.div
           className="max-w-5xl mx-auto"
           initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.05 }} variants={stagger}
         >
-          <motion.h2 variants={fadeUp} className="text-3xl font-bold text-gray-900 text-center mb-2 tracking-tight">
+          <m.h2 variants={fadeUp} className="text-3xl font-bold text-gray-900 text-center mb-2 tracking-tight">
             Todo lo que incluye cada plan
-          </motion.h2>
-          <motion.p variants={fadeUp} className="text-gray-500 text-center mb-10">Sin letra chica.</motion.p>
+          </m.h2>
+          <m.p variants={fadeUp} className="text-gray-500 text-center mb-10">Sin letra chica.</m.p>
 
-          <motion.div variants={fadeUp} className="overflow-x-auto rounded-2xl border border-gray-200 bg-white shadow-sm">
+          <m.div variants={fadeUp} className="overflow-x-auto rounded-2xl border border-gray-200 bg-white shadow-sm">
             <table className="w-full min-w-[540px] text-sm">
               <thead>
                 <tr className="border-b border-gray-100">
@@ -412,17 +412,17 @@ export default function PreciosContent() {
                 </tr>
               </tbody>
             </table>
-          </motion.div>
-        </motion.div>
+          </m.div>
+        </m.div>
       </section>
 
       {/* ── Para equipos ────────────────────────────────────────────────────── */}
       <section className="py-20 px-4 bg-[#6C5CE4]">
-        <motion.div
+        <m.div
           className="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-12"
           initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} variants={stagger}
         >
-          <motion.div variants={fadeUp} className="flex-1 text-center md:text-left">
+          <m.div variants={fadeUp} className="flex-1 text-center md:text-left">
             <p className="text-purple-300 text-xs font-bold uppercase tracking-widest mb-3">Para equipos y centros</p>
             <h2 className="text-4xl font-bold text-white mb-4 leading-tight tracking-tight">
               ¿Tienes un equipo<br />o un centro médico?
@@ -438,59 +438,59 @@ export default function PreciosContent() {
                 contacto@attempo.cl
               </a>
             </div>
-          </motion.div>
-          <motion.div variants={fadeUp} className="grid grid-cols-2 gap-3 flex-shrink-0">
+          </m.div>
+          <m.div variants={fadeUp} className="grid grid-cols-2 gap-3 flex-shrink-0">
             {["Centros médicos", "Clínicas dentales", "Salud mental", "Bienestar y spa"].map((label) => (
               <div key={label} className="bg-white/10 rounded-2xl p-5 text-center w-36">
                 <BuildingIcon />
                 <p className="text-white text-xs font-semibold mt-2 leading-tight">{label}</p>
               </div>
             ))}
-          </motion.div>
-        </motion.div>
+          </m.div>
+        </m.div>
       </section>
 
       {/* ── Garantía ────────────────────────────────────────────────────────── */}
       <section className="py-20 px-4 bg-white">
-        <motion.div
+        <m.div
           className="max-w-3xl mx-auto"
           initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} variants={stagger}
         >
-          <motion.div variants={fadeUp} className="text-center mb-12">
+          <m.div variants={fadeUp} className="text-center mb-12">
             <div className="inline-flex items-center justify-center w-16 h-16 bg-[#6C5CE4]/10 rounded-2xl mb-4">
               <ShieldIcon />
             </div>
             <h2 className="text-3xl font-bold text-gray-900 mb-3 tracking-tight">Sin riesgos. Empieza gratis.</h2>
             <p className="text-gray-500">12 días de prueba en cualquier plan. Sin tarjeta. Si no es para ti, no pagas nada.</p>
-          </motion.div>
-          <motion.div variants={stagger} className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          </m.div>
+          <m.div variants={stagger} className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {[
               { icon: <ZapIcon />, title: "Listo en 5 minutos", desc: "Configura tu perfil y empieza a recibir citas en menos de 5 minutos." },
               { icon: <ChatIcon />, title: "Soporte en español", desc: "Equipo chileno disponible por chat. Una persona real, no un bot." },
               { icon: <UnlockIcon />, title: "Sin permanencia", desc: "Cancela cuando quieras. Sin letras chicas ni compromisos forzados." },
             ].map((item) => (
-              <motion.div key={item.title} variants={fadeUp} className="bg-[#f5f3ff] rounded-2xl p-6">
+              <m.div key={item.title} variants={fadeUp} className="bg-[#f5f3ff] rounded-2xl p-6">
                 <div className="mb-3">{item.icon}</div>
                 <h3 className="font-bold text-gray-900 mb-1.5">{item.title}</h3>
                 <p className="text-sm text-gray-500 leading-relaxed">{item.desc}</p>
-              </motion.div>
+              </m.div>
             ))}
-          </motion.div>
-        </motion.div>
+          </m.div>
+        </m.div>
       </section>
 
       {/* ── FAQ ─────────────────────────────────────────────────────────────── */}
       <section className="py-20 px-4 bg-gray-50">
-        <motion.div
+        <m.div
           className="max-w-2xl mx-auto"
           initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }} variants={stagger}
         >
-          <motion.h2 variants={fadeUp} className="text-3xl font-bold text-gray-900 text-center mb-10 tracking-tight">
+          <m.h2 variants={fadeUp} className="text-3xl font-bold text-gray-900 text-center mb-10 tracking-tight">
             Preguntas frecuentes
-          </motion.h2>
+          </m.h2>
           <div className="bg-white rounded-2xl border border-gray-200 divide-y divide-gray-100 overflow-hidden">
             {faqs.map((faq, i) => (
-              <motion.div key={i} variants={fadeUp}>
+              <m.div key={i} variants={fadeUp}>
                 <button
                   onClick={() => setFaqAbierta(faqAbierta === i ? null : i)}
                   className="w-full flex items-center justify-between py-4 px-6 text-left gap-4 cursor-pointer hover:bg-gray-50 transition-colors min-h-[56px]"
@@ -500,7 +500,7 @@ export default function PreciosContent() {
                 </button>
                 <AnimatePresence>
                   {faqAbierta === i && (
-                    <motion.div
+                    <m.div
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
@@ -508,31 +508,31 @@ export default function PreciosContent() {
                       className="overflow-hidden"
                     >
                       <p className="px-6 pb-5 text-gray-500 text-sm leading-relaxed">{faq.a}</p>
-                    </motion.div>
+                    </m.div>
                   )}
                 </AnimatePresence>
-              </motion.div>
+              </m.div>
             ))}
           </div>
-        </motion.div>
+        </m.div>
       </section>
 
       {/* ── CTA final ───────────────────────────────────────────────────────── */}
       <section className="py-20 px-4 bg-white">
-        <motion.div
+        <m.div
           className="max-w-xl mx-auto text-center"
           initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} variants={stagger}
         >
-          <motion.h2 variants={fadeUp} className="text-4xl font-bold text-gray-900 mb-3 tracking-tight">¿Listo para empezar?</motion.h2>
-          <motion.p variants={fadeUp} className="text-gray-500 mb-8">12 días gratis. Sin tarjeta. Sin letra chica.</motion.p>
-          <motion.a
+          <m.h2 variants={fadeUp} className="text-4xl font-bold text-gray-900 mb-3 tracking-tight">¿Listo para empezar?</m.h2>
+          <m.p variants={fadeUp} className="text-gray-500 mb-8">12 días gratis. Sin tarjeta. Sin letra chica.</m.p>
+          <m.a
             variants={fadeUp}
             href="https://app.attempo.cl/registro"
             className="inline-flex items-center justify-center min-h-[52px] bg-[#6C5CE4] text-white font-bold text-base px-10 rounded-xl hover:bg-[#5b4dd0] transition-colors cursor-pointer shadow-lg shadow-purple-200"
           >
             Crear cuenta gratis →
-          </motion.a>
-        </motion.div>
+          </m.a>
+        </m.div>
       </section>
 
     </div>
