@@ -21,7 +21,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/faq`, priority: 0.7, changeFrequency: "monthly" as const, lastModified: now },
     { url: `${BASE}/blog`, priority: 0.6, changeFrequency: "weekly" as const, lastModified: now },
     { url: `${BASE}/contacto`, priority: 0.6, changeFrequency: "yearly" as const, lastModified: now },
-    { url: `${BASE}/casos-de-exito`, priority: 0.6, changeFrequency: "monthly" as const, lastModified: now },
     { url: `${BASE}/centro-de-ayuda`, priority: 0.5, changeFrequency: "monthly" as const, lastModified: now },
     { url: `${BASE}/privacidad`, priority: 0.3, changeFrequency: "yearly" as const, lastModified: now },
     { url: `${BASE}/terminos`, priority: 0.3, changeFrequency: "yearly" as const, lastModified: now },
