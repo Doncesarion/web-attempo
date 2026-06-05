@@ -4,6 +4,7 @@ export const metadata: Metadata = {
   title: "Casos de éxito",
   description: "Conoce cómo attempo ha transformado la gestión de agendas de profesionales en Chile.",
   alternates: { canonical: "https://attempo.cl/casos-de-exito" },
+  robots: { index: false, follow: false },
   openGraph: {
     title: "Casos de éxito — attempo",
     description: "Conoce cómo attempo ha transformado la gestión de agendas de profesionales en Chile.",

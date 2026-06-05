@@ -12,19 +12,36 @@ import {
 } from "@/components/HomeAnimations"
 
 export const metadata: Metadata = {
-  title: "attempo — Sistema de Agendamiento Online para Profesionales de Salud en Chile",
+  title: "attempo | Sistema de Agendamiento Online con Chatbot IA — Chile",
   description:
-    "Sistema de agendamiento online para profesionales de la salud en Chile. Agenda 24/7, recordatorios automáticos por WhatsApp, cobro anticipado con Webpay y chatbot IA. Prueba gratis 12 días.",
+    "Plataforma de agendamiento con chatbot IA para psicólogos, barberías, centros de estética, clínicas y más en Chile. Agenda online 24/7, cobro anticipado con Webpay y recordatorios automáticos por WhatsApp. Prueba gratis 12 días.",
   alternates: { canonical: "https://attempo.cl" },
   keywords: [
     "sistema de agendamiento online Chile",
-    "agenda online profesionales salud Chile",
+    "agenda online Chile",
     "software agendamiento médico Chile",
-    "plataforma agendamiento citas Chile",
-    "recordatorios automáticos WhatsApp",
+    "chatbot ia agendamiento Chile",
     "agenda online psicólogos Chile",
+    "agenda online barberías Chile",
     "cobro anticipado Webpay citas",
+    "recordatorios automáticos WhatsApp",
   ],
+  openGraph: {
+    title: "attempo | Sistema de Agendamiento Online con Chatbot IA — Chile",
+    description:
+      "Plataforma de agendamiento con chatbot IA para psicólogos, barberías, centros de estética, clínicas y más en Chile. Agenda online 24/7, cobro con Webpay y recordatorios por WhatsApp.",
+    url: "https://attempo.cl",
+    siteName: "attempo",
+    type: "website",
+    images: [{ url: "https://attempo.cl/opengraph-image", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "attempo | Sistema de Agendamiento Online con Chatbot IA — Chile",
+    description:
+      "Agenda online 24/7, chatbot IA para WhatsApp e Instagram, cobro con Webpay y recordatorios automáticos. Para psicólogos, barberías, clínicas y más.",
+    images: ["https://attempo.cl/opengraph-image"],
+  },
 }
 
 const jsonLd = {
