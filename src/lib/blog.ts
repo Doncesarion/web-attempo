@@ -239,6 +239,173 @@ export const posts: Post[] = [
   },
   // ── ARTÍCULO 3 ──────────────────────────────────────────────────────────────
   {
+    slug: "agenda-online-kinesiologo-fisioterapia-chile-2026",
+    titulo: "Agenda online para kinesiólogos y fisioterapeutas en Chile 2026: gestiona sesiones y paquetes de rehabilitación",
+    excerpt:
+      "La kinesiología y fisioterapia tienen una dinámica particular: múltiples sesiones por semana, paquetes de tratamiento y control de evolución continuo. Esta guía explica cómo una agenda digital bien configurada organiza ese flujo y libera tiempo que hoy se pierde en coordinación.",
+    fecha: "2026-06-08",
+    categoria: "Guías",
+    tiempoLectura: 6,
+    autor: "Equipo attempo",
+    contenido: [
+      {
+        tipo: "intro",
+        texto:
+          "La kinesiología y fisioterapia tienen una dinámica diferente a otras especialidades: los pacientes no vienen una vez al mes — vienen 2, 3 o 4 veces por semana durante semanas o meses. Eso multiplica el volumen de coordinación, los recordatorios y el seguimiento. Una agenda digital bien configurada puede absorber toda esa carga operativa y dejar al kinesiólogo enfocado en lo que importa: la rehabilitación.",
+      },
+      { tipo: "h2", texto: "El desafío específico de la kinesiología" },
+      {
+        tipo: "p",
+        texto:
+          "Un kinesiólogo con 10 pacientes activos puede tener 30 o 40 sesiones semanales. Si cada coordinación toma 5 minutos entre mensajes de WhatsApp, confirmaciones y recordatorios manuales, eso es entre 2 y 3 horas semanales solo en gestión de agenda. Sin contar las sesiones que se pierden porque el paciente olvidó que tenía hora ese día.",
+      },
+      {
+        tipo: "p",
+        texto:
+          "El problema se agrava porque la continuidad del tratamiento es clínicamente importante. Un paciente que falta a dos sesiones seguidas interrumpe su proceso de rehabilitación. Reducir las inasistencias no es solo un beneficio económico para el profesional — es parte del resultado clínico del paciente.",
+      },
+      { tipo: "h2", texto: "Las funcionalidades más importantes para kinesiólogos" },
+      { tipo: "h3", texto: "Paquetes de sesiones de rehabilitación" },
+      {
+        tipo: "p",
+        texto:
+          "Es muy común en kinesiología trabajar con planes de 10, 15 o 20 sesiones según el diagnóstico. Un sistema de agendamiento que gestiona paquetes lleva el conteo automáticamente por paciente: cuántas sesiones han sido realizadas, cuántas quedan disponibles y cuándo se acerca el final del plan. Esto elimina las conversaciones incómodas de \"¿cuántas me quedan?\" y facilita la renovación a tiempo.",
+      },
+      { tipo: "h3", texto: "Reservas recurrentes y horario fijo" },
+      {
+        tipo: "p",
+        texto:
+          "Muchos pacientes de kinesiología prefieren tener un horario fijo durante todo su tratamiento: mismo día, misma hora, misma semana. Un buen sistema permite bloquear esa recurrencia desde el inicio del plan sin tener que agendar cada sesión manualmente. El paciente sabe su horario, el sistema lo reserva y los recordatorios salen automáticamente.",
+      },
+      { tipo: "h3", texto: "Recordatorios con indicaciones previas" },
+      {
+        tipo: "p",
+        texto:
+          "Para ciertas sesiones de kinesiología hay preparación previa: ropa cómoda, no venir con dolor agudo, traer algún implemento. El recordatorio automático puede incluir esas instrucciones específicas por tipo de sesión, reduciendo consultas de último minuto y mejorando la calidad de la atención.",
+      },
+      { tipo: "h3", texto: "Historial y registro de evolución" },
+      {
+        tipo: "p",
+        texto:
+          "Tener en el mismo sistema un registro básico de cada paciente — diagnóstico inicial, número de sesiones, observaciones de evolución — permite revisar el contexto antes de cada atención sin buscar en papeles o carpetas. No reemplaza una ficha clínica especializada, pero centraliza la información operativa más relevante.",
+      },
+      { tipo: "h2", texto: "¿Cómo manejar múltiples sesiones semanales sin perder el control?" },
+      {
+        tipo: "ul",
+        items: [
+          "Al inicio del tratamiento: define el plan completo (ej. 15 sesiones, lunes y jueves a las 10:00) y el sistema bloquea todas las fechas automáticamente",
+          "Recordatorios automáticos: WhatsApp 24 horas antes de cada sesión, sin intervención tuya",
+          "Si el paciente cancela: el sistema libera el espacio y puede notificar a quien esté en lista de espera",
+          "Al acercarse el fin del paquete: el sistema avisa para coordinar la evaluación y el nuevo plan a tiempo",
+        ],
+      },
+      { tipo: "h2", texto: "El cobro anticipado en kinesiología" },
+      {
+        tipo: "p",
+        texto:
+          "En kinesiología, el cobro anticipado puede aplicarse de dos formas: por sesión individual (el paciente paga antes de confirmar cada hora) o por paquete completo (paga el plan de 15 sesiones al inicio del tratamiento). Ambos modelos reducen drásticamente las inasistencias porque el paciente ya tiene un compromiso económico concreto.",
+      },
+      {
+        tipo: "p",
+        texto:
+          "El modelo de pago por paquete tiene además un beneficio adicional: el flujo de caja es más predecible. Sabes exactamente cuánto entra este mes sin depender de que cada sesión se concrete.",
+      },
+      {
+        tipo: "destacado",
+        texto:
+          "\"Mis pacientes de rehabilitación post-operatoria necesitan constancia. Desde que implementé recordatorios automáticos y cobro anticipado por paquete, la deserción bajó de un 30% a menos del 5%. Eso se traduce directamente en mejores resultados clínicos.\" — Kinesióloga, Santiago",
+      },
+      { tipo: "cta" },
+    ],
+  },
+  // ── ARTÍCULO 4 ──────────────────────────────────────────────────────────────
+  {
+    slug: "agenda-online-dentista-odontologia-chile-2026",
+    titulo: "Agenda online para dentistas en Chile 2026: cómo reducir ausencias y organizar tratamientos de múltiples sesiones",
+    excerpt:
+      "En odontología, una cita perdida no es solo una hora vacía — es un equipo preparado, materiales listos y tiempo del profesional que no se recupera. Esta guía explica cómo una agenda online con recordatorios automáticos y cobro anticipado resuelve los principales problemas de gestión de una consulta dental en Chile.",
+    fecha: "2026-06-09",
+    categoria: "Guías",
+    tiempoLectura: 7,
+    autor: "Equipo attempo",
+    contenido: [
+      {
+        tipo: "intro",
+        texto:
+          "En odontología, una cita perdida no es solo una hora vacía — es un equipo preparado, materiales listos, instrumental esterilizado y tiempo del profesional que no se puede reasignar. El costo de un no-show en una consulta dental es más alto que en casi cualquier otra especialidad. Esta guía explica cómo la agenda online resuelve ese problema y organiza los tratamientos de múltiples sesiones que son habituales en odontología.",
+      },
+      { tipo: "h2", texto: "Los problemas específicos de la gestión dental" },
+      {
+        tipo: "p",
+        texto:
+          "La odontología tiene características que la hacen más exigente en términos de coordinación que otras especialidades. Los tratamientos habituales — endodoncias, implantes, ortodoncia, blanqueamientos — requieren múltiples citas en secuencia. Si el paciente no llega a una, el tratamiento se interrumpe y hay que reorganizar toda la cadena.",
+      },
+      {
+        tipo: "ul",
+        items: [
+          "Un blanqueamiento en consulta requiere 1-2 sesiones de 90 minutos con preparación específica",
+          "Una endodoncia puede requerir 2 o 3 citas seguidas con materiales preparados de antemano",
+          "Los controles de ortodoncia son cada 4-6 semanas durante años — requieren recordatorios periódicos constantes",
+          "Las limpiezas preventivas de 2 veces al año se pierden si no hay un sistema que las recuerde",
+        ],
+      },
+      {
+        tipo: "p",
+        texto:
+          "Sin un sistema que gestione esa cadena automáticamente, el dentista o la recepcionista pasan una parte importante del día coordinando citas, recordando pacientes y reagendando interrupciones.",
+      },
+      { tipo: "h2", texto: "Cómo la agenda online resuelve estos problemas" },
+      { tipo: "h3", texto: "Recordatorios automáticos con instrucciones específicas por procedimiento" },
+      {
+        tipo: "p",
+        texto:
+          "Para una extracción o una endodoncia, el paciente necesita llegar con indicaciones específicas: en ayunas si habrá anestesia, sin haber tomado ciertos medicamentos, con transporte de vuelta si el procedimiento es largo. Un sistema de agendamiento bien configurado envía esas instrucciones automáticamente por WhatsApp 48 horas antes según el tipo de procedimiento agendado, sin que nadie en la consulta tenga que recordarlo.",
+      },
+      { tipo: "h3", texto: "Cobro anticipado para procedimientos largos" },
+      {
+        tipo: "p",
+        texto:
+          "Para procedimientos de alto costo como implantes, carillas o tratamientos de ortodoncia, el cobro de un anticipo al momento de la reserva confirma el compromiso del paciente y cubre el costo de materiales que ya se prepararon. En Chile, el cobro anticipado con Webpay al momento de reservar online es la forma más fluida de implementar esta política sin incomodidad.",
+      },
+      { tipo: "h3", texto: "Seguimiento de tratamientos en múltiples etapas" },
+      {
+        tipo: "p",
+        texto:
+          "Al agendar el inicio de un tratamiento de varias sesiones, el sistema puede bloquear todas las citas del plan desde el principio. El paciente sabe sus fechas, recibe recordatorio para cada una y el dentista tiene la secuencia asegurada en su agenda. Si el paciente necesita reprogramar una sesión, el ajuste se hace sin perder el orden del tratamiento.",
+      },
+      { tipo: "h3", texto: "Recordatorios de controles preventivos anuales" },
+      {
+        tipo: "p",
+        texto:
+          "Una de las fuentes de ingreso más desaprovechadas en odontología son los controles y limpiezas preventivas de pacientes que ya atendiste pero que no vuelven porque nadie los contactó. Un sistema de agendamiento puede programar un recordatorio automático cada 6 meses para pacientes activos: \"Han pasado 6 meses desde tu última limpieza, ¿quieres agendar tu control?\" Eso genera citas que de otra forma simplemente no ocurrirían.",
+      },
+      { tipo: "h2", texto: "¿Recepcionista o sistema de agendamiento?" },
+      {
+        tipo: "p",
+        texto:
+          "Muchas consultas dentales tienen una recepcionista cuya función principal es coordinar citas, recordar pacientes y responder llamadas. Un sistema de agendamiento online no reemplaza a la recepcionista — libera su tiempo para atender mejor al paciente que está presente, en lugar de estar al teléfono coordinando al que viene la próxima semana.",
+      },
+      {
+        tipo: "p",
+        texto:
+          "Para consultas unipersonales o con bajo volumen donde no hay recepcionista, el sistema de agendamiento es directamente el sustituto de esa función: atiende consultas de horario, confirma citas, envía recordatorios y gestiona cobros sin intervención del dentista durante la jornada.",
+      },
+      {
+        tipo: "destacado",
+        texto:
+          "\"Perdía entre 3 y 4 citas por semana por no-shows, y siempre eran los procedimientos largos donde ya había preparado todo. Desde que activé el recordatorio de WhatsApp y el cobro de anticipo online, bajo a 0 o 1 por semana.\" — Dentista, Las Condes",
+      },
+      { tipo: "h2", texto: "¿Cuánto vale recuperar una cita perdida?" },
+      {
+        tipo: "p",
+        texto:
+          "Un procedimiento de ortodoncia en Chile puede costar entre $800.000 y $2.000.000 el tratamiento completo, con controles mensuales de $30.000 a $60.000 cada uno. Una endodoncia parte desde $120.000. Con esos valores, recuperar incluso 1 cita perdida por semana con un sistema de recordatorios automáticos que cuesta menos de $30.000 mensuales es un retorno de inversión inmediato.",
+      },
+      { tipo: "cta" },
+    ],
+  },
+  // ── ARTÍCULO 5 (anterior 3) ──────────────────────────────────────────────────────────────
+  {
     slug: "chatbot-ia-agendamiento-citas-chile-2026",
     titulo: "Chatbot IA para agendamiento de citas en Chile: qué es, cómo funciona y por qué cambia todo",
     excerpt:
