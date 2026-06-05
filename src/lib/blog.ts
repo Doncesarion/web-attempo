@@ -239,6 +239,292 @@ export const posts: Post[] = [
   },
   // ── ARTÍCULO 3 ──────────────────────────────────────────────────────────────
   {
+    slug: "chatbot-ia-agendamiento-citas-chile-2026",
+    titulo: "Chatbot IA para agendamiento de citas en Chile: qué es, cómo funciona y por qué cambia todo",
+    excerpt:
+      "El chatbot con inteligencia artificial ya no es un lujo para grandes clínicas. En 2026, cualquier profesional independiente en Chile puede tener un asistente virtual que atiende por WhatsApp, Instagram y Messenger las 24 horas, agenda citas y responde preguntas sin que el profesional mueva un dedo.",
+    fecha: "2026-06-05",
+    categoria: "Tecnología",
+    tiempoLectura: 7,
+    autor: "Equipo attempo",
+    contenido: [
+      {
+        tipo: "intro",
+        texto:
+          "El chatbot con inteligencia artificial ya no es un lujo para grandes clínicas. En 2026, cualquier profesional independiente en Chile puede tener un asistente virtual que atiende por WhatsApp, Instagram y Messenger las 24 horas, agenda citas y responde preguntas sin intervención del profesional. Esta guía explica qué es, cómo funciona y qué impacto real tiene en tu consulta o negocio.",
+      },
+      { tipo: "h2", texto: "¿Qué es un chatbot IA para agendamiento?" },
+      {
+        tipo: "p",
+        texto:
+          "Un chatbot de inteligencia artificial para agendamiento es un asistente virtual que conversa con tus pacientes o clientes en lenguaje natural — por WhatsApp, Instagram, Messenger u otros canales — y es capaz de responder preguntas, verificar tu disponibilidad en tiempo real y completar una reserva de cita sin que tengas que intervenir.",
+      },
+      {
+        tipo: "p",
+        texto:
+          "A diferencia de los bots de respuesta automática básicos que solo envían mensajes predefinidos, un chatbot IA entiende el contexto de la conversación. Si un paciente escribe \"necesito una hora para la próxima semana, de preferencia en la tarde\", el chatbot interpreta la intención, consulta la agenda y ofrece opciones disponibles — tal como lo haría una recepcionista humana.",
+      },
+      { tipo: "h2", texto: "¿Cómo funciona en la práctica?" },
+      { tipo: "h3", texto: "1. El paciente inicia la conversación" },
+      {
+        tipo: "p",
+        texto:
+          "El flujo comienza cuando un paciente o cliente te escribe por WhatsApp, hace clic en el botón de mensaje de tu perfil de Instagram, o te contacta por Messenger. En ese momento, el chatbot toma el control de la conversación automáticamente.",
+      },
+      { tipo: "h3", texto: "2. El chatbot entiende qué necesita" },
+      {
+        tipo: "p",
+        texto:
+          "El modelo de inteligencia artificial procesa el mensaje y determina la intención: ¿quiere agendar una cita? ¿preguntar el precio de un servicio? ¿saber si hay disponibilidad esta semana? ¿cancelar una hora existente? Para cada intención hay un flujo de respuesta diferente.",
+      },
+      { tipo: "h3", texto: "3. Consulta tu agenda en tiempo real" },
+      {
+        tipo: "p",
+        texto:
+          "Si la intención es agendar, el chatbot consulta directamente tu disponibilidad actualizada y ofrece las opciones reales. No hay lag, no hay \"te confirmo mañana\" — la información es en tiempo real, igual que si el paciente mirara tu calendario directamente.",
+      },
+      { tipo: "h3", texto: "4. Confirma la cita y cobra si corresponde" },
+      {
+        tipo: "p",
+        texto:
+          "Una vez que el paciente elige fecha y hora, el chatbot puede solicitar el cobro anticipado con Webpay antes de confirmar la reserva. Cuando el pago se procesa, la cita queda bloqueada en tu agenda y ambas partes reciben confirmación automática.",
+      },
+      { tipo: "h2", texto: "¿Por qué WhatsApp, Instagram y Messenger?" },
+      {
+        tipo: "p",
+        texto:
+          "El canal importa más que la tecnología. WhatsApp tiene una tasa de apertura del 98% en Chile — comparado con el 22% del email. Instagram es donde muchos profesionales independientes tienen su principal presencia de marca. Messenger conecta con quienes llegan desde Facebook. Un chatbot que solo funciona en el sitio web pierde la conversación antes de empezar: los pacientes ya están en sus apps favoritas y no van a cambiar de canal para agendar.",
+      },
+      {
+        tipo: "p",
+        texto:
+          "La diferencia entre un chatbot solo en la web y un chatbot multicanal (WhatsApp + Instagram + Messenger) puede ser la diferencia entre capturar el 30% o el 90% de las conversaciones que llegan.",
+      },
+      { tipo: "h2", texto: "¿Qué preguntas puede responder el chatbot IA?" },
+      {
+        tipo: "ul",
+        items: [
+          "¿Cuál es el precio de una consulta?",
+          "¿Tienen disponibilidad esta semana?",
+          "¿Cómo llego a la dirección?",
+          "¿Aceptan Fonasa o isapre?",
+          "¿Cuánto dura la sesión?",
+          "Quiero cancelar mi cita del jueves",
+          "¿Puedo reagendar para la próxima semana?",
+          "¿Cómo pago? ¿Aceptan transferencia?",
+        ],
+      },
+      {
+        tipo: "p",
+        texto:
+          "Cualquier pregunta que un paciente haría a una recepcionista en horario de oficina, el chatbot puede responderla a las 2 de la mañana, el domingo o en medio de tu consulta. Sin interrupciones, sin demoras.",
+      },
+      { tipo: "h2", texto: "¿Para qué tipo de profesional tiene más sentido?" },
+      {
+        tipo: "p",
+        texto:
+          "El chatbot IA tiene mayor impacto en profesionales o negocios donde el volumen de consultas entrantes es alto y la disponibilidad para responderlas en tiempo real es baja. Algunos ejemplos concretos:",
+      },
+      {
+        tipo: "ul",
+        items: [
+          "Psicólogos y psiquiatras con lista de espera activa — el chatbot gestiona la lista y notifica cuando hay cupos",
+          "Nutricionistas con alta demanda de consultas iniciales — el bot filtra, informa y agenda sin intervención",
+          "Barberías y centros estéticos con múltiples profesionales — el chatbot maneja reservas en paralelo para distintos servicios",
+          "Centros clínicos con varios especialistas — una sola interfaz de conversación que distribuye citas según disponibilidad",
+          "Kinesiólogos y fisioterapeutas con paquetes de sesiones — el bot informa el estado del paquete y facilita la renovación",
+        ],
+      },
+      { tipo: "h2", texto: "¿Cuánto tiempo ahorra en la práctica?" },
+      {
+        tipo: "p",
+        texto:
+          "Según datos de uso de la plataforma, los profesionales que activan el chatbot IA de attempo reducen su tiempo de gestión de mensajes en un 73% en promedio. Para un profesional que antes invertía 90 minutos diarios respondiendo consultas, eso se traduce en 65 minutos diarios liberados — más de 20 horas al mes.",
+      },
+      {
+        tipo: "destacado",
+        texto:
+          "\"Antes revisaba el WhatsApp cada 30 minutos para no perder consultas de pacientes nuevos. Desde que activé el chatbot, solo entro cuando hay algo que el bot no pudo resolver — que es muy poco.\" — Psiquiatra, Santiago",
+      },
+      { tipo: "h2", texto: "¿Es difícil de configurar?" },
+      {
+        tipo: "p",
+        texto:
+          "No. La configuración del chatbot IA en attempo se hace en menos de 15 minutos: describes tus servicios, tus preguntas frecuentes y tu disponibilidad horaria, y el sistema entrena al bot con esa información. No necesitas saber programación ni tener conocimientos técnicos. Si tu información cambia, la actualizas desde el panel y el chatbot aprende el cambio de inmediato.",
+      },
+      { tipo: "cta" },
+    ],
+  },
+  // ── ARTÍCULO 4 ──────────────────────────────────────────────────────────────
+  {
+    slug: "agenda-online-nutricionistas-chile-2026",
+    titulo: "Agenda online para nutricionistas en Chile 2026: guía práctica para gestionar tu consulta",
+    excerpt:
+      "Los nutricionistas independientes en Chile enfrentan un desafío particular: pacientes que necesitan seguimiento continuo, paquetes de sesiones y control de evolución. Esta guía explica cómo una agenda online bien configurada transforma la gestión de tu consulta.",
+    fecha: "2026-06-06",
+    categoria: "Guías",
+    tiempoLectura: 6,
+    autor: "Equipo attempo",
+    contenido: [
+      {
+        tipo: "intro",
+        texto:
+          "Los nutricionistas independientes en Chile enfrentan un desafío particular: pacientes que necesitan seguimiento continuo, paquetes de consultas y control de evolución a lo largo del tiempo. La agenda digital no es solo un calendario — es la herramienta que organiza ese flujo y garantiza que cada paciente tenga su próxima cita agendada antes de salir de la consulta anterior.",
+      },
+      { tipo: "h2", texto: "El flujo de trabajo del nutricionista independiente" },
+      {
+        tipo: "p",
+        texto:
+          "Una consulta nutricional no termina cuando el paciente se va. Hay que programar el control a las 3 semanas, enviar las indicaciones por WhatsApp, recordar la próxima cita, llevar registro de qué plan está siguiendo cada paciente y actualizar los datos de evolución. Sin un sistema centralizado, todo eso se hace entre la cabeza, el WhatsApp y alguna planilla.",
+      },
+      {
+        tipo: "p",
+        texto:
+          "El resultado típico: pacientes que se pierden en el seguimiento, controles que no se coordinan a tiempo y horas de gestión administrativa que podrían estar en atención. Una agenda online bien configurada elimina la mayoría de esa carga.",
+      },
+      { tipo: "h2", texto: "Las 4 funcionalidades que más importan para nutricionistas" },
+      { tipo: "h3", texto: "Paquetes de consultas" },
+      {
+        tipo: "p",
+        texto:
+          "Es muy común en nutrición vender un \"plan\" de 3, 5 u 8 consultas. Un sistema de agendamiento que gestiona paquetes lleva automáticamente el conteo: cuántas consultas quedan disponibles por paciente, cuándo se acerca el final del paquete y facilita la renovación antes de que expire. Sin esto, ese control queda en una planilla o en tu memoria.",
+      },
+      { tipo: "h3", texto: "Recordatorios automáticos con instrucciones previas" },
+      {
+        tipo: "p",
+        texto:
+          "El recordatorio del control de nutrición tiene una particularidad: el paciente necesita llegar en ayunas o con registros de lo que comió. Un buen sistema no solo recuerda la hora — también puede enviar las indicaciones específicas automáticamente 24 horas antes. Eso reduce las consultas que se pierden porque el paciente olvidó las instrucciones.",
+      },
+      { tipo: "h3", texto: "Historial de consultas y evolución" },
+      {
+        tipo: "p",
+        texto:
+          "Tener en el mismo sistema las fechas de cada consulta, el tipo de atención y las notas de seguimiento permite entrar a cada sesión con el contexto completo sin buscar en otro lado. No reemplaza una ficha clínica compleja, pero sí da la información básica que necesitas antes de iniciar la consulta.",
+      },
+      { tipo: "h3", texto: "Cobro anticipado o reserva confirmada" },
+      {
+        tipo: "p",
+        texto:
+          "En nutrición la inasistencia impacta especialmente porque las consultas tienen preparación previa. El cobro anticipado con Webpay — que el paciente paga al momento de reservar — confirma el compromiso. Alternativamente, un sistema que exige confirmación explícita antes de la hora reduce los no-shows significativamente.",
+      },
+      { tipo: "h2", texto: "¿Cómo organizar la agenda de seguimiento?" },
+      {
+        tipo: "p",
+        texto:
+          "El patrón más eficiente que vemos en nutricionistas que usan attempo es este: al finalizar cada consulta, el profesional abre el sistema desde el celular y agenda el próximo control con el paciente presente. El sistema envía la confirmación automática al momento, y el recordatorio llega solo cuando corresponde. No hay que recordar coordinar nada después.",
+      },
+      {
+        tipo: "ul",
+        items: [
+          "Consulta inicial: el paciente reserva online o el profesional agenda en el momento",
+          "Al terminar: se agenda el próximo control antes de que el paciente salga",
+          "48 horas antes: recordatorio automático con instrucciones de preparación",
+          "2 horas antes: segundo recordatorio por WhatsApp",
+          "Si hay paquete: el sistema avisa cuando quedan 1 o 2 consultas disponibles",
+        ],
+      },
+      { tipo: "h2", texto: "¿Cuánto tiempo tarda en configurarse?" },
+      {
+        tipo: "p",
+        texto:
+          "Para un nutricionista independiente, configurar una agenda online en attempo toma entre 10 y 20 minutos: defines tus tipos de consulta (inicial, control, paquete), la duración de cada una, el precio, tu disponibilidad semanal y las instrucciones previas que quieres enviar. Después solo compartes tu link de reservas con tus pacientes y el sistema hace el resto.",
+      },
+      {
+        tipo: "destacado",
+        texto:
+          "\"El cambio más grande fue que dejé de perseguir a los pacientes para coordinar sus controles. Ahora ellos reservan solos, les llega el recordatorio y yo solo me preocupo de atender.\" — Nutricionista, Viña del Mar",
+      },
+      { tipo: "cta" },
+    ],
+  },
+  // ── ARTÍCULO 5 ──────────────────────────────────────────────────────────────
+  {
+    slug: "agenda-online-barberias-esteticas-chile-2026",
+    titulo: "Agenda online para barberías y centros estéticos en Chile 2026: cómo eliminar los no-shows",
+    excerpt:
+      "En barberías y centros estéticos, una silla vacía es dinero que no vuelve. Los no-shows son el problema número uno de la industria, y en 2026 tiene solución: cobro anticipado, recordatorios automáticos y reservas online 24/7 sin que el dueño tenga que responder mensajes.",
+    fecha: "2026-06-07",
+    categoria: "Guías",
+    tiempoLectura: 6,
+    autor: "Equipo attempo",
+    contenido: [
+      {
+        tipo: "intro",
+        texto:
+          "En barberías y centros estéticos, una silla vacía es dinero que no vuelve. A diferencia de otros negocios, no puedes recuperar esa hora — y si el cliente no avisó, tampoco pudiste reasignarla. En 2026, ese problema tiene solución directa: cobro anticipado, recordatorios automáticos y sistema de reservas online que funciona las 24 horas sin que el dueño tenga que estar al teléfono.",
+      },
+      { tipo: "h2", texto: "El costo real de un no-show en barbería o estética" },
+      {
+        tipo: "p",
+        texto:
+          "Un corte de cabello en Santiago cuesta entre $10.000 y $25.000. Un tratamiento estético puede ir de $30.000 a $150.000. Si un profesional tiene 3 no-shows por semana, está perdiendo entre $90.000 y $450.000 al mes en ingresos que ya tenía agendados pero que nunca llegaron. Y eso sin contar el costo del tiempo del profesional que esperó sin poder hacer otra cosa.",
+      },
+      {
+        tipo: "p",
+        texto:
+          "El problema no es que los clientes sean irresponsables. El 68% de las inasistencias ocurre simplemente porque la persona olvidó la cita. Un recordatorio de WhatsApp 24 horas antes y otro 2 horas antes habría convertido la mayoría de esos no-shows en asistencias — o en cancelaciones a tiempo para reasignar el espacio.",
+      },
+      { tipo: "h2", texto: "Las 3 herramientas que más impactan en barberías y estéticas" },
+      { tipo: "h3", texto: "Reservas online 24/7 con link compartible" },
+      {
+        tipo: "p",
+        texto:
+          "El cliente que ve tu post de Instagram a las 10 de la noche y quiere reservar para el sábado no va a esperarte hasta las 9 AM para llamar. Con un link de reservas, elige el servicio, el profesional disponible, la fecha y la hora en menos de 2 minutos. La reserva queda confirmada automáticamente y tú la ves en tu agenda cuando te levantas.",
+      },
+      { tipo: "h3", texto: "Cobro anticipado para confirmar el turno" },
+      {
+        tipo: "p",
+        texto:
+          "Esta es la herramienta más directa contra los no-shows. Si el cliente pagó $15.000 para reservar su hora, tiene un incentivo concreto para llegar o avisar con tiempo. Los negocios que implementan cobro anticipado (aunque sea parcial, como un abono del 50%) reportan una reducción de no-shows de entre el 70% y el 90%. Es el cambio de mayor impacto por el menor esfuerzo.",
+      },
+      { tipo: "h3", texto: "Recordatorios automáticos por WhatsApp" },
+      {
+        tipo: "p",
+        texto:
+          "No dependas de que el cliente recuerde solo. El sistema envía un recordatorio automático 48 horas antes (con opción de confirmar o cancelar) y otro 2 horas antes el mismo día. Si cancela a tiempo, liberas el espacio para otra reserva. Si confirma, llegas preparado. En ambos casos, ganaste.",
+      },
+      { tipo: "h2", texto: "¿Cómo manejar múltiples profesionales desde una sola agenda?" },
+      {
+        tipo: "p",
+        texto:
+          "Uno de los desafíos específicos de barberías y centros estéticos con más de un profesional es coordinar disponibilidades sin que las reservas se pisen. Un sistema de agendamiento con múltiples perfiles permite que cada barbero o esteticista tenga su propio calendario, y los clientes pueden elegir con quién quieren atenderse o reservar con el primero disponible.",
+      },
+      {
+        tipo: "ul",
+        items: [
+          "Cada profesional tiene su propio link de reservas o todos comparten uno general",
+          "Las reservas se asignan al profesional correcto sin confusiones",
+          "El dueño ve la agenda completa del local desde un solo panel",
+          "Los recordatorios salen con el nombre del profesional asignado",
+        ],
+      },
+      { tipo: "h2", texto: "El impacto en la reputación online" },
+      {
+        tipo: "p",
+        texto:
+          "Un sistema de reservas profesional también impacta cómo te perciben los clientes nuevos. Un barbero o esteticista con link de reservas en Instagram y Google Maps transmite profesionalismo. Cuando un cliente busca en Google \"barbería en [tu comuna]\" y tu ficha tiene reservas online activadas, la probabilidad de que haga clic aumenta significativamente.",
+      },
+      {
+        tipo: "p",
+        texto:
+          "Además, cuando la experiencia de reserva es fluida — confirma rápido, recibe recordatorio, llega a tiempo — el cliente tiene una mejor predisposición a dejar una reseña positiva. Y las reseñas son el activo más valioso para un negocio local en Google.",
+      },
+      {
+        tipo: "destacado",
+        texto:
+          "\"Antes perdía 2 o 3 horas al día respondiendo mensajes de reservas. Ahora solo entro al sistema a ver la agenda del día. Los clientes reservan solos, pagan solos y llegan solos. Mi trabajo es cortar pelo, no gestionar WhatsApp.\" — Barbero, Santiago",
+      },
+      { tipo: "h2", texto: "¿Cuánto cuesta implementarlo?" },
+      {
+        tipo: "p",
+        texto:
+          "Un sistema de agendamiento profesional para una barbería o centro estético en Chile parte desde $24.990 CLP al mes. Para un local con 4 o 5 turnos diarios, recuperar 1 no-show por semana a $15.000 ya cubre el costo del sistema. El resto es ganancia neta.",
+      },
+      { tipo: "cta" },
+    ],
+  },
+  // ── ARTÍCULO 6 ──────────────────────────────────────────────────────────────
+  {
     slug: "agenda-gratis-profesionales-salud-chile-2026",
     titulo: "Agenda online gratis para profesionales de salud en Chile: qué existe, qué funciona y qué no",
     excerpt:
