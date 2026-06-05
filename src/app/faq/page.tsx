@@ -29,14 +29,20 @@ const jsonLd = {
   ],
 }
 
+const breadcrumb = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "attempo", item: "https://attempo.cl" },
+    { "@type": "ListItem", position: 2, name: "Preguntas frecuentes", item: "https://attempo.cl/faq" },
+  ],
+}
+
 export default function FaqPage() {
   return (
     <>
-      <Script
-        id="jsonld-faq"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <Script id="jsonld-faq" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <Script id="jsonld-faq-breadcrumb" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
       <FaqContent />
     </>
   )

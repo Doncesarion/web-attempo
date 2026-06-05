@@ -1,5 +1,15 @@
 import type { Metadata } from "next"
+import Script from "next/script"
 import SolucionesContent from "./SolucionesContent"
+
+const breadcrumb = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "attempo", item: "https://attempo.cl" },
+    { "@type": "ListItem", position: 2, name: "Soluciones", item: "https://attempo.cl/soluciones" },
+  ],
+}
 
 export const metadata: Metadata = {
   title: "Soluciones — attempo",
@@ -14,5 +24,10 @@ export const metadata: Metadata = {
 }
 
 export default function SolucionesPage() {
-  return <SolucionesContent />
+  return (
+    <>
+      <Script id="jsonld-soluciones-breadcrumb" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
+      <SolucionesContent />
+    </>
+  )
 }

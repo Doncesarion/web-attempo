@@ -1,6 +1,16 @@
 import type { Metadata } from "next"
+import Script from "next/script"
 import Link from "next/link"
 import { posts } from "@/lib/blog"
+
+const breadcrumb = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "attempo", item: "https://attempo.cl" },
+    { "@type": "ListItem", position: 2, name: "Blog", item: "https://attempo.cl/blog" },
+  ],
+}
 
 export const metadata: Metadata = {
   title: "Blog — attempo",
@@ -30,7 +40,9 @@ const categoriaColor: Record<string, string> = {
 
 export default function BlogPage() {
   return (
-    <div className="flex flex-col">
+    <>
+      <Script id="jsonld-blog-breadcrumb" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
+      <div className="flex flex-col">
       {/* Hero */}
       <section className="py-20 lg:py-28 px-4 bg-gradient-to-b from-[#f5f3ff] to-white">
         <div className="max-w-3xl mx-auto text-center">
@@ -102,5 +114,6 @@ export default function BlogPage() {
         </div>
       </section>
     </div>
+    </>
   )
 }
