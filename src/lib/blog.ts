@@ -404,7 +404,363 @@ export const posts: Post[] = [
       { tipo: "cta" },
     ],
   },
-  // ── ARTÍCULO 5 (anterior 3) ──────────────────────────────────────────────────────────────
+  // ── ARTÍCULO 5 — MÉDICOS GENERALES ─────────────────────────────────────────
+  {
+    slug: "agenda-online-medicos-generales-chile-2026",
+    titulo: "Agenda online para médicos generales en Chile 2026: organiza consultas, controles y telemedicina",
+    excerpt:
+      "El médico general independiente en Chile atiende desde consultas nuevas hasta controles crónicos y urgencias del día. Gestionar esa variedad de tipos de atención desde WhatsApp es ineficiente y genera confusión. Esta guía explica cómo una agenda online organiza todo ese flujo.",
+    fecha: "2026-06-10",
+    categoria: "Guías",
+    tiempoLectura: 6,
+    autor: "Equipo attempo",
+    contenido: [
+      {
+        tipo: "intro",
+        texto:
+          "El médico general independiente en Chile atiende desde consultas nuevas hasta controles de enfermedades crónicas, certificados médicos y urgencias del día. Gestionar esa variedad de tipos de atención desde WhatsApp o por teléfono es ineficiente y genera confusión. Esta guía explica cómo una agenda online bien configurada organiza todo ese flujo sin complicaciones.",
+      },
+      { tipo: "h2", texto: "El problema de la agenda médica sin sistema" },
+      {
+        tipo: "p",
+        texto:
+          "Un médico general con consulta independiente puede recibir en un mismo día pacientes de control de hipertensión, una consulta nueva por síntomas respiratorios, un certificado médico de 10 minutos y una videoconsulta. Cada tipo de atención tiene duración diferente, requiere preparación distinta y en algunos casos implica documentación específica.",
+      },
+      {
+        tipo: "p",
+        texto:
+          "Sin un sistema que diferencie esos tipos de atención, la agenda queda como un bloque uniforme de 30 minutos por paciente — lo que significa que el certificado ocupa el mismo espacio que una consulta nueva, y la urgencia del día desordena todo lo demás.",
+      },
+      { tipo: "h2", texto: "Tipos de atención y duraciones diferenciadas" },
+      {
+        tipo: "p",
+        texto:
+          "Una de las funcionalidades más útiles para médicos generales es poder definir distintos tipos de consulta con duraciones y precios propios. El paciente elige al reservar qué tipo de atención necesita, y el sistema bloquea automáticamente el tiempo correcto.",
+      },
+      {
+        tipo: "ul",
+        items: [
+          "Consulta nueva (45 min) — primera vez del paciente, anamnesis completa",
+          "Control de paciente crónico (20 min) — revisión periódica, renovación de recetas",
+          "Certificado médico (10 min) — atención puntual, sin historial previo necesario",
+          "Videoconsulta (30 min) — atención remota, misma agenda que la presencial",
+          "Urgencia del día (20 min) — espacio reservado en la agenda para imprevistos",
+        ],
+      },
+      { tipo: "h2", texto: "Lista de espera y agenda del día" },
+      {
+        tipo: "p",
+        texto:
+          "En medicina general la demanda suele superar la disponibilidad. Una lista de espera integrada al sistema de agendamiento permite que cuando se libera un cupo — por cancelación o reagendamiento — el sistema notifique automáticamente a quienes están esperando. El médico no tiene que coordinar nada: el cupo se rellena solo.",
+      },
+      {
+        tipo: "p",
+        texto:
+          "Para las urgencias del día, la práctica más eficiente es reservar 2 o 3 bloques cortos al inicio de cada jornada sin asignar a nadie. Si hay urgencia, se usa. Si no hay, se liberan y el sistema puede ofrecerlos a pacientes en lista de espera.",
+      },
+      { tipo: "h2", texto: "Telemedicina integrada en la misma agenda" },
+      {
+        tipo: "p",
+        texto:
+          "La videoconsulta ya no es excepcional — es una modalidad permanente en la práctica médica independiente en Chile. Un sistema de agendamiento moderno trata la videoconsulta como un tipo de atención más: el paciente reserva online, recibe el link de conexión automáticamente por WhatsApp, y el médico tiene la sala virtual lista sin configurar nada el día de la consulta.",
+      },
+      {
+        tipo: "p",
+        texto:
+          "La ventaja adicional: la telemedicina amplía geográficamente la práctica. Un médico en Santiago puede atender pacientes de regiones que no tienen especialista disponible, sin mover su agenda física.",
+      },
+      { tipo: "h2", texto: "Cobro y gestión de documentos" },
+      {
+        tipo: "p",
+        texto:
+          "El cobro anticipado con Webpay al momento de la reserva es especialmente útil para consultas nuevas y videoconsultas, donde el compromiso del paciente es más bajo que en controles de largo plazo. Para controles de pacientes crónicos de largo historial, muchos médicos prefieren cobrar al finalizar — el sistema permite configurar ambas modalidades según el tipo de atención.",
+      },
+      {
+        tipo: "destacado",
+        texto:
+          "\"Antes mezclaba controles de 20 minutos con consultas nuevas de 45 y siempre me atrasaba. Desde que cada tipo de atención tiene su propio bloque en la agenda, la jornada fluye sola y termino a la hora.\" — Médico general, Providencia",
+      },
+      { tipo: "cta" },
+    ],
+  },
+  // ── ARTÍCULO 6 — MATRONAS ───────────────────────────────────────────────────
+  {
+    slug: "agenda-online-matronas-chile-2026",
+    titulo: "Agenda online para matronas en Chile 2026: gestiona controles prenatales, educación y urgencias",
+    excerpt:
+      "La matrona independiente en Chile gestiona un flujo de atención que combina controles prenatales periódicos, sesiones de educación prenatal, atención de urgencias y en algunos casos telemedicina. Esta guía explica cómo una agenda online organiza esa complejidad.",
+    fecha: "2026-06-11",
+    categoria: "Guías",
+    tiempoLectura: 6,
+    autor: "Equipo attempo",
+    contenido: [
+      {
+        tipo: "intro",
+        texto:
+          "La matrona independiente en Chile gestiona un flujo de atención que combina controles prenatales periódicos, sesiones de educación prenatal grupales o individuales, atención de urgencias y seguimiento postparto. Sin un sistema que organice esa variedad, la agenda se vuelve difícil de controlar y las pacientes caen entre los intersticios del seguimiento.",
+      },
+      { tipo: "h2", texto: "La particularidad del seguimiento obstétrico" },
+      {
+        tipo: "p",
+        texto:
+          "El embarazo tiene una cadencia clínica clara: controles mensuales hasta las 28 semanas, quincenales hasta las 36, y semanales después. Una matrona que atiende 20 embarazadas simultáneamente necesita gestionar decenas de citas distribuidas en esas frecuencias, con recordatorios oportunos para cada etapa.",
+      },
+      {
+        tipo: "p",
+        texto:
+          "Sin un sistema automatizado, ese seguimiento depende de que la matrona recuerde cuándo llamar a cada paciente o de que la paciente recuerde agendar su próximo control. Ambas opciones generan brechas en el seguimiento.",
+      },
+      { tipo: "h2", texto: "Tipos de atención para matronas" },
+      {
+        tipo: "ul",
+        items: [
+          "Control prenatal (30-40 min) — seguimiento periódico según edad gestacional",
+          "Primera consulta preconcepcional (45 min) — evaluación inicial, más extensa",
+          "Educación prenatal individual (60 min) — preparación al parto, lactancia",
+          "Educación prenatal grupal — taller con varias parejas, bloqueo de sala",
+          "Control postparto (30 min) — seguimiento madre e hijo tras el alta",
+          "Videoconsulta (20-30 min) — seguimiento remoto para pacientes de regiones",
+        ],
+      },
+      { tipo: "h2", texto: "Recordatorios con indicaciones específicas por control" },
+      {
+        tipo: "p",
+        texto:
+          "Cada control prenatal tiene indicaciones distintas: algunas semanas requieren ayuno para exámenes, otras llevar el carné de control, otras venir acompañada. Un sistema de agendamiento permite configurar mensajes de recordatorio personalizados por tipo de control, de manera que la paciente reciba automáticamente las instrucciones correctas para su próxima cita.",
+      },
+      {
+        tipo: "p",
+        texto:
+          "Esto reduce las consultas de \"¿qué necesito traer?\" que llegan el día anterior, y mejora la calidad de la atención porque las pacientes llegan preparadas.",
+      },
+      { tipo: "h2", texto: "Gestión de talleres de educación prenatal" },
+      {
+        tipo: "p",
+        texto:
+          "Los talleres grupales tienen una lógica diferente a las consultas individuales: hay un cupo máximo por sesión, las participantes se inscriben con anticipación y la cancelación de una no afecta al resto. Un sistema de agendamiento que maneje grupos permite abrir inscripción online para el taller, mostrar los cupos disponibles en tiempo real y cerrar automáticamente cuando se completa.",
+      },
+      { tipo: "h2", texto: "Seguimiento postparto automático" },
+      {
+        tipo: "p",
+        texto:
+          "Una de las brechas más comunes en la atención obstétrica independiente es el seguimiento postparto: la madre sale del hospital con toda la atención puesta en el recién nacido, y el control con la matrona queda postergado o se olvida. Un sistema que envíe automáticamente un recordatorio a los 7 días del parto con el link de reserva del control postparto captura esas citas que de otra forma no ocurrirían.",
+      },
+      {
+        tipo: "destacado",
+        texto:
+          "\"El cambio más grande fue en los talleres prenatales. Antes coordinaba las inscripciones por WhatsApp y siempre había confusión con los cupos. Ahora el sistema maneja todo y yo solo aparezco el día del taller.\" — Matrona, Viña del Mar",
+      },
+      { tipo: "cta" },
+    ],
+  },
+  // ── ARTÍCULO 7 — ABOGADOS ───────────────────────────────────────────────────
+  {
+    slug: "agenda-online-abogados-estudios-juridicos-chile-2026",
+    titulo: "Agenda online para abogados y estudios jurídicos en Chile 2026: gestiona consultas y cobra tu tiempo",
+    excerpt:
+      "El tiempo del abogado es su principal activo. Cada hora no facturada, cada reunión que no se confirma o cada consulta que se cancela a último momento es ingreso perdido. Esta guía explica cómo una agenda digital bien configurada protege ese tiempo y profesionaliza la relación con el cliente.",
+    fecha: "2026-06-12",
+    categoria: "Guías",
+    tiempoLectura: 6,
+    autor: "Equipo attempo",
+    contenido: [
+      {
+        tipo: "intro",
+        texto:
+          "El tiempo del abogado es su principal activo. Cada hora no facturada, cada reunión que no se confirma o cada consulta que se cancela a último momento es ingreso perdido. En un estudio jurídico independiente o boutique, esa pérdida se acumula rápidamente. Una agenda digital bien configurada protege ese tiempo y profesionaliza la relación con el cliente desde el primer contacto.",
+      },
+      { tipo: "h2", texto: "Por qué la gestión de agenda importa especialmente en derecho" },
+      {
+        tipo: "p",
+        texto:
+          "A diferencia de otras profesiones, el abogado independiente factura por tiempo. Una reunión de una hora tiene un valor claro y concreto. Cuando esa reunión no se presenta, no llega aviso, o el cliente llega 20 minutos tarde sin haber confirmado, el impacto económico es directo e inmediato.",
+      },
+      {
+        tipo: "p",
+        texto:
+          "Además, la primera impresión importa mucho en el mundo jurídico. Un abogado que responde consultas por WhatsApp y coordina reuniones a mano proyecta una imagen diferente a uno que tiene un sistema de reservas online profesional con confirmación automática y recordatorios. La tecnología de agenda es también una señal de seriedad profesional.",
+      },
+      { tipo: "h2", texto: "Tipos de atención para abogados" },
+      {
+        tipo: "ul",
+        items: [
+          "Consulta inicial (45-60 min) — evaluación del caso, puede tener cobro fijo anticipado",
+          "Reunión de seguimiento (30 min) — actualización de caso con cliente activo",
+          "Reunión de firma (20-30 min) — revisión y firma de documentos",
+          "Videoreunión (45 min) — para clientes en regiones o en el extranjero",
+          "Asesoría empresarial (60-90 min) — para clientes corporativos con casos complejos",
+        ],
+      },
+      { tipo: "h2", texto: "El cobro de la consulta inicial" },
+      {
+        tipo: "p",
+        texto:
+          "La consulta inicial es el momento más crítico desde el punto de vista económico para el abogado independiente. Es el punto de entrada de clientes nuevos, y también el más propenso a cancelaciones de último minuto porque el cliente aún no tiene una relación establecida con el profesional.",
+      },
+      {
+        tipo: "p",
+        texto:
+          "Implementar cobro anticipado para la consulta inicial — un monto fijo que el cliente paga online al reservar — cumple tres funciones: confirma el compromiso del cliente, cubre el costo del tiempo preparatorio del abogado, y filtra consultas de personas que no tienen intención real de contratar. El cobro con Webpay al momento de la reserva es la forma más fluida de implementarlo en Chile.",
+      },
+      { tipo: "h2", texto: "Confidencialidad y manejo de la información" },
+      {
+        tipo: "p",
+        texto:
+          "Una preocupación válida de los abogados al adoptar tecnología de agenda es la confidencialidad. El sistema de agendamiento no accede ni almacena información del caso — solo gestiona fechas, horas, datos de contacto básicos del cliente y el tipo de reunión. El contenido de cada consulta sigue siendo exclusivamente entre el abogado y su cliente.",
+      },
+      { tipo: "h2", texto: "Agenda para estudios con varios abogados" },
+      {
+        tipo: "p",
+        texto:
+          "En estudios jurídicos boutique con 2 a 5 abogados, una agenda centralizada permite que el cliente pueda reservar con el abogado específico de su caso o con el primero disponible del equipo. El socio o administrador ve la agenda completa del estudio desde un solo panel, sin tener que consolidar calendarios separados.",
+      },
+      {
+        tipo: "destacado",
+        texto:
+          "\"Implementé el cobro de la consulta inicial online y mis no-shows bajaron a cero. El cliente que paga $30.000 para reservar llega. El que no está dispuesto a pagar probablemente tampoco iba a contratar.\" — Abogado, Santiago",
+      },
+      { tipo: "cta" },
+    ],
+  },
+  // ── ARTÍCULO 8 — YOGA Y BIENESTAR ───────────────────────────────────────────
+  {
+    slug: "agenda-online-yoga-pilates-bienestar-chile-2026",
+    titulo: "Agenda online para clases de yoga y pilates en Chile 2026: gestiona clases, paquetes y listas de espera",
+    excerpt:
+      "Yoga, pilates, meditación y otras disciplinas de bienestar tienen una dinámica de agenda única: clases individuales y grupales, paquetes de sesiones, instructores múltiples y listas de espera para las clases más populares. Esta guía explica cómo un sistema de agendamiento organiza todo ese flujo.",
+    fecha: "2026-06-13",
+    categoria: "Guías",
+    tiempoLectura: 6,
+    autor: "Equipo attempo",
+    contenido: [
+      {
+        tipo: "intro",
+        texto:
+          "Yoga, pilates, meditación y otras disciplinas de bienestar tienen una dinámica de agenda única: clases individuales y grupales, paquetes de sesiones mensuales, instructores múltiples con disponibilidades distintas y listas de espera para las clases más populares. Sin un sistema que gestione esa complejidad, la coordinación se convierte en un trabajo en sí mismo.",
+      },
+      { tipo: "h2", texto: "Clases individuales vs. clases grupales: dos lógicas distintas" },
+      {
+        tipo: "p",
+        texto:
+          "Una clase individual de yoga o pilates funciona como cualquier otra cita profesional: un horario, un instructor, un alumno. La clase grupal tiene una lógica diferente: hay un cupo máximo, los alumnos se inscriben en forma independiente, y la clase ocurre aunque algunos cancelen.",
+      },
+      {
+        tipo: "p",
+        texto:
+          "Un sistema de agendamiento bien configurado maneja ambas lógicas: para clases individuales funciona como agenda de citas; para clases grupales muestra el cupo disponible en tiempo real, permite inscripción online y cierra automáticamente cuando se completa.",
+      },
+      { tipo: "h2", texto: "Paquetes de clases y membresías" },
+      {
+        tipo: "p",
+        texto:
+          "El modelo más común en yoga y pilates es la venta de paquetes: 4, 8 o 12 clases con un precio especial respecto a la clase suelta. Un sistema de agendamiento que gestiona paquetes lleva automáticamente el saldo de cada alumno: cuántas clases quedan, cuándo expira el paquete y un aviso cuando quedan pocas clases para facilitar la renovación.",
+      },
+      {
+        tipo: "p",
+        texto:
+          "Esto elimina una fuente importante de conflicto: el alumno que cree que le quedan 3 clases cuando en realidad ya las usó, o el paquete que expiró sin que nadie lo advirtiera. El sistema es el árbitro neutro.",
+      },
+      { tipo: "h2", texto: "Lista de espera para clases populares" },
+      {
+        tipo: "p",
+        texto:
+          "Las clases más populares — el yoga de las 7 AM, el reformer de pilates del martes — se llenan rápido. Sin lista de espera, cuando alguien cancela el cupo queda vacío aunque haya otros alumnos que quisieran tomarlo. Con lista de espera integrada, la cancelación de un alumno dispara automáticamente una notificación al primero en la lista, quien puede confirmar su ingreso con un clic.",
+      },
+      { tipo: "h2", texto: "Múltiples instructores en una sola plataforma" },
+      {
+        tipo: "p",
+        texto:
+          "Los centros con más de un instructor necesitan una agenda que muestre la disponibilidad de cada uno por separado, permita a los alumnos elegir con quién quieren practicar, y le dé al administrador del centro una vista completa de toda la operación. Eso es exactamente lo que hace una plataforma de agendamiento multiusuario: cada instructor gestiona su propio calendario, y el dueño del centro ve el panorama completo.",
+      },
+      { tipo: "h2", texto: "Recordatorios que reducen las ausencias en clases" },
+      {
+        tipo: "p",
+        texto:
+          "En yoga y pilates, la ausencia a una clase grupal afecta al instructor y a la energía del grupo, además de ser un cupo que pudo haberse dado a alguien en lista de espera. Los recordatorios automáticos por WhatsApp — la noche anterior y 2 horas antes — reducen significativamente las ausencias de último minuto y, cuando el alumno sí va a faltar, le recuerdan que debe liberar su cupo a tiempo.",
+      },
+      {
+        tipo: "destacado",
+        texto:
+          "\"Antes gestionaba 4 instructores, 12 tipos de clase y 200 alumnos activos con planillas de Excel y WhatsApp. En un mes con attempo todo quedó automatizado. Lo que más valoro es la lista de espera — llenamos todas las clases sin esfuerzo.\" — Directora de centro de yoga, Santiago",
+      },
+      { tipo: "cta" },
+    ],
+  },
+  // ── ARTÍCULO 9 — CENTROS CLÍNICOS ───────────────────────────────────────────
+  {
+    slug: "agenda-online-centros-clinicos-chile-2026",
+    titulo: "Software de agendamiento para centros clínicos en Chile 2026: gestiona múltiples profesionales desde un solo panel",
+    excerpt:
+      "Un centro clínico con 3 o más profesionales enfrenta desafíos de coordinación que no tienen solución con herramientas de agenda individual. Esta guía explica cómo un software de agendamiento centralizado transforma la operación de un centro de salud en Chile.",
+    fecha: "2026-06-14",
+    categoria: "Guías",
+    tiempoLectura: 7,
+    autor: "Equipo attempo",
+    contenido: [
+      {
+        tipo: "intro",
+        texto:
+          "Un centro clínico con 3 o más profesionales enfrenta desafíos de coordinación que no tienen solución con herramientas de agenda individual. Cada profesional tiene su propia disponibilidad, sus propios tipos de atención y sus propios pacientes — pero el centro necesita una visión unificada para coordinar salas, recepción y facturación. Esta guía explica cómo un software de agendamiento centralizado transforma esa operación.",
+      },
+      { tipo: "h2", texto: "El problema de las agendas descentralizadas" },
+      {
+        tipo: "p",
+        texto:
+          "El escenario más común en centros clínicos pequeños y medianos en Chile es que cada profesional lleva su propia agenda — uno por WhatsApp, otro con agenda física, otro con un calendario de Google personal. La recepcionista intenta coordinar todo eso al mismo tiempo, con el riesgo de reservar la misma sala para dos profesionales en el mismo horario, o perder pacientes que llamaron cuando no había nadie disponible para responder.",
+      },
+      {
+        tipo: "ul",
+        items: [
+          "Conflictos de sala: dos profesionales asignados al mismo espacio en el mismo horario",
+          "Pacientes perdidos: llamadas sin respuesta fuera del horario de recepción",
+          "Falta de visibilidad: el director del centro no sabe qué tan ocupado está cada profesional",
+          "Cobros inconsistentes: cada profesional cobra de forma diferente sin registro centralizado",
+          "Informes imposibles: no hay datos consolidados de rendimiento por profesional o especialidad",
+        ],
+      },
+      { tipo: "h2", texto: "Cómo funciona una agenda centralizada para centros" },
+      {
+        tipo: "p",
+        texto:
+          "Una plataforma de agendamiento multiusuario da a cada profesional su propio perfil y calendario, mientras el administrador del centro tiene una vista unificada de toda la operación. Los pacientes pueden reservar online eligiendo especialidad y profesional disponible, o la recepcionista puede agendar directamente desde el panel central.",
+      },
+      {
+        tipo: "p",
+        texto:
+          "Las salas y recursos físicos se configuran como activos del centro: cuando un profesional agenda una cita, el sistema verifica automáticamente que la sala esté disponible y la bloquea. Los conflictos de sala desaparecen porque el sistema los previene antes de que ocurran.",
+      },
+      { tipo: "h2", texto: "Reservas online para el centro completo" },
+      {
+        tipo: "p",
+        texto:
+          "Un portal de reservas online del centro permite que los pacientes agenden con cualquier profesional disponible en el horario que les acomoda, sin llamar a recepción. Esto reduce la carga de la recepción, amplía el horario de disponibilidad para reservas (24/7 en lugar del horario de oficina) y mejora la experiencia del paciente.",
+      },
+      {
+        tipo: "p",
+        texto:
+          "Para el centro, cada reserva online es un ingreso asegurado antes de que el paciente llegue — especialmente cuando se integra cobro anticipado con Webpay, que confirma el compromiso y reduce los no-shows en toda la cartera de profesionales.",
+      },
+      { tipo: "h2", texto: "Reportes por profesional y por especialidad" },
+      {
+        tipo: "p",
+        texto:
+          "Una de las ventajas menos visibles pero más valiosas de un sistema centralizado es la data. El director del centro puede ver en tiempo real cuántas citas tuvo cada profesional, cuántas se cancelaron, cuánto se facturó por especialidad y cuáles son los horarios de mayor y menor demanda. Con esa información se pueden tomar decisiones concretas: ampliar la disponibilidad del profesional más demandado, abrir un nuevo horario de tarde o ajustar la distribución de salas.",
+      },
+      { tipo: "h2", texto: "Chatbot IA para atención 24/7 del centro" },
+      {
+        tipo: "p",
+        texto:
+          "Un centro clínico recibe consultas fuera del horario de recepción: pacientes que preguntan disponibilidad a las 9 de la noche, familias que buscan hora para el día siguiente antes de que abra la recepción. Un chatbot con inteligencia artificial integrado al sistema de agendamiento atiende esas consultas de forma automática, verifica disponibilidad de todos los profesionales y completa la reserva sin intervención humana.",
+      },
+      {
+        tipo: "destacado",
+        texto:
+          "\"Pasamos de 3 agendas separadas en papel y WhatsApp a un sistema centralizado en una semana. El cambio más grande no fue la tecnología — fue que por primera vez podemos ver el rendimiento real del centro y tomar decisiones con datos.\" — Director de centro médico, Las Condes",
+      },
+      { tipo: "cta" },
+    ],
+  },
+  // ── ARTÍCULO 10 (anterior 5) ─────────────────────────────────────────────────
   {
     slug: "chatbot-ia-agendamiento-citas-chile-2026",
     titulo: "Chatbot IA para agendamiento de citas en Chile: qué es, cómo funciona y por qué cambia todo",
