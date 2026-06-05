@@ -64,7 +64,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="es" className={`${geist.variable} h-full antialiased`}>
+    <html lang="es-CL" className={`${geist.variable} h-full antialiased`}>
       <head>
         <Script
           id="gtm-script"

@@ -19,6 +19,413 @@ export type Post = {
 }
 
 export const posts: Post[] = [
+  // ── ARTÍCULO 1 ──────────────────────────────────────────────────────────────
+  {
+    slug: "sistema-agendamiento-online-chile-2026",
+    titulo: "Sistema de agendamiento online en Chile: guía completa para profesionales de salud 2026",
+    excerpt:
+      "Todo lo que necesitas saber sobre los sistemas de agendamiento online en Chile en 2026: qué son, cómo funcionan, qué funcionalidades son imprescindibles y cómo elegir la opción correcta para tu especialidad.",
+    fecha: "2026-06-04",
+    categoria: "Guías",
+    tiempoLectura: 8,
+    autor: "Equipo attempo",
+    contenido: [
+      {
+        tipo: "intro",
+        texto:
+          "Si estás buscando un sistema de agendamiento online en Chile, probablemente ya sabes que gestionar citas por WhatsApp tiene un techo. Este artículo te explica qué es un sistema de agendamiento, qué funcionalidades son imprescindibles en 2026 y cómo elegir la opción correcta para tu práctica.",
+      },
+      { tipo: "h2", texto: "¿Qué es un sistema de agendamiento online?" },
+      {
+        tipo: "p",
+        texto:
+          "Un sistema de agendamiento online es una plataforma digital que permite a profesionales y negocios gestionar sus citas, reservas y horarios de forma automatizada. A diferencia de una agenda física o un calendario compartido, un sistema de agendamiento moderno automatiza todo el ciclo: desde que el paciente reserva hasta que asiste y paga, sin intervención manual.",
+      },
+      {
+        tipo: "p",
+        texto:
+          "En Chile, el uso de estos sistemas se aceleró significativamente y hoy es el estándar en consultorios, centros de salud, estudios jurídicos y negocios de servicios que buscan operar de forma profesional y eficiente.",
+      },
+      { tipo: "h2", texto: "¿Por qué los profesionales en Chile están migrando a la agenda digital?" },
+      {
+        tipo: "p",
+        texto:
+          "El argumento más común para no cambiar es \"mis pacientes no saben usar tecnología\". Los datos dicen lo contrario: el 87% de los adultos en Chile usa smartphone a diario y más del 70% ha reservado un servicio por internet en el último año. La tecnología ya no es la barrera — la barrera es el tiempo y la energía que se pierden gestionando citas de forma manual.",
+      },
+      {
+        tipo: "p",
+        texto:
+          "Los profesionales que gestionan su agenda por WhatsApp o teléfono invierten en promedio entre 45 minutos y 2 horas diarias solo en coordinación de horarios, sin contar el impacto de las inasistencias no avisadas.",
+      },
+      {
+        tipo: "ul",
+        items: [
+          "Mensajes de WhatsApp sin responder durante consultas",
+          "Confusión de horarios por coordinar en varios canales al mismo tiempo",
+          "Inasistencias que no pudieron reasignarse porque no llegó el aviso a tiempo",
+          "Cobros incómodos o tardíos después de la atención",
+        ],
+      },
+      { tipo: "h2", texto: "Las 7 funcionalidades esenciales de un sistema de agendamiento en 2026" },
+      { tipo: "h3", texto: "1. Agenda online disponible 24/7" },
+      {
+        tipo: "p",
+        texto:
+          "El paciente que busca hora a las 11 de la noche no puede llamarte. Un buen sistema tiene un link de reserva que el profesional comparte en su sitio web, Instagram, WhatsApp Bio o firma de email. El paciente elige fecha, hora y servicio en menos de 2 minutos, y el sistema confirma automáticamente.",
+      },
+      { tipo: "h3", texto: "2. Recordatorios automáticos por WhatsApp" },
+      {
+        tipo: "p",
+        texto:
+          "El recordatorio automático es la funcionalidad con mayor retorno de inversión de todas. Los estudios de comportamiento en pacientes de salud muestran que el 68% de las inasistencias ocurre simplemente porque la persona olvidó la cita. Un recordatorio por WhatsApp 48 horas antes y otro 2 horas antes reduce las inasistencias entre un 70% y un 80%.",
+      },
+      { tipo: "h3", texto: "3. Cobro anticipado integrado con Webpay" },
+      {
+        tipo: "p",
+        texto:
+          "En Chile, la integración con Webpay (Transbank) es el estándar de pagos online. Un sistema de agendamiento profesional debe permitir cobrar en el momento de la reserva, antes de confirmarla. Esto transforma el modelo: el paciente que pagó no falta.",
+      },
+      { tipo: "h3", texto: "4. Historial y ficha del paciente" },
+      {
+        tipo: "p",
+        texto:
+          "Tener acceso al historial de cada paciente desde la misma plataforma elimina la necesidad de planillas paralelas. Un buen sistema registra asistencias, cancelaciones, pagos y notas básicas de seguimiento.",
+      },
+      { tipo: "h3", texto: "5. Gestión de paquetes y sesiones" },
+      {
+        tipo: "p",
+        texto:
+          "Especialmente útil para psicólogos, nutricionistas y fisioterapeutas. La venta de paquetes de sesiones (4, 8 o 12 sesiones) es una práctica común que los sistemas modernos automatizan completamente: el sistema lleva la cuenta, avisa cuando quedan pocas sesiones y facilita la renovación.",
+      },
+      { tipo: "h3", texto: "6. Chatbot IA para atención 24/7" },
+      {
+        tipo: "p",
+        texto:
+          "Los sistemas más avanzados en 2026 integran un chatbot con inteligencia artificial que atiende consultas por WhatsApp, Instagram o Messenger sin intervención humana. El chatbot responde preguntas frecuentes, verifica disponibilidad y guía al paciente hasta completar su reserva.",
+      },
+      { tipo: "h3", texto: "7. Reportes y estadísticas" },
+      {
+        tipo: "p",
+        texto:
+          "Saber cuántas citas tuviste, cuántas se cancelaron, cuánto facturaste y cuál es tu horario de mayor demanda es información que un sistema de agendamiento debe entregarte de forma automática. Con esos datos puedes tomar decisiones reales sobre tus horarios y precios.",
+      },
+      { tipo: "h2", texto: "¿Cuánto cuesta un sistema de agendamiento en Chile?" },
+      {
+        tipo: "p",
+        texto:
+          "Los precios varían. En el extremo gratuito están herramientas como Calendly (funcionalidades muy limitadas) o Google Calendar (que no es un sistema de agendamiento). Para un profesional independiente, las plataformas especializadas en Chile parten desde los $25.000 CLP mensuales.",
+      },
+      {
+        tipo: "p",
+        texto:
+          "Lo que cobra un sistema de agendamiento se recupera rápidamente: una inasistencia menos a la semana a $45.000 la hora son $180.000 al mes recuperados — más de lo que cuesta cualquier plan del mercado.",
+      },
+      { tipo: "h2", texto: "¿Cómo elegir el sistema correcto para tu especialidad?" },
+      {
+        tipo: "ul",
+        items: [
+          "Psicólogos y psiquiatras: prioriza cobro anticipado, paquetes de sesiones y política de cancelación automatizada",
+          "Médicos y matronas: busca integración con telemedicina, ficha clínica básica y recordatorios multicadena",
+          "Nutricionistas y fisioterapeutas: paquetes de sesiones, seguimiento de paciente e historial de planes",
+          "Barberías y estéticas: reservas por servicio, múltiples profesionales y lista de espera",
+          "Abogados y consultores: bloqueo de agenda por tipo de consulta, recordatorios y cobro anticipado",
+        ],
+      },
+      { tipo: "h2", texto: "Los sistemas de agendamiento más usados en Chile en 2026" },
+      {
+        tipo: "p",
+        texto:
+          "En el mercado chileno conviven varias plataformas con enfoques distintos. AgendaPro es la más conocida con presencia regional, fuerte en belleza y wellness. Reservo está especializado en centros médicos. Encuadrado se orienta a profesionales independientes de la salud con foco en boletas electrónicas. attempo es la opción diseñada para el profesional independiente chileno, con Webpay nativo, chatbot IA y planes desde $24.990 CLP.",
+      },
+      { tipo: "h2", texto: "Cómo implementar un sistema de agendamiento en 3 pasos" },
+      {
+        tipo: "ul",
+        items: [
+          "Paso 1 — Crea tu perfil: define tus servicios, duración de cada uno y tu disponibilidad horaria. Menos de 10 minutos.",
+          "Paso 2 — Comparte tu link: agrega el link de reserva a tu Instagram, sitio web, Google My Business y firma de WhatsApp.",
+          "Paso 3 — Activa los automatismos: configura los recordatorios, el cobro anticipado y el chatbot. El sistema hace el resto.",
+        ],
+      },
+      { tipo: "cta" },
+    ],
+  },
+  // ── ARTÍCULO 2 ──────────────────────────────────────────────────────────────
+  {
+    slug: "mejor-software-agendamiento-psicologo-chile-2026",
+    titulo: "Mejor software de agendamiento para psicólogos en Chile 2026: guía y comparativa",
+    excerpt:
+      "Para un psicólogo independiente en Chile, el sistema de agendamiento no es solo una agenda: es la diferencia entre cobrar o no cobrar una sesión que ya preparaste. Comparamos las principales opciones disponibles en 2026.",
+    fecha: "2026-06-03",
+    categoria: "Comparativas",
+    tiempoLectura: 7,
+    autor: "Equipo attempo",
+    contenido: [
+      {
+        tipo: "intro",
+        texto:
+          "Para un psicólogo independiente en Chile, el sistema de agendamiento no es solo una agenda: es la diferencia entre cobrar o no cobrar una sesión que ya preparaste. Esta guía analiza qué necesita específicamente un psicólogo de su plataforma de agendamiento y compara las principales opciones en 2026.",
+      },
+      { tipo: "h2", texto: "El problema específico del psicólogo independiente" },
+      {
+        tipo: "p",
+        texto:
+          "Para un psicólogo, una inasistencia de última hora es una hora preparada, bloqueada y perdida. El 82% de los psicólogos independientes en Chile reporta haber tenido al menos 3 inasistencias no avisadas en un mes típico, y la mayoría no tiene una política de cancelación formal porque no sabe cómo implementarla sin generar conflicto con el paciente.",
+      },
+      {
+        tipo: "p",
+        texto:
+          "La tecnología resuelve ese conflicto: cuando el sistema pide el cobro anticipado en el momento de la reserva, no es el psicólogo quien impone la política — es el flujo del software. El paciente acepta las condiciones cuando reserva, no cuando ya está en la sesión.",
+      },
+      { tipo: "h2", texto: "Las 5 funcionalidades esenciales para psicólogos" },
+      { tipo: "h3", texto: "Cobro anticipado integrado (la más importante)" },
+      {
+        tipo: "p",
+        texto:
+          "El cobro al momento de la reserva es la funcionalidad que más diferencia hace en la práctica clínica independiente. Un paciente que pagó $45.000 tiene un compromiso concreto. Un paciente que solo \"confirmó por WhatsApp\" no. Busca un sistema con Webpay nativo — no una redirección a un link de pago externo — y que el cobro sea parte del flujo de reserva, no un paso posterior.",
+      },
+      { tipo: "h3", texto: "Gestión de paquetes de sesiones" },
+      {
+        tipo: "p",
+        texto:
+          "La venta de paquetes (4, 8 o 12 sesiones) es práctica común en psicología. Un buen sistema debe llevar automáticamente el conteo de sesiones por paciente, alertarte cuando quedan pocas en el paquete y facilitar la renovación. Sin esto, el control queda en planillas o en tu memoria.",
+      },
+      { tipo: "h3", texto: "Política de cancelación automatizada" },
+      {
+        tipo: "p",
+        texto:
+          "Define cuántas horas antes se puede cancelar sin cargo y el sistema lo aplica solo. Si el paciente cancela con menos de 24 horas, el sistema retiene el pago según la política que tú configuraste. Sin discusiones, sin incomodidad.",
+      },
+      { tipo: "h3", texto: "Recordatorios en cadena por WhatsApp" },
+      {
+        tipo: "p",
+        texto:
+          "Un solo recordatorio no es suficiente. El estándar en 2026 es: confirmación inmediata al reservar + recordatorio 48 horas antes + recordatorio 2 horas antes el día de la cita. El sistema envía los tres sin que hagas nada.",
+      },
+      { tipo: "h3", texto: "Historial básico del paciente" },
+      {
+        tipo: "p",
+        texto:
+          "Número de sesiones asistidas, cancelaciones, notas breves y estado del paquete — todo en un solo lugar. No necesitas una ficha clínica compleja, pero sí un historial que te permita tener contexto antes de cada sesión.",
+      },
+      { tipo: "h2", texto: "Comparativa: los principales sistemas para psicólogos en Chile 2026" },
+      {
+        tipo: "ul",
+        items: [
+          "attempo — cobro anticipado Webpay nativo, paquetes de sesiones, chatbot IA, recordatorios WhatsApp. Desde $24.990/mes. Prueba gratis 12 días. Diseñado para el profesional independiente chileno.",
+          "Encuadrado — fuerte en agenda y boletas electrónicas SII. Precio en UF (≈$37.000 CLP). No siempre incluye cobro Webpay nativo en los planes base.",
+          "AgendaPro — amplia base de clientes, principalmente orientado a estética y wellness. Para psicólogos las funcionalidades específicas (paquetes, política de cancelación médica) son menos especializadas.",
+          "Calendly (plan gratis) — útil para reuniones, no para práctica clínica. Sin cobro integrado, sin recordatorios WhatsApp ni paquetes de sesiones.",
+        ],
+      },
+      { tipo: "h2", texto: "El modelo de cobro cambia todo" },
+      {
+        tipo: "p",
+        texto:
+          "La pregunta correcta no es \"¿cuál sistema tiene más funciones?\" sino \"¿cuál resuelve mi problema principal?\". Para un psicólogo en Chile, el problema principal es la inasistencia no avisada y el cobro post-sesión incómodo. Cualquier sistema que no resuelva ambos con cobro anticipado integrado y cancelación automática no es la solución correcta, aunque tenga otras 20 funcionalidades.",
+      },
+      {
+        tipo: "destacado",
+        texto:
+          "\"Implementé el cobro anticipado el primer mes y bajé de 5 inasistencias semanales a menos de 1. En términos prácticos: recuperé más de $160.000 al mes que antes simplemente no entraban.\" — Psicóloga, Providencia",
+      },
+      { tipo: "h2", texto: "¿Cuánto tarda la migración?" },
+      {
+        tipo: "p",
+        texto:
+          "Migrar de WhatsApp a una plataforma de agendamiento profesional toma menos de una semana. Los primeros dos días configuras tu perfil, servicios y disponibilidad. El tercer día compartes tu link con los pacientes activos. Para el viernes ya tienes el flujo funcionando. No hay curva de aprendizaje prolongada si el sistema está bien diseñado.",
+      },
+      { tipo: "cta" },
+    ],
+  },
+  // ── ARTÍCULO 3 ──────────────────────────────────────────────────────────────
+  {
+    slug: "agendapro-vs-encuadrado-vs-attempo-2026",
+    titulo: "AgendaPro vs Encuadrado vs attempo: comparativa honesta para profesionales de salud en Chile 2026",
+    excerpt:
+      "Analizamos en detalle los tres sistemas de agendamiento más usados por profesionales de salud independientes en Chile. Cuál tiene mejor precio, mejores funciones y mejor soporte para tu especialidad.",
+    fecha: "2026-06-02",
+    categoria: "Comparativas",
+    tiempoLectura: 9,
+    autor: "Equipo attempo",
+    contenido: [
+      {
+        tipo: "intro",
+        texto:
+          "\"¿Cuál sistema de agendamiento elijo?\" es la pregunta más frecuente entre los profesionales de salud independientes en Chile que buscan modernizar su consulta. Esta comparativa analiza en detalle AgendaPro, Encuadrado y attempo para que puedas tomar la decisión correcta para tu especialidad.",
+      },
+      { tipo: "h2", texto: "¿Por qué comparar estas tres plataformas?" },
+      {
+        tipo: "p",
+        texto:
+          "AgendaPro, Encuadrado y attempo son los sistemas de agendamiento online más mencionados en Chile entre profesionales independientes de la salud. Cada uno tiene un perfil distinto, precio diferente y fortalezas que sirven mejor a ciertos tipos de práctica. No hay una respuesta universal — pero sí hay una respuesta correcta para tu caso.",
+      },
+      { tipo: "h2", texto: "AgendaPro: fuerte en volumen, amplio en sectores" },
+      {
+        tipo: "p",
+        texto:
+          "AgendaPro es la plataforma con mayor presencia en América Latina. Su fortaleza está en la amplitud: cubre desde salones de belleza hasta clínicas médicas, con un marketplace de profesionales que genera visibilidad orgánica. Tiene una base de más de 15.000 reseñas en Chile y es una apuesta sólida para negocios que buscan volumen de clientes.",
+      },
+      {
+        tipo: "p",
+        texto:
+          "Sus limitaciones para el profesional independiente de salud: el precio es más alto que las alternativas locales, y las funcionalidades específicas para psicólogos o nutricionistas (paquetes de sesiones, política de cancelación médica) son menos especializadas que en opciones diseñadas para ese perfil.",
+      },
+      {
+        tipo: "ul",
+        items: [
+          "Mejor para: salones, spas, centros de bienestar y clínicas con múltiples profesionales",
+          "Precio referencial: desde $29.990 CLP/mes",
+          "Fortaleza: marketplace con tráfico propio, base de reseñas consolidada",
+        ],
+      },
+      { tipo: "h2", texto: "Encuadrado: especialista en salud con boletas SII" },
+      {
+        tipo: "p",
+        texto:
+          "Encuadrado está construido específicamente para profesionales independientes de la salud en Chile. Su diferenciador más fuerte es la integración con el SII para emitir boletas de honorarios electrónicas directamente desde la plataforma — algo que ningún competidor directo ofrece con esa fluidez. Para un psicólogo o nutricionista que emite muchas boletas cada semana, esto puede ser un ahorro significativo de tiempo.",
+      },
+      {
+        tipo: "p",
+        texto:
+          "Sus limitaciones: el precio se expresa en UF (lo que dificulta presupuestar), no siempre incluye cobro Webpay nativo en los planes base, y algunas de sus landing pages de especialidad han tenido problemas de acceso reportados por usuarios.",
+      },
+      {
+        tipo: "ul",
+        items: [
+          "Mejor para: profesionales de salud que emiten muchas boletas electrónicas y priorizan la integración SII",
+          "Precio referencial: desde 0.8 UF/mes (≈$37.000 CLP)",
+          "Fortaleza: boletas SII automáticas, agenda específica para salud",
+        ],
+      },
+      { tipo: "h2", texto: "attempo: diseñado para el profesional independiente chileno" },
+      {
+        tipo: "p",
+        texto:
+          "attempo es la opción construida desde el principio para el profesional independiente de salud en Chile. Su diferenciador central es la combinación de Webpay nativo integrado al flujo de reserva (cobro anticipado real, no un link externo) con un chatbot de inteligencia artificial para WhatsApp, Instagram y Messenger.",
+      },
+      {
+        tipo: "p",
+        texto:
+          "A diferencia de las otras plataformas que nacieron con otro foco y adaptaron funcionalidades para Chile, attempo fue diseñado con el modelo de práctica del profesional chileno como punto de partida: cobro en pesos, Webpay como opción nativa, recordatorios por WhatsApp (no solo por email) y una interfaz en español sin traducciones.",
+      },
+      {
+        tipo: "ul",
+        items: [
+          "Mejor para: psicólogos, nutricionistas, fisioterapeutas, médicos independientes y negocios de servicios en Chile",
+          "Precio desde: $24.990 CLP/mes con prueba gratis de 12 días",
+          "Fortaleza: cobro Webpay nativo, chatbot IA, recordatorios WhatsApp, precio en CLP",
+        ],
+      },
+      { tipo: "h2", texto: "Comparativa funcionalidad por funcionalidad" },
+      {
+        tipo: "ul",
+        items: [
+          "Agenda online 24/7: los tres ✅",
+          "Recordatorios automáticos WhatsApp: attempo ✅ nativo — AgendaPro ✅ — Encuadrado ✅",
+          "Cobro anticipado Webpay: attempo ✅ nativo en todos los planes — AgendaPro ⚠️ requiere configuración — Encuadrado ⚠️ no en todos los planes",
+          "Paquetes de sesiones: attempo ✅ — Encuadrado ✅ — AgendaPro ⚠️ limitado",
+          "Chatbot IA (WhatsApp / Instagram): attempo ✅ — AgendaPro ⚠️ solo planes altos — Encuadrado ❌",
+          "Boletas electrónicas SII: Encuadrado ✅ — attempo ❌ (en desarrollo) — AgendaPro ❌",
+          "Precio base mensual: attempo $24.990 CLP — AgendaPro desde $29.990 CLP — Encuadrado ≈$37.000 CLP",
+        ],
+      },
+      { tipo: "h2", texto: "¿Cuál elegir según tu situación?" },
+      {
+        tipo: "ul",
+        items: [
+          "Si eres psicólogo, nutricionista o fisioterapeuta independiente → attempo por el cobro Webpay nativo y los paquetes de sesiones",
+          "Si emites muchas boletas electrónicas y necesitas integración SII → Encuadrado por ahora es el único que lo resuelve bien",
+          "Si tienes un negocio de wellness, salón o spa con varios profesionales y quieres visibilidad en un marketplace → AgendaPro",
+          "Si quieres probar sin comprometerte → attempo ofrece 12 días gratis con acceso completo",
+        ],
+      },
+      { tipo: "h2", texto: "La verdad sobre elegir" },
+      {
+        tipo: "p",
+        texto:
+          "Las tres plataformas son herramientas serias con usuarios activos en Chile. La diferencia real no está en el listado de funcionalidades — está en cuál modelo se adapta a tu forma de trabajar. Si tu dolor principal es la inasistencia y el cobro incómodo post-sesión, la respuesta es una plataforma con cobro anticipado real integrado. Si tu dolor principal es la boleta electrónica, es otra. La pregunta correcta es: ¿qué problema quiero resolver primero?",
+      },
+      { tipo: "cta" },
+    ],
+  },
+  // ── ARTÍCULO 4 ──────────────────────────────────────────────────────────────
+  {
+    slug: "agenda-gratis-profesionales-salud-chile-2026",
+    titulo: "Agenda online gratis para profesionales de salud en Chile: qué existe, qué funciona y qué no",
+    excerpt:
+      "¿Existe una agenda online realmente gratis para profesionales de salud en Chile? Analizamos todas las opciones disponibles en 2026, sus limitaciones reales y en qué punto la inversión en una plataforma profesional se paga sola.",
+    fecha: "2026-05-27",
+    categoria: "Guías",
+    tiempoLectura: 6,
+    autor: "Equipo attempo",
+    contenido: [
+      {
+        tipo: "intro",
+        texto:
+          "\"Agenda online gratis\" es una de las búsquedas más frecuentes entre profesionales de la salud que quieren digitalizar su consulta sin comprometerse económicamente. Esta guía analiza con honestidad qué opciones gratuitas existen en Chile en 2026, qué funciona realmente y en qué punto conviene invertir en una plataforma profesional.",
+      },
+      { tipo: "h2", texto: "Lo que realmente existe gratis para profesionales de salud en Chile" },
+      { tipo: "h3", texto: "Google Calendar" },
+      {
+        tipo: "p",
+        texto:
+          "El calendario de Google es gratuito y ampliamente conocido. No es, en ningún sentido práctico, un sistema de agendamiento online. No tiene link de reserva para compartir, no envía recordatorios automáticos por WhatsApp, no gestiona cobros y no mantiene historial de pacientes. Es una agenda personal digitalizada, no una plataforma de agendamiento profesional.",
+      },
+      { tipo: "h3", texto: "Calendly (plan gratuito)" },
+      {
+        tipo: "p",
+        texto:
+          "Calendly es la herramienta de agendamiento gratuita más conocida a nivel internacional. Permite crear un link de disponibilidad que los clientes pueden usar para reservar. Sus limitaciones en el plan gratuito para un profesional de salud en Chile son significativas: solo 1 tipo de evento, sin cobros integrados, sin recordatorios por WhatsApp (solo email), sin historial de paciente y sin personalización en español.",
+      },
+      { tipo: "h3", texto: "Reservio (plan gratuito)" },
+      {
+        tipo: "p",
+        texto:
+          "Reservio tiene un plan gratuito con funcionalidades básicas, pero con límite de 50 reservas al mes (insuficiente para un profesional con agenda activa), sin cobro anticipado integrado y soporte principalmente en inglés.",
+      },
+      { tipo: "h2", texto: "Las limitaciones reales de las opciones gratuitas" },
+      {
+        tipo: "p",
+        texto:
+          "El problema de las herramientas gratuitas no es solo lo que les falta — es lo que te sigue costando operar con ellas. Un sistema que no envía recordatorios por WhatsApp sigue requiriendo que tú los envíes manualmente. Eso son 15 minutos diarios que el sistema debería hacer por ti. Un sistema sin cobro anticipado deja el cobro post-sesión en tus manos, con toda la incomodidad que eso implica.",
+      },
+      {
+        tipo: "ul",
+        items: [
+          "Sin recordatorios automáticos WhatsApp → sigues enviando mensajes manualmente",
+          "Sin cobro anticipado → las inasistencias siguen costándote dinero",
+          "Sin historial de paciente → sigues buscando en notas o planillas",
+          "Sin soporte en español para Chile → resuelves dudas en inglés",
+          "Sin Webpay integrado → no puedes cobrar online de forma nativa en Chile",
+        ],
+      },
+      { tipo: "h2", texto: "Lo que pierdes cuando usas una agenda gratuita" },
+      {
+        tipo: "p",
+        texto:
+          "El costo real de una agenda gratuita no aparece en la factura — aparece en tu tiempo y tus ingresos perdidos. Un profesional con 25 citas semanales que pierde solo 2 por inasistencias al mes (conservadoramente) a $45.000 cada una pierde $90.000 al mes en ingresos que no entran. El plan más básico de cualquier sistema de agendamiento profesional cuesta menos de $30.000 al mes.",
+      },
+      {
+        tipo: "destacado",
+        texto:
+          "\"Usé Calendly gratis durante 8 meses. Funcionaba para coordinar horarios, pero seguía mandando recordatorios por WhatsApp uno a uno y cobrando en efectivo después. Cuando cambié a una plataforma con cobro anticipado, el primer mes recuperé más de lo que gasté en el año entero de la versión gratis.\" — Psicólogo, Las Condes",
+      },
+      { tipo: "h2", texto: "¿Cuándo tiene sentido usar algo gratuito?" },
+      {
+        tipo: "p",
+        texto:
+          "Hay casos en que tiene sentido empezar con una herramienta gratuita: si estás validando una idea de negocio nueva y aún no tienes clientes recurrentes, o si tienes menos de 5 citas semanales y el volumen no justifica la automatización. En esos casos, el ahorro de $25.000 mensuales tiene sentido. Pero en cuanto tu agenda tiene 10 o más citas semanales, el costo de oportunidad de no tener automatización supera con creces el precio de cualquier plan básico.",
+      },
+      { tipo: "h2", texto: "La alternativa: probar gratis antes de pagar" },
+      {
+        tipo: "p",
+        texto:
+          "No tienes que elegir entre \"gratis con limitaciones\" y \"pago sin garantías\". attempo ofrece 12 días de prueba gratuita con acceso completo a todas las funcionalidades: cobro Webpay, recordatorios WhatsApp, chatbot IA y gestión de paquetes. Si en 12 días no sientes la diferencia, no pagas. Si la sientes, estás pagando por algo que ya comprobaste que funciona para tu práctica.",
+      },
+      { tipo: "cta" },
+    ],
+  },
+  // ── ARTÍCULOS ANTERIORES ─────────────────────────────────────────────────────
   {
     slug: "agenda-online-profesionales-2026",
     titulo: "Tu agenda en 2026: por qué los profesionales que más crecen ya automatizaron todo",
