@@ -16,6 +16,24 @@ const GREETING: Message = {
   content: "¡Hola! 👋 Soy Attia, la asistente de attempo. ¿Tienes alguna duda sobre la plataforma?",
 }
 
+function AttiaAvatar({ size }: { size: number }) {
+  return (
+    <div
+      className="relative rounded-full overflow-hidden flex-shrink-0 bg-[#6C5CE4]"
+      style={{ width: size, height: size }}
+    >
+      <Image
+        src="/attia-avatar-final.png"
+        alt="Attia"
+        fill
+        className="object-cover"
+        sizes={`${size}px`}
+        priority
+      />
+    </div>
+  )
+}
+
 export default function ChatWidget() {
   const [visible, setVisible] = useState(false)
   const [open, setOpen] = useState(false)
@@ -84,22 +102,14 @@ export default function ChatWidget() {
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.94, y: 12 }}
                 transition={{ duration: 0.22, ease: EASE }}
-                style={{ transformOrigin: "bottom right" }}
-                className="w-[340px] sm:w-[360px] flex flex-col rounded-2xl overflow-hidden shadow-2xl shadow-black/20 border border-gray-100 bg-white"
+                style={{ transformOrigin: "bottom right", maxHeight: "calc(100vh - 200px)" }}
+                className="w-[320px] sm:w-[350px] flex flex-col rounded-2xl overflow-hidden shadow-2xl shadow-black/20 border border-gray-100 bg-white"
                 aria-label="Chat con Attia"
               >
                 {/* Header */}
-                <div className="flex items-center gap-3 px-4 py-3 bg-[#6C5CE4]">
-                  <div className="relative w-10 h-10 rounded-full overflow-hidden flex-shrink-0 border-2 border-white/25 bg-[#5a4bd3]">
-                    <Image
-                      src="/attia-avatar.png"
-                      alt="Attia"
-                      fill
-                      className="object-cover"
-                      style={{ objectPosition: "10% 80%" }}
-                      sizes="40px"
-                      priority
-                    />
+                <div className="flex items-center gap-3 px-4 py-3 bg-[#6C5CE4] flex-shrink-0">
+                  <div className="border-2 border-white/25 rounded-full">
+                    <AttiaAvatar size={38} />
                   </div>
                   <div className="flex-1 min-w-0">
                     <p className="text-white font-semibold text-sm leading-tight">Attia</p>
@@ -121,22 +131,15 @@ export default function ChatWidget() {
                 </div>
 
                 {/* Mensajes */}
-                <div className="flex-1 overflow-y-auto px-4 py-4 flex flex-col gap-3 bg-[#f7f6fe]" style={{ height: 380 }}>
+                <div className="flex-1 min-h-0 overflow-y-auto px-4 py-4 flex flex-col gap-3 bg-[#f7f6fe]">
                   {messages.map((msg, i) => (
                     <div
                       key={i}
                       className={`flex items-end gap-2 ${msg.role === "user" ? "flex-row-reverse" : "flex-row"}`}
                     >
                       {msg.role === "assistant" && (
-                        <div className="relative w-7 h-7 rounded-full overflow-hidden flex-shrink-0 bg-[#6C5CE4] border border-white/20 mb-0.5">
-                          <Image
-                            src="/attia-avatar.png"
-                            alt="Attia"
-                            fill
-                            className="object-cover"
-                            style={{ objectPosition: "10% 80%" }}
-                            sizes="28px"
-                          />
+                        <div className="mb-0.5">
+                          <AttiaAvatar size={26} />
                         </div>
                       )}
                       <div
@@ -154,16 +157,7 @@ export default function ChatWidget() {
                   {/* Indicador de escritura */}
                   {loading && (
                     <div className="flex items-end gap-2">
-                      <div className="relative w-7 h-7 rounded-full overflow-hidden flex-shrink-0 bg-[#6C5CE4] border border-white/20">
-                        <Image
-                          src="/attia-avatar.png"
-                          alt="Attia"
-                          fill
-                          className="object-cover"
-                          style={{ objectPosition: "10% 80%" }}
-                          sizes="28px"
-                        />
-                      </div>
+                      <AttiaAvatar size={26} />
                       <div className="bg-white border border-gray-100 shadow-sm px-4 py-3 rounded-2xl rounded-bl-sm flex gap-1 items-center">
                         <span className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: "0ms" }} />
                         <span className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: "150ms" }} />
@@ -176,7 +170,7 @@ export default function ChatWidget() {
                 </div>
 
                 {/* Input */}
-                <div className="flex items-center gap-2 px-3 py-3 bg-white border-t border-gray-100">
+                <div className="flex items-center gap-2 px-3 py-3 bg-white border-t border-gray-100 flex-shrink-0">
                   <input
                     ref={inputRef}
                     type="text"
@@ -208,11 +202,10 @@ export default function ChatWidget() {
             className="relative w-14 h-14 rounded-full overflow-hidden border-2 border-white shadow-lg shadow-[#6C5CE4]/40 hover:scale-105 active:scale-95 transition-transform bg-[#6C5CE4]"
           >
             <Image
-              src="/attia-avatar.png"
+              src="/attia-avatar-final.png"
               alt="Attia"
               fill
               className="object-cover"
-              style={{ objectPosition: "10% 80%" }}
               sizes="56px"
               priority
             />
