@@ -3,7 +3,7 @@
 import { m, useInView } from "framer-motion"
 import { useRef, useState, useEffect } from "react"
 import Image from "next/image"
-import { ShieldCheck, CreditCard, Zap, Smartphone, CalendarDays, CheckCircle2, Check, type LucideIcon } from "lucide-react"
+import { ShieldCheck, CreditCard, Zap, Smartphone, CalendarDays, CheckCircle2, Check, Users, BarChart2, Settings, Banknote, type LucideIcon } from "lucide-react"
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -263,12 +263,12 @@ export function FeaturesSection() {
 
 export function ScreenshotsSection() {
   const [active, setActive] = useState(0)
-  const tabs = [
-    { label: "Agenda",    mobile: "/screenshot-agenda.jpeg",   desktop: "/desktop-agenda.png",   desc: "Vista semanal y diaria de tus citas" },
-    { label: "Clientes",  mobile: "/screenshot-clientes.jpeg", desktop: "/desktop-clientes.png", desc: "Ficha completa por cada paciente" },
-    { label: "Ventas",    mobile: "/screenshot-ventas.jpeg",   desktop: "/desktop-ventas.png",   desc: "Controla ingresos y cobros pendientes" },
-    { label: "Reportes",  mobile: "/screenshot-reportes.jpeg", desktop: "/desktop-reportes.png", desc: "Métricas y evolución de tu negocio" },
-    { label: "Config",    mobile: "/screenshot-config.jpeg",   desktop: "/desktop-config.png",   desc: "Configura servicios, horarios y canales" },
+  const tabs: { Icon: LucideIcon; label: string; mobile: string; desktop: string; desc: string }[] = [
+    { Icon: CalendarDays, label: "Agenda",   mobile: "/screenshot-agenda.jpeg",   desktop: "/desktop-agenda.png",   desc: "Vista semanal y diaria de tus citas" },
+    { Icon: Users,        label: "Clientes", mobile: "/screenshot-clientes.jpeg", desktop: "/desktop-clientes.png", desc: "Ficha completa por cada paciente" },
+    { Icon: Banknote,     label: "Ventas",   mobile: "/screenshot-ventas.jpeg",   desktop: "/desktop-ventas.png",   desc: "Controla ingresos y cobros pendientes" },
+    { Icon: BarChart2,    label: "Reportes", mobile: "/screenshot-reportes.jpeg", desktop: "/desktop-reportes.png", desc: "Métricas y evolución de tu negocio" },
+    { Icon: Settings,     label: "Config",   mobile: "/screenshot-config.jpeg",   desktop: "/desktop-config.png",   desc: "Configura servicios, horarios y canales" },
   ]
 
   return (
@@ -303,9 +303,11 @@ export function ScreenshotsSection() {
                     : "bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white"
                 }`}
               >
-                <span className="text-2xl flex-shrink-0">{t.label.split(" ")[0]}</span>
+                <div className={`w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 ${active === i ? "bg-white/20" : "bg-white/10"}`}>
+                  <t.Icon className="w-5 h-5" />
+                </div>
                 <div>
-                  <p className="font-semibold text-sm">{t.label.split(" ").slice(1).join(" ")}</p>
+                  <p className="font-semibold text-sm">{t.label}</p>
                   <p className={`text-xs mt-0.5 ${active === i ? "text-purple-200" : "text-gray-500"}`}>{t.desc}</p>
                 </div>
                 {active === i && (
@@ -541,8 +543,7 @@ export function EspecialidadesSection() {
         </m.div>
         <m.div variants={fadeUp} className="flex flex-wrap gap-3 justify-center">
           {items.map((e) => (
-            <a key={e.slug} href={`/soluciones/${e.slug}`} className="flex items-center gap-2 px-5 py-3 bg-gray-50 border border-gray-200 rounded-full text-sm font-medium text-gray-700 hover:border-[#6C5CE4] hover:text-[#6C5CE4] hover:bg-purple-50 transition-all">
-              <span>{e.emoji}</span>
+            <a key={e.slug} href={`/soluciones/${e.slug}`} className="flex items-center px-5 py-3 bg-gray-50 border border-gray-200 rounded-full text-sm font-medium text-gray-700 hover:border-[#6C5CE4] hover:text-[#6C5CE4] hover:bg-purple-50 transition-all">
               {e.nombre}
             </a>
           ))}

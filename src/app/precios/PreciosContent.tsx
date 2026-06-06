@@ -2,6 +2,7 @@
 
 import React, { useState } from "react"
 import { m, AnimatePresence } from "framer-motion"
+import { Building2, Activity, Brain, Sparkles } from "lucide-react"
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -243,7 +244,7 @@ export default function PreciosContent() {
 
           {ciclo === "anual" && (
             <m.p initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} className="text-sm text-green-600 font-medium mt-3">
-              Pagas 10 meses, te regalamos 2 — el descuento más alto del mercado
+              Pagas 10 meses, te regalamos 2. El descuento más alto del mercado.
             </m.p>
           )}
         </m.div>
@@ -440,9 +441,14 @@ export default function PreciosContent() {
             </div>
           </m.div>
           <m.div variants={fadeUp} className="grid grid-cols-2 gap-3 flex-shrink-0">
-            {["Centros médicos", "Clínicas dentales", "Salud mental", "Bienestar y spa"].map((label) => (
+            {([
+              { label: "Centros médicos",   Icon: Building2 },
+              { label: "Clínicas dentales", Icon: Activity  },
+              { label: "Salud mental",      Icon: Brain     },
+              { label: "Bienestar y spa",   Icon: Sparkles  },
+            ] as { label: string; Icon: React.ElementType }[]).map(({ label, Icon }) => (
               <div key={label} className="bg-white/10 rounded-2xl p-5 text-center w-36">
-                <BuildingIcon />
+                <Icon className="w-10 h-10 text-white opacity-80 mx-auto" />
                 <p className="text-white text-xs font-semibold mt-2 leading-tight">{label}</p>
               </div>
             ))}
@@ -466,7 +472,7 @@ export default function PreciosContent() {
           <m.div variants={stagger} className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {[
               { icon: <ZapIcon />, title: "Listo en 5 minutos", desc: "Configura tu perfil y empieza a recibir citas en menos de 5 minutos." },
-              { icon: <ChatIcon />, title: "Soporte en español", desc: "Equipo chileno disponible por chat. Una persona real, no un bot." },
+              { icon: <ChatIcon />, title: "Soporte en español", desc: "Equipo chileno disponible por chat cuando lo necesitas. En español, sin esperas." },
               { icon: <UnlockIcon />, title: "Sin permanencia", desc: "Cancela cuando quieras. Sin letras chicas ni compromisos forzados." },
             ].map((item) => (
               <m.div key={item.title} variants={fadeUp} className="bg-[#f5f3ff] rounded-2xl p-6">

@@ -3,6 +3,7 @@
 import { m, AnimatePresence } from "framer-motion"
 import { useState } from "react"
 import { Turnstile } from "@marsidev/react-turnstile"
+import { Mail, Clock, Zap, type LucideIcon } from "lucide-react"
 import { sendContactEmail, type ContactFormData } from "./actions"
 
 const paises = [
@@ -45,21 +46,21 @@ const asuntos = [
   "Otro",
 ]
 
-const infoCards = [
+const infoCards: { Icon: LucideIcon; title: string; value: string; href: string | null }[] = [
   {
-    icon: "📧",
+    Icon: Mail,
     title: "Email",
     value: "contacto@attempo.cl",
     href: "mailto:contacto@attempo.cl",
   },
   {
-    icon: "🕐",
+    Icon: Clock,
     title: "Horario de atención",
-    value: "Lun – Vie, 9:00 – 18:00",
+    value: "Lun a Vie, 9:00 a 18:00",
     href: null,
   },
   {
-    icon: "⚡",
+    Icon: Zap,
     title: "Tiempo de respuesta",
     value: "Menos de 24 horas hábiles",
     href: null,
@@ -167,7 +168,7 @@ export default function ContactoContent() {
             <m.div variants={fadeUp}>
               <h2 className="text-2xl font-bold text-gray-900 mb-2">Estamos para ayudarte</h2>
               <p className="text-gray-500 text-sm leading-relaxed">
-                Sea una duda, un problema técnico o que quieras conocer attempo — escríbenos y te atendemos rápido.
+                Sea una duda, un problema técnico o que quieras conocer attempo: escríbenos y te atendemos rápido.
               </p>
             </m.div>
 
@@ -177,8 +178,8 @@ export default function ContactoContent() {
                 variants={fadeUp}
                 className="flex items-start gap-4 bg-gray-50 rounded-2xl p-5 border border-gray-100"
               >
-                <div className="w-10 h-10 bg-[#6C5CE4]/10 rounded-xl flex items-center justify-center text-xl flex-shrink-0">
-                  {card.icon}
+                <div className="w-10 h-10 bg-[#6C5CE4]/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <card.Icon className="w-5 h-5 text-[#6C5CE4]" />
                 </div>
                 <div>
                   <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-0.5">{card.title}</p>
