@@ -144,7 +144,7 @@ const jsonLd = {
           name: "¿Cuánto cuesta attempo?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "attempo tiene planes desde $24.990 CLP al mes. Incluye una prueba gratuita de 12 días con acceso a todas las funcionalidades, sin necesidad de tarjeta de crédito.",
+            text: "attempo tiene planes desde $24.990 CLP al mes. Incluye una prueba gratuita de 12 días con acceso a todas las funcionalidades.",
           },
         },
         {

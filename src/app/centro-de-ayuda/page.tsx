@@ -56,7 +56,7 @@ const categorias: Categoria[] = [
       {
         icon: "🎁",
         title: "Cómo funciona el período de prueba de 12 días",
-        desc: "Usa todas las funciones de attempo gratis durante 12 días, sin necesidad de tarjeta de crédito.",
+        desc: "Usa todas las funciones de attempo gratis durante 12 días, sin compromiso.",
       },
     ],
   },

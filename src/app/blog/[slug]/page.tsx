@@ -72,7 +72,7 @@ function RenderBloque({ bloque }: { bloque: Bloque }) {
       return (
         <div className="my-10 bg-[#6C5CE4] rounded-2xl px-8 py-8 text-center">
           <p className="text-white font-bold text-xl mb-2">¿Quieres probarlo en tu consulta?</p>
-          <p className="text-white/80 mb-5 text-sm">12 días gratis en cualquier plan. Sin tarjeta de crédito.</p>
+          <p className="text-white/80 mb-5 text-sm">12 días gratis en cualquier plan. Sin compromiso.</p>
           <Link
             href="https://app.attempo.cl/registro"
             className="inline-flex items-center justify-center px-7 py-3 bg-white text-[#6C5CE4] font-semibold rounded-xl hover:bg-[#f5f3ff] transition-colors duration-200 cursor-pointer"

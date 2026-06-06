@@ -27,7 +27,7 @@ const categorias: Categoria[] = [
       {
         id: "p1",
         q: "¿Puedo probar attempo gratis?",
-        a: "Sí. Tienes 12 días de prueba completa en cualquier plan, sin necesidad de ingresar una tarjeta de crédito. Puedes explorar todas las funcionalidades sin compromiso.",
+        a: "Sí. Tienes 12 días de prueba completa en cualquier plan. Puedes explorar todas las funcionalidades sin compromiso.",
       },
       {
         id: "p2",

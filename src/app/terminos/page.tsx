@@ -30,7 +30,7 @@ const secciones = [
   {
     titulo: "5. Período de prueba",
     contenido:
-      "Ofrecemos 12 días de prueba gratuita en cualquier plan sin necesidad de tarjeta de crédito. Al término del período de prueba, para continuar usando el servicio deberás seleccionar un plan y completar el pago correspondiente.",
+      "Ofrecemos 12 días de prueba gratuita en cualquier plan. Al término del período de prueba, para continuar usando el servicio deberás seleccionar un plan y completar el pago correspondiente.",
   },
   {
     titulo: "6. Cancelación",

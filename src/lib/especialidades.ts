@@ -24,25 +24,25 @@ export const especialidades: Especialidad[] = [
     emoji: "🧠",
     descripcion: "Gestiona sesiones, reagendamientos y seguimiento de pacientes con facilidad.",
     dolor: "Los pacientes cancelan a última hora y pierdes honorarios que ya tenías comprometidos.",
-    dolorDesc: "Una inasistencia sin aviso a las 8 PM no es solo una hora perdida — es ingreso que no recuperas. Sin cobro anticipado ni política de cancelación automatizada, el control está en manos del paciente, no en las tuyas.",
+    dolorDesc: "Una inasistencia sin aviso a las 8 PM no es solo una hora perdida. Es ingreso que no recuperas. Sin cobro anticipado ni política de cancelación automatizada, el control está en manos del paciente.",
     features: [
       {
-        icon: "📦",
+        icon: "Package",
         title: "Paquetes de sesiones",
         desc: "Vende 4, 8 o 12 sesiones como un paquete y lleva el control de cuántas quedan por usar.",
       },
       {
-        icon: "💳",
+        icon: "CreditCard",
         title: "Cobro anticipado Webpay",
-        desc: "El paciente paga antes de confirmar la hora — sin pago, no hay reserva.",
+        desc: "El paciente paga antes de confirmar la hora. Sin pago, no hay reserva.",
       },
       {
-        icon: "💬",
+        icon: "MessageCircle",
         title: "Recordatorio WhatsApp 24h antes",
         desc: "El sistema envía un recordatorio automático el día anterior para reducir las inasistencias.",
       },
       {
-        icon: "📋",
+        icon: "ClipboardList",
         title: "Historial del paciente",
         desc: "Cada ficha registra el número de sesiones realizadas, notas y estado del paquete.",
       },
@@ -71,25 +71,25 @@ export const especialidades: Especialidad[] = [
     emoji: "🩺",
     descripcion: "Control de citas, recordatorios automáticos y ficha de paciente integrada.",
     dolor: "Tu agenda está siempre llena, pero los controles de seguimiento se acumulan y se pierden entre sí.",
-    dolorDesc: "Los pacientes psiquiátricos necesitan controles periódicos estrictos. Sin un sistema que gestione esa cadencia — lista de espera, recordatorios de control y ficha actualizada — el seguimiento queda en tu cabeza o en hojas de cálculo.",
+    dolorDesc: "Los pacientes psiquiátricos necesitan controles periódicos estrictos. Sin un sistema que gestione esa cadencia: lista de espera, recordatorios de control y ficha actualizada, el seguimiento queda en tu cabeza o en hojas de cálculo.",
     features: [
       {
-        icon: "📋",
+        icon: "ClipboardList",
         title: "Lista de espera integrada",
         desc: "Cuando se libera una hora, el sistema notifica automáticamente a quienes están en lista de espera.",
       },
       {
-        icon: "🔔",
+        icon: "Bell",
         title: "Recordatorios de control periódico",
         desc: "Programa recordatorios automáticos según la frecuencia de control de cada paciente.",
       },
       {
-        icon: "💊",
+        icon: "Pill",
         title: "Historial de medicación en ficha",
         desc: "Registra los medicamentos activos de cada paciente directamente en su ficha de agenda.",
       },
       {
-        icon: "🔁",
+        icon: "RefreshCw",
         title: "Citas multi-sesión y seguimiento",
         desc: "Crea series de controles para un mismo paciente con fechas y horas programadas.",
       },
@@ -121,22 +121,22 @@ export const especialidades: Especialidad[] = [
     dolorDesc: "Cada llamada para agendar interrumpe tu consulta y sobrecarga a tu secretaria. El resultado: errores de agenda, pacientes que esperan y un día que nunca termina a la hora que debería.",
     features: [
       {
-        icon: "🌐",
+        icon: "Globe",
         title: "Agenda online 24/7",
         desc: "Los pacientes reservan su hora por web o WhatsApp a cualquier hora, sin llamar al consultorio.",
       },
       {
-        icon: "✅",
+        icon: "CheckCircle2",
         title: "Confirmación automática",
         desc: "Cada reserva genera una confirmación instantánea por WhatsApp sin intervención manual.",
       },
       {
-        icon: "📅",
+        icon: "CalendarDays",
         title: "Vista de día completa",
         desc: "Visualiza todas las citas del día, con nombre, motivo de consulta y hora exacta de un vistazo.",
       },
       {
-        icon: "🤖",
+        icon: "Bot",
         title: "Chatbot IA para consultas frecuentes",
         desc: "Attia responde preguntas sobre horarios, valores y disponibilidad sin que nadie lo atienda.",
       },
@@ -168,22 +168,22 @@ export const especialidades: Especialidad[] = [
     dolorDesc: "Con múltiples profesionales compartiendo espacio, un error de coordinación significa pacientes que se cruzan, salas sin uso o profesionales sin citas. Sin visibilidad centralizada, el caos es solo cuestión de tiempo.",
     features: [
       {
-        icon: "👥",
+        icon: "Users",
         title: "Múltiples agendas simultáneas",
         desc: "Cada profesional tiene su propia agenda visible desde el mismo panel administrativo.",
       },
       {
-        icon: "🖥️",
+        icon: "Monitor",
         title: "Panel centralizado del centro",
         desc: "El administrador ve en tiempo real la ocupación de todos los profesionales y salas.",
       },
       {
-        icon: "📊",
+        icon: "BarChart2",
         title: "Reportes por profesional",
         desc: "Genera reportes de citas, inasistencias e ingresos desglosados por cada especialista del centro.",
       },
       {
-        icon: "🏢",
+        icon: "Building2",
         title: "Gestión de salas",
         desc: "Asigna salas a cada cita para evitar conflictos de espacio entre profesionales.",
       },
@@ -215,22 +215,22 @@ export const especialidades: Especialidad[] = [
     dolorDesc: "Mientras estás con las tijeras en la mano, no puedes contestar el teléfono ni revisar si alguien confirmó. Los no-shows sin aviso son dinero que se escapa, y la única solución es automatizar la confirmación antes de que sea tarde.",
     features: [
       {
-        icon: "📲",
+        icon: "Smartphone",
         title: "Reservas online desde Instagram o WhatsApp",
-        desc: "Los clientes reservan su turno directo desde tu Instagram o mandando un mensaje — sin llamar.",
+        desc: "Los clientes reservan su turno directo desde tu Instagram o mandando un mensaje, sin llamar.",
       },
       {
-        icon: "💳",
+        icon: "CreditCard",
         title: "Cobro anticipado del servicio",
         desc: "Cobra un porcentaje o el total del servicio al momento de reservar para asegurar el turno.",
       },
       {
-        icon: "🤖",
+        icon: "Bot",
         title: "Chatbot automático 24/7",
         desc: "Attia gestiona reservas, consultas de precio y disponibilidad mientras tú trabajas.",
       },
       {
-        icon: "⏰",
+        icon: "Clock",
         title: "Confirmación automática 2h antes",
         desc: "El sistema envía un recordatorio dos horas antes para que el cliente no olvide su turno.",
       },
@@ -249,7 +249,7 @@ export const especialidades: Especialidad[] = [
       {
         n: "03",
         title: "Cobras antes del servicio",
-        desc: "El cobro anticipado elimina los turnos fantasma — si pagó, viene.",
+        desc: "El cobro anticipado elimina los turnos fantasma. Si pagó, viene.",
       },
     ],
   },
@@ -259,25 +259,25 @@ export const especialidades: Especialidad[] = [
     emoji: "⚖️",
     descripcion: "Coordina consultas jurídicas y reuniones sin complicaciones.",
     dolor: "Las reuniones se cancelan sin aviso y esas horas de alta facturación las pierdes sin recuperarlas.",
-    dolorDesc: "Tu hora vale cara y un cliente que no se presenta — o que cancela a último momento — te deja con tiempo muerto que no puedes recuperar. Sin un sistema que exija confirmación y cobre por adelantado, el riesgo siempre es tuyo.",
+    dolorDesc: "Tu hora vale cara. Un cliente que no se presenta o que cancela a último momento te deja con tiempo muerto que no puedes recuperar. Sin un sistema que exija confirmación y cobro por adelantado, el riesgo siempre es tuyo.",
     features: [
       {
-        icon: "✅",
+        icon: "CheckCircle2",
         title: "Confirmación obligatoria previa",
         desc: "El sistema requiere que el cliente confirme activamente su consulta antes de la fecha.",
       },
       {
-        icon: "💳",
+        icon: "CreditCard",
         title: "Cobro de consulta anticipado Webpay",
-        desc: "El cliente paga la consulta al momento de reservar — sin pago, no hay hora asignada.",
+        desc: "El cliente paga la consulta al momento de reservar. Sin pago, no hay hora asignada.",
       },
       {
-        icon: "🔔",
+        icon: "Bell",
         title: "Recordatorio previo a la reunión",
         desc: "El sistema envía un recordatorio automático 24 horas antes de cada reunión o consulta.",
       },
       {
-        icon: "📁",
+        icon: "FolderOpen",
         title: "Ficha del cliente con historial",
         desc: "Registra el motivo de consulta, documentos asociados y el historial de reuniones pasadas.",
       },
@@ -306,25 +306,25 @@ export const especialidades: Especialidad[] = [
     emoji: "🥗",
     descripcion: "Planifica tus consultas nutricionales y mantén a tus pacientes informados.",
     dolor: "Los pacientes empiezan el tratamiento con entusiasmo y lo abandonan a la mitad del paquete sin avisarte.",
-    dolorDesc: "Un paquete de 6 consultas que se interrumpe en la tercera no solo afecta el resultado del paciente — te deja con horas sin llenar y dinero que ya habías comprometido. Sin seguimiento activo y recordatorios de continuidad, la deserción es la norma.",
+    dolorDesc: "Un paquete de 6 consultas que se interrumpe en la tercera no solo afecta el resultado del paciente. Te deja con horas sin llenar y dinero que ya habías comprometido. Sin seguimiento activo y recordatorios de continuidad, la deserción es la norma.",
     features: [
       {
-        icon: "📦",
+        icon: "Package",
         title: "Paquetes de sesiones con control de avance",
-        desc: "Vende paquetes de consultas y lleva el estado de cada paciente — cuántas ha usado y cuántas le quedan.",
+        desc: "Vende paquetes de consultas y lleva el estado de cada paciente: cuántas ha usado y cuántas le quedan.",
       },
       {
-        icon: "🔔",
+        icon: "Bell",
         title: "Recordatorios de seguimiento personalizados",
         desc: "El sistema recuerda al paciente su próxima consulta según la cadencia del tratamiento.",
       },
       {
-        icon: "📋",
+        icon: "ClipboardList",
         title: "Historial alimentario en ficha",
         desc: "Registra los avances, objetivos y notas de cada consulta directamente en la ficha del paciente.",
       },
       {
-        icon: "💳",
+        icon: "CreditCard",
         title: "Cobro por paquete anticipado",
         desc: "El paciente paga el paquete completo al inicio del tratamiento asegurando la continuidad.",
       },
@@ -356,22 +356,22 @@ export const especialidades: Especialidad[] = [
     dolorDesc: "Una embarazada necesita entre 8 y 12 controles durante el embarazo. Coordinar esa cadencia por llamadas, con reprogramaciones frecuentes y pacientes en distintas semanas de gestación, es una carga administrativa enorme que no debería caer sobre ti.",
     features: [
       {
-        icon: "📅",
+        icon: "CalendarDays",
         title: "Agenda de seguimiento periódico",
         desc: "Programa la secuencia completa de controles prenatales desde la primera consulta.",
       },
       {
-        icon: "💬",
+        icon: "MessageCircle",
         title: "Recordatorios personalizados por semana",
         desc: "El sistema envía recordatorios adaptados a la semana de gestación de cada paciente.",
       },
       {
-        icon: "📋",
+        icon: "ClipboardList",
         title: "Historial completo de controles",
         desc: "Cada ficha registra todos los controles realizados, resultados y fechas del embarazo.",
       },
       {
-        icon: "✅",
+        icon: "CheckCircle2",
         title: "Confirmación automática sin llamadas",
         desc: "Las pacientes confirman su control por WhatsApp sin que debas llamar a cada una.",
       },
@@ -403,22 +403,22 @@ export const especialidades: Especialidad[] = [
     dolorDesc: "Un tratamiento de 10 sesiones interrumpido en la quinta es tiempo y sala que pierdes, más un cliente que no vio resultados. Sin cobro anticipado ni seguimiento activo de sesiones, la agenda tiene baches que son difíciles de llenar a último momento.",
     features: [
       {
-        icon: "💳",
+        icon: "CreditCard",
         title: "Cobro anticipado del tratamiento",
-        desc: "El cliente paga el tratamiento completo al reservar — garantizando las sesiones del ciclo.",
+        desc: "El cliente paga el tratamiento completo al reservar, garantizando las sesiones del ciclo.",
       },
       {
-        icon: "💬",
+        icon: "MessageCircle",
         title: "Confirmación WhatsApp 24h antes",
         desc: "El sistema confirma cada sesión automáticamente por WhatsApp el día anterior.",
       },
       {
-        icon: "📲",
+        icon: "Smartphone",
         title: "Chatbot Instagram para reservas",
         desc: "Attia gestiona reservas desde tu Instagram sin que intervengas en cada consulta.",
       },
       {
-        icon: "📊",
+        icon: "BarChart2",
         title: "Control de sesiones por cliente",
         desc: "Lleva el registro de cuántas sesiones ha completado cada cliente y cuántas le quedan.",
       },
@@ -447,25 +447,25 @@ export const especialidades: Especialidad[] = [
     emoji: "🦴",
     descripcion: "Organiza sesiones de kinesioterapia y rehabilitación sin esfuerzo.",
     dolor: "Los pacientes no completan el plan de rehabilitación y los abandonos a mitad del tratamiento son la norma.",
-    dolorDesc: "Un plan kinésico de 12 sesiones que se interrumpe en la octava no solo deja al paciente sin el resultado esperado — deja tu agenda con huecos imposibles de llenar a tiempo. Sin seguimiento activo de sesiones y cobro por paquete, el control del tratamiento queda en manos del paciente.",
+    dolorDesc: "Un plan kinésico de 12 sesiones que se interrumpe en la octava no solo deja al paciente sin el resultado esperado. Deja tu agenda con huecos imposibles de llenar a tiempo. Sin seguimiento activo de sesiones y cobro por paquete, el control del tratamiento queda en manos del paciente.",
     features: [
       {
-        icon: "📦",
+        icon: "Package",
         title: "Paquetes de sesiones kinésicas",
         desc: "Vende planes de rehabilitación como paquetes y controla el avance de cada paciente.",
       },
       {
-        icon: "📊",
+        icon: "BarChart2",
         title: "Seguimiento de avance por sesión",
         desc: "Registra el progreso del paciente en cada sesión directamente en su ficha de tratamiento.",
       },
       {
-        icon: "🔔",
+        icon: "Bell",
         title: "Recordatorios de continuidad del plan",
         desc: "El sistema recuerda automáticamente al paciente su próxima sesión para no romper el plan.",
       },
       {
-        icon: "💳",
+        icon: "CreditCard",
         title: "Cobro por paquete anticipado",
         desc: "El paciente paga el plan completo al inicio, asegurando la continuidad del tratamiento.",
       },
@@ -497,24 +497,24 @@ export const especialidades: Especialidad[] = [
     dolorDesc: "Cuando tienes clases grupales con cupo, sesiones individuales y talleres especiales funcionando a la vez, coordinar todo por WhatsApp y recibir pagos por transferencia es insostenible. Necesitas un sistema que unifique la agenda, los pagos y la comunidad.",
     features: [
       {
-        icon: "👥",
+        icon: "Users",
         title: "Cupos por clase y lista de espera",
         desc: "Define el máximo de alumnos por clase y activa lista de espera automática cuando se llena.",
       },
       {
-        icon: "💳",
+        icon: "CreditCard",
         title: "Cobro anticipado online",
         desc: "Los alumnos pagan su clase o paquete de clases por Webpay al momento de inscribirse.",
       },
       {
-        icon: "🔔",
+        icon: "Bell",
         title: "Recordatorio automático de clase",
         desc: "El sistema recuerda a cada alumno su clase por WhatsApp antes de que comience.",
       },
       {
-        icon: "🏕️",
+        icon: "CalendarDays",
         title: "Gestión de talleres y retiros",
-        desc: "Crea eventos especiales con cupo limitado, precio diferenciado y inscripción online.",
+        desc: "Crea eventos especiales con cupo limitado, precio diferenciado e inscripción online.",
       },
     ],
     beneficios: [

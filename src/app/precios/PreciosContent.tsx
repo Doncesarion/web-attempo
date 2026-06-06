@@ -215,7 +215,7 @@ export default function PreciosContent() {
       <section className="pt-20 pb-10 lg:pt-24 lg:pb-16 px-4 bg-gradient-to-b from-[#f5f3ff] to-white">
         <m.div className="max-w-2xl mx-auto text-center" initial="hidden" animate="visible" variants={stagger}>
           <m.span variants={fadeUp} className="inline-flex items-center gap-2 bg-[#6C5CE4]/10 text-[#6C5CE4] text-sm font-semibold px-4 py-2 rounded-full mb-6">
-            <GiftIcon /> 12 días de prueba gratis · Sin tarjeta de crédito
+            <GiftIcon /> 12 días de prueba gratis · Sin compromiso
           </m.span>
           <m.h1 variants={fadeUp} className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4 leading-[1.1] tracking-tight">
             Planes claros,<br />sin sorpresas

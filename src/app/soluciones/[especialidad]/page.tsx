@@ -1,7 +1,33 @@
 import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 import Script from "next/script"
+import {
+  Package, CreditCard, MessageCircle, ClipboardList, Bell, Pill, RefreshCw,
+  Globe, CheckCircle2, CalendarDays, Bot, Users, Monitor, BarChart2, Building2,
+  Smartphone, Clock, FolderOpen, Brain, Stethoscope, Scissors, Scale,
+  Leaf, Baby, Sparkles, Activity, Flower2, type LucideIcon,
+} from "lucide-react"
 import { getEspecialidadBySlug, especialidades } from "@/lib/especialidades"
+
+const featureIconMap: Record<string, LucideIcon> = {
+  Package, CreditCard, MessageCircle, ClipboardList, Bell, Pill, RefreshCw,
+  Globe, CheckCircle2, CalendarDays, Bot, Users, Monitor, BarChart2, Building2,
+  Smartphone, Clock, FolderOpen,
+}
+
+const heroIconMap: Record<string, LucideIcon> = {
+  psicologos: Brain,
+  psiquiatras: Stethoscope,
+  "medicos-generales": Stethoscope,
+  "centros-clinicos": Building2,
+  barberias: Scissors,
+  derecho: Scale,
+  nutricion: Leaf,
+  matronas: Baby,
+  esteticas: Sparkles,
+  fisioterapeutas: Activity,
+  yoga: Flower2,
+}
 
 export const dynamicParams = false
 
@@ -103,6 +129,8 @@ export default async function EspecialidadPage({
 
   if (!data) notFound()
 
+  const HeroIcon = heroIconMap[especialidad] ?? Stethoscope
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -134,7 +162,9 @@ export default async function EspecialidadPage({
         {/* Hero */}
         <section className="py-24 px-4 bg-gradient-to-br from-purple-50 to-white">
           <div className="max-w-4xl mx-auto text-center">
-            <span className="text-6xl mb-4 block">{data.emoji}</span>
+            <div className="w-20 h-20 bg-[#6C5CE4]/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <HeroIcon className="w-10 h-10 text-[#6C5CE4]" />
+            </div>
             <p className="text-[#6C5CE4] text-sm font-medium uppercase tracking-wider mb-4">
               Solución para
             </p>
@@ -177,16 +207,21 @@ export default async function EspecialidadPage({
 
               {/* Right: 2×2 features grid */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {data.features.map((f) => (
-                  <div
-                    key={f.title}
-                    className="bg-gray-900 border border-gray-800 rounded-2xl p-6 flex flex-col gap-3"
-                  >
-                    <span className="text-3xl">{f.icon}</span>
-                    <h3 className="text-white font-semibold text-base">{f.title}</h3>
-                    <p className="text-gray-400 text-sm leading-relaxed">{f.desc}</p>
-                  </div>
-                ))}
+                {data.features.map((f) => {
+                  const FeatureIcon = featureIconMap[f.icon] ?? Package
+                  return (
+                    <div
+                      key={f.title}
+                      className="bg-gray-900 border border-gray-800 rounded-2xl p-6 flex flex-col gap-3"
+                    >
+                      <div className="w-10 h-10 bg-[#6C5CE4]/20 rounded-xl flex items-center justify-center">
+                        <FeatureIcon className="w-5 h-5 text-[#8B7FF0]" />
+                      </div>
+                      <h3 className="text-white font-semibold text-base">{f.title}</h3>
+                      <p className="text-gray-400 text-sm leading-relaxed">{f.desc}</p>
+                    </div>
+                  )
+                })}
               </div>
 
             </div>
@@ -246,7 +281,7 @@ export default async function EspecialidadPage({
                     href={`/soluciones/${e.slug}`}
                     className="px-4 py-2 bg-white border border-gray-200 rounded-full text-sm text-gray-600 hover:border-[#6C5CE4] hover:text-[#6C5CE4] transition-colors"
                   >
-                    {e.emoji} {e.nombre}
+                    {e.nombre}
                   </a>
                 ))}
             </div>

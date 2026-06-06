@@ -1,6 +1,7 @@
 "use client"
 
 import { m } from "framer-motion"
+import { Target, HeartHandshake, ShieldCheck, Rocket, type LucideIcon } from "lucide-react"
 
 const fadeUp = {
   hidden: { opacity: 0, y: 28 },
@@ -12,28 +13,28 @@ const stagger = {
   visible: { transition: { staggerChildren: 0.1 } },
 }
 
-const valores = [
+const valores: { num: string; Icon: LucideIcon; title: string; desc: string }[] = [
   {
     num: "01",
-    icon: "🎯",
+    Icon: Target,
     title: "Simplicidad",
     desc: "Sin curvas de aprendizaje. La plataforma está lista para usarse en menos de 5 minutos. Si necesitas un manual, algo está mal.",
   },
   {
     num: "02",
-    icon: "🤝",
+    Icon: HeartHandshake,
     title: "Cercanía",
-    desc: "Soporte humano en español. Construido en Chile, pensado para la realidad chilena. No somos un ticket en una cola.",
+    desc: "Soporte humano en español. Construido en Chile, pensado para la realidad chilena. Te atendemos directamente, sin formularios ni demoras.",
   },
   {
     num: "03",
-    icon: "🔒",
+    Icon: ShieldCheck,
     title: "Confianza",
     desc: "Datos protegidos y pagos seguros con los mismos estándares de la banca en Chile. Tu información y la de tus pacientes, segura.",
   },
   {
     num: "04",
-    icon: "🚀",
+    Icon: Rocket,
     title: "Innovación",
     desc: "IA y automatización que trabajan para ti, liberando tu tiempo. La tecnología debe simplificar, nunca complicar.",
   },
@@ -251,7 +252,9 @@ export default function QuienesSomosContent() {
                   <span className="text-3xl font-black text-[#6C5CE4]/15 group-hover:text-[#6C5CE4]/30 transition-colors w-9 text-center flex-shrink-0">
                     {v.num}
                   </span>
-                  <span className="text-2xl flex-shrink-0 hidden sm:block">{v.icon}</span>
+                  <div className="hidden sm:flex w-9 h-9 flex-shrink-0 items-center justify-center rounded-xl bg-[#6C5CE4]/10">
+                    <v.Icon className="w-5 h-5 text-[#6C5CE4]" />
+                  </div>
                   <p className="font-bold text-gray-900 text-base group-hover:text-[#6C5CE4] transition-colors w-28 flex-shrink-0">
                     {v.title}
                   </p>

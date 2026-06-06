@@ -3,6 +3,7 @@
 import { m, useInView } from "framer-motion"
 import { useRef, useState, useEffect } from "react"
 import Image from "next/image"
+import { ShieldCheck, CreditCard, Zap, Smartphone, CalendarDays, CheckCircle2, Check, type LucideIcon } from "lucide-react"
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -130,9 +131,9 @@ export function HeroSection() {
             className="mt-10 flex items-center gap-6 justify-center lg:justify-start text-sm text-gray-500"
             style={{ animation: "fade-in-up 0.6s ease both 400ms" }}
           >
-            <span className="flex items-center gap-1.5">✅ Listo en 5 minutos</span>
-            <span className="flex items-center gap-1.5">✅ Soporte en español</span>
-            <span className="flex items-center gap-1.5">✅ Pago con Webpay</span>
+            <span className="flex items-center gap-1.5"><Check className="w-4 h-4 text-green-500 flex-shrink-0" /> Listo en 5 minutos</span>
+            <span className="flex items-center gap-1.5"><Check className="w-4 h-4 text-green-500 flex-shrink-0" /> Soporte en español</span>
+            <span className="flex items-center gap-1.5"><Check className="w-4 h-4 text-green-500 flex-shrink-0" /> Pago con Webpay</span>
           </div>
         </div>
 
@@ -163,7 +164,7 @@ export function HeroSection() {
               transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
               className="absolute -left-16 top-1/4 bg-white rounded-2xl shadow-lg p-3 hidden lg:flex items-center gap-3 w-44"
             >
-              <div className="w-10 h-10 bg-green-100 rounded-xl flex items-center justify-center text-xl">📅</div>
+              <div className="w-10 h-10 bg-green-100 rounded-xl flex items-center justify-center"><CalendarDays className="w-5 h-5 text-green-600" /></div>
               <div>
                 <p className="text-xs font-semibold text-gray-800">Nueva cita</p>
                 <p className="text-xs text-gray-500">Hoy 15:00</p>
@@ -174,7 +175,7 @@ export function HeroSection() {
               transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
               className="absolute -right-12 bottom-1/4 bg-white rounded-2xl shadow-lg p-3 hidden lg:flex items-center gap-3 w-44"
             >
-              <div className="w-10 h-10 bg-purple-100 rounded-xl flex items-center justify-center text-xl">✅</div>
+              <div className="w-10 h-10 bg-purple-100 rounded-xl flex items-center justify-center"><CheckCircle2 className="w-5 h-5 text-[#6C5CE4]" /></div>
               <div>
                 <p className="text-xs font-semibold text-gray-800">Recordatorio enviado</p>
                 <p className="text-xs text-gray-500">WhatsApp</p>
@@ -263,11 +264,11 @@ export function FeaturesSection() {
 export function ScreenshotsSection() {
   const [active, setActive] = useState(0)
   const tabs = [
-    { label: "📅 Agenda",   mobile: "/screenshot-agenda.jpeg",   desktop: "/desktop-agenda.png",   desc: "Vista semanal y diaria de tus citas" },
-    { label: "👥 Clientes", mobile: "/screenshot-clientes.jpeg", desktop: "/desktop-clientes.png", desc: "Ficha completa por cada paciente" },
-    { label: "💰 Ventas",   mobile: "/screenshot-ventas.jpeg",   desktop: "/desktop-ventas.png",   desc: "Controla ingresos y cobros pendientes" },
-    { label: "📊 Reportes", mobile: "/screenshot-reportes.jpeg", desktop: "/desktop-reportes.png", desc: "Métricas y evolución de tu negocio" },
-    { label: "⚙️ Config",   mobile: "/screenshot-config.jpeg",   desktop: "/desktop-config.png",   desc: "Configura servicios, horarios y canales" },
+    { label: "Agenda",    mobile: "/screenshot-agenda.jpeg",   desktop: "/desktop-agenda.png",   desc: "Vista semanal y diaria de tus citas" },
+    { label: "Clientes",  mobile: "/screenshot-clientes.jpeg", desktop: "/desktop-clientes.png", desc: "Ficha completa por cada paciente" },
+    { label: "Ventas",    mobile: "/screenshot-ventas.jpeg",   desktop: "/desktop-ventas.png",   desc: "Controla ingresos y cobros pendientes" },
+    { label: "Reportes",  mobile: "/screenshot-reportes.jpeg", desktop: "/desktop-reportes.png", desc: "Métricas y evolución de tu negocio" },
+    { label: "Config",    mobile: "/screenshot-config.jpeg",   desktop: "/desktop-config.png",   desc: "Configura servicios, horarios y canales" },
   ]
 
   return (
@@ -363,10 +364,10 @@ export function ScreenshotsSection() {
 
 export function WebpaySection() {
   const beneficios = [
-    { icon: "🔒", title: "Pago 100% seguro", desc: "Tecnología SSL y estándares de seguridad bancaria de Transbank." },
-    { icon: "💳", title: "Débito y crédito", desc: "Acepta todas las tarjetas: Visa, Mastercard, American Express y más." },
-    { icon: "⚡", title: "Cobro inmediato", desc: "El pago se acredita directamente en tu cuenta. Sin intermediarios." },
-    { icon: "📲", title: "Link de pago", desc: "Envía el link de cobro por WhatsApp o email al confirmar la cita." },
+    { Icon: ShieldCheck, title: "Pago 100% seguro", desc: "Tecnología SSL y estándares de seguridad bancaria de Transbank." },
+    { Icon: CreditCard, title: "Débito y crédito", desc: "Acepta todas las tarjetas: Visa, Mastercard, American Express y más." },
+    { Icon: Zap, title: "Cobro inmediato", desc: "El pago se acredita directamente en tu cuenta. Sin intermediarios." },
+    { Icon: Smartphone, title: "Link de pago", desc: "Envía el link de cobro por WhatsApp o email al confirmar la cita." },
   ]
 
   return (
@@ -390,7 +391,9 @@ export function WebpaySection() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
               {beneficios.map((b) => (
                 <div key={b.title} className="flex gap-3">
-                  <span className="text-2xl flex-shrink-0">{b.icon}</span>
+                  <div className="w-9 h-9 rounded-xl bg-[#6C5CE4]/10 flex items-center justify-center flex-shrink-0">
+                    <b.Icon className="w-5 h-5 text-[#6C5CE4]" />
+                  </div>
                   <div>
                     <p className="font-semibold text-gray-900 text-sm">{b.title}</p>
                     <p className="text-xs text-gray-500 mt-0.5">{b.desc}</p>
@@ -568,7 +571,7 @@ export function CTASection() {
           Empieza hoy, gratis
         </m.h2>
         <m.p variants={fadeUp} className="text-purple-200 mb-10 text-xl">
-          Sin tarjeta de crédito. Sin complicaciones. Listo en 5 minutos.
+          Cancela cuando quieras. Listo en 5 minutos.
         </m.p>
         <m.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4 justify-center">
           <a href="/precios" className="px-8 py-4 bg-white text-[#6C5CE4] font-bold rounded-xl hover:bg-purple-50 transition-all text-lg shadow-lg hover:-translate-y-0.5">

@@ -211,7 +211,7 @@ export default function PlataformaContent() {
             Todo lo que necesitas,<br className="hidden sm:block" /> en un solo lugar
           </m.h1>
           <m.p variants={fadeUp} className="text-lg text-gray-500 max-w-2xl mx-auto mb-10">
-            Desde que agendas una cita hasta que emites la boleta — attempo cubre cada paso de tu flujo de trabajo sin complicaciones.
+            Desde que agendas una cita hasta que emites la boleta, attempo cubre cada paso de tu flujo de trabajo sin complicaciones.
           </m.p>
           <m.div variants={fadeUp} className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link
@@ -275,7 +275,7 @@ export default function PlataformaContent() {
         description="attempo envía recordatorios automáticos por WhatsApp, email y SMS antes de cada cita. Sin que tengas que hacer nada."
         bullets={[
           "WhatsApp, correo electrónico y SMS",
-          "24h, 48h o 1 semana antes — tú decides",
+          "24h, 48h o 1 semana antes. Tú decides.",
           "Mensajes con el nombre del paciente y detalles de la cita",
           "Confirmación de asistencia desde el mensaje",
         ]}
@@ -441,13 +441,13 @@ export default function PlataformaContent() {
               className="inline-flex items-center gap-2 text-xs font-semibold text-white/70 uppercase tracking-widest bg-white/15 px-3 py-1 rounded-full mb-6"
             >
               <SparklesIcon />
-              Chatbot IA — Plan Clínica
+              Chatbot IA · Plan Clínica
             </m.span>
             <m.h2 variants={fadeUp} className="text-3xl sm:text-4xl font-bold text-white tracking-tight mb-4">
               Un asistente que agenda por ti las 24 horas
             </m.h2>
             <m.p variants={fadeUp} className="text-white/75 max-w-xl mx-auto leading-relaxed mb-10">
-              El chatbot de IA responde a tus pacientes, consulta disponibilidad y confirma citas automáticamente — incluso cuando estás atendiendo o durmiendo.
+              El chatbot de IA responde a tus pacientes, consulta disponibilidad y confirma citas automáticamente, incluso cuando estás atendiendo o durmiendo.
             </m.p>
             <m.div variants={stagger} className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-2xl mx-auto text-left">
               {[
@@ -485,7 +485,7 @@ export default function PlataformaContent() {
             Empieza gratis hoy
           </m.h2>
           <m.p variants={fadeUp} className="text-gray-500 mb-8">
-            12 días de prueba en cualquier plan. Sin tarjeta de crédito. Sin compromiso.
+            12 días de prueba en cualquier plan. Sin compromiso.
           </m.p>
           <m.div variants={fadeUp} className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link
