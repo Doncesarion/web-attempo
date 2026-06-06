@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar"
 import Footer from "@/components/Footer"
 import ClientProviders from "@/components/ClientProviders"
 import WhatsAppButton from "@/components/WhatsAppButton"
+import ChatWidget from "@/components/ChatWidget"
 
 const geist = Geist({
   variable: "--font-sans",
@@ -93,6 +94,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <Navbar />
           <main className="flex-1 pt-16">{children}</main>
           <Footer />
+          <ChatWidget />
           <WhatsAppButton />
         </ClientProviders>
       </body>
