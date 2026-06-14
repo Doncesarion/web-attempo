@@ -3,15 +3,37 @@
 import { Resend } from "resend"
 import { headers } from "next/headers"
 
-const ipSubmissions = new Map<string, number[]>()
+// F-01: Rate limiting con Upstash Redis (persistente entre instancias) + fallback en memoria
+const _rlFallback = new Map<string, number[]>()
 const RATE_WINDOW_MS = 60 * 60 * 1000
-const RATE_MAX = 5
 
-function checkRateLimit(ip: string): boolean {
+async function checkRateLimit(ip: string): Promise<boolean> {
+  // F-02: IPs desconocidas tienen límite más estricto
+  const max = ip === "unknown" ? 2 : 5
+  const windowS = 3600
+
+  const UPSTASH_URL   = process.env.UPSTASH_REDIS_REST_URL
+  const UPSTASH_TOKEN = process.env.UPSTASH_REDIS_REST_TOKEN
+
+  if (UPSTASH_URL && UPSTASH_TOKEN) {
+    try {
+      const bucket = Math.floor(Date.now() / RATE_WINDOW_MS)
+      const key = `rl:contacto:${ip}:${bucket}`
+      const r = await fetch(`${UPSTASH_URL}/pipeline`, {
+        method: "POST",
+        headers: { Authorization: `Bearer ${UPSTASH_TOKEN}`, "Content-Type": "application/json" },
+        body: JSON.stringify([["INCR", key], ["EXPIRE", key, windowS * 2]]),
+      })
+      const data = await r.json()
+      const count = data[0]?.result
+      if (typeof count === "number") return count <= max
+    } catch { /* caer al fallback */ }
+  }
+
   const now = Date.now()
-  const times = (ipSubmissions.get(ip) ?? []).filter((t) => now - t < RATE_WINDOW_MS)
-  if (times.length >= RATE_MAX) return false
-  ipSubmissions.set(ip, [...times, now])
+  const times = (_rlFallback.get(ip) ?? []).filter((t) => now - t < RATE_WINDOW_MS)
+  if (times.length >= max) return false
+  _rlFallback.set(ip, [...times, now])
   return true
 }
 
@@ -23,6 +45,18 @@ function escHtml(str: string): string {
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#039;")
 }
+
+// F-05: Allowlist de asuntos válidos (mismo set que el <select> del frontend)
+const ASUNTOS_VALIDOS = [
+  "Quiero conocer attempo",
+  "Soporte técnico",
+  "Tengo un negocio o centro clínico",
+  "Alianzas comerciales",
+  "Otro",
+]
+
+// F-04: Regex de validación de email
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
 export type ContactFormData = {
   nombre: string
@@ -65,12 +99,22 @@ export async function sendContactEmail(data: ContactFormData, turnstileToken: st
 
   const headersList = await headers()
   const ip = headersList.get("x-forwarded-for")?.split(",")[0].trim() ?? "unknown"
-  if (!checkRateLimit(ip)) {
+  if (!await checkRateLimit(ip)) {
     return { ok: false, error: "Demasiados intentos. Inténtalo más tarde." }
   }
 
   if (!data.nombre?.trim() || !data.email?.trim() || !data.asunto?.trim() || !data.mensaje?.trim()) {
     return { ok: false, error: "Por favor completa todos los campos requeridos." }
+  }
+
+  // F-04: Validar formato de email en el servidor
+  if (!EMAIL_REGEX.test(data.email.trim())) {
+    return { ok: false, error: "El email no tiene un formato válido." }
+  }
+
+  // F-05: Validar asunto contra allowlist
+  if (!ASUNTOS_VALIDOS.includes(data.asunto)) {
+    return { ok: false, error: "Asunto inválido." }
   }
 
   for (const [field, max] of Object.entries(MAX_LENGTHS)) {
@@ -107,7 +151,7 @@ export async function sendContactEmail(data: ContactFormData, turnstileToken: st
   const { error } = await resend.emails.send({
     from: "attempo contacto <contacto@attempo.cl>",
     to: contactEmail,
-    replyTo: data.email,
+    replyTo: safe.email,  // F-04: usar valor sanitizado
     subject: `[attempo] ${safe.asunto}`,
     html: `<!DOCTYPE html>
 <html lang="es">
@@ -212,8 +256,9 @@ export async function sendContactEmail(data: ContactFormData, turnstileToken: st
   })
 
   if (error) {
+    // F-03: No exponer detalles internos de Resend al cliente
     console.error("[contacto] Error Resend:", error)
-    return { ok: false, error: error.message }
+    return { ok: false, error: "No pudimos enviar tu mensaje. Escríbenos directamente a contacto@attempo.cl" }
   }
 
   return { ok: true }
