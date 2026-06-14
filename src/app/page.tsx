@@ -73,7 +73,7 @@ const jsonLd = {
       sameAs: [
         "https://www.instagram.com/attempo.app/",
         "https://www.facebook.com/people/Attempo/61561292586875/",
-        "https://linkedin.com/company/attempo",
+        "https://www.linkedin.com/company/attempocl",
       ],
     },
     {
