@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server"
+import { headers } from "next/headers"
 
 const SYSTEM_PROMPT = `Eres Attia, la asistente IA de attempo. Estás integrada en attempo.cl respondiendo consultas de personas que visitan el sitio y quieren conocer la plataforma. Eres chilena, cercana y cálida.
 
@@ -33,17 +34,55 @@ RESPUESTAS A OBJECIONES COMUNES:
 - "¿Necesito tarjeta de crédito?" → "Sí, para la prueba gratis necesitas ingresar una tarjeta, pero no se cobra nada hasta que terminen los 12 días. Cancelas cuando quieras."
 - "¿Funciona para mi rubro?" → Adapta la respuesta mencionando cómo attempo ayuda puntualmente a ese tipo de profesional.`
 
+// Rate limiting: 30 requests per hour per IP
+const rateLimitMap = new Map<string, { count: number; resetAt: number }>()
+
+function checkRateLimit(ip: string): boolean {
+  const now = Date.now()
+  const entry = rateLimitMap.get(ip)
+  if (!entry || now > entry.resetAt) {
+    rateLimitMap.set(ip, { count: 1, resetAt: now + 60 * 60 * 1000 })
+    return true
+  }
+  if (entry.count >= 30) return false
+  entry.count++
+  return true
+}
+
+type Message = { role: "user" | "assistant"; content: string }
+
+function validateMessages(messages: unknown): messages is Message[] {
+  if (!Array.isArray(messages) || messages.length === 0 || messages.length > 20) return false
+  for (const m of messages) {
+    if (typeof m !== "object" || m === null) return false
+    const msg = m as Record<string, unknown>
+    if (msg.role !== "user" && msg.role !== "assistant") return false
+    if (typeof msg.content !== "string") return false
+    if (msg.content.length === 0 || msg.content.length > 800) return false
+  }
+  // Last message must be from user
+  return (messages[messages.length - 1] as Message).role === "user"
+}
+
 export async function POST(req: NextRequest) {
   try {
-    const { messages } = await req.json()
+    const headersList = await headers()
+    const ip = headersList.get("x-forwarded-for")?.split(",")[0].trim() ?? "unknown"
 
-    if (!Array.isArray(messages) || messages.length === 0) {
+    if (!checkRateLimit(ip)) {
+      return NextResponse.json({ error: "Demasiadas solicitudes. Intenta más tarde." }, { status: 429 })
+    }
+
+    const body = await req.json()
+    const { messages } = body
+
+    if (!validateMessages(messages)) {
       return NextResponse.json({ error: "Mensajes inválidos" }, { status: 400 })
     }
 
     const apiKey = process.env.ANTHROPIC_API_KEY
     if (!apiKey) {
-      return NextResponse.json({ error: "API key no configurada" }, { status: 500 })
+      return NextResponse.json({ error: "Servicio no disponible" }, { status: 500 })
     }
 
     const r = await fetch("https://api.anthropic.com/v1/messages", {
@@ -64,12 +103,12 @@ export async function POST(req: NextRequest) {
     const data = await r.json()
 
     if (!r.ok) {
-      return NextResponse.json({ error: data.error?.message || "Error de Claude" }, { status: 500 })
+      return NextResponse.json({ error: "Error al procesar tu consulta" }, { status: 500 })
     }
 
     const text = (data.content as { type: string; text?: string }[])?.find((b) => b.type === "text")?.text ?? ""
     return NextResponse.json({ respuesta: text })
-  } catch (e) {
-    return NextResponse.json({ error: (e as Error).message }, { status: 500 })
+  } catch {
+    return NextResponse.json({ error: "Error al procesar tu consulta" }, { status: 500 })
   }
 }
