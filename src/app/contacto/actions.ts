@@ -12,8 +12,8 @@ async function checkRateLimit(ip: string): Promise<boolean> {
   const max = ip === "unknown" ? 2 : 5
   const windowS = 3600
 
-  const UPSTASH_URL   = process.env.UPSTASH_REDIS_REST_URL
-  const UPSTASH_TOKEN = process.env.UPSTASH_REDIS_REST_TOKEN
+  const UPSTASH_URL   = process.env.KV_REST_API_URL
+  const UPSTASH_TOKEN = process.env.KV_REST_API_TOKEN
 
   if (UPSTASH_URL && UPSTASH_TOKEN) {
     try {

@@ -54,8 +54,8 @@ async function checkRateLimit(ip: string): Promise<boolean> {
   // F-02: IPs desconocidas tienen límite más estricto
   const max = ip === "unknown" ? 5 : 30
 
-  const UPSTASH_URL   = process.env.UPSTASH_REDIS_REST_URL
-  const UPSTASH_TOKEN = process.env.UPSTASH_REDIS_REST_TOKEN
+  const UPSTASH_URL   = process.env.KV_REST_API_URL
+  const UPSTASH_TOKEN = process.env.KV_REST_API_TOKEN
 
   if (UPSTASH_URL && UPSTASH_TOKEN) {
     try {
