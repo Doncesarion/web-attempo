@@ -4,6 +4,7 @@ import Image from "next/image"
 const footerLinks = {
   Producto: [
     { label: "Plataforma", href: "/plataforma" },
+    { label: "Chatbot IA", href: "/chatbot-ia" },
     { label: "Precios", href: "/precios" },
     { label: "Recordatorios", href: "/plataforma#recordatorios" },
     { label: "Paquete de sesiones", href: "/plataforma#paquetes" },

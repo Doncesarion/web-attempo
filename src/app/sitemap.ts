@@ -18,6 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/precios`, priority: 0.9, changeFrequency: "monthly" as const, lastModified: now },
     { url: `${BASE}/soluciones`, priority: 0.8, changeFrequency: "monthly" as const, lastModified: now },
     { url: `${BASE}/quienes-somos`, priority: 0.7, changeFrequency: "monthly" as const, lastModified: now },
+    { url: `${BASE}/chatbot-ia`, priority: 0.9, changeFrequency: "monthly" as const, lastModified: now },
     { url: `${BASE}/faq`, priority: 0.7, changeFrequency: "monthly" as const, lastModified: now },
     { url: `${BASE}/blog`, priority: 0.6, changeFrequency: "weekly" as const, lastModified: now },
     { url: `${BASE}/contacto`, priority: 0.6, changeFrequency: "yearly" as const, lastModified: now },

@@ -10,7 +10,14 @@ import Image from "next/image"
 
 const navLinks = [
   { label: "Inicio", href: "/" },
-  { label: "Plataforma", href: "/plataforma" },
+  {
+    label: "Plataforma",
+    href: "/plataforma",
+    dropdown: [
+      { label: "Visión general", href: "/plataforma" },
+      { label: "Chatbot IA", href: "/chatbot-ia" },
+    ],
+  },
   {
     label: "Soluciones",
     href: "/soluciones",
