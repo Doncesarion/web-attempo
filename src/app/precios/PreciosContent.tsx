@@ -352,7 +352,7 @@ export default function PreciosContent() {
             </span>
           </m.div>
           <m.h2 variants={fadeUp} className="text-3xl font-bold text-gray-900 text-center mb-2 tracking-tight">
-            Plans Attia — solo chatbot con IA
+            Planes Attia — solo chatbot con IA
           </m.h2>
           <m.p variants={fadeUp} className="text-gray-500 text-center max-w-xl mx-auto mb-10">
             Para negocios que solo necesitan atención automática en WhatsApp, Instagram y Messenger. Sin agenda ni citas — solo el chatbot con IA.
