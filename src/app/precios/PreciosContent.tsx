@@ -339,6 +339,111 @@ export default function PreciosContent() {
         <p className="text-center text-xs text-gray-400 mt-6">Todos los precios en pesos chilenos + IVA.</p>
       </section>
 
+      {/* ── Planes Attia (Solo Chatbot) ─────────────────────────────────────── */}
+      <section className="py-20 px-4 bg-white border-t border-gray-100">
+        <m.div
+          className="max-w-5xl mx-auto"
+          initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }} variants={stagger}
+        >
+          <m.div variants={fadeUp} className="text-center mb-3">
+            <span className="inline-flex items-center gap-1.5 bg-[#6C5CE4]/10 text-[#6C5CE4] text-xs font-semibold px-3 py-1.5 rounded-full">
+              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" /></svg>
+              Solo chatbot IA
+            </span>
+          </m.div>
+          <m.h2 variants={fadeUp} className="text-3xl font-bold text-gray-900 text-center mb-2 tracking-tight">
+            Plans Attia — solo chatbot con IA
+          </m.h2>
+          <m.p variants={fadeUp} className="text-gray-500 text-center max-w-xl mx-auto mb-10">
+            Para negocios que solo necesitan atención automática en WhatsApp, Instagram y Messenger. Sin agenda ni citas — solo el chatbot con IA.
+          </m.p>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              {
+                nombre: "Attia Starter",
+                tag: "Para empezar",
+                mensajes: 2000,
+                precio: 29990,
+                popular: false,
+              },
+              {
+                nombre: "Attia Pro",
+                tag: "Más popular",
+                mensajes: 5000,
+                precio: 49990,
+                popular: true,
+              },
+              {
+                nombre: "Attia Business",
+                tag: "Alto volumen",
+                mensajes: 8000,
+                precio: 69990,
+                popular: false,
+              },
+            ].map((p) => (
+              <m.div
+                key={p.nombre}
+                variants={fadeUp}
+                className={`relative rounded-2xl border p-7 flex flex-col ${
+                  p.popular
+                    ? "border-[#6C5CE4] shadow-lg shadow-[#6C5CE4]/10 bg-white"
+                    : "border-gray-200 bg-white"
+                }`}
+              >
+                {p.popular && (
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                    <span className="bg-[#6C5CE4] text-white text-xs font-bold px-3 py-1 rounded-full">
+                      {p.tag}
+                    </span>
+                  </div>
+                )}
+                {!p.popular && (
+                  <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">{p.tag}</p>
+                )}
+                {p.popular && <div className="mb-3" />}
+                <h3 className="text-lg font-bold text-gray-900 mb-1">{p.nombre}</h3>
+                <div className="flex items-baseline gap-1 mb-1">
+                  <span className="text-3xl font-bold text-gray-900">${p.precio.toLocaleString("es-CL")}</span>
+                  <span className="text-gray-400 text-sm">/mes</span>
+                </div>
+                <p className="text-xs text-gray-400 mb-5">+ IVA · {p.mensajes.toLocaleString("es-CL")} mensajes IA/mes</p>
+
+                <ul className="space-y-3 mb-7 flex-1">
+                  {[
+                    `Hasta ${p.mensajes.toLocaleString("es-CL")} mensajes IA al mes`,
+                    "Chatbot Attia con inteligencia artificial",
+                    "WhatsApp Business + Instagram + Messenger",
+                    "Bandeja unificada de conversaciones",
+                    "Base de conocimiento personalizable",
+                    "FAQs y tono configurables",
+                    "Traspaso a atención humana",
+                    "Soporte vía chat",
+                  ].map((f) => (
+                    <li key={f} className="flex items-start gap-2.5 text-sm text-gray-600">
+                      <svg className="w-4 h-4 text-[#6C5CE4] flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+
+                <a
+                  href="/contacto"
+                  className={`w-full text-center text-sm font-bold py-3 rounded-xl transition-colors ${
+                    p.popular
+                      ? "bg-[#6C5CE4] text-white hover:bg-[#5a4bd1]"
+                      : "border border-[#6C5CE4] text-[#6C5CE4] hover:bg-[#6C5CE4] hover:text-white"
+                  }`}
+                >
+                  Contratar plan
+                </a>
+              </m.div>
+            ))}
+          </div>
+          <p className="text-center text-xs text-gray-400 mt-6">Todos los precios en pesos chilenos + IVA. Al superar el límite mensual, el chatbot responde indicando que se comunicarán a la brevedad.</p>
+        </m.div>
+      </section>
+
       {/* ── Tabla comparativa ──────────────────────────────────────────────── */}
       <section className="py-20 px-4 bg-gray-50">
         <m.div
