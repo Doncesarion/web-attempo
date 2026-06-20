@@ -5,7 +5,7 @@ import {
   Package, CreditCard, MessageCircle, ClipboardList, Bell, Pill, RefreshCw,
   Globe, CheckCircle2, CalendarDays, Bot, Users, Monitor, BarChart2, Building2,
   Smartphone, Clock, FolderOpen, Brain, Stethoscope, Scissors, Scale,
-  Leaf, Baby, Sparkles, Activity, Flower2, type LucideIcon,
+  Leaf, Baby, Sparkles, Activity, Flower2, Smile, type LucideIcon,
 } from "lucide-react"
 import { getEspecialidadBySlug, especialidades } from "@/lib/especialidades"
 
@@ -27,6 +27,10 @@ const heroIconMap: Record<string, LucideIcon> = {
   esteticas: Sparkles,
   fisioterapeutas: Activity,
   yoga: Flower2,
+  nutricionistas: Leaf,
+  kinesiologos: Activity,
+  dentistas: Smile,
+  medicos: Stethoscope,
 }
 
 export const dynamicParams = false
@@ -91,6 +95,26 @@ const metaOverrides: Record<string, { title: string; description: string }> = {
     description:
       "Agenda online para profesores de yoga y pilates en Chile. Gestiona clases individuales y grupales, cobro anticipado y recordatorios automáticos. Prueba gratis.",
   },
+  nutricionistas: {
+    title: "Agenda Online para Nutricionistas en Chile 2026 | attempo",
+    description:
+      "Sistema de agendamiento para nutricionistas en Chile. Gestiona paquetes de consultas, cobra anticipado con Webpay y reduce el abandono de tratamientos con recordatorios automáticos. Prueba gratis 12 días.",
+  },
+  kinesiologos: {
+    title: "Agenda Online para Kinesiólogos en Chile 2026 | attempo",
+    description:
+      "Software de agendamiento para kinesiólogos en Chile. Gestiona planes de rehabilitación, cobra el paquete completo anticipado y elimina el abandono de tratamientos. Prueba gratis 12 días.",
+  },
+  dentistas: {
+    title: "Sistema de Agendamiento para Dentistas en Chile 2026 | attempo",
+    description:
+      "Agenda online para dentistas y clínicas dentales en Chile. Confirmación automática por WhatsApp, lista de espera activa y control de tratamientos de múltiples sesiones. Prueba gratis 12 días.",
+  },
+  medicos: {
+    title: "Agenda Online para Médicos en Chile 2026 | attempo",
+    description:
+      "Sistema de agendamiento para médicos en Chile. Reservas online 24/7, chatbot IA para consultas, recordatorios automáticos y ficha del paciente integrada. Prueba gratis 12 días.",
+  },
 }
 
 export async function generateMetadata({
@@ -131,28 +155,38 @@ export default async function EspecialidadPage({
 
   const HeroIcon = heroIconMap[especialidad] ?? Stethoscope
 
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebPage",
-        "@id": `https://attempo.cl/soluciones/${especialidad}`,
-        url: `https://attempo.cl/soluciones/${especialidad}`,
-        name: `attempo para ${data.nombre}`,
-        description: data.descripcion,
-        inLanguage: "es-CL",
-        isPartOf: { "@id": "https://attempo.cl/#website" },
-      },
-      {
-        "@type": "BreadcrumbList",
-        itemListElement: [
-          { "@type": "ListItem", position: 1, name: "attempo", item: "https://attempo.cl" },
-          { "@type": "ListItem", position: 2, name: "Soluciones", item: "https://attempo.cl/soluciones" },
-          { "@type": "ListItem", position: 3, name: data.nombre, item: `https://attempo.cl/soluciones/${especialidad}` },
-        ],
-      },
-    ],
+  const jsonLdGraph: object[] = [
+    {
+      "@type": "WebPage",
+      "@id": `https://attempo.cl/soluciones/${especialidad}`,
+      url: `https://attempo.cl/soluciones/${especialidad}`,
+      name: `attempo para ${data.nombre}`,
+      description: data.descripcion,
+      inLanguage: "es-CL",
+      isPartOf: { "@id": "https://attempo.cl/#website" },
+    },
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "attempo", item: "https://attempo.cl" },
+        { "@type": "ListItem", position: 2, name: "Soluciones", item: "https://attempo.cl/soluciones" },
+        { "@type": "ListItem", position: 3, name: data.nombre, item: `https://attempo.cl/soluciones/${especialidad}` },
+      ],
+    },
+  ]
+
+  if (data.faqs && data.faqs.length > 0) {
+    jsonLdGraph.push({
+      "@type": "FAQPage",
+      mainEntity: data.faqs.map((faq) => ({
+        "@type": "Question",
+        name: faq.q,
+        acceptedAnswer: { "@type": "Answer", text: faq.a },
+      })),
+    })
   }
+
+  const jsonLd = { "@context": "https://schema.org", "@graph": jsonLdGraph }
 
   return (
     <>
@@ -268,8 +302,40 @@ export default async function EspecialidadPage({
           </div>
         </section>
 
+        {/* FAQ */}
+        {data.faqs && data.faqs.length > 0 && (
+          <section className="py-24 px-4 bg-gray-50">
+            <div className="max-w-3xl mx-auto">
+              <div className="text-center mb-12">
+                <p className="text-[#6C5CE4] text-sm font-medium uppercase tracking-wider mb-4">
+                  Preguntas frecuentes
+                </p>
+                <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
+                  Lo que nos preguntan los {data.nombre.toLowerCase()}
+                </h2>
+              </div>
+              <div className="flex flex-col gap-4">
+                {data.faqs.map((faq, i) => (
+                  <div key={i} className="bg-white border border-gray-100 rounded-2xl p-8">
+                    <h3 className="text-gray-900 font-semibold text-lg mb-3">{faq.q}</h3>
+                    <p className="text-gray-500 text-base leading-relaxed">{faq.a}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-10 text-center">
+                <a
+                  href="/faq"
+                  className="text-[#6C5CE4] font-medium hover:underline text-sm"
+                >
+                  Ver todas las preguntas frecuentes →
+                </a>
+              </div>
+            </div>
+          </section>
+        )}
+
         {/* Otras soluciones */}
-        <section className="py-16 px-4 bg-gray-50">
+        <section className="py-16 px-4 bg-white border-t border-gray-100">
           <div className="max-w-7xl mx-auto text-center">
             <h2 className="text-2xl font-bold text-gray-900 mb-8">Otras soluciones</h2>
             <div className="flex flex-wrap gap-3 justify-center">

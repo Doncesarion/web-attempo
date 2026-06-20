@@ -7,6 +7,7 @@ const especialidades = [
   "psicologos", "psiquiatras", "medicos-generales", "centros-clinicos",
   "barberias", "derecho", "nutricion", "matronas", "esteticas",
   "fisioterapeutas", "yoga",
+  "nutricionistas", "kinesiologos", "dentistas", "medicos",
 ]
 
 export default function sitemap(): MetadataRoute.Sitemap {
