@@ -68,7 +68,7 @@ const planes = [
     desc: "Todo lo que necesitas para digitalizar tu agenda y empezar a cobrar online.",
     popular: false,
     cta: "Empieza gratis",
-    href: "https://app.attempo.cl/registro",
+    href: "https://app.attempo.cl/registro?plan=inicio",
     nota: "1% de costo en transferencias",
     features: [
       "Perfil de agendamiento online",
@@ -91,7 +91,7 @@ const planes = [
     desc: "Herramientas avanzadas para profesionales consolidados que quieren crecer.",
     popular: true,
     cta: "Empieza gratis",
-    href: "https://app.attempo.cl/registro",
+    href: "https://app.attempo.cl/registro?plan=pro",
     nota: null,
     features: [
       "Todo lo del plan Inicio",
@@ -501,12 +501,12 @@ export default function PreciosContent() {
                 <tr className="bg-gray-50">
                   <td className="py-4 px-6" />
                   <td className="text-center py-4 px-5">
-                    <a href="https://app.attempo.cl/registro" className="inline-block min-h-[44px] leading-[44px] text-xs font-bold text-[#6C5CE4] border border-[#6C5CE4] px-5 rounded-xl hover:bg-[#6C5CE4] hover:text-white transition-colors cursor-pointer">
+                    <a href="https://app.attempo.cl/registro?plan=inicio" className="inline-block min-h-[44px] leading-[44px] text-xs font-bold text-[#6C5CE4] border border-[#6C5CE4] px-5 rounded-xl hover:bg-[#6C5CE4] hover:text-white transition-colors cursor-pointer">
                       Empieza gratis
                     </a>
                   </td>
                   <td className="text-center py-4 px-5 bg-[#6C5CE4]/5 border-x border-[#6C5CE4]/10">
-                    <a href="https://app.attempo.cl/registro" className="inline-block min-h-[44px] leading-[44px] text-xs font-bold bg-[#6C5CE4] text-white px-5 rounded-xl hover:bg-[#5b4dd0] transition-colors cursor-pointer">
+                    <a href="https://app.attempo.cl/registro?plan=pro" className="inline-block min-h-[44px] leading-[44px] text-xs font-bold bg-[#6C5CE4] text-white px-5 rounded-xl hover:bg-[#5b4dd0] transition-colors cursor-pointer">
                       Empieza gratis
                     </a>
                   </td>
@@ -638,7 +638,7 @@ export default function PreciosContent() {
           <m.p variants={fadeUp} className="text-gray-500 mb-8">12 días gratis. Sin tarjeta. Sin letra chica.</m.p>
           <m.a
             variants={fadeUp}
-            href="https://app.attempo.cl/registro"
+            href="https://app.attempo.cl/registro?plan=pro"
             className="inline-flex items-center justify-center min-h-[52px] bg-[#6C5CE4] text-white font-bold text-base px-10 rounded-xl hover:bg-[#5b4dd0] transition-colors cursor-pointer shadow-lg shadow-purple-200"
           >
             Crear cuenta gratis →
