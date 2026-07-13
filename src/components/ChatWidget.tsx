@@ -42,6 +42,7 @@ export default function ChatWidget() {
   const [loading, setLoading] = useState(false)
   const bottomRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
+  const sessionId = useRef<string>(typeof crypto !== "undefined" && crypto.randomUUID ? crypto.randomUUID() : Math.random().toString(36).slice(2))
 
   useEffect(() => {
     const t = setTimeout(() => setVisible(true), 1800)
@@ -73,7 +74,7 @@ export default function ChatWidget() {
       const res = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ messages: next.map((m) => ({ role: m.role, content: m.content })) }),
+        body: JSON.stringify({ messages: next.map((m) => ({ role: m.role, content: m.content })), sessionId: sessionId.current }),
       })
       const data = await res.json()
       setMessages((prev) => [...prev, { role: "assistant", content: data.respuesta || "Un momento..." }])

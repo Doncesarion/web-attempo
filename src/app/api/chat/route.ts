@@ -115,7 +115,7 @@ export async function POST(req: NextRequest) {
     }
 
     const body = await req.json()
-    const { messages } = body
+    const { messages, sessionId } = body
 
     if (!validateMessages(messages)) {
       return NextResponse.json({ error: "Mensajes inválidos" }, { status: 400 })
@@ -148,6 +148,27 @@ export async function POST(req: NextRequest) {
     }
 
     const text = (data.content as { type: string; text?: string }[])?.find((b) => b.type === "text")?.text ?? ""
+
+    // Guardar intercambio en Supabase (fire-and-forget)
+    const sbKey = process.env.SUPABASE_SERVICE_KEY
+    if (sbKey && sessionId && typeof sessionId === "string") {
+      const userMsg = messages[messages.length - 1]
+      fetch("https://xztqawulvrtjvtfixofy.supabase.co/rest/v1/web_leads", {
+        method: "POST",
+        headers: {
+          apikey: sbKey,
+          Authorization: `Bearer ${sbKey}`,
+          "Content-Type": "application/json",
+          Prefer: "return=minimal",
+        },
+        body: JSON.stringify({
+          session_id: sessionId.slice(0, 64),
+          mensajes: [userMsg, { role: "assistant", content: text }],
+          ip: ip !== "unknown" ? ip : null,
+        }),
+      }).catch(() => {})
+    }
+
     return NextResponse.json({ respuesta: text })
   } catch {
     return NextResponse.json({ error: "Error al procesar tu consulta" }, { status: 500 })
