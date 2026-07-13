@@ -150,14 +150,14 @@ export async function POST(req: NextRequest) {
     const text = (data.content as { type: string; text?: string }[])?.find((b) => b.type === "text")?.text ?? ""
 
     // Guardar intercambio en Supabase (fire-and-forget)
-    const sbKey = process.env.SUPABASE_SERVICE_KEY
-    if (sbKey && sessionId && typeof sessionId === "string") {
+    if (sessionId && typeof sessionId === "string") {
+      const SUPA_ANON = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh6dHFhd3VsdnJ0anZ0Zml4b2Z5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY3MTQ4OTgsImV4cCI6MjA5MjI5MDg5OH0.nMxUfN_pR3FImpO6l9MsYo9Z5B-0KU1ZHfbPor2qgu8"
       const userMsg = messages[messages.length - 1]
       fetch("https://xztqawulvrtjvtfixofy.supabase.co/rest/v1/web_leads", {
         method: "POST",
         headers: {
-          apikey: sbKey,
-          Authorization: `Bearer ${sbKey}`,
+          apikey: SUPA_ANON,
+          Authorization: `Bearer ${SUPA_ANON}`,
           "Content-Type": "application/json",
           Prefer: "return=minimal",
         },
