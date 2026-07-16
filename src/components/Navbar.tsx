@@ -164,7 +164,7 @@ export default function Navbar() {
               Iniciar sesión
             </Link>
             <Link
-              href="/precios"
+              href="https://app.attempo.cl/registro"
               className="px-4 py-2 bg-[#6C5CE4] hover:bg-[#4F46E5] text-white rounded-lg text-sm font-medium transition-colors"
             >
               Empieza ahora
@@ -257,7 +257,7 @@ export default function Navbar() {
                   Iniciar sesión
                 </Link>
                 <Link
-                  href="/precios"
+                  href="https://app.attempo.cl/registro"
                   className="block w-full text-center px-4 py-2.5 bg-[#6C5CE4] hover:bg-[#4F46E5] text-white rounded-lg text-sm font-medium transition-colors"
                 >
                   Empieza ahora
