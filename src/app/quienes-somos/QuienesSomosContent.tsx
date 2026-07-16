@@ -286,7 +286,7 @@ export default function QuienesSomosContent() {
           </m.p>
           <m.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="/precios"
+              href="https://app.attempo.cl/registro"
               className="px-8 py-4 bg-white text-[#6C5CE4] font-bold rounded-xl hover:bg-purple-50 transition-all text-lg shadow-lg hover:-translate-y-0.5"
             >
               Crear cuenta gratis

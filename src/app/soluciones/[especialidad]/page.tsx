@@ -206,7 +206,7 @@ export default async function EspecialidadPage({
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">{data.descripcion}</p>
             <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="/precios"
+                href="https://app.attempo.cl/registro"
                 className="px-8 py-4 bg-[#6C5CE4] hover:bg-[#4F46E5] text-white font-semibold rounded-xl transition-colors text-lg"
               >
                 Empieza gratis
@@ -293,7 +293,7 @@ export default async function EspecialidadPage({
 
             <div className="mt-14 text-center">
               <a
-                href="/precios"
+                href="https://app.attempo.cl/registro"
                 className="inline-block px-8 py-4 bg-[#6C5CE4] hover:bg-[#4F46E5] text-white font-semibold rounded-xl transition-colors text-lg"
               >
                 Prueba gratis 12 días
