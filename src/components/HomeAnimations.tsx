@@ -114,7 +114,7 @@ export function HeroSection() {
             style={{ animation: "fade-in-up 0.6s ease both 300ms" }}
           >
             <a
-              href="/precios"
+              href="https://app.attempo.cl/registro"
               className="px-8 py-4 bg-[#6C5CE4] hover:bg-[#4F46E5] text-white font-semibold rounded-xl transition-all text-lg shadow-lg shadow-[#6C5CE4]/25 hover:shadow-[#6C5CE4]/40 hover:-translate-y-0.5 active:translate-y-0"
             >
               Empieza gratis
@@ -575,7 +575,7 @@ export function CTASection() {
           Cancela cuando quieras. Listo en 5 minutos.
         </m.p>
         <m.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="/precios" className="px-8 py-4 bg-white text-[#6C5CE4] font-bold rounded-xl hover:bg-purple-50 transition-all text-lg shadow-lg hover:-translate-y-0.5">
+          <a href="https://app.attempo.cl/registro" className="px-8 py-4 bg-white text-[#6C5CE4] font-bold rounded-xl hover:bg-purple-50 transition-all text-lg shadow-lg hover:-translate-y-0.5">
             Crear cuenta gratis
           </a>
           <a href="/contacto" className="px-8 py-4 bg-white/10 text-white font-semibold rounded-xl hover:bg-white/20 transition-all text-lg border border-white/20">
