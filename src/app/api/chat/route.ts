@@ -157,6 +157,7 @@ export async function POST(req: NextRequest) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           session_id: sessionId.slice(0, 64),
+          tipo: "chat",
           mensajes: [userMsg, { role: "assistant", content: text }],
           ip: ip !== "unknown" ? ip : null,
         }),

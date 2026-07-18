@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import { m, AnimatePresence } from "framer-motion"
 
 const WA_NUMBER = "56957285407"
@@ -10,11 +10,27 @@ const WA_URL = `https://wa.me/${WA_NUMBER}?text=${WA_MESSAGE}`
 export default function WhatsAppButton() {
   const [visible, setVisible] = useState(false)
   const [hovered, setHovered] = useState(false)
+  const sessionId = useRef<string>(
+    typeof crypto !== "undefined" && crypto.randomUUID ? crypto.randomUUID() : Math.random().toString(36).slice(2)
+  )
 
   useEffect(() => {
     const timer = setTimeout(() => setVisible(true), 1200)
     return () => clearTimeout(timer)
   }, [])
+
+  function trackClick() {
+    fetch("https://app.attempo.cl/api/usuarios-admin?action=web-lead-save", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        session_id: `wa_${sessionId.current}`,
+        tipo: "whatsapp",
+        pagina: typeof window !== "undefined" ? window.location.pathname : "/",
+        mensajes: [{ role: "user", content: "Hola, me interesa conocer más sobre attempo. ¿Me puedes dar información?" }],
+      }),
+    }).catch(() => {})
+  }
 
   return (
     <AnimatePresence>
@@ -47,6 +63,7 @@ export default function WhatsAppButton() {
             href={WA_URL}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={trackClick}
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
             aria-label="Contactar por WhatsApp"
