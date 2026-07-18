@@ -99,7 +99,7 @@ export default async function RootLayout({
                   },
                   "email": "contacto@attempo.cl",
                   "sameAs": [
-                    "https://www.linkedin.com/company/attempo",
+                    "https://www.linkedin.com/company/attempocl",
                     "https://www.producthunt.com/products/attempo",
                   ],
                 },
