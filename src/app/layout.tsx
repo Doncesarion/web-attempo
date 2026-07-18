@@ -70,6 +70,77 @@ export default async function RootLayout({
   return (
     <html lang="es-CL" className={`${geist.variable} h-full antialiased`}>
       <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@graph": [
+                {
+                  "@type": "Organization",
+                  "@id": "https://attempo.cl/#organization",
+                  "name": "attempo",
+                  "url": "https://attempo.cl",
+                  "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://attempo.cl/icon.png",
+                    "width": 512,
+                    "height": 512,
+                  },
+                  "description": "Plataforma de agendamiento de citas con IA para profesionales de la salud y servicios en Chile. Agenda online, recordatorios automáticos por WhatsApp y chatbot inteligente.",
+                  "foundingDate": "2025",
+                  "foundingLocation": {
+                    "@type": "Place",
+                    "name": "Santiago, Chile",
+                  },
+                  "areaServed": {
+                    "@type": "Country",
+                    "name": "Chile",
+                  },
+                  "email": "contacto@attempo.cl",
+                  "sameAs": [
+                    "https://www.linkedin.com/company/attempo",
+                    "https://www.producthunt.com/products/attempo",
+                  ],
+                },
+                {
+                  "@type": "WebSite",
+                  "@id": "https://attempo.cl/#website",
+                  "url": "https://attempo.cl",
+                  "name": "attempo",
+                  "description": "Todo a tu tiempo",
+                  "inLanguage": "es-CL",
+                  "publisher": { "@id": "https://attempo.cl/#organization" },
+                },
+                {
+                  "@type": "SoftwareApplication",
+                  "@id": "https://attempo.cl/#software",
+                  "name": "attempo",
+                  "applicationCategory": "BusinessApplication",
+                  "applicationSubCategory": "AppointmentScheduling",
+                  "operatingSystem": "Web",
+                  "url": "https://app.attempo.cl",
+                  "offers": {
+                    "@type": "Offer",
+                    "price": "19990",
+                    "priceCurrency": "CLP",
+                    "availability": "https://schema.org/InStock",
+                  },
+                  "description": "Sistema de agendamiento online con chatbot IA, recordatorios automáticos por WhatsApp y email, integración con Google Calendar y cobro con Webpay.",
+                  "featureList": [
+                    "Agenda online 24/7",
+                    "Recordatorios automáticos por WhatsApp y email",
+                    "Chatbot IA para atención de pacientes",
+                    "Integración con Google Calendar",
+                    "Pagos online con Webpay",
+                    "Multi-especialista",
+                  ],
+                  "publisher": { "@id": "https://attempo.cl/#organization" },
+                },
+              ],
+            }),
+          }}
+        />
         <Script
           id="gtm-script"
           nonce={nonce}
