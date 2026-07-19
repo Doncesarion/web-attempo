@@ -149,10 +149,10 @@ export async function POST(req: NextRequest) {
 
     const text = (data.content as { type: string; text?: string }[])?.find((b) => b.type === "text")?.text ?? ""
 
-    // Guardar intercambio vía backend de app.attempo.cl (fire-and-forget)
+    // Guardar intercambio vía backend de app.attempo.cl
     if (sessionId && typeof sessionId === "string") {
       const userMsg = messages[messages.length - 1]
-      fetch("https://app.attempo.cl/api/usuarios-admin?action=web-lead-save", {
+      await fetch("https://app.attempo.cl/api/usuarios-admin?action=web-lead-save", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
