@@ -830,7 +830,6 @@ export const posts: Post[] = [
           "¿Cuál es el precio de una consulta?",
           "¿Tienen disponibilidad esta semana?",
           "¿Cómo llego a la dirección?",
-          "¿Aceptan Fonasa o isapre?",
           "¿Cuánto dura la sesión?",
           "Quiero cancelar mi cita del jueves",
           "¿Puedo reagendar para la próxima semana?",

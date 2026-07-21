@@ -97,7 +97,6 @@ const planes = [
       "Todo lo del plan Inicio",
       "Sin costo en transferencias",
       "Transcriptor IA de consultas",
-      "Integración con FONASA",
       "Emisión de boletas electrónicas",
       "Pagos en dólares",
       "Vitrina de talleres y contenido",
@@ -162,7 +161,6 @@ const categorias: { nombre: string; rows: { label: string; inicio: CeldaVal; pro
     nombre: "Contenido y herramientas",
     rows: [
       { label: "Vitrina de talleres y contenido",   inicio: false, pro: true,  clinica: true },
-      { label: "Integración con FONASA",            inicio: false, pro: true,  clinica: true },
       { label: "Correos masivos ilimitados",        inicio: false, pro: false, clinica: true },
       { label: "Recetas médicas electrónicas",      inicio: false, pro: false, clinica: true },
     ],
