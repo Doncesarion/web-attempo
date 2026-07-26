@@ -599,7 +599,7 @@ export const especialidades: Especialidad[] = [
         a: "Al momento de reservar, el paciente paga el valor de la consulta o del paquete a través de la pasarela de pago integrada. Sin pago confirmado, la hora no queda reservada. Esto elimina las cancelaciones de último momento y los pacientes que nunca llegan.",
       },
       {
-        q: "¿Attempo funciona para nutricionistas que atienden en clínica y de forma particular al mismo tiempo?",
+        q: "¿attempo funciona para nutricionistas que atienden en clínica y de forma particular al mismo tiempo?",
         a: "Sí. Puedes configurar distintos servicios con precios diferentes para cada modalidad de atención. La agenda separa automáticamente los horarios disponibles según el tipo de consulta que el paciente quiera reservar.",
       },
     ],
@@ -664,7 +664,7 @@ export const especialidades: Especialidad[] = [
         a: "Sí. Cada paciente tiene una ficha donde puedes registrar notas por sesión, objetivos del plan kinésico, observaciones clínicas y el estado general del tratamiento. Todo en un solo lugar, accesible desde cualquier dispositivo.",
       },
       {
-        q: "¿Attempo funciona para un centro kinésico con varios profesionales?",
+        q: "¿attempo funciona para un centro kinésico con varios profesionales?",
         a: "Sí. Puedes tener múltiples kinesiólogos con sus propias agendas dentro del mismo panel administrativo. El administrador ve la ocupación de todos los profesionales en tiempo real y puede gestionar los reportes por cada uno.",
       },
     ],
@@ -717,7 +717,7 @@ export const especialidades: Especialidad[] = [
     ],
     faqs: [
       {
-        q: "¿Attempo funciona para una clínica dental con varios dentistas?",
+        q: "¿attempo funciona para una clínica dental con varios dentistas?",
         a: "Sí. Puedes agregar todos los profesionales de la clínica con sus propias agendas y servicios. El panel administrativo central muestra la ocupación de todos en tiempo real y genera reportes por dentista.",
       },
       {
@@ -782,7 +782,7 @@ export const especialidades: Especialidad[] = [
     ],
     faqs: [
       {
-        q: "¿Attempo funciona para médicos en consulta particular y clínica al mismo tiempo?",
+        q: "¿attempo funciona para médicos en consulta particular y clínica al mismo tiempo?",
         a: "Sí. Puedes configurar distintos servicios, precios y horarios para cada modalidad de atención. Si atiendes en más de un lugar, puedes bloquear los horarios correspondientes para que no se solapen las reservas.",
       },
       {
@@ -794,7 +794,7 @@ export const especialidades: Especialidad[] = [
         a: "Sí. Desde el panel puedes bloquear cualquier rango horario manualmente para que no quede disponible para reservas online. También puedes definir horarios de atención diferentes para cada día de la semana.",
       },
       {
-        q: "¿Attempo se integra con Google Calendar para médicos?",
+        q: "¿attempo se integra con Google Calendar para médicos?",
         a: "Sí. attempo tiene integración con Google Calendar. Cada vez que se confirma una cita, se crea automáticamente un evento en tu Google Calendar. Si reagendas o cancelas desde el panel, el evento se actualiza de forma automática.",
       },
     ],

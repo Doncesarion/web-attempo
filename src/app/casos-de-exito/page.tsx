@@ -21,7 +21,7 @@ export default function CasosDeExitoPage() {
           <p className="text-[#6C5CE4] text-sm font-medium uppercase tracking-wider mb-4">Casos de éxito</p>
           <h1 className="text-5xl font-bold text-gray-900 mb-6">Historias reales de éxito</h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Descubre cómo otros profesionales han transformado su gestión con Attempo.
+            Descubre cómo otros profesionales han transformado su gestión con attempo.
           </p>
         </div>
       </section>
