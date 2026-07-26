@@ -799,6 +799,71 @@ export const especialidades: Especialidad[] = [
       },
     ],
   },
+  {
+    slug: "belleza",
+    nombre: "Peluquerías y Belleza",
+    emoji: "💇",
+    descripcion: "Gestiona turnos de corte, color, uñas, pestañas y botox con reservas online y seña anticipada.",
+    dolor: "Un turno de uñas o pestañas que no se confirma es irrecuperable. Perdiste el cupo y la plata.",
+    dolorDesc: "En el mundo de la belleza, cada cupo tiene un costo real: tiempo, materiales y preparación. Un no-show en una sesión de extensiones de pestañas o botox no es solo tiempo perdido — ese cupo no se puede recuperar. Sin cobro anticipado ni recordatorio automático, el control queda en manos del cliente.",
+    features: [
+      {
+        icon: "CreditCard",
+        title: "Seña anticipada con Webpay",
+        desc: "El cliente paga la seña al reservar. Sin pago, no hay turno. Elimina los no-shows de raíz.",
+      },
+      {
+        icon: "MessageCircle",
+        title: "Recordatorio por WhatsApp",
+        desc: "El sistema envía un recordatorio automático antes del turno para que el cliente no olvide ni cancele a última hora.",
+      },
+      {
+        icon: "CalendarDays",
+        title: "Reserva 24/7 por Instagram",
+        desc: "El chatbot Attia responde en Instagram y agenda turnos aunque tu local esté cerrado.",
+      },
+      {
+        icon: "Users",
+        title: "Agenda por estilista o profesional",
+        desc: "Gestiona la disponibilidad de cada miembro del equipo por separado. Sin cruces ni doble reserva.",
+      },
+    ],
+    beneficios: [
+      {
+        n: "01",
+        title: "Cero turnos vacíos por no-shows",
+        desc: "El cobro anticipado de la seña elimina las ausencias sin aviso. El cupo que reservan, lo pagan.",
+      },
+      {
+        n: "02",
+        title: "Reservas por Instagram sin responder mensajes",
+        desc: "Attia atiende a tus seguidores y agenda turnos en automático, incluso de madrugada o fin de semana.",
+      },
+      {
+        n: "03",
+        title: "Cada profesional con su propia agenda",
+        desc: "Configura servicios, precios y horarios por estilista o cosmetóloga. Sin confusión entre los turnos del equipo.",
+      },
+    ],
+    faqs: [
+      {
+        q: "¿Puedo usar attempo para una peluquería con varios estilistas?",
+        a: "Sí. Puedes agregar varios profesionales a tu cuenta y cada uno tiene su propia agenda, servicios y horarios. El cliente elige al estilista que prefiere al momento de reservar.",
+      },
+      {
+        q: "¿Cómo funciona la seña anticipada para turnos de uñas o pestañas?",
+        a: "Cuando el cliente reserva online, el sistema le pide que pague un monto como seña con Webpay. Si no paga, el turno no queda confirmado. Así eliminas los no-shows sin tener que cobrar tú manualmente.",
+      },
+      {
+        q: "¿Mis clientes pueden agendar desde Instagram?",
+        a: "Sí. Con el chatbot Attia activado, tus seguidores pueden reservar turno directamente desde los mensajes de Instagram. El bot pregunta por el servicio, el día y la hora, y confirma el turno automáticamente.",
+      },
+      {
+        q: "¿Funciona para botox, extensiones de pestañas y tratamientos estéticos?",
+        a: "Sí. Puedes crear cualquier servicio con su precio, duración y descripción. Ya sea un corte, color, diseño de cejas, extensiones de pestañas, botox o tratamiento facial — todo se puede agendar online.",
+      },
+    ],
+  },
 ]
 
 export function getEspecialidadBySlug(slug: string): Especialidad | undefined {

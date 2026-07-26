@@ -92,7 +92,7 @@ const planes = [
     popular: true,
     cta: "Empieza gratis",
     href: "https://app.attempo.cl/registro",
-    nota: null,
+    nota: "Solo $20.000 más que el plan Inicio",
     features: [
       "Todo lo del plan Inicio",
       "Sin costo en transferencias",
@@ -323,9 +323,9 @@ export default function PreciosContent() {
                     </li>
                   ))}
                   {plan.nota && (
-                    <li className="flex items-start gap-2.5 mt-1 opacity-50">
-                      <span className="text-gray-400 text-xs mt-0.5">·</span>
-                      <span className="text-xs text-gray-400">{plan.nota}</span>
+                    <li className={`flex items-start gap-2.5 mt-2 ${plan.popular ? "" : "opacity-50"}`}>
+                      <span className={`text-xs mt-0.5 ${plan.popular ? "text-[#6C5CE4]" : "text-gray-400"}`}>·</span>
+                      <span className={`text-xs font-medium ${plan.popular ? "text-[#6C5CE4]" : "text-gray-400"}`}>{plan.nota}</span>
                     </li>
                   )}
                 </ul>
@@ -338,22 +338,22 @@ export default function PreciosContent() {
       </section>
 
       {/* ── Planes Attia (Solo Chatbot) ─────────────────────────────────────── */}
-      <section className="py-20 px-4 bg-white border-t border-gray-100">
+      <section className="py-20 px-4 bg-[#f5f3ff] border-t-4 border-[#6C5CE4]/20">
         <m.div
           className="max-w-5xl mx-auto"
           initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }} variants={stagger}
         >
           <m.div variants={fadeUp} className="text-center mb-3">
-            <span className="inline-flex items-center gap-1.5 bg-[#6C5CE4]/10 text-[#6C5CE4] text-xs font-semibold px-3 py-1.5 rounded-full">
+            <span className="inline-flex items-center gap-1.5 bg-[#6C5CE4] text-white text-xs font-semibold px-3 py-1.5 rounded-full">
               <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" /></svg>
-              Solo chatbot IA
+              Producto separado — solo chatbot IA
             </span>
           </m.div>
           <m.h2 variants={fadeUp} className="text-3xl font-bold text-gray-900 text-center mb-2 tracking-tight">
-            Planes Attia — solo chatbot con IA
+            Attia — chatbot IA sin agenda
           </m.h2>
           <m.p variants={fadeUp} className="text-gray-500 text-center max-w-xl mx-auto mb-10">
-            Para negocios que solo necesitan atención automática en WhatsApp, Instagram y Messenger. Sin agenda ni citas — solo el chatbot con IA.
+            ¿Tu negocio ya tiene agenda propia y solo necesitas automatizar la atención en WhatsApp, Instagram y Messenger? Estos planes son para ti.
           </m.p>
 
           <div className="grid md:grid-cols-3 gap-6">

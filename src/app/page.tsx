@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import Script from "next/script"
 import {
   HeroSection,
+  ContrasteSection,
   StatsSection,
   FeaturesSection,
   ScreenshotsSection,
@@ -186,6 +187,7 @@ export default function HomePage() {
       />
       <div className="flex flex-col">
         <HeroSection />
+        <ContrasteSection />
         <StatsSection />
         <FeaturesSection />
         <ScreenshotsSection />

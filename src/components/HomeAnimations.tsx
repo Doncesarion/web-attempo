@@ -256,6 +256,11 @@ export function FeaturesSection() {
             </m.div>
           ))}
         </div>
+        <m.div variants={fadeUp} className="mt-14 text-center">
+          <a href="/plataforma" className="inline-flex items-center gap-2 text-[#6C5CE4] font-medium hover:underline text-sm">
+            Ver la plataforma completa →
+          </a>
+        </m.div>
       </m.div>
     </section>
   )
@@ -457,6 +462,7 @@ export function TestimonialsSection() {
   const others = [
     { name: "Diego Fuentes", role: "Barbería The Cut", initials: "DF", text: "El chatbot responde solito por Instagram. Me ahorró contratar a alguien solo para tomar reservas." },
     { name: "Camila Reyes", role: "Nutricionista", initials: "CR", text: "El historial de pacientes y los paquetes de sesiones, todo en un solo lugar. Sin mil archivos de Excel." },
+    { name: "Sofía Castillo", role: "Peluquería Studio Sofía", initials: "SC", text: "Antes perdía turnos de uñas y pestañas porque la gente no confirmaba. Con attempo pagan la seña al reservar y casi no tengo ausencias." },
   ]
 
   return (
@@ -473,8 +479,8 @@ export function TestimonialsSection() {
           <h2 className="text-4xl font-bold text-white mt-2">Lo que dicen quienes ya usan attempo</h2>
         </m.div>
 
-        <div className="grid lg:grid-cols-5 gap-6">
-          <m.div variants={fadeUp} className="lg:col-span-3 border border-white/10 rounded-3xl p-10 flex flex-col">
+        <div className="grid lg:grid-cols-3 gap-6">
+          <m.div variants={fadeUp} className="lg:col-span-2 border border-white/10 rounded-3xl p-10 flex flex-col">
             <span className="text-[#6C5CE4] text-8xl font-serif leading-none select-none -mt-4 mb-2">"</span>
             <p className="text-white text-xl sm:text-2xl font-medium leading-relaxed flex-1">
               {featured.text}
@@ -490,11 +496,11 @@ export function TestimonialsSection() {
             </div>
           </m.div>
 
-          <div className="lg:col-span-2 flex flex-col gap-6">
+          <div className="flex flex-col gap-4">
             {others.map((t) => (
-              <m.div key={t.name} variants={fadeUp} className="border border-white/10 rounded-2xl p-7 flex flex-col flex-1">
+              <m.div key={t.name} variants={fadeUp} className="border border-white/10 rounded-2xl p-6 flex flex-col flex-1">
                 <p className="text-gray-300 text-sm leading-relaxed flex-1">"{t.text}"</p>
-                <div className="mt-6 flex items-center gap-3">
+                <div className="mt-5 flex items-center gap-3">
                   <div className="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center text-white text-xs font-bold flex-shrink-0">
                     {t.initials}
                   </div>
@@ -525,6 +531,7 @@ export function EspecialidadesSection() {
     { slug: "fisioterapeutas", nombre: "Fisioterapeutas", emoji: "🦴" },
     { slug: "yoga", nombre: "Yoga", emoji: "🧘" },
     { slug: "derecho", nombre: "Abogados", emoji: "⚖️" },
+    { slug: "belleza", nombre: "Peluquerías y Belleza", emoji: "💇" },
   ]
 
   return (
@@ -569,10 +576,10 @@ export function CTASection() {
         className="max-w-3xl mx-auto text-center relative"
       >
         <m.h2 variants={fadeUp} className="text-4xl sm:text-5xl font-bold text-white mb-4">
-          Empieza hoy, gratis
+          Es hora de estar a tiempo
         </m.h2>
         <m.p variants={fadeUp} className="text-purple-200 mb-10 text-xl">
-          Cancela cuando quieras. Listo en 5 minutos.
+          12 días gratis. Sin compromiso. Listo en 5 minutos.
         </m.p>
         <m.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4 justify-center">
           <a href="https://app.attempo.cl/registro" className="px-8 py-4 bg-white text-[#6C5CE4] font-bold rounded-xl hover:bg-purple-50 transition-all text-lg shadow-lg hover:-translate-y-0.5">
@@ -582,6 +589,80 @@ export function CTASection() {
             Hablar con nosotros
           </a>
         </m.div>
+      </m.div>
+    </section>
+  )
+}
+
+export function ContrasteSection() {
+  const filas = [
+    {
+      antes: "WhatsApp sin responder · reservas que se pierden",
+      despues: "Chatbot IA agenda en WhatsApp, Instagram y Messenger las 24 horas",
+    },
+    {
+      antes: "Excel o libreta para llevar la agenda a mano",
+      despues: "Agenda digital en tiempo real. Todos los profesionales sincronizados",
+    },
+    {
+      antes: "Recordar citas manualmente o no recordarlas",
+      despues: "Recordatorios automáticos por WhatsApp antes de cada cita",
+    },
+    {
+      antes: "Cobrar después o perseguir al cliente por el pago",
+      despues: "Cobro con Webpay al momento de reservar. Sin cuentas pendientes",
+    },
+  ]
+
+  return (
+    <section className="py-20 px-4 bg-gray-950 overflow-hidden">
+      <m.div
+        variants={stagger}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-80px" }}
+        className="max-w-5xl mx-auto"
+      >
+        <m.div variants={fadeUp} className="text-center mb-12">
+          <span className="inline-block bg-[#6C5CE4]/20 text-[#8B7FF0] text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full mb-6">
+            Por qué attempo
+          </span>
+          <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4 leading-tight">
+            Nacimos para que te{" "}
+            <span className="text-[#8B7FF0]">enfoques en lo tuyo</span>
+          </h2>
+          <p className="text-gray-400 max-w-xl mx-auto text-lg">
+            Sin WhatsApp interminable. Sin planillas. Sin cobros pendientes.
+          </p>
+        </m.div>
+
+        {/* Header columnas */}
+        <m.div variants={fadeUp} className="grid grid-cols-2 gap-3 mb-3">
+          <div className="flex items-center gap-2 px-5 py-3 bg-white/5 rounded-2xl border border-white/10">
+            <span className="w-6 h-6 bg-red-500/20 rounded-full flex items-center justify-center text-red-400 text-xs font-bold flex-shrink-0">✕</span>
+            <span className="text-white/50 text-sm font-semibold uppercase tracking-wider">Sin attempo</span>
+          </div>
+          <div className="flex items-center gap-2 px-5 py-3 bg-[#6C5CE4]/15 rounded-2xl border border-[#6C5CE4]/30">
+            <span className="w-6 h-6 bg-[#6C5CE4]/30 rounded-full flex items-center justify-center text-[#8B7FF0] text-xs font-bold flex-shrink-0">✓</span>
+            <span className="text-[#8B7FF0] text-sm font-semibold uppercase tracking-wider">Con attempo</span>
+          </div>
+        </m.div>
+
+        {/* Filas comparativas */}
+        <div className="flex flex-col gap-3">
+          {filas.map((fila, i) => (
+            <m.div key={i} variants={fadeUp} className="grid grid-cols-2 gap-3">
+              <div className="flex items-center gap-3 px-5 py-4 bg-white/5 rounded-2xl border border-white/5">
+                <div className="w-1.5 h-1.5 bg-red-400/50 rounded-full flex-shrink-0" />
+                <p className="text-gray-400 text-sm leading-relaxed">{fila.antes}</p>
+              </div>
+              <div className="flex items-center gap-3 px-5 py-4 bg-[#6C5CE4]/10 rounded-2xl border border-[#6C5CE4]/20">
+                <div className="w-1.5 h-1.5 bg-[#6C5CE4] rounded-full flex-shrink-0" />
+                <p className="text-white text-sm leading-relaxed font-medium">{fila.despues}</p>
+              </div>
+            </m.div>
+          ))}
+        </div>
       </m.div>
     </section>
   )
