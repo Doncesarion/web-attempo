@@ -12,7 +12,7 @@ const footerLinks = {
   ],
   Soluciones: [
     { label: "Psicólogos", href: "/soluciones/psicologos" },
-    { label: "Médicos Generales", href: "/soluciones/medicos-generales" },
+    { label: "Médicos", href: "/soluciones/medicos" },
     { label: "Centros Clínicos", href: "/soluciones/centros-clinicos" },
     { label: "Barberías", href: "/soluciones/barberias" },
     { label: "Ver todas", href: "/soluciones" },

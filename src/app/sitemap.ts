@@ -4,10 +4,11 @@ import { posts } from "@/lib/blog"
 const BASE = "https://attempo.cl"
 
 const especialidades = [
-  "psicologos", "psiquiatras", "medicos-generales", "centros-clinicos",
-  "barberias", "derecho", "nutricion", "matronas", "esteticas",
+  "psicologos", "psiquiatras", "medicos", "centros-clinicos",
+  "barberias", "derecho", "matronas", "esteticas",
   "fisioterapeutas", "yoga",
-  "nutricionistas", "kinesiologos", "dentistas", "medicos",
+  "nutricionistas", "kinesiologos", "dentistas",
+  "belleza", "personal-trainer", "coach", "consultor",
 ]
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -24,6 +25,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/blog`, priority: 0.6, changeFrequency: "weekly" as const, lastModified: now },
     { url: `${BASE}/contacto`, priority: 0.6, changeFrequency: "yearly" as const, lastModified: now },
     { url: `${BASE}/centro-de-ayuda`, priority: 0.5, changeFrequency: "monthly" as const, lastModified: now },
+    { url: `${BASE}/portal-pacientes`, priority: 0.4, changeFrequency: "monthly" as const, lastModified: now },
     { url: `${BASE}/privacidad`, priority: 0.3, changeFrequency: "yearly" as const, lastModified: now },
     { url: `${BASE}/terminos`, priority: 0.3, changeFrequency: "yearly" as const, lastModified: now },
   ]

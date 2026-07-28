@@ -200,9 +200,10 @@ const categorias: Categoria[] = [
 // ---------------------------------------------------------------------------
 
 function ArticuloCard({ articulo }: { articulo: Articulo }) {
+  const mailtoHref = `mailto:contacto@attempo.cl?subject=${encodeURIComponent(`Ayuda: ${articulo.title}`)}`
   return (
     <a
-      href="/contacto"
+      href={mailtoHref}
       className="group flex gap-4 items-start p-5 rounded-2xl border border-gray-100 hover:border-[#6C5CE4] hover:shadow-sm transition-all bg-white"
     >
       <div className="w-9 h-9 bg-[#6C5CE4]/10 rounded-xl flex items-center justify-center shrink-0 mt-0.5">
