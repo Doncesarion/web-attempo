@@ -117,100 +117,6 @@ export const especialidades: Especialidad[] = [
     ],
   },
   {
-    slug: "medicos-generales",
-    nombre: "Médicos Generales",
-    emoji: "👨‍⚕️",
-    descripcion: "Organiza tu agenda médica y reduce las inasistencias con recordatorios.",
-    dolor: "El teléfono no para de sonar para agendar citas mientras intentas atender a los pacientes que ya están ahí.",
-    dolorDesc: "Cada llamada para agendar interrumpe tu consulta y sobrecarga a tu secretaria. El resultado: errores de agenda, pacientes que esperan y un día que nunca termina a la hora que debería.",
-    features: [
-      {
-        icon: "Globe",
-        title: "Agenda online 24/7",
-        desc: "Los pacientes reservan su hora por web o WhatsApp a cualquier hora, sin llamar al consultorio.",
-      },
-      {
-        icon: "CheckCircle2",
-        title: "Confirmación automática",
-        desc: "Cada reserva genera una confirmación instantánea por WhatsApp sin intervención manual.",
-      },
-      {
-        icon: "CalendarDays",
-        title: "Vista de día completa",
-        desc: "Visualiza todas las citas del día, con nombre, motivo de consulta y hora exacta de un vistazo.",
-      },
-      {
-        icon: "Bot",
-        title: "Chatbot IA para consultas frecuentes",
-        desc: "Attia responde preguntas sobre horarios, valores y disponibilidad sin que nadie lo atienda.",
-      },
-    ],
-    beneficios: [
-      {
-        n: "01",
-        title: "Cero llamadas para agendar",
-        desc: "Los pacientes reservan solos online, liberando el teléfono y a tu personal administrativo.",
-      },
-      {
-        n: "02",
-        title: "Un día predecible y sin sorpresas",
-        desc: "La confirmación automática y los recordatorios eliminan los no-shows y los espacios vacíos.",
-      },
-      {
-        n: "03",
-        title: "Menos carga administrativa",
-        desc: "Automatiza confirmaciones, recordatorios y respuestas frecuentes para que tu equipo se enfoque en la atención.",
-      },
-    ],
-  },
-  {
-    slug: "centros-clinicos",
-    nombre: "Centros Clínicos",
-    emoji: "🏥",
-    descripcion: "Administra múltiples especialistas y salas desde un solo panel.",
-    dolor: "Coordinar la agenda de cinco especialistas y tres salas a la vez es una fuente constante de errores y conflictos.",
-    dolorDesc: "Con múltiples profesionales compartiendo espacio, un error de coordinación significa pacientes que se cruzan, salas sin uso o profesionales sin citas. Sin visibilidad centralizada, el caos es solo cuestión de tiempo.",
-    features: [
-      {
-        icon: "Users",
-        title: "Múltiples agendas simultáneas",
-        desc: "Cada profesional tiene su propia agenda visible desde el mismo panel administrativo.",
-      },
-      {
-        icon: "Monitor",
-        title: "Panel centralizado del centro",
-        desc: "El administrador ve en tiempo real la ocupación de todos los profesionales y salas.",
-      },
-      {
-        icon: "BarChart2",
-        title: "Reportes por profesional",
-        desc: "Genera reportes de citas, inasistencias e ingresos desglosados por cada especialista del centro.",
-      },
-      {
-        icon: "Building2",
-        title: "Gestión de salas",
-        desc: "Asigna salas a cada cita para evitar conflictos de espacio entre profesionales.",
-      },
-    ],
-    beneficios: [
-      {
-        n: "01",
-        title: "Visibilidad total del centro en tiempo real",
-        desc: "Un solo panel muestra quién atiende, dónde y a qué hora sin necesidad de preguntar.",
-      },
-      {
-        n: "02",
-        title: "Sin conflictos de horario ni sala",
-        desc: "El sistema bloquea automáticamente las salas ya asignadas para evitar solapamientos.",
-      },
-      {
-        n: "03",
-        title: "Métricas por especialista",
-        desc: "Mide el rendimiento de cada profesional con datos reales de ocupación e ingresos.",
-      },
-    ],
-  },
-  {
     slug: "barberias",
     nombre: "Barberías",
     emoji: "✂️",
@@ -301,53 +207,6 @@ export const especialidades: Especialidad[] = [
         n: "03",
         title: "Tu tiempo siempre protegido",
         desc: "Con cobro anticipado y política de cancelación automatizada, el riesgo financiero desaparece.",
-      },
-    ],
-  },
-  {
-    slug: "nutricion",
-    nombre: "Nutricionistas",
-    emoji: "🥗",
-    descripcion: "Planifica tus consultas nutricionales y mantén a tus pacientes informados.",
-    dolor: "Los pacientes empiezan el tratamiento con entusiasmo y lo abandonan a la mitad del paquete sin avisarte.",
-    dolorDesc: "Un paquete de 6 consultas que se interrumpe en la tercera no solo afecta el resultado del paciente. Te deja con horas sin llenar y dinero que ya habías comprometido. Sin seguimiento activo y recordatorios de continuidad, la deserción es la norma.",
-    features: [
-      {
-        icon: "Package",
-        title: "Paquetes de sesiones con control de avance",
-        desc: "Vende paquetes de consultas y lleva el estado de cada paciente: cuántas ha usado y cuántas le quedan.",
-      },
-      {
-        icon: "Bell",
-        title: "Recordatorios de seguimiento personalizados",
-        desc: "El sistema recuerda al paciente su próxima consulta según la cadencia del tratamiento.",
-      },
-      {
-        icon: "ClipboardList",
-        title: "Historial alimentario en ficha",
-        desc: "Registra los avances, objetivos y notas de cada consulta directamente en la ficha del paciente.",
-      },
-      {
-        icon: "CreditCard",
-        title: "Cobro por paquete anticipado",
-        desc: "El paciente paga el paquete completo al inicio del tratamiento asegurando la continuidad.",
-      },
-    ],
-    beneficios: [
-      {
-        n: "01",
-        title: "Mayor adherencia al tratamiento",
-        desc: "Los recordatorios automáticos y el pago anticipado aumentan significativamente la tasa de completitud.",
-      },
-      {
-        n: "02",
-        title: "Control real de paquetes vendidos",
-        desc: "Sabes exactamente qué pacientes tienen sesiones pendientes sin revisar planillas ni anotaciones.",
-      },
-      {
-        n: "03",
-        title: "Seguimiento real del paciente",
-        desc: "La ficha integrada con historial y notas te permite preparar cada consulta con contexto completo.",
       },
     ],
   },
@@ -861,6 +720,194 @@ export const especialidades: Especialidad[] = [
       {
         q: "¿Funciona para botox, extensiones de pestañas y tratamientos estéticos?",
         a: "Sí. Puedes crear cualquier servicio con su precio, duración y descripción. Ya sea un corte, color, diseño de cejas, extensiones de pestañas, botox o tratamiento facial — todo se puede agendar online.",
+      },
+    ],
+  },
+  {
+    slug: "personal-trainer",
+    nombre: "Entrenadores Personales",
+    emoji: "💪",
+    descripcion: "Agenda sesiones, paquetes de entrenamiento y clases grupales con cobro anticipado.",
+    dolor: "Tus clientes cancelan el entrenamiento con media hora de aviso y pierdes esa hora sin recuperarla.",
+    dolorDesc: "Un entrenador personal no puede rellenar una hora cancelada a último minuto. Sin cobro anticipado ni política de cancelación automatizada, el control está completamente en manos del cliente, que sabe que puede cancelar sin consecuencias.",
+    features: [
+      {
+        icon: "CreditCard",
+        title: "Cobro anticipado por sesión o paquete",
+        desc: "El cliente paga al reservar. Sin pago, no hay hora confirmada.",
+      },
+      {
+        icon: "Package",
+        title: "Paquetes de sesiones con control",
+        desc: "Vende 8, 12 o 20 sesiones y lleva el control de cuántas quedan por usar.",
+      },
+      {
+        icon: "Bell",
+        title: "Recordatorio automático antes del entreno",
+        desc: "El sistema recuerda la sesión por WhatsApp para que el cliente no olvide ni cancele.",
+      },
+      {
+        icon: "CalendarDays",
+        title: "Disponibilidad en tiempo real",
+        desc: "El cliente reserva su hora directamente desde el link sin llamadas ni mensajes.",
+      },
+    ],
+    beneficios: [
+      {
+        n: "01",
+        title: "Cero cancelaciones de último minuto",
+        desc: "El cobro anticipado hace que el cliente piense dos veces antes de cancelar.",
+      },
+      {
+        n: "02",
+        title: "Tu agenda llena y organizada",
+        desc: "Sin mensajes de WhatsApp para coordinar horarios. El cliente elige y reserva solo.",
+      },
+      {
+        n: "03",
+        title: "Control de todos tus paquetes vendidos",
+        desc: "Sabe exactamente cuántas sesiones tiene disponible cada cliente sin llevar planillas.",
+      },
+    ],
+  },
+  {
+    slug: "coach",
+    nombre: "Coach",
+    emoji: "🎯",
+    descripcion: "Agenda sesiones de coaching, mentorías y talleres con compromiso de pago desde el inicio.",
+    dolor: "Tus sesiones de coaching se cortan cuando el cliente pierde motivación, y no tienes forma de retenerlo ni de proteger tu ingreso.",
+    dolorDesc: "El trabajo de coaching depende del compromiso del cliente. Sin un sistema que asegure el pago anticipado y los recordatorios entre sesiones, es el cliente quien decide si sigue o no. Y cuando decide que no, ya perdiste la hora.",
+    features: [
+      {
+        icon: "CreditCard",
+        title: "Cobro anticipado del programa",
+        desc: "El cliente paga el programa completo al inicio. Su compromiso empieza antes de la primera sesión.",
+      },
+      {
+        icon: "Package",
+        title: "Programas y paquetes de sesiones",
+        desc: "Configura programas de 4, 8 o 12 sesiones con precio y duración personalizados.",
+      },
+      {
+        icon: "MessageCircle",
+        title: "Recordatorio de sesión por WhatsApp",
+        desc: "El sistema recuerda cada sesión automáticamente para mantener el ritmo del proceso.",
+      },
+      {
+        icon: "Users",
+        title: "Talleres y grupos con cupo controlado",
+        desc: "Crea eventos grupales con cupo limitado e inscripción y pago online.",
+      },
+    ],
+    beneficios: [
+      {
+        n: "01",
+        title: "Clientes que no abandonan el proceso",
+        desc: "El cobro anticipado y los recordatorios mantienen el compromiso durante todo el programa.",
+      },
+      {
+        n: "02",
+        title: "Agenda sin coordinación manual",
+        desc: "El cliente reserva y paga sin mensajes de WhatsApp de ida y vuelta.",
+      },
+      {
+        n: "03",
+        title: "Escalable a grupos y talleres",
+        desc: "Crece de sesiones individuales a talleres grupales sin cambiar de sistema.",
+      },
+    ],
+  },
+  {
+    slug: "consultor",
+    nombre: "Consultores",
+    emoji: "📊",
+    descripcion: "Agenda reuniones de consultoría, asesorías y proyectos con cobro anticipado y ficha de cliente.",
+    dolor: "Tus reuniones de consultoría se agendan, se posponen y se cancelan sin costo para el cliente. El tiempo perdido es tuyo.",
+    dolorDesc: "Un consultor independiente no puede darse el lujo de reuniones canceladas a último minuto. Sin cobro anticipado ni confirmación formal, el cliente siente que puede reorganizar sin consecuencias porque la reunión no le costó nada todavía.",
+    features: [
+      {
+        icon: "CreditCard",
+        title: "Cobro anticipado por hora de consultoría",
+        desc: "El cliente paga al agendar. Si cancela fuera de plazo, la hora ya está cobrada.",
+      },
+      {
+        icon: "ClipboardList",
+        title: "Ficha de cliente con historial",
+        desc: "Registra notas, acuerdos y próximos pasos de cada cliente en su ficha.",
+      },
+      {
+        icon: "Bell",
+        title: "Recordatorio automático de reunión",
+        desc: "El sistema recuerda la reunión por email y WhatsApp para que nadie olvide.",
+      },
+      {
+        icon: "CalendarDays",
+        title: "Link de agendamiento profesional",
+        desc: "Comparte tu link y el cliente agenda directamente según tu disponibilidad real.",
+      },
+    ],
+    beneficios: [
+      {
+        n: "01",
+        title: "Sin reuniones canceladas sin costo",
+        desc: "El cobro anticipado asegura que cada hora agendada tiene valor para el cliente.",
+      },
+      {
+        n: "02",
+        title: "Imagen profesional desde el primer contacto",
+        desc: "Un link de agendamiento con Webpay proyecta seriedad y organización.",
+      },
+      {
+        n: "03",
+        title: "Historial de cada cliente centralizado",
+        desc: "Notas, acuerdos y seguimiento en un solo lugar, sin archivos dispersos.",
+      },
+    ],
+  },
+  {
+    slug: "centros-clinicos",
+    nombre: "Centros Clínicos",
+    emoji: "🏥",
+    descripcion: "Administra múltiples especialistas y salas desde un solo panel.",
+    dolor: "Coordinar la agenda de cinco especialistas y tres salas a la vez es una fuente constante de errores y conflictos.",
+    dolorDesc: "Con múltiples profesionales compartiendo espacio, un error de coordinación significa pacientes que se cruzan, salas sin uso o profesionales sin citas. Sin visibilidad centralizada, el caos es solo cuestión de tiempo.",
+    features: [
+      {
+        icon: "Users",
+        title: "Múltiples agendas simultáneas",
+        desc: "Cada profesional tiene su propia agenda visible desde el mismo panel administrativo.",
+      },
+      {
+        icon: "Monitor",
+        title: "Panel centralizado del centro",
+        desc: "El administrador ve en tiempo real la ocupación de todos los profesionales y salas.",
+      },
+      {
+        icon: "BarChart2",
+        title: "Reportes por profesional",
+        desc: "Genera reportes de citas, inasistencias e ingresos desglosados por cada especialista del centro.",
+      },
+      {
+        icon: "Building2",
+        title: "Gestión de salas",
+        desc: "Asigna salas a cada cita para evitar conflictos de espacio entre profesionales.",
+      },
+    ],
+    beneficios: [
+      {
+        n: "01",
+        title: "Visibilidad total del centro en tiempo real",
+        desc: "Un solo panel muestra quién atiende, dónde y a qué hora sin necesidad de preguntar.",
+      },
+      {
+        n: "02",
+        title: "Sin conflictos de horario ni sala",
+        desc: "El sistema bloquea automáticamente las salas ya asignadas para evitar solapamientos.",
+      },
+      {
+        n: "03",
+        title: "Métricas por especialista",
+        desc: "Mide el rendimiento de cada profesional con datos reales de ocupación e ingresos.",
       },
     ],
   },

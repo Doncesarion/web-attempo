@@ -56,6 +56,13 @@ const ArrowRightIcon = () => (
     <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
   </svg>
 )
+const GoogleCalendarIcon = () => (
+  <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+    <rect x="3" y="4" width="18" height="18" rx="2" strokeLinecap="round" strokeLinejoin="round"/>
+    <path strokeLinecap="round" strokeLinejoin="round" d="M16 2v4M8 2v4M3 10h18"/>
+    <path strokeLinecap="round" strokeLinejoin="round" d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/>
+  </svg>
+)
 
 /* ── Animation variants ───────────────────────────────────────────────── */
 const ease = [0.25, 0.46, 0.45, 0.94] as const
@@ -188,6 +195,7 @@ export default function PlataformaContent() {
     { icon: <DocumentIcon />, label: "Boleta de honorarios" },
     { icon: <SparklesIcon />, label: "Chatbot IA" },
     { icon: <ChartIcon />, label: "Reportes y estadísticas" },
+    { icon: <GoogleCalendarIcon />, label: "Google Calendar" },
   ]
 
   return (
@@ -265,6 +273,23 @@ export default function PlataformaContent() {
         image="/desktop-agenda.png"
         imageAlt="Vista de agenda en attempo"
         bg="bg-white"
+      />
+
+      {/* ── Google Calendar ────────────────────────────────────────────── */}
+      <FeatureBlock
+        badge="Google Calendar"
+        title="Tu agenda personal y attempo siempre sincronizados"
+        description="Vincula tu cuenta de Google una sola vez y cada cita que agendas en attempo aparece automáticamente en tu Google Calendar. Al cancelar, desaparece sola."
+        bullets={[
+          "Conecta con un clic desde Configuración",
+          "Cada cita nueva se crea en tu Google Calendar al instante",
+          "Al cancelar una cita, el evento se elimina automáticamente",
+          "Compatible con iPhone, Android, Mac y cualquier app de calendario",
+        ]}
+        image="/desktop-agenda.png"
+        imageAlt="Sincronización Google Calendar con attempo"
+        reverse={true}
+        bg="bg-[#fafafa]"
       />
 
       {/* ── Recordatorios ──────────────────────────────────────────────── */}

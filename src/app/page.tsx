@@ -7,8 +7,10 @@ import {
   FeaturesSection,
   ScreenshotsSection,
   WebpaySection,
-  TestimonialsSection,
+  SeguridadSection,
   EspecialidadesSection,
+  AttiaSection,
+  TestimonialsSection,
   CTASection,
 } from "@/components/HomeAnimations"
 
@@ -192,7 +194,9 @@ export default function HomePage() {
         <FeaturesSection />
         <ScreenshotsSection />
         <WebpaySection />
+        <SeguridadSection />
         <EspecialidadesSection />
+        <AttiaSection />
         <TestimonialsSection />
         <CTASection />
       </div>

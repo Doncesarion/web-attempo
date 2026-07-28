@@ -62,10 +62,10 @@ const planes = [
   {
     id: "inicio",
     nombre: "Inicio",
-    tag: "Para empezar",
+    tag: "Profesional independiente",
     mensual: 24990,
     anual: 239900,
-    desc: "Todo lo que necesitas para digitalizar tu agenda y empezar a cobrar online.",
+    desc: "Digitaliza tu agenda, recibe cobros por Webpay y envía recordatorios automáticos. Sin complicaciones.",
     popular: false,
     cta: "Empieza gratis",
     href: "https://app.attempo.cl/registro",
@@ -85,10 +85,10 @@ const planes = [
   {
     id: "pro",
     nombre: "Pro",
-    tag: "Para profesionales",
+    tag: "Profesional avanzado",
     mensual: 44990,
     anual: 431900,
-    desc: "Herramientas avanzadas para profesionales consolidados que quieren crecer.",
+    desc: "Todo lo del plan Inicio más boletas electrónicas, transcripción IA de consultas y cero costo en transferencias.",
     popular: true,
     cta: "Empieza gratis",
     href: "https://app.attempo.cl/registro",
@@ -105,14 +105,14 @@ const planes = [
   {
     id: "clinica",
     nombre: "Clínica IA",
-    tag: "Para centros",
+    tag: "Automatización total IA",
     mensual: 119990,
     anual: 1151900,
-    desc: "Automatización total con IA para centros médicos y clínicas con múltiples profesionales.",
+    desc: "El chatbot agenda, cobra y recupera citas por ti las 24 horas. Para quien quiere que el sistema trabaje mientras atiende.",
     popular: false,
     cta: "Hablar con ventas",
     href: "/contacto",
-    nota: null,
+    nota: "El chatbot puede llenar 3–5 citas extra al mes que antes perdías. El plan se paga solo.",
     features: [
       "Todo lo del plan Pro",
       "Chatbot IA en WhatsApp 24/7",
@@ -257,6 +257,7 @@ export default function PreciosContent() {
           {planes.map((plan) => (
             <m.div
               key={plan.id}
+              id={plan.id}
               variants={fadeUp}
               className={`relative rounded-2xl flex flex-col border transition-shadow hover:shadow-lg ${
                 plan.popular
@@ -323,9 +324,9 @@ export default function PreciosContent() {
                     </li>
                   ))}
                   {plan.nota && (
-                    <li className={`flex items-start gap-2.5 mt-2 ${plan.popular ? "" : "opacity-50"}`}>
-                      <span className={`text-xs mt-0.5 ${plan.popular ? "text-[#6C5CE4]" : "text-gray-400"}`}>·</span>
-                      <span className={`text-xs font-medium ${plan.popular ? "text-[#6C5CE4]" : "text-gray-400"}`}>{plan.nota}</span>
+                    <li className="flex items-start gap-2.5 mt-2">
+                      <span className="text-xs mt-0.5 text-[#6C5CE4]">·</span>
+                      <span className="text-xs font-medium text-[#6C5CE4]">{plan.nota}</span>
                     </li>
                   )}
                 </ul>
@@ -335,6 +336,54 @@ export default function PreciosContent() {
         </m.div>
 
         <p className="text-center text-xs text-gray-400 mt-6">Todos los precios en pesos chilenos + IVA.</p>
+      </section>
+
+      {/* ── ¿Cuál es para ti? ──────────────────────────────────────────── */}
+      <section className="py-12 px-4 bg-gray-50">
+        <m.div
+          className="max-w-5xl mx-auto"
+          initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={stagger}
+        >
+          <m.p variants={fadeUp} className="text-center text-sm text-gray-400 font-medium mb-5 tracking-wider">¿Cuál es para ti?</m.p>
+          <m.div variants={fadeUp} className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {[
+              {
+                numero: "01",
+                titulo: "Trabajo solo",
+                desc: "Quiero digitalizar mi agenda y cobrar online sin complicaciones.",
+                recomendacion: "Plan Inicio",
+                href: "#inicio",
+              },
+              {
+                numero: "02",
+                titulo: "Quiero herramientas avanzadas",
+                desc: "Emito boletas, transcribo consultas y no quiero pagar comisión en transferencias.",
+                recomendacion: "Plan Pro",
+                href: "#pro",
+              },
+              {
+                numero: "03",
+                titulo: "Quiero automatización total",
+                desc: "Necesito que el sistema atienda, agende y cobre sin que yo intervenga.",
+                recomendacion: "Plan Clínica IA",
+                href: "#clinica",
+              },
+            ].map((p) => (
+              <a
+                key={p.titulo}
+                href={p.href}
+                className="group flex flex-col gap-3 bg-white hover:bg-[#f5f3ff] border border-gray-200 hover:border-[#6C5CE4]/40 rounded-2xl p-5 transition-all cursor-pointer"
+              >
+                <span className="text-4xl font-black text-gray-300 group-hover:text-[#6C5CE4]/30 transition-colors leading-none">{p.numero}</span>
+                <div>
+                  <p className="font-bold text-gray-900 text-sm mb-1">{p.titulo}</p>
+                  <p className="text-xs text-gray-500 leading-relaxed">{p.desc}</p>
+                </div>
+                <span className="mt-auto text-xs font-bold text-[#6C5CE4] group-hover:underline">{p.recomendacion} →</span>
+              </a>
+            ))}
+          </m.div>
+        </m.div>
       </section>
 
       {/* ── Planes Attia (Solo Chatbot) ─────────────────────────────────────── */}

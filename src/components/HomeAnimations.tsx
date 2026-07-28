@@ -81,7 +81,7 @@ export function HeroSection() {
           <div style={{ animation: "fade-in-up 0.6s ease both 0ms" }}>
             <span className="inline-flex items-center gap-2 bg-[#6C5CE4]/10 text-[#6C5CE4] px-4 py-1.5 rounded-full text-sm font-medium mb-6">
               <span className="w-2 h-2 bg-[#6C5CE4] rounded-full animate-pulse" />
-              Chatbot IA · WhatsApp · Instagram · Messenger
+              Agenda online · Cobro con Webpay · Recordatorios automáticos
             </span>
           </div>
 
@@ -106,7 +106,7 @@ export function HeroSection() {
             className="text-xl text-gray-600 mb-10 max-w-lg mx-auto lg:mx-0"
             style={{ animation: "fade-in-up 0.6s ease both 200ms" }}
           >
-            La plataforma de agendamiento para profesionales de la salud y servicios en Chile. Recuerda, cobra y atiende sin esfuerzo.
+            Una inasistencia sin aviso es dinero que no vuelve. attempo cobra antes de confirmar la hora, recuerda automáticamente a tus clientes y, cuando no estás, agenda por ti las 24 horas.
           </p>
 
           <div
@@ -126,6 +126,12 @@ export function HeroSection() {
               Ver demo
             </a>
           </div>
+          <p
+            className="text-sm text-gray-400 mt-2 text-center lg:text-left"
+            style={{ animation: "fade-in-up 0.6s ease both 400ms" }}
+          >
+            12 días gratis · desde $24.990/mes · sin tarjeta
+          </p>
 
           <div
             className="mt-10 flex items-center gap-6 justify-center lg:justify-start text-sm text-gray-500"
@@ -224,6 +230,7 @@ export function FeaturesSection() {
     { n: "07", title: "Paquetes de sesiones", desc: "Vende sesiones en bloque y controla el avance de cada paquete por cliente." },
     { n: "08", title: "Boleta de honorarios", desc: "Genera boletas de honorarios directamente desde la plataforma. Integración SII." },
     { n: "09", title: "Página de reservas online", desc: "Tu propio link de reservas personalizado para compartir con tus pacientes." },
+    { n: "10", title: "Sincronización Google Calendar", desc: "Vincula tu cuenta y cada cita aparece en tu Google Calendar al instante. Al cancelar, desaparece automáticamente." },
   ]
 
   return (
@@ -248,7 +255,7 @@ export function FeaturesSection() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-12">
           {features.map((f) => (
             <m.div key={f.title} variants={fadeUp} className="group">
-              <span className="block text-6xl font-bold text-gray-100 group-hover:text-[#6C5CE4]/20 transition-colors leading-none mb-4 tabular-nums">
+              <span className="block text-6xl font-bold text-gray-300 group-hover:text-[#6C5CE4]/30 transition-colors leading-none mb-4 tabular-nums">
                 {f.n}
               </span>
               <h3 className="font-semibold text-gray-900 text-base mb-2 group-hover:text-[#6C5CE4] transition-colors">{f.title}</h3>
@@ -519,23 +526,51 @@ export function TestimonialsSection() {
 }
 
 export function EspecialidadesSection() {
-  const items = [
-    { slug: "psicologos", nombre: "Psicólogos", emoji: "🧠" },
-    { slug: "psiquiatras", nombre: "Psiquiatras", emoji: "🩺" },
-    { slug: "medicos-generales", nombre: "Médicos", emoji: "👨‍⚕️" },
-    { slug: "centros-clinicos", nombre: "Centros Clínicos", emoji: "🏥" },
-    { slug: "barberias", nombre: "Barberías", emoji: "✂️" },
-    { slug: "nutricion", nombre: "Nutricionistas", emoji: "🥗" },
-    { slug: "matronas", nombre: "Matronas", emoji: "🤱" },
-    { slug: "esteticas", nombre: "Estéticas", emoji: "💆" },
-    { slug: "fisioterapeutas", nombre: "Fisioterapeutas", emoji: "🦴" },
-    { slug: "yoga", nombre: "Yoga", emoji: "🧘" },
-    { slug: "derecho", nombre: "Abogados", emoji: "⚖️" },
-    { slug: "belleza", nombre: "Peluquerías y Belleza", emoji: "💇" },
+  const clusters = [
+    {
+      nombre: "Salud",
+      numero: "01",
+      items: [
+        { slug: "psicologos",      nombre: "Psicólogos" },
+        { slug: "psiquiatras",     nombre: "Psiquiatras" },
+        { slug: "medicos",         nombre: "Médicos" },
+        { slug: "matronas",        nombre: "Matronas" },
+        { slug: "fisioterapeutas", nombre: "Kinesiólogos" },
+        { slug: "dentistas",       nombre: "Dentistas" },
+      ],
+    },
+    {
+      nombre: "Bienestar y Estética",
+      numero: "02",
+      items: [
+        { slug: "nutricionistas",  nombre: "Nutricionistas" },
+        { slug: "yoga",            nombre: "Yoga y Pilates" },
+        { slug: "esteticas",       nombre: "Estéticas" },
+        { slug: "belleza",         nombre: "Peluquerías" },
+        { slug: "barberias",       nombre: "Barberías" },
+      ],
+    },
+    {
+      nombre: "Fitness y Deporte",
+      numero: "03",
+      items: [
+        { slug: "personal-trainer", nombre: "Entrenador personal" },
+        { slug: "yoga",             nombre: "Clases grupales" },
+      ],
+    },
+    {
+      nombre: "Consultoría y Legal",
+      numero: "04",
+      items: [
+        { slug: "derecho",   nombre: "Abogados" },
+        { slug: "coach",     nombre: "Coach" },
+        { slug: "consultor", nombre: "Consultores" },
+      ],
+    },
   ]
 
   return (
-    <section className="py-24 px-4 bg-white">
+    <section className="py-24 px-4 bg-gray-50">
       <m.div
         variants={stagger}
         initial="hidden"
@@ -543,20 +578,48 @@ export function EspecialidadesSection() {
         viewport={{ once: true, margin: "-80px" }}
         className="max-w-7xl mx-auto"
       >
-        <m.div variants={fadeUp} className="text-center mb-12">
-          <span className="text-[#6C5CE4] text-sm font-medium uppercase tracking-wider">Soluciones</span>
-          <h2 className="text-4xl font-bold text-gray-900 mt-2 mb-4">Diseñado para tu especialidad</h2>
-          <p className="text-gray-500 max-w-xl mx-auto">attempo se adapta a cualquier profesional o negocio de servicios en Chile.</p>
+        <m.div variants={fadeUp} className="text-center mb-14">
+          <span className="text-[#6C5CE4] text-sm font-medium tracking-wider">Para quién</span>
+          <h2 className="text-4xl font-bold text-gray-900 mt-2 mb-4">Si cobras por tu tiempo,<br className="hidden sm:block" /> attempo es para ti</h2>
+          <p className="text-gray-500 max-w-xl mx-auto">Cualquier profesional o negocio que trabaje con citas, horas o reservas puede digitalizarse con attempo en menos de 5 minutos.</p>
         </m.div>
-        <m.div variants={fadeUp} className="flex flex-wrap gap-3 justify-center">
-          {items.map((e) => (
-            <a key={e.slug} href={`/soluciones/${e.slug}`} className="flex items-center px-5 py-3 bg-gray-50 border border-gray-200 rounded-full text-sm font-medium text-gray-700 hover:border-[#6C5CE4] hover:text-[#6C5CE4] hover:bg-purple-50 transition-all">
-              {e.nombre}
-            </a>
+
+        <m.div variants={fadeUp} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-12">
+          {clusters.map((cluster) => (
+            <div key={cluster.nombre} className="rounded-2xl border border-gray-200 bg-white overflow-hidden shadow-sm hover:shadow-md hover:border-[#6C5CE4]/30 transition-all group">
+              <div className="h-1 w-full bg-[#6C5CE4]" />
+              <div className="px-6 pt-5 pb-4">
+                <span className="text-5xl font-black text-gray-300 leading-none block mb-1 group-hover:text-[#6C5CE4]/30 transition-colors">
+                  {cluster.numero}
+                </span>
+                <h3 className="font-bold text-gray-900 text-base leading-snug">{cluster.nombre}</h3>
+                <p className="text-xs text-gray-400 mt-0.5">{cluster.items.length} especialidades</p>
+              </div>
+              <div className="px-6 pb-6 flex flex-col gap-2.5">
+                {cluster.items.map((item) => (
+                  <a
+                    key={item.slug}
+                    href={`/soluciones/${item.slug}`}
+                    className="flex items-center gap-2.5 text-sm text-gray-500 hover:text-[#6C5CE4] transition-colors group/item"
+                  >
+                    <span className="w-1.5 h-1.5 rounded-full bg-gray-200 group-hover/item:bg-[#6C5CE4] transition-colors flex-shrink-0" />
+                    {item.nombre}
+                  </a>
+                ))}
+              </div>
+            </div>
           ))}
-          <a href="/soluciones" className="flex items-center gap-2 px-5 py-3 bg-[#6C5CE4]/10 border border-[#6C5CE4]/20 rounded-full text-sm font-medium text-[#6C5CE4] hover:bg-[#6C5CE4] hover:text-white transition-all">
-            Ver todas →
+        </m.div>
+
+        <m.div variants={fadeUp} className="text-center">
+          <p className="text-sm text-gray-400 mb-4">¿No ves tu rubro? Igual puedes empezar.</p>
+          <a
+            href="https://app.attempo.cl/registro"
+            className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-[#6C5CE4] text-white font-semibold rounded-xl hover:bg-[#5A4BD1] transition-colors text-sm shadow-lg shadow-[#6C5CE4]/20"
+          >
+            Probar gratis 12 días →
           </a>
+          <p className="text-xs text-gray-400 mt-3">Sin tarjeta · Listo en 5 minutos</p>
         </m.div>
       </m.div>
     </section>
@@ -594,6 +657,130 @@ export function CTASection() {
   )
 }
 
+export function SeguridadSection() {
+  const puntos = [
+    {
+      titulo: "Datos cifrados en tránsito y en reposo",
+      desc: "Toda la información se transmite con TLS 1.3 y se almacena cifrada. Nadie sin autorización accede a los datos de tus pacientes.",
+    },
+    {
+      titulo: "Cumplimiento Ley 19.628",
+      desc: "attempo cumple con la Ley de Protección de Datos Personales de Chile. Tus pacientes saben cómo se usan sus datos y pueden solicitar su eliminación.",
+    },
+    {
+      titulo: "Acceso controlado por cuenta",
+      desc: "Solo tú y las personas que autoricen acceden a tu agenda y fichas de pacientes. Sin acceso cruzado entre negocios.",
+    },
+    {
+      titulo: "Backups automáticos diarios",
+      desc: "Tu información se respalda automáticamente cada 24 horas. Sin riesgo de pérdida de datos.",
+    },
+  ]
+
+  return (
+    <section className="py-20 px-4 bg-white">
+      <m.div
+        variants={stagger}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-80px" }}
+        className="max-w-5xl mx-auto"
+      >
+        <m.div variants={fadeUp} className="text-center mb-12">
+          <span className="text-[#6C5CE4] text-sm font-medium tracking-wider block mb-3">Seguridad y privacidad</span>
+          <h2 className="text-3xl font-bold text-gray-900 mb-3">Los datos de tus pacientes<br className="hidden sm:block" /> están seguros con nosotros</h2>
+          <p className="text-gray-500 max-w-xl mx-auto">Construido desde el primer día con estándares de seguridad para el manejo de datos sensibles de salud.</p>
+        </m.div>
+        <m.div variants={fadeUp} className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+          {puntos.map((p) => (
+            <div key={p.titulo} className="flex gap-4 p-6 rounded-2xl border border-gray-100 bg-gray-50">
+              <div className="w-8 h-8 rounded-xl bg-[#6C5CE4]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg className="w-4 h-4 text-[#6C5CE4]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                </svg>
+              </div>
+              <div>
+                <h3 className="font-semibold text-gray-900 text-sm mb-1">{p.titulo}</h3>
+                <p className="text-sm text-gray-500 leading-relaxed">{p.desc}</p>
+              </div>
+            </div>
+          ))}
+        </m.div>
+      </m.div>
+    </section>
+  )
+}
+
+export function AttiaSection() {
+  return (
+    <section className="py-20 px-4 bg-[#f5f3ff]">
+      <m.div
+        variants={stagger}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-80px" }}
+        className="max-w-5xl mx-auto"
+      >
+        <m.div variants={fadeUp} className="grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <span className="text-[#6C5CE4] text-sm font-medium tracking-wider block mb-3">Para negocios sin agenda</span>
+            <h2 className="text-4xl font-bold text-gray-900 mb-5 leading-tight">
+              ¿Vendes por Instagram<br className="hidden sm:block" /> pero no necesitas agenda?
+            </h2>
+            <p className="text-gray-500 text-lg mb-6 leading-relaxed">
+              attia responde automáticamente en WhatsApp, Instagram y Messenger las 24 horas. Ideal para pastelerías, tiendas online, emprendimientos y cualquier negocio que reciba consultas pero no gestione citas.
+            </p>
+            <ul className="flex flex-col gap-3 mb-8">
+              {[
+                "Responde preguntas de producto, precios y disponibilidad",
+                "Atiende mientras duermes o produces",
+                "Sin agenda · Solo chatbot IA",
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-3 text-sm text-gray-600">
+                  <span className="w-5 h-5 rounded-full bg-[#6C5CE4]/15 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <svg className="w-3 h-3 text-[#6C5CE4]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                  </span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <a
+              href="/precios#attia"
+              className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#6C5CE4] text-white font-semibold rounded-xl hover:bg-[#5A4BD1] transition-colors text-sm"
+            >
+              Ver planes Attia →
+            </a>
+          </div>
+          <div className="bg-white rounded-3xl border border-[#6C5CE4]/10 shadow-xl p-8">
+            <p className="text-xs font-semibold text-gray-400 tracking-wider mb-6">Attia responde por ti</p>
+            <div className="flex flex-col gap-4">
+              {[
+                { quien: "Cliente", texto: "Tienen disponible el servicio el sábado a las 10:00?", lado: "izq" },
+                { quien: "Attia", texto: "Hola! Sí, tenemos disponibilidad el sábado a las 10:00. ¿Deseas agendar?", lado: "der" },
+                { quien: "Cliente", texto: "Sí, por favor.", lado: "izq" },
+                { quien: "Attia", texto: "Perfecto, te reservé la hora. En un momento recibirás la confirmación con los detalles.", lado: "der" },
+              ].map((msg, i) => (
+                <div key={i} className={`flex ${msg.lado === "der" ? "justify-end" : "justify-start"}`}>
+                  <div className={`max-w-[80%] px-4 py-2.5 rounded-2xl text-sm ${
+                    msg.lado === "der"
+                      ? "bg-[#6C5CE4] text-white rounded-tr-sm"
+                      : "bg-gray-100 text-gray-700 rounded-tl-sm"
+                  }`}>
+                    {msg.lado === "der" && <p className="text-[10px] text-white/60 mb-1 font-semibold">Attia</p>}
+                    {msg.texto}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </m.div>
+      </m.div>
+    </section>
+  )
+}
+
 export function ContrasteSection() {
   const filas = [
     {
@@ -612,6 +799,10 @@ export function ContrasteSection() {
       antes: "Cobrar después o perseguir al cliente por el pago",
       despues: "Cobro con Webpay al momento de reservar. Sin cuentas pendientes",
     },
+    {
+      antes: "Ver citas en attempo y en el calendario del celular por separado",
+      despues: "Todo sincronizado con Google Calendar. Una cita en attempo, aparece en todos tus dispositivos",
+    },
   ]
 
   return (
@@ -624,7 +815,7 @@ export function ContrasteSection() {
         className="max-w-5xl mx-auto"
       >
         <m.div variants={fadeUp} className="text-center mb-12">
-          <span className="inline-block bg-[#6C5CE4]/20 text-[#8B7FF0] text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full mb-6">
+          <span className="inline-block bg-[#6C5CE4]/20 text-[#8B7FF0] text-xs font-bold tracking-widest px-4 py-2 rounded-full mb-6">
             Por qué attempo
           </span>
           <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4 leading-tight">
@@ -640,11 +831,11 @@ export function ContrasteSection() {
         <m.div variants={fadeUp} className="grid grid-cols-2 gap-3 mb-3">
           <div className="flex items-center gap-2 px-5 py-3 bg-white/5 rounded-2xl border border-white/10">
             <span className="w-6 h-6 bg-red-500/20 rounded-full flex items-center justify-center text-red-400 text-xs font-bold flex-shrink-0">✕</span>
-            <span className="text-white/50 text-sm font-semibold uppercase tracking-wider">Sin attempo</span>
+            <span className="text-white/50 text-sm font-semibold tracking-wider">Sin attempo</span>
           </div>
           <div className="flex items-center gap-2 px-5 py-3 bg-[#6C5CE4]/15 rounded-2xl border border-[#6C5CE4]/30">
             <span className="w-6 h-6 bg-[#6C5CE4]/30 rounded-full flex items-center justify-center text-[#8B7FF0] text-xs font-bold flex-shrink-0">✓</span>
-            <span className="text-[#8B7FF0] text-sm font-semibold uppercase tracking-wider">Con attempo</span>
+            <span className="text-[#8B7FF0] text-sm font-semibold tracking-wider">Con attempo</span>
           </div>
         </m.div>
 

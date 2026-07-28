@@ -82,6 +82,60 @@ const icons: Record<string, React.ReactNode> = {
       <path d="M8 17h8" />
     </svg>
   ),
+  nutricionistas: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
+      <path d="M12 22V12" />
+      <path d="M12 12C12 7 16 3 21 3c0 5-4 9-9 9z" />
+      <path d="M12 12C12 7 8 3 3 3c0 5 4 9 9 9z" />
+    </svg>
+  ),
+  kinesiologos: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="4" r="2" />
+      <path d="M7 10h10M12 6v4" />
+      <path d="M9 21l3-8 3 8" />
+      <path d="M7 17h10" />
+    </svg>
+  ),
+  dentistas: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
+      <path d="M12 2C9.24 2 7 4.24 7 7c0 1.55.7 2.93 1.8 3.88 0 2-.3 5.62.84 8.12.41.97 1.18 1.5 2.16 1.5s1.75-.53 2.16-1.5C13.14 16.5 12.84 12.88 12.84 10.88 13.94 9.93 17 8.55 17 7c0-2.76-2.24-5-5-5z" />
+    </svg>
+  ),
+  medicos: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="12" r="9" />
+      <path d="M12 8v8M8 12h8" />
+    </svg>
+  ),
+  belleza: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="9" r="5" />
+      <path d="M10 14.5v6M14 14.5v6M8 20.5h8" />
+    </svg>
+  ),
+  "personal-trainer": (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
+      <path d="M7 12h10" />
+      <rect x="3" y="9" width="4" height="6" rx="1.5" />
+      <rect x="17" y="9" width="4" height="6" rx="1.5" />
+      <path d="M1 11h2M21 11h2M1 13h2M21 13h2" />
+    </svg>
+  ),
+  coach: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="12" r="9" />
+      <circle cx="12" cy="12" r="5" />
+      <circle cx="12" cy="12" r="1" fill="currentColor" stroke="none" />
+    </svg>
+  ),
+  consultor: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
+      <rect x="2" y="7" width="20" height="14" rx="2" />
+      <path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2" />
+      <path d="M12 12v4M10 14h4" />
+    </svg>
+  ),
 }
 
 /* ── Categorías ───────────────────────────────────────────────────────── */
@@ -89,21 +143,28 @@ const categorias = [
   { id: "todas", label: "Todas" },
   { id: "salud", label: "Salud" },
   { id: "bienestar", label: "Bienestar" },
-  { id: "servicios", label: "Servicios" },
+  { id: "fitness", label: "Fitness" },
+  { id: "consultoria", label: "Consultoría" },
 ]
 
 const categoriaPor: Record<string, string> = {
   psicologos: "salud",
   psiquiatras: "salud",
-  "medicos-generales": "salud",
   matronas: "salud",
   fisioterapeutas: "salud",
+  kinesiologos: "salud",
+  dentistas: "salud",
+  medicos: "salud",
   "centros-clinicos": "salud",
-  nutricion: "bienestar",
+  nutricionistas: "bienestar",
   yoga: "bienestar",
   esteticas: "bienestar",
-  barberias: "servicios",
-  derecho: "servicios",
+  belleza: "bienestar",
+  barberias: "bienestar",
+  "personal-trainer": "fitness",
+  derecho: "consultoria",
+  coach: "consultoria",
+  consultor: "consultoria",
 }
 
 /* ── Animations ───────────────────────────────────────────────────────── */
