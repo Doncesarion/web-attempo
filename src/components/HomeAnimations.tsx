@@ -452,29 +452,18 @@ export function ScreenshotsSection() {
             </div>
 
             {/* ── Phone ── */}
-            <div className="absolute -bottom-4 -right-2 lg:-right-6 z-20 w-[160px] hidden sm:block">
-              {/* Drop shadow glow */}
-              <div className="absolute -inset-3 bg-[#6C5CE4]/30 blur-xl rounded-[3rem] pointer-events-none" />
+            <div className="absolute -bottom-4 -right-2 lg:-right-6 z-20 w-[148px] hidden sm:block">
               <div
-                className="relative rounded-[2.8rem] shadow-2xl"
-                style={{
-                  background: "linear-gradient(160deg,#2a2a3e 0%,#1a1a2e 100%)",
-                  padding: "3px",
-                  boxShadow: "0 0 0 1px rgba(255,255,255,0.12), 0 24px 48px rgba(0,0,0,0.6)",
-                }}
+                className="rounded-3xl overflow-hidden"
+                style={{ boxShadow: "0 0 0 1px rgba(255,255,255,0.10), 0 20px 40px rgba(0,0,0,0.5)", background: "#111" }}
               >
-                {/* Inner screen — altura fija para evitar cortes */}
-                <div className="rounded-[2.5rem] overflow-hidden bg-black relative" style={{ height: 320 }}>
-                  {/* Dynamic island */}
-                  <div
-                    className="absolute top-2.5 left-1/2 -translate-x-1/2 z-10 rounded-full"
-                    style={{ width: 60, height: 16, background: "#000" }}
-                  />
+                {/* Screen — altura fija */}
+                <div className="relative overflow-hidden" style={{ height: 310 }}>
                   <m.div
                     key={`mob-${active}`}
-                    initial={{ opacity: 0, scale: 0.97 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.35 }}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.3 }}
                     className="w-full h-full"
                   >
                     <Image
@@ -487,10 +476,6 @@ export function ScreenshotsSection() {
                   </m.div>
                 </div>
               </div>
-              {/* Side buttons */}
-              <div className="absolute top-16 -left-0.5 w-0.5 h-8 rounded-l-full" style={{ background: "linear-gradient(180deg,#3a3a4e,#2a2a3e)" }} />
-              <div className="absolute top-28 -left-0.5 w-0.5 h-6 rounded-l-full" style={{ background: "linear-gradient(180deg,#3a3a4e,#2a2a3e)" }} />
-              <div className="absolute top-20 -right-0.5 w-0.5 h-10 rounded-r-full" style={{ background: "linear-gradient(180deg,#3a3a4e,#2a2a3e)" }} />
             </div>
           </m.div>
         </div>
