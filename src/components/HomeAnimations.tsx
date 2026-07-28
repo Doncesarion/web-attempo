@@ -3,6 +3,7 @@
 import { m, useInView } from "framer-motion"
 import { useRef, useState, useEffect } from "react"
 import Image from "next/image"
+import Link from "next/link"
 import { ShieldCheck, CreditCard, Zap, Smartphone, CalendarDays, CheckCircle2, Check, Users, BarChart2, Settings, Banknote, type LucideIcon } from "lucide-react"
 
 const fadeUp = {
@@ -279,16 +280,16 @@ export function StatsSection() {
 
 export function FeaturesSection() {
   const features = [
-    { n: "01", title: "Agenda inteligente", desc: "Vista semanal, diaria y en lista. Gestiona citas, bloqueos y disponibilidad en tiempo real." },
-    { n: "02", title: "Recordatorios automáticos", desc: "WhatsApp y email antes de cada cita. Reduce las inasistencias sin hacer nada." },
-    { n: "03", title: "Chatbot IA", desc: "Attia atiende y agenda por ti en WhatsApp, Instagram y Messenger las 24 horas." },
-    { n: "04", title: "Control de ventas", desc: "Registra pagos, revisa ingresos por día y lleva el control de citas sin cobrar." },
-    { n: "05", title: "Base de clientes", desc: "Ficha completa por paciente con historial, datos de contacto y citas anteriores." },
-    { n: "06", title: "Reportes y métricas", desc: "Evolución de reservas, servicios más populares y rendimiento de tu negocio." },
-    { n: "07", title: "Paquetes de sesiones", desc: "Vende sesiones en bloque y controla el avance de cada paquete por cliente." },
-    { n: "08", title: "Boleta de honorarios", desc: "Genera boletas de honorarios directamente desde la plataforma. Integración SII." },
-    { n: "09", title: "Página de reservas online", desc: "Tu propio link de reservas personalizado para compartir con tus pacientes." },
-    { n: "10", title: "Sincronización Google Calendar", desc: "Vincula tu cuenta y cada cita aparece en tu Google Calendar al instante. Al cancelar, desaparece automáticamente." },
+    { n: "01", title: "Agenda inteligente",           desc: "Vista semanal, diaria y en lista. Gestiona citas, bloqueos y disponibilidad en tiempo real.",                                                    href: "/plataforma" },
+    { n: "02", title: "Recordatorios automáticos",    desc: "WhatsApp y email antes de cada cita. Reduce las inasistencias sin hacer nada.",                                                                   href: "/plataforma#recordatorios" },
+    { n: "03", title: "Chatbot IA",                   desc: "Attia atiende y agenda por ti en WhatsApp, Instagram y Messenger las 24 horas.",                                                                  href: "/chatbot-ia" },
+    { n: "04", title: "Control de ventas",            desc: "Registra pagos, revisa ingresos por día y lleva el control de citas sin cobrar.",                                                                 href: "/plataforma#cobros" },
+    { n: "05", title: "Base de clientes",             desc: "Ficha completa por paciente con historial, datos de contacto y citas anteriores.",                                                                href: "/plataforma" },
+    { n: "06", title: "Reportes y métricas",          desc: "Evolución de reservas, servicios más populares y rendimiento de tu negocio.",                                                                     href: "/plataforma" },
+    { n: "07", title: "Paquetes de sesiones",         desc: "Vende sesiones en bloque y controla el avance de cada paquete por cliente.",                                                                      href: "/plataforma#paquetes" },
+    { n: "08", title: "Boleta de honorarios",         desc: "Genera boletas de honorarios directamente desde la plataforma. Integración SII.",                                                                  href: "/plataforma#boleta" },
+    { n: "09", title: "Página de reservas online",    desc: "Tu propio link de reservas personalizado para compartir con tus pacientes.",                                                                       href: "/plataforma" },
+    { n: "10", title: "Sincronización Google Calendar", desc: "Vincula tu cuenta y cada cita aparece en tu Google Calendar al instante. Al cancelar, desaparece automáticamente.",                            href: "/plataforma" },
   ]
 
   return (
@@ -312,19 +313,24 @@ export function FeaturesSection() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-12">
           {features.map((f) => (
-            <m.div key={f.title} variants={fadeUp} className="group">
-              <span className="block text-6xl font-bold text-gray-300 group-hover:text-[#6C5CE4]/30 transition-colors leading-none mb-4 tabular-nums">
-                {f.n}
-              </span>
-              <h3 className="font-semibold text-gray-900 text-base mb-2 group-hover:text-[#6C5CE4] transition-colors">{f.title}</h3>
-              <p className="text-sm text-gray-500 leading-relaxed">{f.desc}</p>
+            <m.div key={f.title} variants={fadeUp}>
+              <Link href={f.href} className="group block">
+                <span className="block text-6xl font-bold text-gray-300 group-hover:text-[#6C5CE4]/30 transition-colors leading-none mb-4 tabular-nums">
+                  {f.n}
+                </span>
+                <h3 className="font-semibold text-gray-900 text-base mb-2 group-hover:text-[#6C5CE4] transition-colors flex items-center gap-1.5">
+                  {f.title}
+                  <span className="text-gray-300 group-hover:text-[#6C5CE4] transition-all opacity-0 group-hover:opacity-100 -translate-x-1 group-hover:translate-x-0 text-sm">→</span>
+                </h3>
+                <p className="text-sm text-gray-500 leading-relaxed">{f.desc}</p>
+              </Link>
             </m.div>
           ))}
         </div>
         <m.div variants={fadeUp} className="mt-14 text-center">
-          <a href="/plataforma" className="inline-flex items-center gap-2 text-[#6C5CE4] font-medium hover:underline text-sm">
+          <Link href="/plataforma" className="inline-flex items-center gap-2 text-[#6C5CE4] font-medium hover:underline text-sm">
             Ver la plataforma completa →
-          </a>
+          </Link>
         </m.div>
       </m.div>
     </section>
