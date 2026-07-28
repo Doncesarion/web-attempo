@@ -143,7 +143,7 @@ export function HeroSection() {
           </div>
         </div>
 
-        {/* Right — phone visible immediately (no opacity:0), only slides in */}
+        {/* Right — coded phone mockup, visible immediately */}
         <m.div
           initial={{ x: 40, y: 10 }}
           animate={{ x: 0, y: 0 }}
@@ -152,28 +152,86 @@ export function HeroSection() {
         >
           <div className="relative">
             <div className="absolute inset-0 bg-[#6C5CE4]/20 blur-3xl rounded-full scale-75 pointer-events-none" />
-            <div className="relative w-[280px] bg-gray-900 rounded-[3rem] p-3 shadow-2xl ring-1 ring-white/10">
-              <div className="absolute top-6 left-1/2 -translate-x-1/2 w-20 h-5 bg-gray-900 rounded-full z-10" />
-              <div className="rounded-[2.4rem] overflow-hidden">
-                <Image
-                  src="/screenshot-agenda.jpeg"
-                  alt="attempo agenda"
-                  width={280}
-                  height={560}
-                  className="w-full object-cover"
-                  priority
-                />
+            {/* Phone frame */}
+            <div className="relative w-[270px] bg-gray-900 rounded-[3rem] p-[10px] shadow-2xl ring-1 ring-white/10">
+              {/* Camera notch */}
+              <div className="absolute top-4 left-1/2 -translate-x-1/2 w-16 h-[18px] bg-gray-900 rounded-full z-10" />
+              {/* Screen */}
+              <div className="rounded-[2.4rem] overflow-hidden bg-[#f8f7ff] flex flex-col" style={{ height: 540 }}>
+                {/* App header */}
+                <div className="bg-[#6C5CE4] px-4 pt-9 pb-4 flex-shrink-0">
+                  <p className="text-white/60 text-[9px] uppercase tracking-widest mb-0.5">attempo</p>
+                  <p className="text-white font-bold text-sm leading-tight">Dra. Valentina Mora</p>
+                  <p className="text-white/60 text-[10px] mt-0.5">Psicóloga clínica · Consulta online</p>
+                </div>
+                {/* Day selector */}
+                <div className="px-3 pt-3 pb-2 bg-white border-b border-gray-100 flex-shrink-0">
+                  <p className="text-[8px] text-gray-400 uppercase tracking-wider mb-2">Julio 2025</p>
+                  <div className="flex gap-1 justify-between">
+                    {[
+                      { d: "L", n: "28" },
+                      { d: "M", n: "29" },
+                      { d: "X", n: "30", active: true },
+                      { d: "J", n: "31" },
+                      { d: "V", n: "1" },
+                    ].map(({ d, n, active }) => (
+                      <div key={d} className={`flex-1 flex flex-col items-center gap-0.5 rounded-xl py-1.5 ${active ? "bg-[#6C5CE4]" : "bg-gray-50"}`}>
+                        <span className={`text-[8px] font-medium ${active ? "text-white/70" : "text-gray-400"}`}>{d}</span>
+                        <span className={`text-xs font-bold ${active ? "text-white" : "text-gray-700"}`}>{n}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                {/* Time slots */}
+                <div className="flex-1 px-3 py-3 overflow-hidden">
+                  <p className="text-[8px] text-gray-400 uppercase tracking-wider mb-2">Horarios disponibles</p>
+                  <div className="flex flex-col gap-2">
+                    {[
+                      { hora: "09:00", libre: false },
+                      { hora: "10:30", libre: false },
+                      { hora: "11:00", libre: true },
+                      { hora: "12:30", libre: true },
+                      { hora: "14:00", libre: true },
+                    ].map(({ hora, libre }) => (
+                      <div
+                        key={hora}
+                        className={`flex items-center justify-between px-3 py-2 rounded-xl border transition-all ${
+                          libre
+                            ? "border-[#6C5CE4]/25 bg-white shadow-sm"
+                            : "border-gray-100 bg-gray-50 opacity-40"
+                        }`}
+                      >
+                        <span className={`text-sm font-bold ${libre ? "text-gray-900" : "text-gray-300"}`}>{hora}</span>
+                        {libre ? (
+                          <span className="text-[9px] font-semibold text-[#6C5CE4] bg-[#6C5CE4]/10 px-2 py-0.5 rounded-full">Disponible</span>
+                        ) : (
+                          <span className="text-[9px] text-gray-300 bg-gray-100 px-2 py-0.5 rounded-full">Ocupado</span>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                {/* CTA button */}
+                <div className="px-3 pb-6 pt-1 flex-shrink-0">
+                  <div className="bg-[#6C5CE4] rounded-2xl py-3 text-center shadow-lg shadow-[#6C5CE4]/30">
+                    <p className="text-white text-sm font-bold">Reservar 11:00 →</p>
+                  </div>
+                  <p className="text-[9px] text-gray-400 text-center mt-1.5 flex items-center justify-center gap-1">
+                    <span>🔒</span> Pago seguro con Webpay
+                  </p>
+                </div>
               </div>
             </div>
+            {/* Floating cards — desktop only */}
             <m.div
               animate={{ y: [0, -6, 0] }}
               transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
               className="absolute -left-16 top-1/4 bg-white rounded-2xl shadow-lg p-3 hidden lg:flex items-center gap-3 w-44"
             >
-              <div className="w-10 h-10 bg-green-100 rounded-xl flex items-center justify-center"><CalendarDays className="w-5 h-5 text-green-600" /></div>
+              <div className="w-10 h-10 bg-green-100 rounded-xl flex items-center justify-center flex-shrink-0"><CalendarDays className="w-5 h-5 text-green-600" /></div>
               <div>
-                <p className="text-xs font-semibold text-gray-800">Nueva cita</p>
-                <p className="text-xs text-gray-500">Hoy 15:00</p>
+                <p className="text-xs font-semibold text-gray-800">Nueva reserva</p>
+                <p className="text-xs text-gray-500">Hoy 11:00</p>
               </div>
             </m.div>
             <m.div
@@ -181,7 +239,7 @@ export function HeroSection() {
               transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
               className="absolute -right-12 bottom-1/4 bg-white rounded-2xl shadow-lg p-3 hidden lg:flex items-center gap-3 w-44"
             >
-              <div className="w-10 h-10 bg-purple-100 rounded-xl flex items-center justify-center"><CheckCircle2 className="w-5 h-5 text-[#6C5CE4]" /></div>
+              <div className="w-10 h-10 bg-purple-100 rounded-xl flex items-center justify-center flex-shrink-0"><CheckCircle2 className="w-5 h-5 text-[#6C5CE4]" /></div>
               <div>
                 <p className="text-xs font-semibold text-gray-800">Recordatorio enviado</p>
                 <p className="text-xs text-gray-500">WhatsApp</p>
