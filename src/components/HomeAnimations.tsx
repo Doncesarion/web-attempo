@@ -333,247 +333,13 @@ export function FeaturesSection() {
 
 export function ScreenshotsSection() {
   const [active, setActive] = useState(0)
-
-  const tabs: { Icon: LucideIcon; label: string; desc: string }[] = [
-    { Icon: CalendarDays, label: "Agenda",   desc: "Vista semanal y diaria de tus citas" },
-    { Icon: Users,        label: "Clientes", desc: "Ficha completa por cada paciente" },
-    { Icon: Banknote,     label: "Ventas",   desc: "Controla ingresos y cobros pendientes" },
-    { Icon: BarChart2,    label: "Reportes", desc: "Métricas y evolución de tu negocio" },
-    { Icon: Settings,     label: "Config",   desc: "Configura servicios, horarios y canales" },
+  const tabs: { Icon: LucideIcon; label: string; mobile: string; desktop: string; desc: string }[] = [
+    { Icon: CalendarDays, label: "Agenda",   mobile: "/screenshot-agenda.jpeg",   desktop: "/desktop-agenda.png",   desc: "Vista semanal y diaria de tus citas" },
+    { Icon: Users,        label: "Clientes", mobile: "/screenshot-clientes.jpeg", desktop: "/desktop-clientes.png", desc: "Ficha completa por cada paciente" },
+    { Icon: Banknote,     label: "Ventas",   mobile: "/screenshot-ventas.jpeg",   desktop: "/desktop-ventas.png",   desc: "Controla ingresos y cobros pendientes" },
+    { Icon: BarChart2,    label: "Reportes", mobile: "/screenshot-reportes.jpeg", desktop: "/desktop-reportes.png", desc: "Métricas y evolución de tu negocio" },
+    { Icon: Settings,     label: "Config",   mobile: "/screenshot-config.jpeg",   desktop: "/desktop-config.png",   desc: "Configura servicios, horarios y canales" },
   ]
-
-  function AgendaUI() {
-    const slots = [
-      { hora: "09:00", paciente: null },
-      { hora: "10:00", paciente: "Valentina M.", servicio: "Consulta", cls: "bg-purple-50 border-purple-200 text-purple-800" },
-      { hora: "11:00", paciente: "Carlos Bravo", servicio: "Control",  cls: "bg-blue-50 border-blue-200 text-blue-800" },
-      { hora: "12:00", paciente: null },
-      { hora: "14:00", paciente: "María G.",     servicio: "Evaluación", cls: "bg-green-50 border-green-200 text-green-800" },
-      { hora: "15:00", paciente: "Roberto F.",   servicio: "Consulta",   cls: "bg-purple-50 border-purple-200 text-purple-800" },
-    ]
-    return (
-      <div className="flex flex-col h-full gap-3">
-        <div className="flex items-center justify-between">
-          <p className="text-sm font-semibold text-gray-800">Semana del 28 jul</p>
-          <div className="flex gap-1">
-            <div className="w-6 h-6 rounded-lg bg-gray-100 text-gray-400 text-xs flex items-center justify-center">‹</div>
-            <div className="w-6 h-6 rounded-lg bg-gray-100 text-gray-400 text-xs flex items-center justify-center">›</div>
-          </div>
-        </div>
-        <div className="flex gap-1.5">
-          {[{d:"L",n:"28"},{d:"M",n:"29"},{d:"X",n:"30",a:true},{d:"J",n:"31"},{d:"V",n:"1"}].map(({d,n,a}) => (
-            <div key={d} className={`flex-1 flex flex-col items-center py-1.5 rounded-xl ${a ? "bg-[#6C5CE4]" : "bg-gray-50"}`}>
-              <span className={`text-[9px] font-medium ${a ? "text-white/70" : "text-gray-400"}`}>{d}</span>
-              <span className={`text-xs font-bold ${a ? "text-white" : "text-gray-700"}`}>{n}</span>
-            </div>
-          ))}
-        </div>
-        <div className="flex flex-col gap-2 flex-1">
-          {slots.map(({ hora, paciente, servicio, cls }) => (
-            <div key={hora} className="flex gap-2 items-center">
-              <span className="text-[10px] text-gray-400 w-9 flex-shrink-0 font-mono">{hora}</span>
-              {paciente ? (
-                <div className={`flex-1 rounded-lg border px-2.5 py-1.5 flex items-center justify-between ${cls}`}>
-                  <span className="text-[11px] font-semibold">{paciente}</span>
-                  <span className="text-[9px] opacity-60">{servicio}</span>
-                </div>
-              ) : (
-                <div className="flex-1 border-b border-gray-100" />
-              )}
-            </div>
-          ))}
-        </div>
-      </div>
-    )
-  }
-
-  function ClientesUI() {
-    const pacientes = [
-      { ini: "VM", nombre: "Valentina Mora",   det: "Psicología · 12 citas", ult: "Hoy"   },
-      { ini: "CB", nombre: "Carlos Bravo",     det: "Control · 3 citas",     ult: "Ayer"  },
-      { ini: "MG", nombre: "María González",   det: "Evaluación · 8 citas",  ult: "20 jul"},
-      { ini: "RF", nombre: "Roberto Fuentes",  det: "Consulta · 5 citas",    ult: "15 jul"},
-    ]
-    return (
-      <div className="flex flex-col h-full gap-3">
-        <div className="flex items-center gap-2 bg-gray-100 rounded-xl px-3 py-2">
-          <span className="text-gray-400 text-xs">🔍</span>
-          <span className="text-xs text-gray-400">Buscar paciente...</span>
-        </div>
-        <div className="flex flex-col gap-2 flex-1">
-          {pacientes.map(({ ini, nombre, det, ult }) => (
-            <div key={nombre} className="flex items-center gap-3 p-2.5 rounded-xl bg-white border border-gray-100">
-              <div className="w-8 h-8 rounded-full bg-[#6C5CE4]/10 flex items-center justify-center flex-shrink-0">
-                <span className="text-[10px] font-bold text-[#6C5CE4]">{ini}</span>
-              </div>
-              <div className="flex-1 min-w-0">
-                <p className="text-[11px] font-semibold text-gray-800 truncate">{nombre}</p>
-                <p className="text-[9px] text-gray-500">{det}</p>
-              </div>
-              <span className="text-[9px] text-gray-400 flex-shrink-0">{ult}</span>
-              <span className="text-gray-300 text-xs">›</span>
-            </div>
-          ))}
-        </div>
-        <div className="flex gap-2">
-          <div className="flex-1 text-[10px] text-[#6C5CE4] bg-[#6C5CE4]/8 rounded-lg py-2 font-medium text-center">Exportar CSV</div>
-          <div className="flex-1 text-[10px] text-gray-600 bg-gray-100 rounded-lg py-2 font-medium text-center">Recordatorio</div>
-        </div>
-      </div>
-    )
-  }
-
-  function VentasUI() {
-    const pagos = [
-      { nombre: "Valentina M.",   monto: "$45.000", metodo: "Flow",   ok: true },
-      { nombre: "Carlos Bravo",   monto: "$35.000", metodo: "Webpay", ok: true },
-      { nombre: "Roberto F.",     monto: "$45.000", metodo: "—",      ok: false },
-      { nombre: "María González", monto: "$25.000", metodo: "Flow",   ok: true },
-    ]
-    const bars = [35, 60, 45, 80, 65, 40, 90]
-    return (
-      <div className="flex flex-col h-full gap-3">
-        <div>
-          <p className="text-[9px] text-gray-500 uppercase tracking-wider">Ingresos julio 2025</p>
-          <div className="flex items-end gap-2 mt-0.5">
-            <p className="text-2xl font-bold text-gray-900">$482.000</p>
-            <span className="text-xs text-green-600 bg-green-50 px-1.5 py-0.5 rounded-full font-semibold mb-1">↑ 18%</span>
-          </div>
-        </div>
-        <div className="flex items-end gap-1 h-14">
-          {bars.map((h, i) => (
-            <div key={i} className="flex-1 flex flex-col items-center gap-0.5">
-              <div className={`w-full rounded-sm ${i === 6 ? "bg-[#6C5CE4]" : "bg-[#6C5CE4]/20"}`} style={{ height: `${h}%` }} />
-              <span className="text-[8px] text-gray-400">{["L","M","X","J","V","S","D"][i]}</span>
-            </div>
-          ))}
-        </div>
-        <div className="flex flex-col gap-1.5 flex-1">
-          <p className="text-[9px] text-gray-400 uppercase tracking-wider">Últimos pagos</p>
-          {pagos.map(({ nombre, monto, metodo, ok }) => (
-            <div key={nombre} className="flex items-center gap-2 px-2 py-1.5 rounded-lg bg-white border border-gray-50">
-              <span className={`text-[11px] flex-shrink-0 ${ok ? "text-green-500" : "text-amber-400"}`}>{ok ? "✓" : "⏳"}</span>
-              <span className="flex-1 text-[10px] text-gray-700 truncate">{nombre}</span>
-              <span className="text-[9px] text-gray-400 flex-shrink-0">{metodo}</span>
-              <span className={`text-[10px] font-semibold flex-shrink-0 ${ok ? "text-gray-800" : "text-amber-600"}`}>{monto}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-    )
-  }
-
-  function ReportesUI() {
-    const metricas = [
-      { label: "Reservas", valor: "24",    delta: "↑ 12%", verde: true },
-      { label: "Ingresos", valor: "$482k", delta: "↑ 18%", verde: true },
-      { label: "No-shows", valor: "2",     delta: "↓ 60%", verde: false },
-    ]
-    const servicios = [
-      { nombre: "Consulta inicial", pct: 48, color: "bg-[#6C5CE4]" },
-      { nombre: "Control",          pct: 31, color: "bg-[#8B7FF0]" },
-      { nombre: "Evaluación",       pct: 21, color: "bg-[#C4B5FD]" },
-    ]
-    return (
-      <div className="flex flex-col h-full gap-3">
-        <div className="grid grid-cols-3 gap-2">
-          {metricas.map(({ label, valor, delta, verde }) => (
-            <div key={label} className="bg-white border border-gray-100 rounded-xl p-2 text-center">
-              <p className="text-[8px] text-gray-500 uppercase tracking-wider">{label}</p>
-              <p className="text-sm font-bold text-gray-900">{valor}</p>
-              <span className={`text-[9px] font-semibold px-1.5 py-0.5 rounded-full ${verde ? "text-green-600 bg-green-50" : "text-red-500 bg-red-50"}`}>{delta}</span>
-            </div>
-          ))}
-        </div>
-        <div>
-          <p className="text-[9px] text-gray-400 uppercase tracking-wider mb-2">Servicios más solicitados</p>
-          <div className="flex flex-col gap-2">
-            {servicios.map(({ nombre, pct, color }) => (
-              <div key={nombre}>
-                <div className="flex justify-between mb-0.5">
-                  <span className="text-[10px] text-gray-600">{nombre}</span>
-                  <span className="text-[10px] font-semibold text-gray-800">{pct}%</span>
-                </div>
-                <div className="h-1.5 bg-gray-100 rounded-full overflow-hidden">
-                  <div className={`h-full rounded-full ${color}`} style={{ width: `${pct}%` }} />
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-        <div className="flex-1">
-          <p className="text-[9px] text-gray-400 uppercase tracking-wider mb-1.5">Reservas últimos 7 días</p>
-          <div className="flex items-end gap-1 h-14">
-            {[4,7,3,6,8,2,5].map((h, i) => (
-              <div key={i} className="flex-1 flex flex-col items-center gap-0.5">
-                <div className="w-full bg-[#6C5CE4]/25 rounded-sm" style={{ height: `${(h/8)*100}%` }} />
-                <span className="text-[8px] text-gray-400">{["L","M","X","J","V","S","D"][i]}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    )
-  }
-
-  function ConfigUI() {
-    const servicios = [
-      { nombre: "Consulta inicial", dur: "45 min", precio: "$35.000", on: true  },
-      { nombre: "Control",          dur: "30 min", precio: "$25.000", on: true  },
-      { nombre: "Evaluación",       dur: "60 min", precio: "$45.000", on: false },
-    ]
-    const horario = [
-      { dia: "Lun – Vie", horas: "09:00 – 18:00", on: true  },
-      { dia: "Sábado",    horas: "09:00 – 13:00", on: true  },
-      { dia: "Domingo",   horas: "—",              on: false },
-    ]
-    return (
-      <div className="flex flex-col h-full gap-3">
-        <div>
-          <p className="text-[9px] text-gray-400 uppercase tracking-wider mb-2">Servicios</p>
-          <div className="flex flex-col gap-1.5">
-            {servicios.map(({ nombre, dur, precio, on }) => (
-              <div key={nombre} className="flex items-center gap-2 bg-white border border-gray-100 rounded-xl px-3 py-2">
-                <div className="flex-1 min-w-0">
-                  <p className="text-[10px] font-semibold text-gray-800 truncate">{nombre}</p>
-                  <p className="text-[9px] text-gray-400">{dur} · {precio}</p>
-                </div>
-                <div className={`w-8 h-4 rounded-full flex-shrink-0 relative ${on ? "bg-[#6C5CE4]" : "bg-gray-200"}`}>
-                  <div className={`absolute top-0.5 w-3 h-3 bg-white rounded-full shadow-sm transition-all ${on ? "left-[18px]" : "left-0.5"}`} />
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-        <div>
-          <p className="text-[9px] text-gray-400 uppercase tracking-wider mb-2">Horario de atención</p>
-          <div className="flex flex-col gap-1.5">
-            {horario.map(({ dia, horas, on }) => (
-              <div key={dia} className="flex items-center gap-2 bg-white border border-gray-100 rounded-xl px-3 py-2">
-                <div className="flex-1">
-                  <p className="text-[10px] font-semibold text-gray-700">{dia}</p>
-                  <p className="text-[9px] text-gray-400">{horas}</p>
-                </div>
-                <div className={`w-8 h-4 rounded-full flex-shrink-0 relative ${on ? "bg-[#6C5CE4]" : "bg-gray-200"}`}>
-                  <div className={`absolute top-0.5 w-3 h-3 bg-white rounded-full shadow-sm transition-all ${on ? "left-[18px]" : "left-0.5"}`} />
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-        <div className="bg-[#6C5CE4]/8 rounded-xl p-3 flex items-center gap-2 mt-auto">
-          <span className="text-base">🔗</span>
-          <div>
-            <p className="text-[10px] font-semibold text-[#6C5CE4]">Tu link de reservas</p>
-            <p className="text-[9px] text-gray-500">app.attempo.cl/tu-negocio</p>
-          </div>
-        </div>
-      </div>
-    )
-  }
-
-  const previews = [AgendaUI, ClientesUI, VentasUI, ReportesUI, ConfigUI]
-  const Preview = previews[active]
 
   return (
     <section className="py-24 px-4 bg-gray-950 overflow-visible">
@@ -595,7 +361,7 @@ export function ScreenshotsSection() {
           <p className="text-gray-400 max-w-xl mx-auto text-lg">Interfaz limpia, rápida y en español. Disponible en computador y celular.</p>
         </m.div>
 
-        <div className="grid lg:grid-cols-5 gap-8 items-start">
+        <div className="grid lg:grid-cols-5 gap-8 items-center">
           {/* Tabs */}
           <m.div variants={fadeUp} className="lg:col-span-2 flex flex-row overflow-x-auto gap-2 pb-2 lg:flex-col lg:overflow-visible lg:gap-0 lg:space-y-2 -mx-4 px-4 lg:mx-0 lg:px-0">
             {tabs.map((t, i) => (
@@ -622,34 +388,108 @@ export function ScreenshotsSection() {
             ))}
           </m.div>
 
-          {/* Coded UI preview */}
-          <m.div variants={fadeUp} className="lg:col-span-3">
-            <div className="relative">
-              <div className="absolute -inset-4 bg-[#6C5CE4]/20 blur-3xl rounded-full pointer-events-none" />
-              <div className="relative bg-[#12102a] rounded-2xl overflow-hidden shadow-2xl ring-1 ring-white/10">
-                {/* Browser bar */}
-                <div className="flex items-center gap-2 px-4 py-3 border-b border-white/5">
-                  <div className="flex gap-1.5 flex-shrink-0">
-                    <div className="w-2.5 h-2.5 rounded-full bg-red-500/60" />
-                    <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/60" />
-                    <div className="w-2.5 h-2.5 rounded-full bg-green-500/60" />
+          {/* Laptop + phone mockup */}
+          <m.div variants={fadeUp} className="lg:col-span-3 relative pb-20">
+            {/* Multi-layer glow */}
+            <div className="absolute inset-0 bg-[#6C5CE4]/20 blur-3xl rounded-full pointer-events-none" />
+            <div className="absolute top-1/3 left-1/4 right-1/4 bottom-0 bg-[#8B7FF0]/15 blur-2xl rounded-full pointer-events-none" />
+
+            {/* ── Laptop ── */}
+            <div className="relative z-10">
+              {/* Screen lid */}
+              <div
+                className="rounded-t-2xl overflow-hidden shadow-2xl"
+                style={{ background: "linear-gradient(160deg,#2a2a3e 0%,#1a1a2e 100%)", padding: "3px 3px 0" }}
+              >
+                {/* Inner bezel */}
+                <div className="rounded-t-xl overflow-hidden bg-[#0d0d1a]">
+                  {/* Browser chrome */}
+                  <div className="flex items-center gap-2 px-4 py-2.5 bg-[#111128] border-b border-white/5">
+                    <div className="flex gap-1.5 flex-shrink-0">
+                      <div className="w-3 h-3 rounded-full bg-[#ff5f57]" />
+                      <div className="w-3 h-3 rounded-full bg-[#ffbd2e]" />
+                      <div className="w-3 h-3 rounded-full bg-[#28c840]" />
+                    </div>
+                    <div className="flex-1 mx-3 bg-white/6 rounded-full h-5 flex items-center px-3">
+                      <span className="text-gray-500 text-[10px]">app.attempo.cl</span>
+                    </div>
+                    <div className="w-16 h-3 rounded bg-white/5" />
                   </div>
-                  <div className="flex-1 mx-3 bg-white/5 rounded-full h-5 flex items-center px-3">
-                    <span className="text-gray-500 text-[10px]">app.attempo.cl</span>
-                  </div>
-                </div>
-                {/* UI content */}
-                <div className="bg-[#f8f7ff] p-5" style={{ minHeight: 320 }}>
+                  {/* Screenshot */}
                   <m.div
-                    key={active}
-                    initial={{ opacity: 0, y: 6 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.25 }}
+                    key={`desk-${active}`}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.35 }}
                   >
-                    <Preview />
+                    <Image
+                      src={tabs[active].desktop}
+                      alt={`attempo ${tabs[active].label}`}
+                      width={1200}
+                      height={750}
+                      className="w-full object-cover object-top"
+                      priority={active === 0}
+                    />
                   </m.div>
                 </div>
               </div>
+              {/* Hinge line */}
+              <div className="h-px bg-white/5" />
+              {/* Keyboard base — MacBook silver gradient */}
+              <div
+                className="rounded-b-2xl shadow-xl"
+                style={{
+                  background: "linear-gradient(180deg,#c8c8ce 0%,#aeaeb4 40%,#9a9aa0 100%)",
+                  padding: "0 4px 4px",
+                  height: 28,
+                }}
+              >
+                {/* Trackpad indentation */}
+                <div className="mx-auto mt-2 w-24 h-3 rounded-sm" style={{ background: "rgba(0,0,0,0.08)" }} />
+              </div>
+              {/* Base shadow strip */}
+              <div className="h-1 rounded-b-3xl mx-6" style={{ background: "linear-gradient(90deg,transparent,rgba(0,0,0,0.35),transparent)" }} />
+            </div>
+
+            {/* ── Phone ── */}
+            <div className="absolute -bottom-4 -right-2 lg:-right-6 z-20 w-[155px] hidden sm:block">
+              {/* Drop shadow glow */}
+              <div className="absolute -inset-3 bg-[#6C5CE4]/30 blur-xl rounded-[3rem] pointer-events-none" />
+              <div
+                className="relative rounded-[2.8rem] shadow-2xl overflow-hidden"
+                style={{
+                  background: "linear-gradient(160deg,#2a2a3e 0%,#1a1a2e 100%)",
+                  padding: "3px",
+                  boxShadow: "0 0 0 1px rgba(255,255,255,0.12), 0 24px 48px rgba(0,0,0,0.6)",
+                }}
+              >
+                {/* Inner screen */}
+                <div className="rounded-[2.5rem] overflow-hidden bg-black relative">
+                  {/* Dynamic island */}
+                  <div
+                    className="absolute top-2.5 left-1/2 -translate-x-1/2 z-10 rounded-full"
+                    style={{ width: 72, height: 20, background: "#000" }}
+                  />
+                  <m.div
+                    key={`mob-${active}`}
+                    initial={{ opacity: 0, scale: 0.97 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.35 }}
+                  >
+                    <Image
+                      src={tabs[active].mobile}
+                      alt={`attempo ${tabs[active].label} mobile`}
+                      width={310}
+                      height={670}
+                      className="w-full object-cover"
+                    />
+                  </m.div>
+                </div>
+              </div>
+              {/* Side buttons */}
+              <div className="absolute top-16 -left-0.5 w-0.5 h-8 rounded-l-full" style={{ background: "linear-gradient(180deg,#3a3a4e,#2a2a3e)" }} />
+              <div className="absolute top-28 -left-0.5 w-0.5 h-6 rounded-l-full" style={{ background: "linear-gradient(180deg,#3a3a4e,#2a2a3e)" }} />
+              <div className="absolute top-20 -right-0.5 w-0.5 h-10 rounded-r-full" style={{ background: "linear-gradient(180deg,#3a3a4e,#2a2a3e)" }} />
             </div>
           </m.div>
         </div>
