@@ -475,14 +475,14 @@ export default function PreciosContent() {
                 </ul>
 
                 <a
-                  href="/contacto"
+                  href={p.href}
                   className={`w-full text-center text-sm font-bold py-3 rounded-xl transition-colors ${
                     p.popular
                       ? "bg-[#6C5CE4] text-white hover:bg-[#5a4bd1]"
                       : "border border-[#6C5CE4] text-[#6C5CE4] hover:bg-[#6C5CE4] hover:text-white"
                   }`}
                 >
-                  Contratar plan
+                  {p.cta}
                 </a>
               </m.div>
             ))}
