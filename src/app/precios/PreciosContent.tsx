@@ -413,6 +413,8 @@ export default function PreciosContent() {
                 mensajes: 2000,
                 precio: 29990,
                 popular: false,
+                cta: "Empieza gratis",
+                href: "https://app.attempo.cl/registro",
               },
               {
                 nombre: "Attia Pro",
@@ -420,6 +422,8 @@ export default function PreciosContent() {
                 mensajes: 5000,
                 precio: 49990,
                 popular: true,
+                cta: "Empieza gratis",
+                href: "https://app.attempo.cl/registro",
               },
               {
                 nombre: "Attia Business",
@@ -427,6 +431,8 @@ export default function PreciosContent() {
                 mensajes: 8000,
                 precio: 69990,
                 popular: false,
+                cta: "Empieza gratis",
+                href: "https://app.attempo.cl/registro",
               },
             ].map((p) => (
               <m.div

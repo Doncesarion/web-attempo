@@ -4,7 +4,7 @@ import { m, useInView } from "framer-motion"
 import { useRef, useState, useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { ShieldCheck, CreditCard, Zap, Smartphone, CalendarDays, CheckCircle2, Check, Users, BarChart2, Settings, Banknote, type LucideIcon } from "lucide-react"
+import { ShieldCheck, CreditCard, Zap, Smartphone, CalendarDays, CheckCircle2, Check, Users, BarChart2, Settings, Banknote, Lock, Bell, Bot, Globe, Package, FileText, type LucideIcon } from "lucide-react"
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -76,9 +76,9 @@ export function HeroSection() {
         className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-[#4F46E5] rounded-full blur-3xl translate-x-1/3 translate-y-1/3 pointer-events-none"
       />
 
-      <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-12 items-center py-10 lg:py-20">
+      <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-8 lg:gap-12 items-center py-8 lg:py-20">
         {/* Left — CSS animations, visible immediately for LCP */}
-        <div className="text-center lg:text-left">
+        <div className="text-center lg:text-left order-2 lg:order-1">
           <div style={{ animation: "fade-in-up 0.6s ease both 0ms" }}>
             <span className="inline-flex items-center gap-2 bg-[#6C5CE4]/10 text-[#6C5CE4] px-4 py-1.5 rounded-full text-sm font-medium mb-6">
               <span className="w-2 h-2 bg-[#6C5CE4] rounded-full animate-pulse" />
@@ -149,9 +149,9 @@ export function HeroSection() {
           initial={{ x: 40, y: 10 }}
           animate={{ x: 0, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] as const }}
-          className="flex justify-center lg:justify-end relative"
+          className="flex justify-center lg:justify-end relative order-1 lg:order-2"
         >
-          <div className="relative">
+          <div className="relative scale-[0.78] sm:scale-90 lg:scale-100 origin-top">
             <div className="absolute inset-0 bg-[#6C5CE4]/20 blur-3xl rounded-full scale-75 pointer-events-none" />
             {/* Phone frame */}
             <div className="relative w-[270px] bg-gray-900 rounded-[3rem] p-[10px] shadow-2xl ring-1 ring-white/10">
@@ -218,7 +218,7 @@ export function HeroSection() {
                     <p className="text-white text-sm font-bold">Reservar 11:00 →</p>
                   </div>
                   <p className="text-[9px] text-gray-400 text-center mt-1.5 flex items-center justify-center gap-1">
-                    <span>🔒</span> Pago seguro con Webpay
+                    <Lock className="w-2.5 h-2.5" /> Pago seguro con Webpay
                   </p>
                 </div>
               </div>
@@ -279,17 +279,17 @@ export function StatsSection() {
 }
 
 export function FeaturesSection() {
-  const features = [
-    { n: "01", title: "Agenda inteligente",           desc: "Vista semanal, diaria y en lista. Gestiona citas, bloqueos y disponibilidad en tiempo real.",                                                    href: "/plataforma" },
-    { n: "02", title: "Recordatorios automáticos",    desc: "WhatsApp y email antes de cada cita. Reduce las inasistencias sin hacer nada.",                                                                   href: "/plataforma#recordatorios" },
-    { n: "03", title: "Chatbot IA",                   desc: "Attia atiende y agenda por ti en WhatsApp, Instagram y Messenger las 24 horas.",                                                                  href: "/chatbot-ia" },
-    { n: "04", title: "Control de ventas",            desc: "Registra pagos, revisa ingresos por día y lleva el control de citas sin cobrar.",                                                                 href: "/plataforma#cobros" },
-    { n: "05", title: "Base de clientes",             desc: "Ficha completa por paciente con historial, datos de contacto y citas anteriores.",                                                                href: "/plataforma" },
-    { n: "06", title: "Reportes y métricas",          desc: "Evolución de reservas, servicios más populares y rendimiento de tu negocio.",                                                                     href: "/plataforma" },
-    { n: "07", title: "Paquetes de sesiones",         desc: "Vende sesiones en bloque y controla el avance de cada paquete por cliente.",                                                                      href: "/plataforma#paquetes" },
-    { n: "08", title: "Boleta de honorarios",         desc: "Genera boletas de honorarios directamente desde la plataforma. Integración SII.",                                                                  href: "/plataforma#boleta" },
-    { n: "09", title: "Página de reservas online",    desc: "Tu propio link de reservas personalizado para compartir con tus pacientes.",                                                                       href: "/plataforma" },
-    { n: "10", title: "Sincronización Google Calendar", desc: "Vincula tu cuenta y cada cita aparece en tu Google Calendar al instante. Al cancelar, desaparece automáticamente.",                            href: "/plataforma" },
+  const features: { Icon: LucideIcon; title: string; desc: string; href: string; color: string; bg: string }[] = [
+    { Icon: CalendarDays, title: "Agenda inteligente",        desc: "Vista semanal, diaria y en lista. Gestiona citas, bloqueos y disponibilidad en tiempo real.",                             href: "/plataforma",              color: "text-[#6C5CE4]", bg: "bg-[#6C5CE4]/10" },
+    { Icon: Bell,         title: "Recordatorios automáticos", desc: "WhatsApp y email antes de cada cita. Reduce las inasistencias sin hacer nada.",                                           href: "/plataforma#recordatorios", color: "text-emerald-600", bg: "bg-emerald-50" },
+    { Icon: Bot,          title: "Chatbot IA",                desc: "Attia atiende y agenda por ti en WhatsApp, Instagram y Messenger las 24 horas.",                                         href: "/chatbot-ia",              color: "text-violet-600",  bg: "bg-violet-50" },
+    { Icon: Banknote,     title: "Control de ventas",         desc: "Registra pagos, revisa ingresos por día y lleva el control de citas sin cobrar.",                                         href: "/plataforma#cobros",        color: "text-sky-600",    bg: "bg-sky-50" },
+    { Icon: Users,        title: "Base de clientes",          desc: "Ficha completa por paciente con historial, datos de contacto y citas anteriores.",                                        href: "/plataforma",              color: "text-orange-600",  bg: "bg-orange-50" },
+    { Icon: BarChart2,    title: "Reportes y métricas",       desc: "Evolución de reservas, servicios más populares y rendimiento de tu negocio.",                                             href: "/plataforma",              color: "text-pink-600",    bg: "bg-pink-50" },
+    { Icon: Package,      title: "Paquetes de sesiones",      desc: "Vende sesiones en bloque y controla el avance de cada paquete por cliente.",                                             href: "/plataforma#paquetes",      color: "text-amber-600",   bg: "bg-amber-50" },
+    { Icon: FileText,     title: "Boleta de honorarios",      desc: "Genera boletas de honorarios directamente desde la plataforma. Integración SII.",                                        href: "/plataforma#boleta",        color: "text-teal-600",    bg: "bg-teal-50" },
+    { Icon: Globe,        title: "Página de reservas online", desc: "Tu propio link de reservas personalizado para compartir con tus pacientes.",                                              href: "/plataforma",              color: "text-indigo-600",  bg: "bg-indigo-50" },
+    { Icon: CalendarDays, title: "Google Calendar",           desc: "Vincula tu cuenta y cada cita aparece al instante. Al cancelar, desaparece automáticamente.",                            href: "/plataforma",              color: "text-red-500",     bg: "bg-red-50" },
   ]
 
   return (
@@ -311,23 +311,25 @@ export function FeaturesSection() {
           </p>
         </m.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {features.map((f) => (
             <m.div key={f.title} variants={fadeUp}>
-              <Link href={f.href} className="group block">
-                <span className="block text-6xl font-bold text-gray-300 group-hover:text-[#6C5CE4]/30 transition-colors leading-none mb-4 tabular-nums">
-                  {f.n}
-                </span>
-                <h3 className="font-semibold text-gray-900 text-base mb-2 group-hover:text-[#6C5CE4] transition-colors flex items-center gap-1.5">
-                  {f.title}
-                  <span className="text-gray-300 group-hover:text-[#6C5CE4] transition-all opacity-0 group-hover:opacity-100 -translate-x-1 group-hover:translate-x-0 text-sm">→</span>
-                </h3>
-                <p className="text-sm text-gray-500 leading-relaxed">{f.desc}</p>
+              <Link href={f.href} className="group flex flex-col gap-4 p-6 rounded-2xl border border-gray-100 bg-gray-50 hover:border-[#6C5CE4]/30 hover:bg-white hover:shadow-md transition-all duration-200 h-full">
+                <div className={`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 ${f.bg}`}>
+                  <f.Icon className={`w-5 h-5 ${f.color}`} />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-gray-900 text-base mb-1.5 group-hover:text-[#6C5CE4] transition-colors flex items-center gap-1.5">
+                    {f.title}
+                    <span className="text-gray-300 group-hover:text-[#6C5CE4] transition-all opacity-0 group-hover:opacity-100 -translate-x-1 group-hover:translate-x-0 text-sm">→</span>
+                  </h3>
+                  <p className="text-sm text-gray-500 leading-relaxed">{f.desc}</p>
+                </div>
               </Link>
             </m.div>
           ))}
         </div>
-        <m.div variants={fadeUp} className="mt-14 text-center">
+        <m.div variants={fadeUp} className="mt-10 text-center">
           <Link href="/plataforma" className="inline-flex items-center gap-2 text-[#6C5CE4] font-medium hover:underline text-sm">
             Ver la plataforma completa →
           </Link>
