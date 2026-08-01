@@ -110,8 +110,8 @@ const planes = [
     anual: 1151900,
     desc: "El chatbot agenda, cobra y recupera citas por ti las 24 horas. Para quien quiere que el sistema trabaje mientras atiende.",
     popular: false,
-    cta: "Hablar con ventas",
-    href: "/contacto",
+    cta: "Empieza gratis",
+    href: "https://app.attempo.cl/registro",
     nota: "El chatbot puede llenar 3–5 citas extra al mes que antes perdías. El plan se paga solo.",
     features: [
       "Todo lo del plan Pro",
@@ -558,8 +558,8 @@ export default function PreciosContent() {
                     </a>
                   </td>
                   <td className="text-center py-4 px-5">
-                    <a href="/contacto" className="inline-block min-h-[44px] leading-[44px] text-xs font-bold text-[#6C5CE4] border border-[#6C5CE4] px-5 rounded-xl hover:bg-[#6C5CE4] hover:text-white transition-colors cursor-pointer">
-                      Contactar
+                    <a href="https://app.attempo.cl/registro" className="inline-block min-h-[44px] leading-[44px] text-xs font-bold text-[#6C5CE4] border border-[#6C5CE4] px-5 rounded-xl hover:bg-[#6C5CE4] hover:text-white transition-colors cursor-pointer">
+                      Empieza gratis
                     </a>
                   </td>
                 </tr>
