@@ -31,6 +31,8 @@ const heroIconMap: Record<string, LucideIcon> = {
   kinesiologos: Activity,
   dentistas: Smile,
   medicos: Stethoscope,
+  belleza: Scissors,
+  "personal-trainer": Activity,
 }
 
 export const dynamicParams = false
@@ -114,6 +116,16 @@ const metaOverrides: Record<string, { title: string; description: string }> = {
     title: "Agenda Online para Médicos en Chile 2026 | attempo",
     description:
       "Sistema de agendamiento para médicos en Chile. Reservas online 24/7, chatbot IA para consultas, recordatorios automáticos y ficha del paciente integrada. Prueba gratis 12 días.",
+  },
+  belleza: {
+    title: "Agenda Online para Peluquerías y Salones de Belleza en Chile 2026 | attempo",
+    description:
+      "Software de agendamiento para peluquerías, salones de uñas, extensiones de pestañas y botox en Chile. Seña anticipada con Webpay, reservas 24/7 desde Instagram y recordatorios automáticos. Elimina los no-shows. Prueba gratis 12 días.",
+  },
+  "personal-trainer": {
+    title: "Agenda Online para Entrenadores Personales en Chile 2026 | attempo",
+    description:
+      "Sistema de agendamiento para entrenadores personales en Chile. Paquetes de sesiones, cobro anticipado con Webpay y recordatorios automáticos por WhatsApp. Elimina las cancelaciones de último minuto. Prueba gratis 12 días.",
   },
 }
 
