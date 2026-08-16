@@ -325,7 +325,7 @@ function DemoModal({ onClose }: { onClose: () => void }) {
       screen: (
         <div className="bg-white rounded-2xl border border-gray-100 overflow-hidden">
           <div className="bg-[#009ee3] px-4 py-3 flex items-center justify-between">
-            <svg viewBox="0 0 80 20" className="h-5 fill-white" xmlns="http://www.w3.org/2000/svg"><text y="16" fontSize="14" fontWeight="bold" fontFamily="Arial">Mercado Pago</text></svg>
+            <span className="text-white font-bold text-sm tracking-tight">Mercado Pago</span>
             <span className="text-white/80 text-[10px] flex items-center gap-1">
               <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd" /></svg>
               Pago seguro
@@ -1382,9 +1382,6 @@ export function OnboardingSection() {
         <div className="grid md:grid-cols-3 gap-6">
           {pasos.map((p, i) => (
             <m.div key={p.n} variants={fadeUp} className="relative">
-              {i < pasos.length - 1 && (
-                <div className="hidden md:block absolute top-8 left-[calc(100%+0px)] w-full h-px border-t-2 border-dashed border-[#6C5CE4]/20 z-10" style={{ width: "calc(100% - 2rem)", left: "calc(50% + 2rem)" }} />
-              )}
               <div className="bg-white rounded-2xl border border-gray-100 p-7 shadow-sm h-full flex flex-col gap-4">
                 <div className="flex items-center gap-3">
                   <span className="w-10 h-10 bg-[#6C5CE4] text-white rounded-xl flex items-center justify-center text-sm font-bold flex-shrink-0">
