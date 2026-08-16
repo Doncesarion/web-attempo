@@ -320,31 +320,39 @@ function DemoModal({ onClose }: { onClose: () => void }) {
       ),
     },
     {
-      titulo: "Paga con Webpay antes de confirmar",
+      titulo: "Paga con Mercado Pago antes de confirmar",
       desc: "El pago es obligatorio para reservar. Sin pago, no hay hora. Así se eliminan los no-shows.",
       screen: (
         <div className="bg-white rounded-2xl border border-gray-100 overflow-hidden">
-          <div className="bg-gray-900 px-4 py-2 flex items-center gap-2">
-            <div className="flex gap-1"><div className="w-2 h-2 rounded-full bg-red-400" /><div className="w-2 h-2 rounded-full bg-yellow-400" /><div className="w-2 h-2 rounded-full bg-green-400" /></div>
-            <div className="flex-1 bg-white/10 rounded-full h-4 flex items-center px-2"><p className="text-gray-400 text-[9px]">webpay.transbank.cl</p></div>
+          <div className="bg-[#009ee3] px-4 py-3 flex items-center justify-between">
+            <svg viewBox="0 0 80 20" className="h-5 fill-white" xmlns="http://www.w3.org/2000/svg"><text y="16" fontSize="14" fontWeight="bold" fontFamily="Arial">Mercado Pago</text></svg>
+            <span className="text-white/80 text-[10px] flex items-center gap-1">
+              <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd" /></svg>
+              Pago seguro
+            </span>
           </div>
           <div className="p-5 flex flex-col gap-4">
-            <div className="flex items-center gap-3 p-3 bg-blue-50 rounded-xl border border-blue-100">
-              <img src="/webpay-logo.png" alt="Webpay" className="h-5 object-contain" />
-              <span className="text-xs text-blue-700 font-semibold">Pago seguro con Transbank</span>
-            </div>
-            <div className="flex justify-between text-sm">
-              <span className="text-gray-600">Terapia individual — Mié 20, 11:00</span>
-              <span className="font-bold text-gray-900">$35.000</span>
+            <div className="bg-gray-50 rounded-xl px-4 py-3 flex justify-between items-center border border-gray-100">
+              <div>
+                <p className="text-xs text-gray-500">Terapia individual — Mié 20, 11:00</p>
+                <p className="text-sm font-bold text-gray-900 mt-0.5">Dra. Valentina Mora</p>
+              </div>
+              <p className="text-lg font-bold text-gray-900">$35.000</p>
             </div>
             <div className="flex flex-col gap-2">
-              <div className="h-9 bg-gray-100 rounded-lg px-3 flex items-center"><p className="text-xs text-gray-400">4051 8856 0044 ••••</p></div>
-              <div className="grid grid-cols-2 gap-2">
-                <div className="h-9 bg-gray-100 rounded-lg px-3 flex items-center"><p className="text-xs text-gray-400">MM/AA</p></div>
-                <div className="h-9 bg-gray-100 rounded-lg px-3 flex items-center"><p className="text-xs text-gray-400">CVV</p></div>
-              </div>
+              {[
+                { label: "Tarjeta de crédito", icon: "💳" },
+                { label: "Débito / Redcompra", icon: "🏦" },
+                { label: "Transferencia bancaria", icon: "🔄" },
+              ].map((m, i) => (
+                <div key={m.label} className={`flex items-center gap-3 px-4 py-3 rounded-xl border cursor-pointer transition-all ${i === 0 ? "border-[#009ee3] bg-blue-50" : "border-gray-100 hover:border-gray-200"}`}>
+                  <span>{m.icon}</span>
+                  <span className="text-sm text-gray-700 font-medium">{m.label}</span>
+                  {i === 0 && <span className="ml-auto text-[#009ee3] text-xs font-bold">✓</span>}
+                </div>
+              ))}
             </div>
-            <div className="bg-[#6C5CE4] rounded-xl py-3 text-center">
+            <div className="bg-[#009ee3] rounded-xl py-3 text-center">
               <p className="text-white text-sm font-bold">Pagar $35.000</p>
             </div>
           </div>
