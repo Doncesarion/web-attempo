@@ -82,7 +82,7 @@ export function HeroSection() {
           <div style={{ animation: "fade-in-up 0.6s ease both 0ms" }}>
             <span className="inline-flex items-center gap-2 bg-[#6C5CE4]/10 text-[#6C5CE4] px-4 py-1.5 rounded-full text-sm font-medium mb-6">
               <span className="w-2 h-2 bg-[#6C5CE4] rounded-full animate-pulse" />
-              Agenda online · Cobro con Webpay · Recordatorios automáticos
+              Agenda online · Webpay · IA que agenda sola 24/7
             </span>
           </div>
 
@@ -282,7 +282,7 @@ export function FeaturesSection() {
   const features: { Icon: LucideIcon; title: string; desc: string; href: string; color: string; bg: string }[] = [
     { Icon: CalendarDays, title: "Agenda inteligente",        desc: "Vista semanal, diaria y en lista. Gestiona citas, bloqueos y disponibilidad en tiempo real.",                             href: "/plataforma",              color: "text-[#6C5CE4]", bg: "bg-[#6C5CE4]/10" },
     { Icon: Bell,         title: "Recordatorios automáticos", desc: "WhatsApp y email antes de cada cita. Reduce las inasistencias sin hacer nada.",                                           href: "/plataforma#recordatorios", color: "text-emerald-600", bg: "bg-emerald-50" },
-    { Icon: Bot,          title: "Chatbot IA",                desc: "Attia atiende y agenda por ti en WhatsApp, Instagram y Messenger las 24 horas.",                                         href: "/chatbot-ia",              color: "text-violet-600",  bg: "bg-violet-50" },
+    { Icon: Bot,          title: "Chatbot IA · disponible ahora", desc: "Attia agenda, cobra y recupera citas por ti en WhatsApp, Instagram y Messenger las 24 horas. Sin 'próximamente'.", href: "/chatbot-ia",              color: "text-violet-600",  bg: "bg-violet-50" },
     { Icon: Banknote,     title: "Control de ventas",         desc: "Registra pagos, revisa ingresos por día y lleva el control de citas sin cobrar.",                                         href: "/plataforma#cobros",        color: "text-sky-600",    bg: "bg-sky-50" },
     { Icon: Users,        title: "Base de clientes",          desc: "Ficha completa por paciente con historial, datos de contacto y citas anteriores.",                                        href: "/plataforma",              color: "text-orange-600",  bg: "bg-orange-50" },
     { Icon: BarChart2,    title: "Reportes y métricas",       desc: "Evolución de reservas, servicios más populares y rendimiento de tu negocio.",                                             href: "/plataforma",              color: "text-pink-600",    bg: "bg-pink-50" },
@@ -839,18 +839,24 @@ export function AttiaSection() {
       >
         <m.div variants={fadeUp} className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
-            <span className="text-[#6C5CE4] text-sm font-medium tracking-wider block mb-3">Para negocios sin agenda</span>
+            <div className="flex items-center gap-2 mb-3">
+              <span className="text-[#6C5CE4] text-sm font-medium tracking-wider">Chatbot IA · Activo ahora</span>
+              <span className="inline-flex items-center gap-1 bg-green-100 text-green-700 text-xs font-bold px-2.5 py-1 rounded-full">
+                <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" />
+                En producción
+              </span>
+            </div>
             <h2 className="text-4xl font-bold text-gray-900 mb-5 leading-tight">
-              ¿Vendes por Instagram<br className="hidden sm:block" /> pero no necesitas agenda?
+              La IA que agenda,<br className="hidden sm:block" /> cobra y recupera citas<br className="hidden sm:block" /> por ti.
             </h2>
             <p className="text-gray-500 text-lg mb-6 leading-relaxed">
-              attia responde automáticamente en WhatsApp, Instagram y Messenger las 24 horas. Ideal para pastelerías, tiendas online, emprendimientos y cualquier negocio que reciba consultas pero no gestione citas.
+              attia responde en WhatsApp, Instagram y Messenger las 24 horas. Agenda, confirma el pago y recupera citas canceladas — sin que tú hagas nada. No es "próximamente": ya está activo.
             </p>
             <ul className="flex flex-col gap-3 mb-8">
               {[
-                "Responde preguntas de producto, precios y disponibilidad",
-                "Atiende mientras duermes o produces",
-                "Sin agenda · Solo chatbot IA",
+                "Agenda turnos y cobra la seña en automático",
+                "Recupera citas canceladas ofreciendo horarios alternativos",
+                "Atiende mientras atiendes — o mientras duermes",
               ].map((item) => (
                 <li key={item} className="flex items-start gap-3 text-sm text-gray-600">
                   <span className="w-5 h-5 rounded-full bg-[#6C5CE4]/15 flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -870,13 +876,19 @@ export function AttiaSection() {
             </a>
           </div>
           <div className="bg-white rounded-3xl border border-[#6C5CE4]/10 shadow-xl p-8">
-            <p className="text-xs font-semibold text-gray-400 tracking-wider mb-6">Attia responde por ti</p>
+            <div className="flex items-center justify-between mb-6">
+              <p className="text-xs font-semibold text-gray-400 tracking-wider">Attia — conversación real</p>
+              <span className="flex items-center gap-1.5 text-xs text-green-600 font-semibold">
+                <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" /> En línea
+              </span>
+            </div>
             <div className="flex flex-col gap-4">
               {[
-                { quien: "Cliente", texto: "Tienen disponible el servicio el sábado a las 10:00?", lado: "izq" },
-                { quien: "Attia", texto: "Hola! Sí, tenemos disponibilidad el sábado a las 10:00. ¿Deseas agendar?", lado: "der" },
-                { quien: "Cliente", texto: "Sí, por favor.", lado: "izq" },
-                { quien: "Attia", texto: "Perfecto, te reservé la hora. En un momento recibirás la confirmación con los detalles.", lado: "der" },
+                { quien: "Cliente", texto: "Hola, ¿tienen hora disponible el viernes a las 18:00?", lado: "izq" },
+                { quien: "Attia", texto: "¡Hola! Sí, tenemos disponibilidad el viernes 22 a las 18:00. ¿Lo reservamos? El costo es $35.000.", lado: "der" },
+                { quien: "Cliente", texto: "Sí, perfecto.", lado: "izq" },
+                { quien: "Attia", texto: "Listo 🎉 Te envío el link de pago por Webpay para confirmar la reserva →", lado: "der" },
+                { quien: "Attia", texto: "✅ Pago recibido. Tu hora está confirmada para el viernes 22 a las 18:00. ¡Te esperamos!", lado: "der" },
               ].map((msg, i) => (
                 <div key={i} className={`flex ${msg.lado === "der" ? "justify-end" : "justify-start"}`}>
                   <div className={`max-w-[80%] px-4 py-2.5 rounded-2xl text-sm ${

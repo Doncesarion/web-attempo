@@ -614,6 +614,84 @@ export default function PreciosContent() {
         </m.div>
       </section>
 
+      {/* ── Comparativa precio real ─────────────────────────────────────────── */}
+      <section className="py-20 px-4 bg-gray-950">
+        <m.div
+          className="max-w-4xl mx-auto"
+          initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={stagger}
+        >
+          <m.div variants={fadeUp} className="text-center mb-12">
+            <span className="inline-block bg-[#6C5CE4]/20 text-[#8B7FF0] text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full mb-5">
+              Precio real vs precio de entrada
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4 leading-tight tracking-tight">
+              Otros sistemas parten barato.<br />Después cobran los extras.
+            </h2>
+            <p className="text-gray-400 max-w-xl mx-auto">
+              La mayoría de las plataformas de agendamiento cobran el plan base y luego agregan cobros separados por cada funcionalidad clave.
+            </p>
+          </m.div>
+
+          <m.div variants={fadeUp} className="grid md:grid-cols-2 gap-4">
+            {/* Columna otros */}
+            <div className="bg-white/5 border border-white/10 rounded-2xl p-7">
+              <div className="flex items-center gap-3 mb-6">
+                <span className="w-8 h-8 bg-red-500/20 rounded-xl flex items-center justify-center text-red-400 text-sm font-bold">✕</span>
+                <p className="text-white/70 font-semibold text-sm tracking-wider">Otros sistemas de agendamiento</p>
+              </div>
+              <div className="flex flex-col gap-4">
+                {[
+                  { item: "Plan base (agenda + recordatorios)",  precio: "desde $15.000/mes" },
+                  { item: "Recordatorios por WhatsApp",          precio: "+ desde $10.000/mes" },
+                  { item: "Chatbot IA para agendar",             precio: "+ desde $200.000/mes" },
+                  { item: "Facturación electrónica / boletas",   precio: "+ desde $90.000/mes" },
+                  { item: "Pago online integrado",               precio: "+ tarifa separada" },
+                ].map(({ item, precio }) => (
+                  <div key={item} className="flex items-start justify-between gap-4 border-b border-white/5 pb-4 last:border-0 last:pb-0">
+                    <p className="text-gray-400 text-sm">{item}</p>
+                    <p className="text-red-400 text-sm font-semibold whitespace-nowrap">{precio}</p>
+                  </div>
+                ))}
+                <div className="mt-2 pt-4 border-t border-white/10 flex items-center justify-between">
+                  <p className="text-white/50 text-sm font-semibold">Total real mensual</p>
+                  <p className="text-red-400 font-bold text-lg">+$315.000/mes</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Columna attempo */}
+            <div className="bg-[#6C5CE4]/15 border border-[#6C5CE4]/30 rounded-2xl p-7">
+              <div className="flex items-center gap-3 mb-6">
+                <span className="w-8 h-8 bg-[#6C5CE4]/30 rounded-xl flex items-center justify-center text-[#8B7FF0] text-sm font-bold">✓</span>
+                <p className="text-[#8B7FF0] font-semibold text-sm tracking-wider">attempo — todo incluido</p>
+              </div>
+              <div className="flex flex-col gap-4">
+                {[
+                  "Agenda completa + recordatorios WhatsApp",
+                  "Chatbot IA que agenda y cobra solo, 24/7",
+                  "Boletas electrónicas (SII / DTEmite)",
+                  "Pago con Webpay/Transbank integrado",
+                  "Precio fijo en pesos — sin UF, sin sorpresas",
+                ].map((item) => (
+                  <div key={item} className="flex items-start gap-3 border-b border-[#6C5CE4]/10 pb-4 last:border-0 last:pb-0">
+                    <CheckIcon className="w-5 h-5 text-[#6C5CE4] flex-shrink-0 mt-0.5" />
+                    <p className="text-white text-sm">{item}</p>
+                  </div>
+                ))}
+                <div className="mt-2 pt-4 border-t border-[#6C5CE4]/20 flex items-center justify-between">
+                  <p className="text-white/70 text-sm font-semibold">Plan Clínica IA (todo incluido)</p>
+                  <p className="text-[#8B7FF0] font-bold text-lg">$119.990/mes</p>
+                </div>
+              </div>
+            </div>
+          </m.div>
+
+          <m.p variants={fadeUp} className="text-center text-gray-500 text-xs mt-6">
+            Comparación referencial basada en precios públicos de plataformas de agendamiento con cobros modulares. Los valores son aproximados y pueden variar.
+          </m.p>
+        </m.div>
+      </section>
+
       {/* ── Garantía ────────────────────────────────────────────────────────── */}
       <section className="py-20 px-4 bg-white">
         <m.div
