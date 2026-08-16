@@ -986,3 +986,183 @@ export function ContrasteSection() {
     </section>
   )
 }
+
+// ─── ROI Calculator ───────────────────────────────────────────────────────────
+export function ROISection() {
+  const [citas, setCitas] = useState(3)
+  const [precio, setPrecio] = useState(35000)
+  const perdida = citas * precio
+  const costo = 24990
+  const recuperado = perdida - costo
+  const ref = useRef<HTMLDivElement>(null)
+  const isInView = useInView(ref, { once: true })
+
+  return (
+    <section ref={ref} className="py-24 px-4 bg-white">
+      <m.div
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}
+        variants={stagger}
+        className="max-w-4xl mx-auto"
+      >
+        <m.div variants={fadeUp} className="text-center mb-12">
+          <span className="inline-block bg-red-50 text-red-600 text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full mb-5">
+            Calculadora de inasistencias
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3 leading-tight tracking-tight">
+            ¿Cuánto dinero pierdes<br className="hidden sm:block" /> cada mes por inasistencias?
+          </h2>
+          <p className="text-gray-500 max-w-lg mx-auto">
+            Mueve los controles y calcula en segundos lo que te cuesta no tener cobro anticipado.
+          </p>
+        </m.div>
+
+        <m.div variants={fadeUp} className="bg-[#f8f7ff] border border-[#6C5CE4]/10 rounded-3xl p-8 lg:p-12">
+          <div className="grid lg:grid-cols-2 gap-10 items-center">
+            {/* Sliders */}
+            <div className="flex flex-col gap-8">
+              <div>
+                <div className="flex justify-between items-baseline mb-3">
+                  <label className="text-sm font-semibold text-gray-700">Citas que pierdes al mes</label>
+                  <span className="text-2xl font-bold text-[#6C5CE4]">{citas}</span>
+                </div>
+                <input
+                  type="range" min={1} max={20} step={1} value={citas}
+                  onChange={e => setCitas(Number(e.target.value))}
+                  className="w-full h-2 rounded-full appearance-none cursor-pointer accent-[#6C5CE4]"
+                />
+                <div className="flex justify-between text-xs text-gray-400 mt-1">
+                  <span>1 cita</span><span>20 citas</span>
+                </div>
+              </div>
+
+              <div>
+                <div className="flex justify-between items-baseline mb-3">
+                  <label className="text-sm font-semibold text-gray-700">Precio por cita</label>
+                  <span className="text-2xl font-bold text-[#6C5CE4]">${precio.toLocaleString("es-CL")}</span>
+                </div>
+                <input
+                  type="range" min={10000} max={150000} step={5000} value={precio}
+                  onChange={e => setPrecio(Number(e.target.value))}
+                  className="w-full h-2 rounded-full appearance-none cursor-pointer accent-[#6C5CE4]"
+                />
+                <div className="flex justify-between text-xs text-gray-400 mt-1">
+                  <span>$10.000</span><span>$150.000</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Resultado */}
+            <div className="flex flex-col gap-4">
+              <div className="bg-red-50 border border-red-100 rounded-2xl p-5">
+                <p className="text-xs font-semibold text-red-500 uppercase tracking-wider mb-1">Dinero que pierdes cada mes</p>
+                <p className="text-4xl font-bold text-red-600">${perdida.toLocaleString("es-CL")}</p>
+                <p className="text-xs text-red-400 mt-1">{citas} cita{citas !== 1 ? "s" : ""} × ${precio.toLocaleString("es-CL")}</p>
+              </div>
+
+              <div className="bg-white border border-gray-100 rounded-2xl p-5 flex items-center justify-between">
+                <div>
+                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">attempo cuesta</p>
+                  <p className="text-2xl font-bold text-gray-800">$24.990<span className="text-sm font-normal text-gray-400">/mes</span></p>
+                </div>
+                <span className="text-3xl">→</span>
+                <div className="text-right">
+                  <p className="text-xs font-semibold text-emerald-600 uppercase tracking-wider mb-1">Recuperas</p>
+                  <p className={`text-2xl font-bold ${recuperado > 0 ? "text-emerald-600" : "text-gray-400"}`}>
+                    ${Math.max(0, recuperado).toLocaleString("es-CL")}
+                  </p>
+                </div>
+              </div>
+
+              <a
+                href="https://app.attempo.cl/registro"
+                className="flex items-center justify-center gap-2 w-full py-4 bg-[#6C5CE4] hover:bg-[#5A4BD1] text-white font-bold rounded-2xl transition-colors text-sm shadow-lg shadow-[#6C5CE4]/20"
+              >
+                Empieza gratis y deja de perder ese dinero →
+              </a>
+              <p className="text-center text-xs text-gray-400">12 días gratis · Sin tarjeta · Listo en 5 minutos</p>
+            </div>
+          </div>
+        </m.div>
+      </m.div>
+    </section>
+  )
+}
+
+// ─── Onboarding Steps ─────────────────────────────────────────────────────────
+export function OnboardingSection() {
+  const pasos = [
+    {
+      n: "01",
+      titulo: "Crea tu cuenta gratis",
+      desc: "Registra tu negocio en 2 minutos. Sin tarjeta, sin letra chica. Tienes 12 días para probar todo.",
+      detalle: "Solo tu nombre, email y tipo de negocio. Listo.",
+    },
+    {
+      n: "02",
+      titulo: "Configura tu agenda",
+      desc: "Agrega tus servicios, precios y horarios disponibles. El sistema genera tu link de reservas al instante.",
+      detalle: "La mayoría lo termina en menos de 10 minutos.",
+    },
+    {
+      n: "03",
+      titulo: "Comparte tu link y empieza a recibir citas",
+      desc: "Ponlo en tu bio de Instagram, WhatsApp o donde quieras. Tus pacientes reservan solos, tú ves todo en tiempo real.",
+      detalle: "El cobro anticipado y los recordatorios corren solos desde el primer día.",
+    },
+  ]
+
+  return (
+    <section className="py-24 px-4 bg-[#f8f7ff]">
+      <m.div
+        variants={stagger}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-80px" }}
+        className="max-w-4xl mx-auto"
+      >
+        <m.div variants={fadeUp} className="text-center mb-14">
+          <span className="inline-block bg-[#6C5CE4]/10 text-[#6C5CE4] text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full mb-5">
+            Configuración en 5 minutos
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3 leading-tight tracking-tight">
+            ¿Qué pasa después de registrarte?
+          </h2>
+          <p className="text-gray-500 max-w-lg mx-auto">
+            Sin onboarding eterno. Sin asistente que te explique todo. Solo tres pasos y ya estás recibiendo citas.
+          </p>
+        </m.div>
+
+        <div className="grid md:grid-cols-3 gap-6">
+          {pasos.map((p, i) => (
+            <m.div key={p.n} variants={fadeUp} className="relative">
+              {i < pasos.length - 1 && (
+                <div className="hidden md:block absolute top-8 left-[calc(100%+0px)] w-full h-px border-t-2 border-dashed border-[#6C5CE4]/20 z-10" style={{ width: "calc(100% - 2rem)", left: "calc(50% + 2rem)" }} />
+              )}
+              <div className="bg-white rounded-2xl border border-gray-100 p-7 shadow-sm h-full flex flex-col gap-4">
+                <div className="flex items-center gap-3">
+                  <span className="w-10 h-10 bg-[#6C5CE4] text-white rounded-xl flex items-center justify-center text-sm font-bold flex-shrink-0">
+                    {p.n}
+                  </span>
+                  <h3 className="font-bold text-gray-900 text-base leading-tight">{p.titulo}</h3>
+                </div>
+                <p className="text-gray-500 text-sm leading-relaxed flex-1">{p.desc}</p>
+                <p className="text-xs text-[#6C5CE4] font-semibold bg-[#6C5CE4]/8 px-3 py-2 rounded-xl">{p.detalle}</p>
+              </div>
+            </m.div>
+          ))}
+        </div>
+
+        <m.div variants={fadeUp} className="text-center mt-10">
+          <a
+            href="https://app.attempo.cl/registro"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-[#6C5CE4] hover:bg-[#5A4BD1] text-white font-bold rounded-xl transition-colors shadow-lg shadow-[#6C5CE4]/20"
+          >
+            Empieza gratis ahora →
+          </a>
+          <p className="text-xs text-gray-400 mt-3">Sin tarjeta · 12 días de prueba · Cancela cuando quieras</p>
+        </m.div>
+      </m.div>
+    </section>
+  )
+}

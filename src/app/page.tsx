@@ -3,6 +3,7 @@ import Script from "next/script"
 import {
   HeroSection,
   ContrasteSection,
+  ROISection,
   StatsSection,
   FeaturesSection,
   ScreenshotsSection,
@@ -10,6 +11,7 @@ import {
   SeguridadSection,
   EspecialidadesSection,
   AttiaSection,
+  OnboardingSection,
   TestimonialsSection,
   CTASection,
 } from "@/components/HomeAnimations"
@@ -190,6 +192,7 @@ export default function HomePage() {
       <div className="flex flex-col">
         <HeroSection />
         <ContrasteSection />
+        <ROISection />
         <StatsSection />
         <FeaturesSection />
         <ScreenshotsSection />
@@ -197,6 +200,7 @@ export default function HomePage() {
         <SeguridadSection />
         <EspecialidadesSection />
         <AttiaSection />
+        <OnboardingSection />
         <TestimonialsSection />
         <CTASection />
       </div>
