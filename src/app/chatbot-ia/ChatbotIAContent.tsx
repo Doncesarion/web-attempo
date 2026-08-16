@@ -3,6 +3,7 @@
 import React, { useState } from "react"
 import { m } from "framer-motion"
 import Link from "next/link"
+import { Brain, Stethoscope, Smile, Leaf, Baby, Activity, Building2, Sparkles } from "lucide-react"
 
 /* ── Icons ────────────────────────────────────────────────────────────── */
 const SparklesIcon = () => (
@@ -140,10 +141,10 @@ function Step({ n, title, desc }: { n: number; title: string; desc: string }) {
 }
 
 /* ── Specialty card ───────────────────────────────────────────────────── */
-function SpecialtyCard({ emoji, name, desc }: { emoji: string; name: string; desc: string }) {
+function SpecialtyCard({ icon, name, desc }: { icon: React.ReactNode; name: string; desc: string }) {
   return (
     <m.div variants={fadeUp} className="bg-white rounded-2xl border border-gray-100 p-5 hover:border-[#6C5CE4]/30 hover:shadow-md transition-all duration-200">
-      <div className="text-3xl mb-3">{emoji}</div>
+      <div className="w-10 h-10 bg-[#6C5CE4]/10 rounded-xl flex items-center justify-center text-[#6C5CE4] mb-3">{icon}</div>
       <h3 className="font-semibold text-gray-900 mb-1">{name}</h3>
       <p className="text-gray-500 text-sm leading-relaxed">{desc}</p>
     </m.div>
@@ -544,14 +545,14 @@ export default function ChatbotIAContent() {
 
             <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
               {[
-                { emoji: "🧠", name: "Psicólogos y psiquiatras", desc: "Responde consultas sobre la primera sesión, tarifas, modalidad y agenda bloques de 50 minutos automáticamente." },
-                { emoji: "🩺", name: "Médicos generales", desc: "Gestiona la agenda de consultas y controles. Informa sobre exámenes requeridos y documentos necesarios." },
-                { emoji: "🦷", name: "Dentistas", desc: "Agenda horas de limpieza, ortodoncia o urgencias y responde dudas sobre tratamientos y precios." },
-                { emoji: "🥗", name: "Nutricionistas", desc: "Confirma citas de primera consulta, explica qué llevar a la sesión y responde dudas sobre el proceso." },
-                { emoji: "👶", name: "Matronas", desc: "Atiende consultas de embarazadas sobre controles prenatales, ecografías y disponibilidad." },
-                { emoji: "💪", name: "Fisioterapeutas", desc: "Gestiona sesiones de kinesiología y responde sobre las técnicas disponibles y tiempos de recuperación." },
-                { emoji: "🏥", name: "Centros y clínicas", desc: "Para equipos con múltiples especialistas: cada profesional tiene su propia agenda, Attia gestiona todo." },
-                { emoji: "✨", name: "Estética y bienestar", desc: "Agenda procedimientos estéticos, responde sobre tratamientos y gestiona el tiempo entre citas." },
+                { icon: <Brain className="w-5 h-5" />, name: "Psicólogos y psiquiatras", desc: "Responde consultas sobre la primera sesión, tarifas, modalidad y agenda bloques de 50 minutos automáticamente." },
+                { icon: <Stethoscope className="w-5 h-5" />, name: "Médicos generales", desc: "Gestiona la agenda de consultas y controles. Informa sobre exámenes requeridos y documentos necesarios." },
+                { icon: <Smile className="w-5 h-5" />, name: "Dentistas", desc: "Agenda horas de limpieza, ortodoncia o urgencias y responde dudas sobre tratamientos y precios." },
+                { icon: <Leaf className="w-5 h-5" />, name: "Nutricionistas", desc: "Confirma citas de primera consulta, explica qué llevar a la sesión y responde dudas sobre el proceso." },
+                { icon: <Baby className="w-5 h-5" />, name: "Matronas", desc: "Atiende consultas de embarazadas sobre controles prenatales, ecografías y disponibilidad." },
+                { icon: <Activity className="w-5 h-5" />, name: "Fisioterapeutas", desc: "Gestiona sesiones de kinesiología y responde sobre las técnicas disponibles y tiempos de recuperación." },
+                { icon: <Building2 className="w-5 h-5" />, name: "Centros y clínicas", desc: "Para equipos con múltiples especialistas: cada profesional tiene su propia agenda, Attia gestiona todo." },
+                { icon: <Sparkles className="w-5 h-5" />, name: "Estética y bienestar", desc: "Agenda procedimientos estéticos, responde sobre tratamientos y gestiona el tiempo entre citas." },
               ].map((s) => (
                 <SpecialtyCard key={s.name} {...s} />
               ))}

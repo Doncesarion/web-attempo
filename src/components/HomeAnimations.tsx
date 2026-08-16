@@ -52,7 +52,10 @@ function AnimatedStat({ value, label }: { value: string; label: string }) {
 }
 
 export function HeroSection() {
+  const [demoOpen, setDemoOpen] = useState(false)
   return (
+    <>
+    {demoOpen && <DemoModal onClose={() => setDemoOpen(false)} />}
     <section className="relative min-h-[95vh] flex items-center overflow-hidden bg-gradient-to-br from-[#f5f3ff] via-white to-[#ede9fe] px-4">
       {/* Dot grid */}
       <div
@@ -82,7 +85,7 @@ export function HeroSection() {
           <div style={{ animation: "fade-in-up 0.6s ease both 0ms" }}>
             <span className="inline-flex items-center gap-2 bg-[#6C5CE4]/10 text-[#6C5CE4] px-4 py-1.5 rounded-full text-sm font-medium mb-6">
               <span className="w-2 h-2 bg-[#6C5CE4] rounded-full animate-pulse" />
-              Agenda online · Cobro con Webpay · Recordatorios automáticos
+              Agenda online · Webpay · IA que agenda sola 24/7
             </span>
           </div>
 
@@ -120,12 +123,12 @@ export function HeroSection() {
             >
               Empieza gratis
             </a>
-            <a
-              href="https://app.attempo.cl"
-              className="px-8 py-4 bg-white border border-gray-200 text-gray-700 font-semibold rounded-xl hover:border-[#6C5CE4] hover:text-[#6C5CE4] transition-all text-lg hover:-translate-y-0.5 active:translate-y-0"
+            <button
+              onClick={() => setDemoOpen(true)}
+              className="px-8 py-4 bg-white border border-gray-200 text-gray-700 font-semibold rounded-xl hover:border-[#6C5CE4] hover:text-[#6C5CE4] transition-all text-lg hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
             >
               Ver demo
-            </a>
+            </button>
           </div>
           <p
             className="text-sm text-gray-400 mt-2 text-center lg:text-left"
@@ -250,6 +253,249 @@ export function HeroSection() {
         </m.div>
       </div>
     </section>
+    </>
+  )
+}
+
+// ─── Demo Modal ───────────────────────────────────────────────────────────────
+function DemoModal({ onClose }: { onClose: () => void }) {
+  const [tab, setTab] = useState<"paciente" | "profesional">("paciente")
+  const [paso, setPaso] = useState(0)
+
+  const pasosPaciente = [
+    {
+      titulo: "Hace clic en tu link de reservas",
+      desc: "Desde tu bio de Instagram, un mensaje de WhatsApp o tu sitio web.",
+      screen: (
+        <div className="bg-[#f8f7ff] rounded-2xl overflow-hidden border border-[#6C5CE4]/10">
+          <div className="bg-[#6C5CE4] px-4 py-3 flex items-center gap-2">
+            <div className="w-2 h-2 rounded-full bg-white/40" />
+            <p className="text-white/60 text-[10px] tracking-widest flex-1 text-center">app.attempo.cl/dra-valentina</p>
+          </div>
+          <div className="p-4 flex flex-col gap-3">
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 rounded-full bg-[#6C5CE4]/20 flex items-center justify-center text-[#6C5CE4] font-bold text-lg">VM</div>
+              <div>
+                <p className="font-bold text-gray-900 text-sm">Dra. Valentina Mora</p>
+                <p className="text-xs text-gray-500">Psicóloga clínica · Santiago</p>
+              </div>
+            </div>
+            <div className="grid grid-cols-2 gap-2 mt-1">
+              {["Terapia individual", "Primera consulta", "Terapia de pareja", "Evaluación"].map(s => (
+                <div key={s} className="border border-[#6C5CE4]/20 rounded-xl px-3 py-2.5 text-center cursor-pointer hover:bg-[#6C5CE4]/5">
+                  <p className="text-xs font-semibold text-gray-700">{s}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      ),
+    },
+    {
+      titulo: "Elige servicio, fecha y hora",
+      desc: "El sistema muestra solo los horarios disponibles. Sin llamadas, sin WhatsApp.",
+      screen: (
+        <div className="bg-white rounded-2xl border border-gray-100 overflow-hidden">
+          <div className="bg-[#6C5CE4] px-4 py-3">
+            <p className="text-white font-semibold text-sm">Terapia individual · $35.000</p>
+            <p className="text-white/60 text-xs">Selecciona fecha y hora</p>
+          </div>
+          <div className="p-4 flex flex-col gap-3">
+            <div className="flex gap-1.5 overflow-x-auto pb-1">
+              {["Lun 18", "Mar 19", "Mié 20", "Jue 21", "Vie 22"].map((d, i) => (
+                <div key={d} className={`flex-shrink-0 flex flex-col items-center px-3 py-2 rounded-xl text-xs font-bold ${i === 2 ? "bg-[#6C5CE4] text-white" : "bg-gray-50 text-gray-500"}`}>
+                  {d}
+                </div>
+              ))}
+            </div>
+            <div className="grid grid-cols-3 gap-2">
+              {[["09:00", false], ["10:30", false], ["11:00", true], ["12:00", true], ["15:30", true], ["17:00", false]].map(([h, libre]) => (
+                <div key={String(h)} className={`py-2 rounded-xl text-center text-xs font-semibold ${libre ? "bg-[#6C5CE4]/10 text-[#6C5CE4] border border-[#6C5CE4]/20" : "bg-gray-50 text-gray-300"}`}>
+                  {String(h)}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      ),
+    },
+    {
+      titulo: "Paga con Mercado Pago antes de confirmar",
+      desc: "El pago es obligatorio para reservar. Sin pago, no hay hora. Así se eliminan los no-shows.",
+      screen: (
+        <div className="bg-white rounded-2xl border border-gray-100 overflow-hidden">
+          <div className="bg-[#009ee3] px-4 py-3 flex items-center justify-between">
+            <span className="text-white font-bold text-sm tracking-tight">Mercado Pago</span>
+            <span className="text-white/80 text-[10px] flex items-center gap-1">
+              <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd" /></svg>
+              Pago seguro
+            </span>
+          </div>
+          <div className="p-5 flex flex-col gap-4">
+            <div className="bg-gray-50 rounded-xl px-4 py-3 flex justify-between items-center border border-gray-100">
+              <div>
+                <p className="text-xs text-gray-500">Terapia individual — Mié 20, 11:00</p>
+                <p className="text-sm font-bold text-gray-900 mt-0.5">Dra. Valentina Mora</p>
+              </div>
+              <p className="text-lg font-bold text-gray-900">$35.000</p>
+            </div>
+            <div className="flex flex-col gap-2">
+              {[
+                { label: "Tarjeta de crédito", icon: "💳" },
+                { label: "Débito / Redcompra", icon: "🏦" },
+                { label: "Transferencia bancaria", icon: "🔄" },
+              ].map((m, i) => (
+                <div key={m.label} className={`flex items-center gap-3 px-4 py-3 rounded-xl border cursor-pointer transition-all ${i === 0 ? "border-[#009ee3] bg-blue-50" : "border-gray-100 hover:border-gray-200"}`}>
+                  <span>{m.icon}</span>
+                  <span className="text-sm text-gray-700 font-medium">{m.label}</span>
+                  {i === 0 && <span className="ml-auto text-[#009ee3] text-xs font-bold">✓</span>}
+                </div>
+              ))}
+            </div>
+            <div className="bg-[#009ee3] rounded-xl py-3 text-center">
+              <p className="text-white text-sm font-bold">Pagar $35.000</p>
+            </div>
+          </div>
+        </div>
+      ),
+    },
+    {
+      titulo: "Recibe confirmación por WhatsApp",
+      desc: "Tu paciente recibe el comprobante al instante. Tú no haces nada — la cita ya está en tu agenda.",
+      screen: (
+        <div className="bg-[#e5ddd5] rounded-2xl overflow-hidden">
+          <div className="bg-[#075e54] px-4 py-3 flex items-center gap-3">
+            <div className="w-7 h-7 rounded-full bg-white/20 flex items-center justify-center text-white text-xs font-bold">A</div>
+            <div>
+              <p className="text-white text-sm font-semibold">attempo</p>
+              <p className="text-white/60 text-xs">en línea</p>
+            </div>
+          </div>
+          <div className="p-4 flex flex-col gap-3">
+            <div className="bg-white rounded-2xl rounded-tl-sm px-4 py-3 shadow-sm max-w-[85%]">
+              <p className="text-gray-800 text-xs leading-relaxed">
+                ✅ <strong>¡Reserva confirmada!</strong><br /><br />
+                📅 Miércoles 20 de agosto, 11:00<br />
+                👩‍⚕️ Dra. Valentina Mora<br />
+                💬 Terapia individual<br />
+                💳 Pago recibido: $35.000<br /><br />
+                Te recordaremos 24h antes. ¡Nos vemos!
+              </p>
+              <p className="text-gray-400 text-[9px] text-right mt-1">11:03 ✓✓</p>
+            </div>
+          </div>
+        </div>
+      ),
+    },
+  ]
+
+  const pasosProfesional = [
+    {
+      titulo: "La cita aparece en tu agenda al instante",
+      desc: "No tienes que hacer nada. En cuanto el paciente paga, la cita queda confirmada en tu calendario.",
+      img: "/desktop-agenda.png",
+    },
+    {
+      titulo: "El pago queda registrado automáticamente",
+      desc: "Sin perseguir pagos. Sin anotaciones manuales. El ingreso se registra solo en tu módulo de ventas.",
+      img: "/desktop-ventas.png",
+    },
+    {
+      titulo: "Los recordatorios salen solos",
+      desc: "24h y 2h antes de cada cita, tu paciente recibe un WhatsApp automático. Tú no tocas nada.",
+      img: "/desktop-config.png",
+    },
+    {
+      titulo: "Tienes el historial completo del paciente",
+      desc: "Cada cita, cada pago y cada nota queda guardada en la ficha del paciente para consultar cuando quieras.",
+      img: "/desktop-clientes.png",
+    },
+  ]
+
+  const pasos = tab === "paciente" ? pasosPaciente : pasosProfesional
+  const total = pasos.length
+
+  // Cerrar con Escape
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => { if (e.key === "Escape") onClose() }
+    window.addEventListener("keydown", handler)
+    return () => window.removeEventListener("keydown", handler)
+  }, [onClose])
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4" onClick={onClose}>
+      <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
+      <div
+        className="relative bg-white rounded-3xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto"
+        onClick={e => e.stopPropagation()}
+      >
+        {/* Header */}
+        <div className="flex items-center justify-between px-7 pt-7 pb-5 border-b border-gray-100">
+          <div>
+            <h2 className="text-xl font-bold text-gray-900">Cómo funciona attempo</h2>
+            <p className="text-sm text-gray-500 mt-0.5">Ve el flujo completo desde ambos lados</p>
+          </div>
+          <button onClick={onClose} className="w-9 h-9 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors flex items-center justify-center text-gray-500 cursor-pointer flex-shrink-0">
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+          </button>
+        </div>
+
+        {/* Tabs */}
+        <div className="flex px-7 pt-5 gap-3">
+          {[
+            { key: "paciente", label: "👤 Tu paciente reserva" },
+            { key: "profesional", label: "📊 Tú lo ves todo" },
+          ].map(t => (
+            <button
+              key={t.key}
+              onClick={() => { setTab(t.key as "paciente" | "profesional"); setPaso(0) }}
+              className={`flex-1 py-2.5 rounded-xl text-sm font-semibold transition-all cursor-pointer ${tab === t.key ? "bg-[#6C5CE4] text-white shadow-md shadow-[#6C5CE4]/20" : "bg-gray-100 text-gray-500 hover:bg-gray-200"}`}
+            >
+              {t.label}
+            </button>
+          ))}
+        </div>
+
+        {/* Stepper dots */}
+        <div className="flex items-center justify-center gap-2 px-7 pt-5">
+          {pasos.map((_, i) => (
+            <button key={i} onClick={() => setPaso(i)} className={`transition-all rounded-full cursor-pointer ${i === paso ? "w-6 h-2 bg-[#6C5CE4]" : "w-2 h-2 bg-gray-200 hover:bg-gray-300"}`} />
+          ))}
+        </div>
+
+        {/* Contenido */}
+        <div className="px-7 py-6">
+          <div className="mb-5">
+            <p className="text-xs font-semibold text-[#6C5CE4] uppercase tracking-wider mb-1">Paso {paso + 1} de {total}</p>
+            <h3 className="text-lg font-bold text-gray-900 leading-tight">{pasos[paso].titulo}</h3>
+            <p className="text-sm text-gray-500 mt-1 leading-relaxed">{pasos[paso].desc}</p>
+          </div>
+
+          {/* Screen */}
+          <div className="mb-6">
+            {tab === "paciente"
+              ? (pasos[paso] as typeof pasosPaciente[0]).screen
+              : <Image src={(pasos[paso] as typeof pasosProfesional[0]).img} alt={pasos[paso].titulo} width={900} height={560} className="w-full rounded-2xl border border-gray-100 shadow-sm" />
+            }
+          </div>
+
+          {/* Nav */}
+          <div className="flex items-center justify-between gap-3">
+            <button
+              onClick={() => setPaso(p => Math.max(0, p - 1))}
+              disabled={paso === 0}
+              className="flex-1 py-3 rounded-xl border border-gray-200 text-sm font-semibold text-gray-600 hover:bg-gray-50 disabled:opacity-30 disabled:cursor-not-allowed transition-all cursor-pointer"
+            >
+              ← Anterior
+            </button>
+            {paso < total - 1
+              ? <button onClick={() => setPaso(p => p + 1)} className="flex-1 py-3 rounded-xl bg-[#6C5CE4] text-white text-sm font-semibold hover:bg-[#5A4BD1] transition-all cursor-pointer">Siguiente →</button>
+              : <a href="https://app.attempo.cl/registro" className="flex-1 py-3 rounded-xl bg-[#6C5CE4] text-white text-sm font-bold text-center hover:bg-[#5A4BD1] transition-all">Empieza gratis →</a>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
   )
 }
 
@@ -280,16 +526,16 @@ export function StatsSection() {
 
 export function FeaturesSection() {
   const features: { Icon: LucideIcon; title: string; desc: string; href: string; color: string; bg: string }[] = [
-    { Icon: CalendarDays, title: "Agenda inteligente",        desc: "Vista semanal, diaria y en lista. Gestiona citas, bloqueos y disponibilidad en tiempo real.",                             href: "/plataforma",              color: "text-[#6C5CE4]", bg: "bg-[#6C5CE4]/10" },
+    { Icon: CalendarDays, title: "Agenda inteligente",        desc: "Vista semanal, diaria y en lista. Gestiona citas, bloqueos y disponibilidad en tiempo real.",                             href: "/plataforma#agenda",        color: "text-[#6C5CE4]", bg: "bg-[#6C5CE4]/10" },
     { Icon: Bell,         title: "Recordatorios automáticos", desc: "WhatsApp y email antes de cada cita. Reduce las inasistencias sin hacer nada.",                                           href: "/plataforma#recordatorios", color: "text-emerald-600", bg: "bg-emerald-50" },
-    { Icon: Bot,          title: "Chatbot IA",                desc: "Attia atiende y agenda por ti en WhatsApp, Instagram y Messenger las 24 horas.",                                         href: "/chatbot-ia",              color: "text-violet-600",  bg: "bg-violet-50" },
+    { Icon: Bot,          title: "Chatbot IA",                desc: "Attia agenda, cobra y recupera citas por ti en WhatsApp, Instagram y Messenger las 24 horas. Ya activo.",               href: "/chatbot-ia",              color: "text-violet-600",  bg: "bg-violet-50" },
     { Icon: Banknote,     title: "Control de ventas",         desc: "Registra pagos, revisa ingresos por día y lleva el control de citas sin cobrar.",                                         href: "/plataforma#cobros",        color: "text-sky-600",    bg: "bg-sky-50" },
-    { Icon: Users,        title: "Base de clientes",          desc: "Ficha completa por paciente con historial, datos de contacto y citas anteriores.",                                        href: "/plataforma",              color: "text-orange-600",  bg: "bg-orange-50" },
-    { Icon: BarChart2,    title: "Reportes y métricas",       desc: "Evolución de reservas, servicios más populares y rendimiento de tu negocio.",                                             href: "/plataforma",              color: "text-pink-600",    bg: "bg-pink-50" },
+    { Icon: Users,        title: "Base de clientes",          desc: "Ficha completa por paciente con historial, datos de contacto y citas anteriores.",                                        href: "/plataforma#clientes",      color: "text-orange-600",  bg: "bg-orange-50" },
+    { Icon: BarChart2,    title: "Reportes y métricas",       desc: "Evolución de reservas, servicios más populares y rendimiento de tu negocio.",                                             href: "/plataforma#reportes",      color: "text-pink-600",    bg: "bg-pink-50" },
     { Icon: Package,      title: "Paquetes de sesiones",      desc: "Vende sesiones en bloque y controla el avance de cada paquete por cliente.",                                             href: "/plataforma#paquetes",      color: "text-amber-600",   bg: "bg-amber-50" },
     { Icon: FileText,     title: "Boleta de honorarios",      desc: "Genera boletas de honorarios directamente desde la plataforma. Integración SII.",                                        href: "/plataforma#boleta",        color: "text-teal-600",    bg: "bg-teal-50" },
-    { Icon: Globe,        title: "Página de reservas online", desc: "Tu propio link de reservas personalizado para compartir con tus pacientes.",                                              href: "/plataforma",              color: "text-indigo-600",  bg: "bg-indigo-50" },
-    { Icon: CalendarDays, title: "Google Calendar",           desc: "Vincula tu cuenta y cada cita aparece al instante. Al cancelar, desaparece automáticamente.",                            href: "/plataforma",              color: "text-red-500",     bg: "bg-red-50" },
+    { Icon: Globe,        title: "Página de reservas online", desc: "Tu propio link de reservas personalizado para compartir con tus pacientes.",                                              href: "/plataforma#agenda",        color: "text-indigo-600",  bg: "bg-indigo-50" },
+    { Icon: CalendarDays, title: "Google Calendar",           desc: "Vincula tu cuenta y cada cita aparece al instante. Al cancelar, desaparece automáticamente.",                            href: "/plataforma#google-calendar", color: "text-red-500",   bg: "bg-red-50" },
   ]
 
   return (
@@ -839,18 +1085,24 @@ export function AttiaSection() {
       >
         <m.div variants={fadeUp} className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
-            <span className="text-[#6C5CE4] text-sm font-medium tracking-wider block mb-3">Para negocios sin agenda</span>
+            <div className="flex items-center gap-2 mb-3">
+              <span className="text-[#6C5CE4] text-sm font-medium tracking-wider">Chatbot IA · Activo ahora</span>
+              <span className="inline-flex items-center gap-1 bg-green-100 text-green-700 text-xs font-bold px-2.5 py-1 rounded-full">
+                <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" />
+                En producción
+              </span>
+            </div>
             <h2 className="text-4xl font-bold text-gray-900 mb-5 leading-tight">
-              ¿Vendes por Instagram<br className="hidden sm:block" /> pero no necesitas agenda?
+              La IA que agenda,<br className="hidden sm:block" /> cobra y recupera citas<br className="hidden sm:block" /> por ti.
             </h2>
             <p className="text-gray-500 text-lg mb-6 leading-relaxed">
-              attia responde automáticamente en WhatsApp, Instagram y Messenger las 24 horas. Ideal para pastelerías, tiendas online, emprendimientos y cualquier negocio que reciba consultas pero no gestione citas.
+              attia responde en WhatsApp, Instagram y Messenger las 24 horas. Agenda, confirma el pago y recupera citas canceladas — sin que tú hagas nada. No es "próximamente": ya está activo.
             </p>
             <ul className="flex flex-col gap-3 mb-8">
               {[
-                "Responde preguntas de producto, precios y disponibilidad",
-                "Atiende mientras duermes o produces",
-                "Sin agenda · Solo chatbot IA",
+                "Agenda turnos y cobra la seña en automático",
+                "Recupera citas canceladas ofreciendo horarios alternativos",
+                "Atiende mientras atiendes — o mientras duermes",
               ].map((item) => (
                 <li key={item} className="flex items-start gap-3 text-sm text-gray-600">
                   <span className="w-5 h-5 rounded-full bg-[#6C5CE4]/15 flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -870,13 +1122,19 @@ export function AttiaSection() {
             </a>
           </div>
           <div className="bg-white rounded-3xl border border-[#6C5CE4]/10 shadow-xl p-8">
-            <p className="text-xs font-semibold text-gray-400 tracking-wider mb-6">Attia responde por ti</p>
+            <div className="flex items-center justify-between mb-6">
+              <p className="text-xs font-semibold text-gray-400 tracking-wider">Attia — conversación real</p>
+              <span className="flex items-center gap-1.5 text-xs text-green-600 font-semibold">
+                <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" /> En línea
+              </span>
+            </div>
             <div className="flex flex-col gap-4">
               {[
-                { quien: "Cliente", texto: "Tienen disponible el servicio el sábado a las 10:00?", lado: "izq" },
-                { quien: "Attia", texto: "Hola! Sí, tenemos disponibilidad el sábado a las 10:00. ¿Deseas agendar?", lado: "der" },
-                { quien: "Cliente", texto: "Sí, por favor.", lado: "izq" },
-                { quien: "Attia", texto: "Perfecto, te reservé la hora. En un momento recibirás la confirmación con los detalles.", lado: "der" },
+                { quien: "Cliente", texto: "Hola, ¿tienen hora disponible el viernes a las 18:00?", lado: "izq" },
+                { quien: "Attia", texto: "¡Hola! Sí, tenemos disponibilidad el viernes 22 a las 18:00. ¿Lo reservamos? El costo es $35.000.", lado: "der" },
+                { quien: "Cliente", texto: "Sí, perfecto.", lado: "izq" },
+                { quien: "Attia", texto: "Listo 🎉 Te envío el link de pago por Webpay para confirmar la reserva →", lado: "der" },
+                { quien: "Attia", texto: "✅ Pago recibido. Tu hora está confirmada para el viernes 22 a las 18:00. ¡Te esperamos!", lado: "der" },
               ].map((msg, i) => (
                 <div key={i} className={`flex ${msg.lado === "der" ? "justify-end" : "justify-start"}`}>
                   <div className={`max-w-[80%] px-4 py-2.5 rounded-2xl text-sm ${
@@ -970,6 +1228,183 @@ export function ContrasteSection() {
             </m.div>
           ))}
         </div>
+      </m.div>
+    </section>
+  )
+}
+
+// ─── ROI Calculator ───────────────────────────────────────────────────────────
+export function ROISection() {
+  const [citas, setCitas] = useState(3)
+  const [precio, setPrecio] = useState(35000)
+  const perdida = citas * precio
+  const costo = 24990
+  const recuperado = perdida - costo
+  const ref = useRef<HTMLDivElement>(null)
+  const isInView = useInView(ref, { once: true })
+
+  return (
+    <section ref={ref} className="py-24 px-4 bg-white">
+      <m.div
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}
+        variants={stagger}
+        className="max-w-4xl mx-auto"
+      >
+        <m.div variants={fadeUp} className="text-center mb-12">
+          <span className="inline-block bg-red-50 text-red-600 text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full mb-5">
+            Calculadora de inasistencias
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3 leading-tight tracking-tight">
+            ¿Cuánto dinero pierdes<br className="hidden sm:block" /> cada mes por inasistencias?
+          </h2>
+          <p className="text-gray-500 max-w-lg mx-auto">
+            Mueve los controles y calcula en segundos lo que te cuesta no tener cobro anticipado.
+          </p>
+        </m.div>
+
+        <m.div variants={fadeUp} className="bg-[#f8f7ff] border border-[#6C5CE4]/10 rounded-3xl p-8 lg:p-12">
+          <div className="grid lg:grid-cols-2 gap-10 items-center">
+            {/* Sliders */}
+            <div className="flex flex-col gap-8">
+              <div>
+                <div className="flex justify-between items-baseline mb-3">
+                  <label className="text-sm font-semibold text-gray-700">Citas que pierdes al mes</label>
+                  <span className="text-2xl font-bold text-[#6C5CE4]">{citas}</span>
+                </div>
+                <input
+                  type="range" min={1} max={20} step={1} value={citas}
+                  onChange={e => setCitas(Number(e.target.value))}
+                  className="w-full h-2 rounded-full appearance-none cursor-pointer accent-[#6C5CE4]"
+                />
+                <div className="flex justify-between text-xs text-gray-400 mt-1">
+                  <span>1 cita</span><span>20 citas</span>
+                </div>
+              </div>
+
+              <div>
+                <div className="flex justify-between items-baseline mb-3">
+                  <label className="text-sm font-semibold text-gray-700">Precio por cita</label>
+                  <span className="text-2xl font-bold text-[#6C5CE4]">${precio.toLocaleString("es-CL")}</span>
+                </div>
+                <input
+                  type="range" min={10000} max={150000} step={5000} value={precio}
+                  onChange={e => setPrecio(Number(e.target.value))}
+                  className="w-full h-2 rounded-full appearance-none cursor-pointer accent-[#6C5CE4]"
+                />
+                <div className="flex justify-between text-xs text-gray-400 mt-1">
+                  <span>$10.000</span><span>$150.000</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Resultado */}
+            <div className="flex flex-col gap-4">
+              <div className="bg-red-50 border border-red-100 rounded-2xl p-5">
+                <p className="text-xs font-semibold text-red-500 uppercase tracking-wider mb-1">Dinero que pierdes cada mes</p>
+                <p className="text-4xl font-bold text-red-600">${perdida.toLocaleString("es-CL")}</p>
+                <p className="text-xs text-red-400 mt-1">{citas} cita{citas !== 1 ? "s" : ""} × ${precio.toLocaleString("es-CL")}</p>
+              </div>
+
+              <div className="bg-white border border-gray-100 rounded-2xl p-5 flex items-center justify-between">
+                <div>
+                  <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">attempo cuesta</p>
+                  <p className="text-2xl font-bold text-gray-800">$24.990<span className="text-sm font-normal text-gray-400">/mes</span></p>
+                </div>
+                <span className="text-3xl">→</span>
+                <div className="text-right">
+                  <p className="text-xs font-semibold text-emerald-600 uppercase tracking-wider mb-1">Recuperas</p>
+                  <p className={`text-2xl font-bold ${recuperado > 0 ? "text-emerald-600" : "text-gray-400"}`}>
+                    ${Math.max(0, recuperado).toLocaleString("es-CL")}
+                  </p>
+                </div>
+              </div>
+
+              <a
+                href="https://app.attempo.cl/registro"
+                className="flex items-center justify-center gap-2 w-full py-4 bg-[#6C5CE4] hover:bg-[#5A4BD1] text-white font-bold rounded-2xl transition-colors text-sm shadow-lg shadow-[#6C5CE4]/20"
+              >
+                Empieza gratis y deja de perder ese dinero →
+              </a>
+              <p className="text-center text-xs text-gray-400">12 días gratis · Sin tarjeta · Listo en 5 minutos</p>
+            </div>
+          </div>
+        </m.div>
+      </m.div>
+    </section>
+  )
+}
+
+// ─── Onboarding Steps ─────────────────────────────────────────────────────────
+export function OnboardingSection() {
+  const pasos = [
+    {
+      n: "01",
+      titulo: "Crea tu cuenta gratis",
+      desc: "Registra tu negocio en 2 minutos. Sin tarjeta, sin letra chica. Tienes 12 días para probar todo.",
+      detalle: "Solo tu nombre, email y tipo de negocio. Listo.",
+    },
+    {
+      n: "02",
+      titulo: "Configura tu agenda",
+      desc: "Agrega tus servicios, precios y horarios disponibles. El sistema genera tu link de reservas al instante.",
+      detalle: "La mayoría lo termina en menos de 10 minutos.",
+    },
+    {
+      n: "03",
+      titulo: "Comparte tu link y empieza a recibir citas",
+      desc: "Ponlo en tu bio de Instagram, WhatsApp o donde quieras. Tus pacientes reservan solos, tú ves todo en tiempo real.",
+      detalle: "El cobro anticipado y los recordatorios corren solos desde el primer día.",
+    },
+  ]
+
+  return (
+    <section className="py-24 px-4 bg-[#f8f7ff]">
+      <m.div
+        variants={stagger}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-80px" }}
+        className="max-w-4xl mx-auto"
+      >
+        <m.div variants={fadeUp} className="text-center mb-14">
+          <span className="inline-block bg-[#6C5CE4]/10 text-[#6C5CE4] text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full mb-5">
+            Configuración en 5 minutos
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3 leading-tight tracking-tight">
+            ¿Qué pasa después de registrarte?
+          </h2>
+          <p className="text-gray-500 max-w-lg mx-auto">
+            Sin onboarding eterno. Sin asistente que te explique todo. Solo tres pasos y ya estás recibiendo citas.
+          </p>
+        </m.div>
+
+        <div className="grid md:grid-cols-3 gap-6">
+          {pasos.map((p, i) => (
+            <m.div key={p.n} variants={fadeUp} className="relative">
+              <div className="bg-white rounded-2xl border border-gray-100 p-7 shadow-sm h-full flex flex-col gap-4">
+                <div className="flex items-center gap-3">
+                  <span className="w-10 h-10 bg-[#6C5CE4] text-white rounded-xl flex items-center justify-center text-sm font-bold flex-shrink-0">
+                    {p.n}
+                  </span>
+                  <h3 className="font-bold text-gray-900 text-base leading-tight">{p.titulo}</h3>
+                </div>
+                <p className="text-gray-500 text-sm leading-relaxed flex-1">{p.desc}</p>
+                <p className="text-xs text-[#6C5CE4] font-semibold bg-[#6C5CE4]/8 px-3 py-2 rounded-xl">{p.detalle}</p>
+              </div>
+            </m.div>
+          ))}
+        </div>
+
+        <m.div variants={fadeUp} className="text-center mt-10">
+          <a
+            href="https://app.attempo.cl/registro"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-[#6C5CE4] hover:bg-[#5A4BD1] text-white font-bold rounded-xl transition-colors shadow-lg shadow-[#6C5CE4]/20"
+          >
+            Empieza gratis ahora →
+          </a>
+          <p className="text-xs text-gray-400 mt-3">Sin tarjeta · 12 días de prueba · Cancela cuando quieras</p>
+        </m.div>
       </m.div>
     </section>
   )

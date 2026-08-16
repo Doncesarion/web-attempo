@@ -261,6 +261,7 @@ export default function PlataformaContent() {
 
       {/* ── Agenda online ──────────────────────────────────────────────── */}
       <FeatureBlock
+        id="agenda"
         badge="Agenda online"
         title="Tu calendario inteligente, disponible 24/7"
         description="Comparte tu link de agendamiento y tus pacientes reservan solos en segundos. Sin llamadas, sin WhatsApp de ida y vuelta."
@@ -277,6 +278,7 @@ export default function PlataformaContent() {
 
       {/* ── Google Calendar ────────────────────────────────────────────── */}
       <FeatureBlock
+        id="google-calendar"
         badge="Google Calendar"
         title="Tu agenda personal y attempo siempre sincronizados"
         description="Vincula tu cuenta de Google una sola vez y cada cita que agendas en attempo aparece automáticamente en tu Google Calendar. Al cancelar, desaparece sola."
@@ -312,6 +314,7 @@ export default function PlataformaContent() {
 
       {/* ── Portal pacientes ───────────────────────────────────────────── */}
       <FeatureBlock
+        id="clientes"
         badge="Portal de pacientes"
         title="Tus pacientes gestionan sus propias citas"
         description="Cada paciente tiene acceso a su historial, puede reagendar o cancelar sin necesidad de llamarte. Menos interrupciones, más orden."
@@ -436,6 +439,7 @@ export default function PlataformaContent() {
 
       {/* ── Reportes ───────────────────────────────────────────────────── */}
       <FeatureBlock
+        id="reportes"
         badge="Reportes y estadísticas"
         title="Entiende tu negocio de un vistazo"
         description="Visualiza tus ingresos, tasa de inasistencia, pacientes más frecuentes y el rendimiento de tu agenda. Todo en tiempo real."
@@ -452,7 +456,7 @@ export default function PlataformaContent() {
       />
 
       {/* ── Chatbot IA ─────────────────────────────────────────────────── */}
-      <section className="py-20 px-4 bg-white">
+      <section id="chatbot-ia" className="py-20 px-4 bg-white scroll-mt-20">
         <m.div
           className="max-w-5xl mx-auto"
           initial="hidden"

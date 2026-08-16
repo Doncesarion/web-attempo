@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import { TrendingDown, Clock, CalendarCheck, ArrowRight, MessageCircle } from "lucide-react"
+import { TrendingDown, Clock, CalendarCheck, ArrowRight, MessageCircle, Brain, Scissors, Activity, Leaf, Building2, Briefcase, type LucideIcon } from "lucide-react"
 
 export const metadata: Metadata = {
   title: "Casos de éxito — attempo",
@@ -41,39 +41,39 @@ const stats = [
   },
 ]
 
-const rubros = [
+const rubros: { Icon: LucideIcon; nombre: string; desc: string; href: string }[] = [
   {
-    emoji: "🧠",
+    Icon: Brain,
     nombre: "Psicólogos y Psiquiatras",
     desc: "Cobro anticipado por sesión, seguimiento de paquetes y recordatorios que reducen las cancelaciones de último minuto.",
     href: "/soluciones/psicologos",
   },
   {
-    emoji: "✂️",
+    Icon: Scissors,
     nombre: "Barberías y Belleza",
     desc: "Seña anticipada con Webpay, reservas desde Instagram con Attia y confirmación automática 2 horas antes del turno.",
     href: "/soluciones/barberias",
   },
   {
-    emoji: "🦴",
+    Icon: Activity,
     nombre: "Kinesiólogos y Fisioterapeutas",
     desc: "Planes de rehabilitación como paquetes con cobro al inicio, recordatorios de continuidad y ficha de avance por sesión.",
     href: "/soluciones/kinesiologos",
   },
   {
-    emoji: "🥗",
+    Icon: Leaf,
     nombre: "Nutricionistas",
     desc: "Paquetes de consultas con control de sesiones usadas, recordatorios entre controles y cobro desde la primera cita.",
     href: "/soluciones/nutricionistas",
   },
   {
-    emoji: "🏥",
+    Icon: Building2,
     nombre: "Centros Clínicos",
     desc: "Panel centralizado para múltiples profesionales, reportes por especialista y gestión de salas sin conflictos.",
     href: "/soluciones/centros-clinicos",
   },
   {
-    emoji: "⚖️",
+    Icon: Briefcase,
     nombre: "Abogados y Consultores",
     desc: "Cobro anticipado de consultas, confirmación activa antes de cada reunión y ficha de cliente con historial.",
     href: "/soluciones/derecho",
@@ -127,13 +127,15 @@ export default function CasosDeExitoPage() {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {rubros.map(({ emoji, nombre, desc, href }) => (
+            {rubros.map(({ Icon, nombre, desc, href }) => (
               <Link
                 key={href}
                 href={href}
                 className="group flex flex-col gap-3 p-6 rounded-2xl bg-white border border-gray-100 hover:border-[#6C5CE4] hover:shadow-sm transition-all"
               >
-                <span className="text-3xl">{emoji}</span>
+                <div className="w-10 h-10 bg-[#6C5CE4]/10 rounded-xl flex items-center justify-center text-[#6C5CE4]">
+                  <Icon className="w-5 h-5" />
+                </div>
                 <h3 className="font-bold text-gray-900 group-hover:text-[#6C5CE4] transition-colors">
                   {nombre}
                 </h3>
