@@ -52,7 +52,10 @@ function AnimatedStat({ value, label }: { value: string; label: string }) {
 }
 
 export function HeroSection() {
+  const [demoOpen, setDemoOpen] = useState(false)
   return (
+    <>
+    {demoOpen && <DemoModal onClose={() => setDemoOpen(false)} />}
     <section className="relative min-h-[95vh] flex items-center overflow-hidden bg-gradient-to-br from-[#f5f3ff] via-white to-[#ede9fe] px-4">
       {/* Dot grid */}
       <div
@@ -120,12 +123,12 @@ export function HeroSection() {
             >
               Empieza gratis
             </a>
-            <a
-              href="https://app.attempo.cl"
-              className="px-8 py-4 bg-white border border-gray-200 text-gray-700 font-semibold rounded-xl hover:border-[#6C5CE4] hover:text-[#6C5CE4] transition-all text-lg hover:-translate-y-0.5 active:translate-y-0"
+            <button
+              onClick={() => setDemoOpen(true)}
+              className="px-8 py-4 bg-white border border-gray-200 text-gray-700 font-semibold rounded-xl hover:border-[#6C5CE4] hover:text-[#6C5CE4] transition-all text-lg hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
             >
               Ver demo
-            </a>
+            </button>
           </div>
           <p
             className="text-sm text-gray-400 mt-2 text-center lg:text-left"
@@ -250,6 +253,241 @@ export function HeroSection() {
         </m.div>
       </div>
     </section>
+    </>
+  )
+}
+
+// ─── Demo Modal ───────────────────────────────────────────────────────────────
+function DemoModal({ onClose }: { onClose: () => void }) {
+  const [tab, setTab] = useState<"paciente" | "profesional">("paciente")
+  const [paso, setPaso] = useState(0)
+
+  const pasosPaciente = [
+    {
+      titulo: "Hace clic en tu link de reservas",
+      desc: "Desde tu bio de Instagram, un mensaje de WhatsApp o tu sitio web.",
+      screen: (
+        <div className="bg-[#f8f7ff] rounded-2xl overflow-hidden border border-[#6C5CE4]/10">
+          <div className="bg-[#6C5CE4] px-4 py-3 flex items-center gap-2">
+            <div className="w-2 h-2 rounded-full bg-white/40" />
+            <p className="text-white/60 text-[10px] tracking-widest flex-1 text-center">app.attempo.cl/dra-valentina</p>
+          </div>
+          <div className="p-4 flex flex-col gap-3">
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 rounded-full bg-[#6C5CE4]/20 flex items-center justify-center text-[#6C5CE4] font-bold text-lg">VM</div>
+              <div>
+                <p className="font-bold text-gray-900 text-sm">Dra. Valentina Mora</p>
+                <p className="text-xs text-gray-500">Psicóloga clínica · Santiago</p>
+              </div>
+            </div>
+            <div className="grid grid-cols-2 gap-2 mt-1">
+              {["Terapia individual", "Primera consulta", "Terapia de pareja", "Evaluación"].map(s => (
+                <div key={s} className="border border-[#6C5CE4]/20 rounded-xl px-3 py-2.5 text-center cursor-pointer hover:bg-[#6C5CE4]/5">
+                  <p className="text-xs font-semibold text-gray-700">{s}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      ),
+    },
+    {
+      titulo: "Elige servicio, fecha y hora",
+      desc: "El sistema muestra solo los horarios disponibles. Sin llamadas, sin WhatsApp.",
+      screen: (
+        <div className="bg-white rounded-2xl border border-gray-100 overflow-hidden">
+          <div className="bg-[#6C5CE4] px-4 py-3">
+            <p className="text-white font-semibold text-sm">Terapia individual · $35.000</p>
+            <p className="text-white/60 text-xs">Selecciona fecha y hora</p>
+          </div>
+          <div className="p-4 flex flex-col gap-3">
+            <div className="flex gap-1.5 overflow-x-auto pb-1">
+              {["Lun 18", "Mar 19", "Mié 20", "Jue 21", "Vie 22"].map((d, i) => (
+                <div key={d} className={`flex-shrink-0 flex flex-col items-center px-3 py-2 rounded-xl text-xs font-bold ${i === 2 ? "bg-[#6C5CE4] text-white" : "bg-gray-50 text-gray-500"}`}>
+                  {d}
+                </div>
+              ))}
+            </div>
+            <div className="grid grid-cols-3 gap-2">
+              {[["09:00", false], ["10:30", false], ["11:00", true], ["12:00", true], ["15:30", true], ["17:00", false]].map(([h, libre]) => (
+                <div key={String(h)} className={`py-2 rounded-xl text-center text-xs font-semibold ${libre ? "bg-[#6C5CE4]/10 text-[#6C5CE4] border border-[#6C5CE4]/20" : "bg-gray-50 text-gray-300"}`}>
+                  {String(h)}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      ),
+    },
+    {
+      titulo: "Paga con Webpay antes de confirmar",
+      desc: "El pago es obligatorio para reservar. Sin pago, no hay hora. Así se eliminan los no-shows.",
+      screen: (
+        <div className="bg-white rounded-2xl border border-gray-100 overflow-hidden">
+          <div className="bg-gray-900 px-4 py-2 flex items-center gap-2">
+            <div className="flex gap-1"><div className="w-2 h-2 rounded-full bg-red-400" /><div className="w-2 h-2 rounded-full bg-yellow-400" /><div className="w-2 h-2 rounded-full bg-green-400" /></div>
+            <div className="flex-1 bg-white/10 rounded-full h-4 flex items-center px-2"><p className="text-gray-400 text-[9px]">webpay.transbank.cl</p></div>
+          </div>
+          <div className="p-5 flex flex-col gap-4">
+            <div className="flex items-center gap-3 p-3 bg-blue-50 rounded-xl border border-blue-100">
+              <img src="/webpay-logo.png" alt="Webpay" className="h-5 object-contain" />
+              <span className="text-xs text-blue-700 font-semibold">Pago seguro con Transbank</span>
+            </div>
+            <div className="flex justify-between text-sm">
+              <span className="text-gray-600">Terapia individual — Mié 20, 11:00</span>
+              <span className="font-bold text-gray-900">$35.000</span>
+            </div>
+            <div className="flex flex-col gap-2">
+              <div className="h-9 bg-gray-100 rounded-lg px-3 flex items-center"><p className="text-xs text-gray-400">4051 8856 0044 ••••</p></div>
+              <div className="grid grid-cols-2 gap-2">
+                <div className="h-9 bg-gray-100 rounded-lg px-3 flex items-center"><p className="text-xs text-gray-400">MM/AA</p></div>
+                <div className="h-9 bg-gray-100 rounded-lg px-3 flex items-center"><p className="text-xs text-gray-400">CVV</p></div>
+              </div>
+            </div>
+            <div className="bg-[#6C5CE4] rounded-xl py-3 text-center">
+              <p className="text-white text-sm font-bold">Pagar $35.000</p>
+            </div>
+          </div>
+        </div>
+      ),
+    },
+    {
+      titulo: "Recibe confirmación por WhatsApp",
+      desc: "Tu paciente recibe el comprobante al instante. Tú no haces nada — la cita ya está en tu agenda.",
+      screen: (
+        <div className="bg-[#e5ddd5] rounded-2xl overflow-hidden">
+          <div className="bg-[#075e54] px-4 py-3 flex items-center gap-3">
+            <div className="w-7 h-7 rounded-full bg-white/20 flex items-center justify-center text-white text-xs font-bold">A</div>
+            <div>
+              <p className="text-white text-sm font-semibold">attempo</p>
+              <p className="text-white/60 text-xs">en línea</p>
+            </div>
+          </div>
+          <div className="p-4 flex flex-col gap-3">
+            <div className="bg-white rounded-2xl rounded-tl-sm px-4 py-3 shadow-sm max-w-[85%]">
+              <p className="text-gray-800 text-xs leading-relaxed">
+                ✅ <strong>¡Reserva confirmada!</strong><br /><br />
+                📅 Miércoles 20 de agosto, 11:00<br />
+                👩‍⚕️ Dra. Valentina Mora<br />
+                💬 Terapia individual<br />
+                💳 Pago recibido: $35.000<br /><br />
+                Te recordaremos 24h antes. ¡Nos vemos!
+              </p>
+              <p className="text-gray-400 text-[9px] text-right mt-1">11:03 ✓✓</p>
+            </div>
+          </div>
+        </div>
+      ),
+    },
+  ]
+
+  const pasosProfesional = [
+    {
+      titulo: "La cita aparece en tu agenda al instante",
+      desc: "No tienes que hacer nada. En cuanto el paciente paga, la cita queda confirmada en tu calendario.",
+      img: "/desktop-agenda.png",
+    },
+    {
+      titulo: "El pago queda registrado automáticamente",
+      desc: "Sin perseguir pagos. Sin anotaciones manuales. El ingreso se registra solo en tu módulo de ventas.",
+      img: "/desktop-ventas.png",
+    },
+    {
+      titulo: "Los recordatorios salen solos",
+      desc: "24h y 2h antes de cada cita, tu paciente recibe un WhatsApp automático. Tú no tocas nada.",
+      img: "/desktop-config.png",
+    },
+    {
+      titulo: "Tienes el historial completo del paciente",
+      desc: "Cada cita, cada pago y cada nota queda guardada en la ficha del paciente para consultar cuando quieras.",
+      img: "/desktop-clientes.png",
+    },
+  ]
+
+  const pasos = tab === "paciente" ? pasosPaciente : pasosProfesional
+  const total = pasos.length
+
+  // Cerrar con Escape
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => { if (e.key === "Escape") onClose() }
+    window.addEventListener("keydown", handler)
+    return () => window.removeEventListener("keydown", handler)
+  }, [onClose])
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4" onClick={onClose}>
+      <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
+      <div
+        className="relative bg-white rounded-3xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto"
+        onClick={e => e.stopPropagation()}
+      >
+        {/* Header */}
+        <div className="flex items-center justify-between px-7 pt-7 pb-5 border-b border-gray-100">
+          <div>
+            <h2 className="text-xl font-bold text-gray-900">Cómo funciona attempo</h2>
+            <p className="text-sm text-gray-500 mt-0.5">Ve el flujo completo desde ambos lados</p>
+          </div>
+          <button onClick={onClose} className="w-9 h-9 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors flex items-center justify-center text-gray-500 cursor-pointer flex-shrink-0">
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+          </button>
+        </div>
+
+        {/* Tabs */}
+        <div className="flex px-7 pt-5 gap-3">
+          {[
+            { key: "paciente", label: "👤 Tu paciente reserva" },
+            { key: "profesional", label: "📊 Tú lo ves todo" },
+          ].map(t => (
+            <button
+              key={t.key}
+              onClick={() => { setTab(t.key as "paciente" | "profesional"); setPaso(0) }}
+              className={`flex-1 py-2.5 rounded-xl text-sm font-semibold transition-all cursor-pointer ${tab === t.key ? "bg-[#6C5CE4] text-white shadow-md shadow-[#6C5CE4]/20" : "bg-gray-100 text-gray-500 hover:bg-gray-200"}`}
+            >
+              {t.label}
+            </button>
+          ))}
+        </div>
+
+        {/* Stepper dots */}
+        <div className="flex items-center justify-center gap-2 px-7 pt-5">
+          {pasos.map((_, i) => (
+            <button key={i} onClick={() => setPaso(i)} className={`transition-all rounded-full cursor-pointer ${i === paso ? "w-6 h-2 bg-[#6C5CE4]" : "w-2 h-2 bg-gray-200 hover:bg-gray-300"}`} />
+          ))}
+        </div>
+
+        {/* Contenido */}
+        <div className="px-7 py-6">
+          <div className="mb-5">
+            <p className="text-xs font-semibold text-[#6C5CE4] uppercase tracking-wider mb-1">Paso {paso + 1} de {total}</p>
+            <h3 className="text-lg font-bold text-gray-900 leading-tight">{pasos[paso].titulo}</h3>
+            <p className="text-sm text-gray-500 mt-1 leading-relaxed">{pasos[paso].desc}</p>
+          </div>
+
+          {/* Screen */}
+          <div className="mb-6">
+            {tab === "paciente"
+              ? (pasos[paso] as typeof pasosPaciente[0]).screen
+              : <Image src={(pasos[paso] as typeof pasosProfesional[0]).img} alt={pasos[paso].titulo} width={900} height={560} className="w-full rounded-2xl border border-gray-100 shadow-sm" />
+            }
+          </div>
+
+          {/* Nav */}
+          <div className="flex items-center justify-between gap-3">
+            <button
+              onClick={() => setPaso(p => Math.max(0, p - 1))}
+              disabled={paso === 0}
+              className="flex-1 py-3 rounded-xl border border-gray-200 text-sm font-semibold text-gray-600 hover:bg-gray-50 disabled:opacity-30 disabled:cursor-not-allowed transition-all cursor-pointer"
+            >
+              ← Anterior
+            </button>
+            {paso < total - 1
+              ? <button onClick={() => setPaso(p => p + 1)} className="flex-1 py-3 rounded-xl bg-[#6C5CE4] text-white text-sm font-semibold hover:bg-[#5A4BD1] transition-all cursor-pointer">Siguiente →</button>
+              : <a href="https://app.attempo.cl/registro" className="flex-1 py-3 rounded-xl bg-[#6C5CE4] text-white text-sm font-bold text-center hover:bg-[#5A4BD1] transition-all">Empieza gratis →</a>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
   )
 }
 
