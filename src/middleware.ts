@@ -9,7 +9,7 @@ export function middleware(request: NextRequest) {
     `script-src 'self' 'nonce-${nonce}' 'strict-dynamic' https://www.googletagmanager.com https://www.google-analytics.com`,
     `style-src 'self' 'nonce-${nonce}' 'unsafe-inline'`,
     "img-src 'self' data: https://flagcdn.com https://attempo.cl https://www.google-analytics.com https://www.googletagmanager.com",
-    "connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://www.googletagmanager.com https://challenges.cloudflare.com https://fonts.bunny.net",
+    "connect-src 'self' https://app.attempo.cl https://www.google-analytics.com https://analytics.google.com https://www.googletagmanager.com https://challenges.cloudflare.com https://fonts.bunny.net",
     "font-src 'self'",
     "frame-src https://challenges.cloudflare.com https://www.googletagmanager.com",
     "object-src 'none'",
