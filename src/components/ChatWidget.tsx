@@ -13,7 +13,7 @@ const EASE = [0.25, 0.46, 0.45, 0.94] as const
 
 const GREETING: Message = {
   role: "assistant",
-  content: "¡Hola! 👋 Soy Attia, la asistente de attempo. ¿Tienes alguna duda sobre la plataforma?",
+  content: "Hola, soy Attia, la asistente de attempo. ¿En qué te puedo ayudar?",
 }
 
 function AttiaAvatar({ size }: { size: number }) {
@@ -77,7 +77,11 @@ export default function ChatWidget() {
         body: JSON.stringify({ messages: next.map((m) => ({ role: m.role, content: m.content })), sessionId: sessionId.current }),
       })
       const data = await res.json()
-      setMessages((prev) => [...prev, { role: "assistant", content: data.respuesta || "Un momento..." }])
+      if (data.error) {
+        setMessages((prev) => [...prev, { role: "assistant", content: "No pude procesar tu mensaje. ¿Lo intentamos de nuevo?" }])
+      } else {
+        setMessages((prev) => [...prev, { role: "assistant", content: data.respuesta || "¿Me repites tu pregunta?" }])
+      }
     } catch {
       setMessages((prev) => [...prev, { role: "assistant", content: "Algo salió mal. ¿Me lo repites?" }])
     } finally {

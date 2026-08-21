@@ -8,6 +8,7 @@ import {
   FeaturesSection,
   ScreenshotsSection,
   WebpaySection,
+  IntegracionesSection,
   SeguridadSection,
   EspecialidadesSection,
   AttiaSection,
@@ -197,6 +198,7 @@ export default function HomePage() {
         <FeaturesSection />
         <ScreenshotsSection />
         <WebpaySection />
+        <IntegracionesSection />
         <SeguridadSection />
         <EspecialidadesSection />
         <AttiaSection />

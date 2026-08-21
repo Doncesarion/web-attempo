@@ -81,7 +81,7 @@ export function HeroSection() {
 
       <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-8 lg:gap-12 items-center py-8 lg:py-20">
         {/* Left — CSS animations, visible immediately for LCP */}
-        <div className="text-center lg:text-left order-2 lg:order-1">
+        <div className="text-center lg:text-left order-1 lg:order-1">
           <div style={{ animation: "fade-in-up 0.6s ease both 0ms" }}>
             <span className="inline-flex items-center gap-2 bg-[#6C5CE4]/10 text-[#6C5CE4] px-4 py-1.5 rounded-full text-sm font-medium mb-6">
               <span className="w-2 h-2 bg-[#6C5CE4] rounded-full animate-pulse" />
@@ -110,7 +110,7 @@ export function HeroSection() {
             className="text-xl text-gray-600 mb-10 max-w-lg mx-auto lg:mx-0"
             style={{ animation: "fade-in-up 0.6s ease both 200ms" }}
           >
-            Una inasistencia sin aviso es dinero que no vuelve. attempo cobra antes de confirmar la hora, recuerda automáticamente a tus clientes y, cuando no estás, agenda por ti las 24 horas.
+            Con solo 3 inasistencias al mes pierdes más de $100.000. attempo cobra antes de confirmar la hora, envía recordatorios automáticos y, cuando no estás, agenda por ti las 24 horas.
           </p>
 
           <div
@@ -152,7 +152,7 @@ export function HeroSection() {
           initial={{ x: 40, y: 10 }}
           animate={{ x: 0, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] as const }}
-          className="flex justify-center lg:justify-end relative order-1 lg:order-2"
+          className="flex justify-center lg:justify-end relative order-2 lg:order-2"
         >
           <div className="relative scale-[0.78] sm:scale-90 lg:scale-100 origin-top">
             <div className="absolute inset-0 bg-[#6C5CE4]/20 blur-3xl rounded-full scale-75 pointer-events-none" />
@@ -501,8 +501,8 @@ function DemoModal({ onClose }: { onClose: () => void }) {
 
 export function StatsSection() {
   const stats = [
-    { value: "+11", label: "Especialidades" },
-    { value: "3", label: "Canales de comunicación" },
+    { value: "-80%", label: "Inasistencias con cobro anticipado" },
+    { value: "3", label: "Canales de chatbot IA" },
     { value: "0%", label: "Comisión por cita" },
     { value: "5 min", label: "Para configurar" },
   ]
@@ -514,11 +514,16 @@ export function StatsSection() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-50px" }}
-        className="max-w-5xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-8 text-center"
+        className="max-w-5xl mx-auto"
       >
-        {stats.map((s) => (
-          <AnimatedStat key={s.label} value={s.value} label={s.label} />
-        ))}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+          {stats.map((s) => (
+            <AnimatedStat key={s.label} value={s.value} label={s.label} />
+          ))}
+        </div>
+        <m.p variants={fadeUp} className="mt-8 pt-6 border-t border-gray-100 text-center text-sm text-gray-400">
+          Sin comisión por cita · Sin contrato anual obligatorio · Sin sorpresas de precio
+        </m.p>
       </m.div>
     </section>
   )
@@ -821,17 +826,117 @@ export function WebpaySection() {
   )
 }
 
+function IconWhatsApp() {
+  return (
+    <svg viewBox="0 0 24 24" className="w-5 h-5" fill="white">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+    </svg>
+  )
+}
+
+function IconInstagram() {
+  return (
+    <svg viewBox="0 0 24 24" className="w-5 h-5" fill="white">
+      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+    </svg>
+  )
+}
+
+function IconMessenger() {
+  return (
+    <svg viewBox="0 0 24 24" className="w-5 h-5" fill="white">
+      <path d="M12 0C5.374 0 0 4.975 0 11.111c0 3.498 1.745 6.617 4.472 8.653V24l4.086-2.242c1.09.301 2.246.464 3.442.464 6.626 0 12-4.974 12-11.111S18.626 0 12 0zm1.194 14.963l-3.057-3.259-5.963 3.259 6.559-6.963 3.13 3.259 5.889-3.259-6.558 6.963z" />
+    </svg>
+  )
+}
+
+function IconWebpay() {
+  return (
+    <svg viewBox="0 0 24 24" className="w-5 h-5" fill="white">
+      <rect x="1" y="4" width="22" height="16" rx="3" stroke="white" strokeWidth="2" fill="none"/>
+      <path d="M1 9h22" stroke="white" strokeWidth="2"/>
+      <rect x="3" y="13" width="5" height="2" rx="1" fill="white"/>
+      <rect x="10" y="13" width="3" height="2" rx="1" fill="white"/>
+    </svg>
+  )
+}
+
+function IconGoogleCalendar() {
+  return (
+    <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none">
+      <rect x="3" y="4" width="18" height="18" rx="2" fill="white"/>
+      <path d="M3 9h18" stroke="#4285F4" strokeWidth="1.5"/>
+      <path d="M8 2v4M16 2v4" stroke="#4285F4" strokeWidth="1.5" strokeLinecap="round"/>
+      <path d="M7 13h2v2H7zM11 13h2v2h-2zM15 13h2v2h-2zM7 17h2v2H7zM11 17h2v2h-2z" fill="#4285F4"/>
+    </svg>
+  )
+}
+
+export function IntegracionesSection() {
+  const integraciones = [
+    { nombre: "WhatsApp",        tipo: "Chatbot IA 24/7",         bg: "bg-[#25D366]",                                  Icon: IconWhatsApp },
+    { nombre: "Instagram",       tipo: "DMs automáticos",          bg: "bg-gradient-to-br from-[#833AB4] to-[#E1306C]", Icon: IconInstagram },
+    { nombre: "Messenger",       tipo: "Conversaciones IA",        bg: "bg-[#0084FF]",                                  Icon: IconMessenger },
+    { nombre: "Webpay",          tipo: "Cobro al reservar",        bg: "bg-[#E10600]",                                  Icon: IconWebpay },
+    { nombre: "Google Calendar", tipo: "Sincronización de agenda", bg: "bg-[#4285F4]",                                  Icon: IconGoogleCalendar },
+  ]
+
+  return (
+    <section className="py-20 px-4 bg-gray-50">
+      <m.div
+        variants={stagger}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-60px" }}
+        className="max-w-4xl mx-auto text-center"
+      >
+        <m.div variants={fadeUp}>
+          <span className="text-[#6C5CE4] text-sm font-medium uppercase tracking-wider">Integraciones</span>
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mt-2 mb-3">
+            Una plataforma.<br className="sm:hidden" /> Todos tus canales.
+          </h2>
+          <p className="text-gray-500 max-w-lg mx-auto mb-12">
+            Conecta attempo con las herramientas que ya usas. Sin configuraciones complejas ni intermediarios.
+          </p>
+        </m.div>
+
+        <m.div variants={fadeUp} className="flex flex-wrap justify-center gap-4 mb-10">
+          {integraciones.map((canal) => (
+            <div
+              key={canal.nombre}
+              className="flex items-center gap-3 bg-white border border-gray-100 rounded-2xl px-5 py-3.5 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all"
+            >
+              <div className={`w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 ${canal.bg}`}>
+                <canal.Icon />
+              </div>
+              <div className="text-left">
+                <p className="font-semibold text-gray-900 text-sm">{canal.nombre}</p>
+                <p className="text-xs text-gray-400">{canal.tipo}</p>
+              </div>
+            </div>
+          ))}
+        </m.div>
+
+        <m.p variants={fadeUp} className="text-sm text-gray-400 font-medium">
+          Sin comisión por cita · Sin contrato anual obligatorio · Sin sorpresas de precio
+        </m.p>
+      </m.div>
+    </section>
+  )
+}
+
 export function TestimonialsSection() {
   const featured = {
     name: "Valentina Mora",
-    role: "Psicóloga clínica",
+    role: "Psicóloga clínica · Santiago",
     initials: "VM",
-    text: "Antes llevaba todo en papel y me perdía citas. Con attempo organicé mi agenda en una tarde. Mis pacientes reciben el recordatorio por WhatsApp y ya casi no tengo inasistencias.",
+    metrics: ["−83% inasistencias", "+$180.000/mes"],
+    text: "Tenía entre 4 y 6 inasistencias al mes. Con el cobro anticipado bajé a 1. Recuperé cerca de $180.000 mensuales que antes simplemente desaparecían. attempo se paga solo en la primera semana.",
   }
   const others = [
-    { name: "Diego Fuentes", role: "Barbería The Cut", initials: "DF", text: "El chatbot responde solito por Instagram. Me ahorró contratar a alguien solo para tomar reservas." },
-    { name: "Camila Reyes", role: "Nutricionista", initials: "CR", text: "El historial de pacientes y los paquetes de sesiones, todo en un solo lugar. Sin mil archivos de Excel." },
-    { name: "Sofía Castillo", role: "Peluquería Studio Sofía", initials: "SC", text: "Antes perdía turnos de uñas y pestañas porque la gente no confirmaba. Con attempo pagan la seña al reservar y casi no tengo ausencias." },
+    { name: "Diego Fuentes", role: "Barbería The Cut · Ñuñoa", initials: "DF", metric: "−3 hrs/semana en admin", text: "El chatbot responde solo por Instagram. Me ahorré contratar a alguien para tomar reservas — tres horas semanales que ahora uso en lo mío." },
+    { name: "Camila Reyes", role: "Nutricionista · Online", initials: "CR", metric: "2% tasa de inasistencia", text: "Mi tasa de inasistencia bajó al 2%. Historial, sesiones y cobros en un solo lugar. Cerré para siempre mis 12 archivos de Excel." },
+    { name: "Sofía Castillo", role: "Studio Sofía · Providencia", initials: "SC", metric: "+$90.000/mes recuperados", text: "Pasé de 5 ausencias semanales a casi cero. La seña obligatoria al reservar lo cambió todo. Recupero unos $90.000 al mes que antes perdía." },
   ]
 
   return (
@@ -850,6 +955,11 @@ export function TestimonialsSection() {
 
         <div className="grid lg:grid-cols-3 gap-6">
           <m.div variants={fadeUp} className="lg:col-span-2 border border-white/10 rounded-3xl p-10 flex flex-col">
+            <div className="flex flex-wrap gap-2 mb-5">
+              {featured.metrics.map((m) => (
+                <span key={m} className="bg-green-500/20 text-green-400 text-xs font-bold px-3 py-1 rounded-full">{m}</span>
+              ))}
+            </div>
             <span className="text-[#6C5CE4] text-8xl font-serif leading-none select-none -mt-4 mb-2">"</span>
             <p className="text-white text-xl sm:text-2xl font-medium leading-relaxed flex-1">
               {featured.text}
@@ -868,6 +978,7 @@ export function TestimonialsSection() {
           <div className="flex flex-col gap-4">
             {others.map((t) => (
               <m.div key={t.name} variants={fadeUp} className="border border-white/10 rounded-2xl p-6 flex flex-col flex-1">
+                <span className="self-start bg-[#6C5CE4]/20 text-[#8B7FF0] text-xs font-bold px-2.5 py-1 rounded-full mb-3">{t.metric}</span>
                 <p className="text-gray-300 text-sm leading-relaxed flex-1">"{t.text}"</p>
                 <div className="mt-5 flex items-center gap-3">
                   <div className="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center text-white text-xs font-bold flex-shrink-0">
