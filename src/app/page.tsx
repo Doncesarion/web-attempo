@@ -15,6 +15,8 @@ import {
   OnboardingSection,
   TestimonialsSection,
   CTASection,
+  HomePricingSection,
+  QuienesSomosSection,
 } from "@/components/HomeAnimations"
 
 export const metadata: Metadata = {
@@ -197,11 +199,13 @@ export default function HomePage() {
         <StatsSection />
         <FeaturesSection />
         <ScreenshotsSection />
+        <HomePricingSection />
         <WebpaySection />
         <IntegracionesSection />
         <SeguridadSection />
         <EspecialidadesSection />
         <AttiaSection />
+        <QuienesSomosSection />
         <OnboardingSection />
         <TestimonialsSection />
         <CTASection />

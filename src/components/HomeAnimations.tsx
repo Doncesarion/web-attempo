@@ -125,7 +125,7 @@ export function HeroSection() {
             </a>
             <button
               onClick={() => setDemoOpen(true)}
-              className="px-8 py-4 bg-white border border-gray-200 text-gray-700 font-semibold rounded-xl hover:border-[#6C5CE4] hover:text-[#6C5CE4] transition-all text-lg hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
+              className="text-gray-500 hover:text-[#6C5CE4] transition-colors text-base font-medium underline underline-offset-4 cursor-pointer bg-transparent border-none"
             >
               Ver demo
             </button>
@@ -593,11 +593,8 @@ export function FeaturesSection() {
 export function ScreenshotsSection() {
   const [active, setActive] = useState(0)
   const tabs: { Icon: LucideIcon; label: string; mobile: string; desktop: string; desc: string }[] = [
-    { Icon: CalendarDays, label: "Agenda",   mobile: "/screenshot-agenda.jpeg",   desktop: "/desktop-agenda.png",   desc: "Vista semanal y diaria de tus citas" },
-    { Icon: Users,        label: "Clientes", mobile: "/screenshot-clientes.jpeg", desktop: "/desktop-clientes.png", desc: "Ficha completa por cada paciente" },
-    { Icon: Banknote,     label: "Ventas",   mobile: "/screenshot-ventas.jpeg",   desktop: "/desktop-ventas.png",   desc: "Controla ingresos y cobros pendientes" },
-    { Icon: BarChart2,    label: "Reportes", mobile: "/screenshot-reportes.jpeg", desktop: "/desktop-reportes.png", desc: "Métricas y evolución de tu negocio" },
-    { Icon: Settings,     label: "Config",   mobile: "/screenshot-config.jpeg",   desktop: "/desktop-config.png",   desc: "Configura servicios, horarios y canales" },
+    { Icon: CalendarDays, label: "Agenda", mobile: "/screenshot-agenda.jpeg", desktop: "/desktop-agenda.png", desc: "Vista semanal y diaria de tus citas" },
+    { Icon: Banknote,     label: "Ventas", mobile: "/screenshot-ventas.jpeg", desktop: "/desktop-ventas.png", desc: "Controla ingresos y cobros pendientes" },
   ]
 
   return (
@@ -1516,6 +1513,150 @@ export function OnboardingSection() {
           </a>
           <p className="text-xs text-gray-400 mt-3">Sin tarjeta · 12 días de prueba · Cancela cuando quieras</p>
         </m.div>
+      </m.div>
+    </section>
+  )
+}
+
+export function HomePricingSection() {
+  const planes = [
+    {
+      nombre: "Inicio",
+      precio: 24990,
+      desc: "Agenda digital, cobros por Webpay y recordatorios automáticos.",
+      popular: false,
+      cta: "Empieza gratis",
+    },
+    {
+      nombre: "Pro",
+      precio: 44990,
+      desc: "Todo lo anterior + boletas electrónicas y transcripción IA de consultas.",
+      popular: true,
+      cta: "Empieza gratis",
+    },
+    {
+      nombre: "Clínica IA",
+      precio: 119990,
+      desc: "Chatbot IA que agenda, cobra y recupera citas por WhatsApp las 24 hrs.",
+      popular: false,
+      cta: "Empieza gratis",
+    },
+  ]
+  return (
+    <section className="py-24 px-4 bg-white">
+      <m.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-80px" }}
+        variants={stagger}
+        className="max-w-5xl mx-auto"
+      >
+        <m.div variants={fadeUp} className="text-center mb-14">
+          <span className="inline-block bg-[#6C5CE4]/10 text-[#6C5CE4] text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full mb-5">
+            Precios
+          </span>
+          <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
+            Simple y transparente
+          </h2>
+          <p className="text-gray-500 text-lg max-w-xl mx-auto">Sin letra chica. Cambia o cancela cuando quieras.</p>
+        </m.div>
+
+        <div className="grid md:grid-cols-3 gap-6 mb-10">
+          {planes.map((p) => (
+            <m.div
+              key={p.nombre}
+              variants={fadeUp}
+              className={`relative rounded-2xl p-7 flex flex-col gap-4 border ${
+                p.popular
+                  ? "bg-[#6C5CE4] text-white border-[#6C5CE4] shadow-xl shadow-[#6C5CE4]/25"
+                  : "bg-white text-gray-900 border-gray-200"
+              }`}
+            >
+              {p.popular && (
+                <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-white text-[#6C5CE4] text-xs font-bold px-3 py-1 rounded-full border border-[#6C5CE4]/30 shadow-sm">
+                  Más popular
+                </span>
+              )}
+              <div>
+                <p className={`text-sm font-semibold mb-1 ${p.popular ? "text-purple-200" : "text-[#6C5CE4]"}`}>{p.nombre}</p>
+                <p className={`text-3xl font-bold ${p.popular ? "text-white" : "text-gray-900"}`}>
+                  ${p.precio.toLocaleString("es-CL")}
+                  <span className={`text-sm font-normal ml-1 ${p.popular ? "text-purple-200" : "text-gray-400"}`}>/mes</span>
+                </p>
+              </div>
+              <p className={`text-sm leading-relaxed flex-1 ${p.popular ? "text-purple-100" : "text-gray-500"}`}>{p.desc}</p>
+              <a
+                href="https://app.attempo.cl/registro"
+                className={`text-center py-3 rounded-xl font-semibold text-sm transition-colors ${
+                  p.popular
+                    ? "bg-white text-[#6C5CE4] hover:bg-purple-50"
+                    : "bg-[#6C5CE4] text-white hover:bg-[#5A4BD1]"
+                }`}
+              >
+                {p.cta}
+              </a>
+            </m.div>
+          ))}
+        </div>
+
+        <m.div variants={fadeUp} className="text-center">
+          <a href="/precios" className="text-sm text-[#6C5CE4] font-medium hover:underline underline-offset-4">
+            Ver comparativa completa de planes →
+          </a>
+        </m.div>
+      </m.div>
+    </section>
+  )
+}
+
+export function QuienesSomosSection() {
+  return (
+    <section className="py-20 px-4 bg-[#f8f7ff]">
+      <m.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-80px" }}
+        variants={stagger}
+        className="max-w-4xl mx-auto"
+      >
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          <m.div variants={fadeUp}>
+            <span className="inline-block bg-[#6C5CE4]/10 text-[#6C5CE4] text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full mb-5">
+              Quiénes somos
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-5 leading-tight">
+              Hecho en Chile,<br />para profesionales de la salud
+            </h2>
+            <p className="text-gray-500 text-base leading-relaxed mb-4">
+              attempo nació de la frustración de ver a psicólogos, kinesiólogos y médicos perdiendo tiempo
+              en llamadas y mensajes de WhatsApp para coordinar citas. Lo construimos para que el sistema
+              trabaje por ti.
+            </p>
+            <p className="text-gray-500 text-base leading-relaxed mb-8">
+              Somos un equipo pequeño y obsesionado con hacer que la tecnología no se sienta como tecnología.
+            </p>
+            <a
+              href="/quienes-somos"
+              className="inline-flex items-center gap-2 text-[#6C5CE4] font-semibold hover:underline underline-offset-4"
+            >
+              Conoce al equipo →
+            </a>
+          </m.div>
+
+          <m.div variants={fadeUp} className="grid grid-cols-2 gap-4">
+            {[
+              { n: "+500", label: "profesionales de la salud" },
+              { n: "24/7", label: "disponible para tus pacientes" },
+              { n: "12", label: "días de prueba gratis" },
+              { n: "100%", label: "hecho en Chile" },
+            ].map((stat) => (
+              <div key={stat.n} className="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm">
+                <p className="text-3xl font-bold text-[#6C5CE4] mb-1">{stat.n}</p>
+                <p className="text-xs text-gray-500 leading-snug">{stat.label}</p>
+              </div>
+            ))}
+          </m.div>
+        </div>
       </m.div>
     </section>
   )

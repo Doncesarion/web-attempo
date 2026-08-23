@@ -239,6 +239,14 @@ export default function Navbar() {
             </Link>
           </div>
 
+          {/* Mobile CTA siempre visible */}
+          <Link
+            href="https://app.attempo.cl/registro"
+            className="lg:hidden px-4 py-1.5 bg-[#6C5CE4] hover:bg-[#4F46E5] text-white rounded-lg text-sm font-semibold transition-colors"
+          >
+            Empieza gratis
+          </Link>
+
           {/* Mobile hamburger */}
           <button
             className="lg:hidden p-2 rounded-md text-gray-600 hover:text-[#6C5CE4] transition-colors"
