@@ -56,44 +56,6 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "Organization",
-      "@id": "https://attempo.cl/#organization",
-      name: "attempo",
-      url: "https://attempo.cl",
-      logo: {
-        "@type": "ImageObject",
-        url: "https://attempo.cl/logo_attempo.png",
-        width: 512,
-        height: 512,
-      },
-      description:
-        "Plataforma de agendamiento de citas para profesionales de la salud y servicios en Chile.",
-      email: "contacto@attempo.cl",
-      foundingDate: "2025",
-      areaServed: { "@type": "Country", name: "Chile" },
-      contactPoint: {
-        "@type": "ContactPoint",
-        email: "contacto@attempo.cl",
-        contactType: "customer support",
-        availableLanguage: "Spanish",
-        areaServed: "CL",
-      },
-      sameAs: [
-        "https://www.instagram.com/attempo.app/",
-        "https://www.facebook.com/people/attempo/61561292586875/",
-        "https://www.linkedin.com/company/attempocl",
-      ],
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://attempo.cl/#website",
-      url: "https://attempo.cl",
-      name: "attempo",
-      description: "Todo a tu tiempo",
-      publisher: { "@id": "https://attempo.cl/#organization" },
-      inLanguage: "es-CL",
-    },
-    {
       "@type": "SoftwareApplication",
       "@id": "https://attempo.cl/#product",
       name: "attempo",
