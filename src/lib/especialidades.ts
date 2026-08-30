@@ -916,3 +916,91 @@ export const especialidades: Especialidad[] = [
 export function getEspecialidadBySlug(slug: string): Especialidad | undefined {
   return especialidades.find((e) => e.slug === slug)
 }
+
+export const relatedPostMap: Record<string, { slug: string; titulo: string; desc: string }> = {
+  psicologos: {
+    slug: "mejor-software-agendamiento-psicologo-chile-2026",
+    titulo: "Mejor software de agendamiento para psicólogos en Chile 2026",
+    desc: "Guía y comparativa para elegir la mejor plataforma de agenda para tu consulta de psicología.",
+  },
+  psiquiatras: {
+    slug: "agenda-de-citas-medicas-online-chile-2026",
+    titulo: "Agenda de citas médicas online en Chile 2026",
+    desc: "Guía para digitalizar tu agenda, automatizar recordatorios y reducir inasistencias en salud.",
+  },
+  barberias: {
+    slug: "agenda-online-barberias-esteticas-chile-2026",
+    titulo: "Agenda online para barberías y centros estéticos en Chile 2026",
+    desc: "Cómo eliminar los no-shows con reservas online, cobro anticipado y recordatorios automáticos.",
+  },
+  derecho: {
+    slug: "agenda-online-abogados-estudios-juridicos-chile-2026",
+    titulo: "Agenda online para abogados y estudios jurídicos en Chile 2026",
+    desc: "Cómo gestionar consultas jurídicas, cobrar anticipadamente y proteger tu tiempo.",
+  },
+  matronas: {
+    slug: "agenda-online-matronas-chile-2026",
+    titulo: "Agenda online para matronas en Chile 2026",
+    desc: "Cómo gestionar controles prenatales y consultas sin depender del teléfono.",
+  },
+  esteticas: {
+    slug: "agenda-online-barberias-esteticas-chile-2026",
+    titulo: "Agenda online para centros estéticos en Chile 2026",
+    desc: "Cómo eliminar los no-shows en tratamientos de múltiples sesiones con cobro anticipado.",
+  },
+  fisioterapeutas: {
+    slug: "agenda-online-kinesiologo-fisioterapia-chile-2026",
+    titulo: "Agenda online para kinesiólogos y fisioterapeutas en Chile 2026",
+    desc: "Cómo gestionar planes de rehabilitación y reducir el abandono de tratamientos.",
+  },
+  yoga: {
+    slug: "agenda-online-yoga-pilates-bienestar-chile-2026",
+    titulo: "Agenda online para clases de yoga y pilates en Chile 2026",
+    desc: "Cómo gestionar clases individuales y grupales, listas de espera y cobros anticipados.",
+  },
+  nutricionistas: {
+    slug: "agenda-online-nutricionistas-chile-2026",
+    titulo: "Agenda online para nutricionistas en Chile 2026",
+    desc: "Guía práctica para gestionar tu consulta nutricional con paquetes y recordatorios automáticos.",
+  },
+  kinesiologos: {
+    slug: "agenda-online-kinesiologo-fisioterapia-chile-2026",
+    titulo: "Agenda online para kinesiólogos en Chile 2026",
+    desc: "Cómo gestionar planes de rehabilitación como paquetes y eliminar el abandono de tratamientos.",
+  },
+  dentistas: {
+    slug: "agenda-online-dentista-odontologia-chile-2026",
+    titulo: "Agenda online para dentistas en Chile 2026",
+    desc: "Cómo reducir ausencias, activar lista de espera y organizar tratamientos de múltiples sesiones.",
+  },
+  medicos: {
+    slug: "agenda-de-citas-medicas-online-chile-2026",
+    titulo: "Agenda de citas médicas online en Chile 2026",
+    desc: "Guía para digitalizar tu consultorio, automatizar recordatorios y dejar de depender del teléfono.",
+  },
+  belleza: {
+    slug: "agenda-online-barberias-esteticas-chile-2026",
+    titulo: "Agenda online para peluquerías y salones de belleza en Chile 2026",
+    desc: "Cómo eliminar los no-shows con seña anticipada, recordatorios y reservas desde Instagram.",
+  },
+  "personal-trainer": {
+    slug: "agenda-online-profesionales-2026",
+    titulo: "Por qué los profesionales que más crecen ya automatizaron su agenda",
+    desc: "Cómo los entrenadores personales usan la automatización para crecer sin perder tiempo en coordinación.",
+  },
+  coach: {
+    slug: "agenda-online-profesionales-2026",
+    titulo: "Por qué los profesionales que más crecen ya automatizaron su agenda",
+    desc: "Cómo los coaches y consultores independientes protegen su tiempo con sistemas automáticos.",
+  },
+  consultor: {
+    slug: "agenda-online-profesionales-2026",
+    titulo: "Por qué los profesionales que más crecen ya automatizaron su agenda",
+    desc: "Cómo los consultores independientes usan la automatización para proteger su tiempo y crecer.",
+  },
+  "centros-clinicos": {
+    slug: "agenda-online-centros-clinicos-chile-2026",
+    titulo: "Software de agendamiento para centros clínicos en Chile 2026",
+    desc: "Cómo gestionar múltiples profesionales, salas y agendas desde un solo panel administrativo.",
+  },
+}

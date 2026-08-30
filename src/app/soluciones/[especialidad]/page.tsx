@@ -7,7 +7,7 @@ import {
   Smartphone, Clock, FolderOpen, Brain, Stethoscope, Scissors, Scale,
   Leaf, Baby, Sparkles, Activity, Flower2, Smile, type LucideIcon,
 } from "lucide-react"
-import { getEspecialidadBySlug, especialidades } from "@/lib/especialidades"
+import { getEspecialidadBySlug, especialidades, relatedPostMap } from "@/lib/especialidades"
 
 const featureIconMap: Record<string, LucideIcon> = {
   Package, CreditCard, MessageCircle, ClipboardList, Bell, Pill, RefreshCw,
@@ -166,6 +166,7 @@ export default async function EspecialidadPage({
   if (!data) notFound()
 
   const HeroIcon = heroIconMap[especialidad] ?? Stethoscope
+  const relatedPost = relatedPostMap[especialidad]
 
   const jsonLdGraph: object[] = [
     {
@@ -342,6 +343,29 @@ export default async function EspecialidadPage({
                   Ver todas las preguntas frecuentes →
                 </a>
               </div>
+            </div>
+          </section>
+        )}
+
+        {/* Lectura recomendada */}
+        {relatedPost && (
+          <section className="py-16 px-4 bg-purple-50">
+            <div className="max-w-3xl mx-auto">
+              <p className="text-[#6C5CE4] text-sm font-medium uppercase tracking-wider mb-4">
+                Lectura recomendada
+              </p>
+              <a
+                href={`/blog/${relatedPost.slug}`}
+                className="group flex flex-col gap-3 bg-white rounded-2xl p-6 border border-purple-100 hover:border-[#6C5CE4] transition-colors shadow-sm"
+              >
+                <h3 className="text-gray-900 font-semibold text-lg leading-snug group-hover:text-[#6C5CE4] transition-colors">
+                  {relatedPost.titulo}
+                </h3>
+                <p className="text-gray-500 text-sm leading-relaxed">{relatedPost.desc}</p>
+                <span className="text-[#6C5CE4] text-sm font-medium">
+                  Leer guía completa →
+                </span>
+              </a>
             </div>
           </section>
         )}
