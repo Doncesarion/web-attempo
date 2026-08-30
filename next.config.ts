@@ -20,6 +20,16 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  async redirects() {
+    return [
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "www.attempo.cl" }],
+        destination: "https://attempo.cl/:path*",
+        permanent: true,
+      },
+    ]
+  },
   async headers() {
     return [
       {
