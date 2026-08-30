@@ -1347,6 +1347,287 @@ export const posts: Post[] = [
       { tipo: "cta" },
     ],
   },
+  // ── ARTÍCULO: AGENDA DE CITAS MÉDICAS ───────────────────────────────────────
+  {
+    slug: "agenda-de-citas-medicas-online-chile-2026",
+    titulo: "Agenda de citas médicas online en Chile 2026: guía para profesionales y centros de salud",
+    excerpt:
+      "Cómo funciona una agenda de citas médicas online, qué ventajas tiene sobre el teléfono y el WhatsApp, y cómo elegir el sistema correcto para tu consulta o centro de salud en Chile.",
+    fecha: "2026-08-30",
+    categoria: "Gestión",
+    tiempoLectura: 8,
+    autor: "Equipo attempo",
+    contenido: [
+      {
+        tipo: "intro",
+        texto:
+          "La agenda de citas médicas sigue siendo uno de los mayores cuellos de botella en cualquier consulta o centro de salud. El teléfono no contesta, el WhatsApp se llena de mensajes sin responder, y el profesional pierde horas coordinando horarios que podrían gestionarse solos. En 2026 hay soluciones específicas para esto — y en Chile están creciendo rápido.",
+      },
+      {
+        tipo: "h2",
+        texto: "¿Qué es una agenda de citas médicas online?",
+      },
+      {
+        tipo: "p",
+        texto:
+          "Una agenda de citas médicas online es un sistema que permite a los pacientes reservar, cancelar o reagendar sus horas directamente desde el celular o el computador, sin necesidad de llamar ni escribir por WhatsApp. El profesional configura su disponibilidad y el sistema hace el resto: confirma automáticamente, envía recordatorios y bloquea los horarios ocupados.",
+      },
+      {
+        tipo: "p",
+        texto:
+          "A diferencia de una agenda en papel o una planilla de Excel, un sistema online trabaja las 24 horas. Un paciente puede reservar su hora el domingo a las 11 de la noche y el profesional llega el lunes con la agenda ya organizada, sin haber respondido un solo mensaje.",
+      },
+      {
+        tipo: "h2",
+        texto: "Por qué el teléfono y el WhatsApp ya no son suficientes",
+      },
+      {
+        tipo: "p",
+        texto:
+          "Durante años, el teléfono fue el canal estándar para agendar citas médicas en Chile. Hoy es el canal que más fricción genera. El paciente llama en horario de consulta — cuando el profesional está atendiendo — y nadie contesta. Llama más tarde y tampoco. Al tercer intento fallido, busca otro profesional.",
+      },
+      {
+        tipo: "p",
+        texto:
+          "WhatsApp mejoró la situación a medias: el mensaje puede enviarse a cualquier hora, pero sigue requiriendo que alguien lo lea y responda. En una consulta con 20 o 30 pacientes diarios, gestionar el agendamiento por chat se convierte en un trabajo a tiempo completo.",
+      },
+      {
+        tipo: "ul",
+        items: [
+          "El 63% de los pacientes prefiere agendar en horario no laboral (fuente: Zocdoc, 2024)",
+          "El tiempo promedio de gestión por cita vía teléfono es de 4 a 7 minutos",
+          "Las inasistencias bajan hasta un 40% con recordatorios automáticos vs. sin recordatorio",
+          "Un sistema online puede gestionar 100 reservas simultáneas sin error humano",
+        ],
+      },
+      {
+        tipo: "h2",
+        texto: "Cómo funciona la agenda online en la práctica",
+      },
+      {
+        tipo: "p",
+        texto:
+          "El proceso es simple desde el punto de vista del paciente. El profesional comparte un link (en su Instagram, sitio web, firma de email o código QR en la sala de espera). El paciente abre el link, elige el servicio, selecciona una fecha y hora disponible, y completa sus datos. En menos de dos minutos, la cita queda confirmada — sin esperar, sin llamar, sin escribir.",
+      },
+      {
+        tipo: "p",
+        texto:
+          "Del lado del profesional, la cita aparece en su panel de administración. El sistema envía automáticamente una confirmación al paciente por email y, si está configurado, un recordatorio por WhatsApp 24 horas antes. Si el paciente cancela, el horario vuelve a estar disponible de forma automática.",
+      },
+      {
+        tipo: "h2",
+        texto: "Qué debe tener un sistema de agenda médica online en Chile",
+      },
+      {
+        tipo: "p",
+        texto:
+          "No todos los sistemas de agendamiento son iguales. Algunos están diseñados para peluquerías o spas y no contemplan las particularidades de una consulta de salud. Al evaluar opciones, considera al menos estos puntos:",
+      },
+      {
+        tipo: "ul",
+        items: [
+          "Recordatorios automáticos por WhatsApp y email (no solo confirmación inicial)",
+          "Posibilidad de cobrar anticipado para reducir inasistencias",
+          "Gestión de múltiples profesionales si es un centro clínico",
+          "Historial de citas por paciente para seguimiento",
+          "Política de cancelación configurable con plazo mínimo",
+          "Integración con Google Calendar para sincronizar con la agenda personal",
+          "Datos almacenados en Chile o con cumplimiento de normativas de privacidad",
+        ],
+      },
+      {
+        tipo: "h2",
+        texto: "El problema de las inasistencias en medicina",
+      },
+      {
+        tipo: "p",
+        texto:
+          "La inasistencia es el mayor enemigo de la productividad en una consulta médica. En Chile, la tasa promedio de no-show en consultas privadas oscila entre el 15% y el 25% según el tipo de especialidad. Eso significa que uno de cada cuatro pacientes que agendó no llega — y ese tiempo ya no se puede recuperar.",
+      },
+      {
+        tipo: "p",
+        texto:
+          "Un sistema de agenda online ataca este problema desde dos ángulos: primero, con recordatorios automáticos que reducen el olvido (la causa número uno de inasistencia); segundo, con la posibilidad de cobrar un anticipo al momento de reservar, lo que elimina las cancelaciones de último minuto por falta de compromiso.",
+      },
+      {
+        tipo: "destacado",
+        texto:
+          "Los profesionales que implementan recordatorios automáticos por WhatsApp reportan una reducción de inasistencias de entre el 30% y el 45% en los primeros 3 meses de uso.",
+      },
+      {
+        tipo: "h2",
+        texto: "Agenda médica para centros clínicos vs. consulta individual",
+      },
+      {
+        tipo: "p",
+        texto:
+          "Las necesidades cambian según el tamaño del equipo. Una consulta individual necesita sobre todo automatizar la confirmación y los recordatorios, y tener un link de reserva limpio para compartir. Un centro clínico con varios profesionales necesita además gestionar agendas separadas por especialista, reportes de ocupación y a veces integración con sistemas de ficha clínica.",
+      },
+      {
+        tipo: "p",
+        texto:
+          "Lo importante es elegir un sistema que escale: que funcione bien para un profesional hoy y que pueda crecer si el equipo crece. Migrar de sistema es costoso en tiempo y en datos de pacientes.",
+      },
+      {
+        tipo: "h2",
+        texto: "Cómo empezar con una agenda de citas médicas online en Chile",
+      },
+      {
+        tipo: "p",
+        texto:
+          "La buena noticia es que la curva de adopción es rápida. La mayoría de los sistemas actuales están listos para usar en menos de una hora: creas tu cuenta, configuras tus servicios y horario, y compartes tu link. No necesitas un sitio web propio ni conocimientos técnicos.",
+      },
+      {
+        tipo: "p",
+        texto:
+          "Si eres profesional de salud en Chile y quieres dejar de gestionar citas por teléfono o WhatsApp, attempo tiene un plan de prueba gratuito de 12 días sin tarjeta de crédito. Puedes configurar tu agenda completa y empezar a recibir reservas automáticas el mismo día.",
+      },
+      { tipo: "cta" },
+    ],
+  },
+
+  // ── ARTÍCULO: BOT PARA EL SECTOR SALUD ──────────────────────────────────────
+  {
+    slug: "bot-para-el-sector-salud-chile-2026",
+    titulo: "Bot para el sector salud en Chile 2026: cómo automatizar el agendamiento y reducir inasistencias",
+    excerpt:
+      "Qué es un bot de agendamiento para salud, cómo funciona en la práctica, qué diferencia hay con un chatbot genérico y por qué cada vez más clínicas y consultas en Chile lo están adoptando.",
+    fecha: "2026-08-30",
+    categoria: "Tecnología",
+    tiempoLectura: 9,
+    autor: "Equipo attempo",
+    contenido: [
+      {
+        tipo: "intro",
+        texto:
+          "Un bot para el sector salud no es un lujo tecnológico ni algo reservado para grandes clínicas. En 2026, es la diferencia entre una consulta que depende de que alguien conteste el teléfono y una que funciona sola: agenda, confirma, recuerda y cobra de forma automática, aunque el profesional esté atendiendo pacientes.",
+      },
+      {
+        tipo: "h2",
+        texto: "¿Qué es un bot de agendamiento para salud?",
+      },
+      {
+        tipo: "p",
+        texto:
+          "Un bot de agendamiento para el sector salud es un sistema automatizado — basado en inteligencia artificial o en flujos programados — que gestiona la comunicación con pacientes para coordinar citas. Puede operar por WhatsApp, por una página web, por Instagram o por cualquier canal digital donde el paciente ya esté.",
+      },
+      {
+        tipo: "p",
+        texto:
+          "A diferencia de un chatbot genérico que solo responde preguntas frecuentes, un bot de salud está conectado a la agenda real del profesional. Sabe qué horas están disponibles, puede reservar una cita en tiempo real, enviar la confirmación y programar recordatorios automáticos para el día anterior.",
+      },
+      {
+        tipo: "h2",
+        texto: "Cómo funciona un bot de salud en la práctica",
+      },
+      {
+        tipo: "p",
+        texto:
+          "El flujo típico es así: un paciente escribe por WhatsApp o accede al link de reserva. El bot lo saluda, le pregunta qué servicio necesita y le muestra los horarios disponibles para ese día o la semana. El paciente elige, confirma sus datos y la cita queda registrada. Todo en menos de dos minutos, sin intervención humana.",
+      },
+      {
+        tipo: "p",
+        texto:
+          "Si el profesional tiene habilitado el cobro anticipado, el bot también gestiona el pago: envía el link de Webpay o transferencia antes de confirmar la cita. El horario solo queda bloqueado cuando el pago se completa, eliminando las reservas fantasmas que luego no se presentan.",
+      },
+      {
+        tipo: "destacado",
+        texto:
+          "Un bot de salud bien configurado puede gestionar el 80% de las reservas sin intervención humana, liberando al profesional y al equipo administrativo para enfocarse en la atención.",
+      },
+      {
+        tipo: "h2",
+        texto: "Bot de salud vs. secretaria virtual vs. sistema de agenda",
+      },
+      {
+        tipo: "p",
+        texto:
+          "Estos tres términos se mezclan con frecuencia, pero describen cosas distintas. Un sistema de agenda online es la base: una plataforma donde el paciente puede reservar en un formulario web. Un bot agrega una capa conversacional — el paciente interactúa por chat en vez de llenar un formulario. Una secretaria virtual puede combinar ambas cosas con atención humana cuando el bot no puede resolver algo.",
+      },
+      {
+        tipo: "p",
+        texto:
+          "Para la mayoría de las consultas de salud individuales, un sistema de agenda con bot de WhatsApp es suficiente y más económico que mantener una persona dedicada al agendamiento telefónico. Para centros con alta complejidad de consultas, la combinación bot + soporte humano funciona mejor.",
+      },
+      {
+        tipo: "h2",
+        texto: "Por qué el sector salud necesita un bot específico",
+      },
+      {
+        tipo: "p",
+        texto:
+          "El sector salud tiene particularidades que los bots genéricos no manejan bien. La primera es la privacidad: los datos de salud son datos sensibles y el sistema que los maneja debe cumplir con las normativas chilenas de protección de datos personales (Ley 19.628 y sus actualizaciones). Un bot diseñado para salud tiene eso incorporado por defecto.",
+      },
+      {
+        tipo: "ul",
+        items: [
+          "Manejo de múltiples tipos de consulta con duraciones distintas (control, primera vez, procedimiento)",
+          "Soporte para paquetes de sesiones con fechas bloqueadas en secuencia",
+          "Recordatorios configurables según el tipo de cita (24h antes, 2h antes, etc.)",
+          "Confirmación explícita del paciente para reducir no-shows",
+          "Integración con sistemas de cobro chilenos (Webpay, transferencia bancaria)",
+          "Historial de citas por paciente sin requerir ficha clínica separada",
+        ],
+      },
+      {
+        tipo: "h2",
+        texto: "El impacto real en las inasistencias",
+      },
+      {
+        tipo: "p",
+        texto:
+          "El no-show — el paciente que agendó y no llega sin avisar — es el mayor problema económico de una consulta de salud. Cada hora perdida es ingreso que no se recupera y lista de espera que se frustra. Los bots atacan este problema de dos formas: el recordatorio automático (reduce el olvido) y el cobro anticipado (reduce el abandono sin aviso).",
+      },
+      {
+        tipo: "p",
+        texto:
+          "En la práctica, los profesionales que implementan ambas herramientas reportan bajas de entre el 35% y el 50% en sus tasas de inasistencia dentro de los primeros 60 días. Para una consulta con 15 o 20 pacientes diarios, eso puede significar 3 a 5 horas menos perdidas por semana.",
+      },
+      {
+        tipo: "h2",
+        texto: "Recuperación de citas canceladas",
+      },
+      {
+        tipo: "p",
+        texto:
+          "Una función que pocas personas conocen pero que tiene alto impacto es la recuperación automática de cancelaciones. Cuando un paciente cancela, el sistema puede notificar de forma automática a los pacientes en lista de espera y ofrecerles el horario liberado. Si alguien lo toma, la hora no se pierde.",
+      },
+      {
+        tipo: "p",
+        texto:
+          "Esto es especialmente valioso en especialidades con alta demanda y poca disponibilidad — psicología, psiquiatría, dermatología — donde los tiempos de espera son largos y cada cancelación tiene costo tanto para el profesional como para el sistema en general.",
+      },
+      {
+        tipo: "h2",
+        texto: "Cómo implementar un bot de salud en tu consulta chilena",
+      },
+      {
+        tipo: "p",
+        texto:
+          "La implementación no requiere conocimientos técnicos. Los sistemas actuales están diseñados para que el profesional configure todo desde un panel visual: sus servicios, sus horarios, sus tarifas y sus mensajes de confirmación. En menos de una hora puedes tener el bot activo y compartir el link con tus pacientes.",
+      },
+      {
+        tipo: "p",
+        texto:
+          "El desafío real no es técnico sino de cambio de hábito: tanto del profesional (confiar en que el sistema gestiona bien) como del paciente (acostumbrarse a reservar por el link en vez de llamar). Ese cambio suele completarse en 2 a 4 semanas de uso constante.",
+      },
+      {
+        tipo: "h2",
+        texto: "attempo: el bot de salud diseñado para profesionales en Chile",
+      },
+      {
+        tipo: "p",
+        texto:
+          "attempo es un sistema de agendamiento con bot de IA diseñado específicamente para profesionales y centros de salud en Chile. Incluye agenda online, confirmaciones automáticas, recordatorios por WhatsApp, cobro anticipado con Webpay y un panel de administración donde ves toda tu agenda en tiempo real.",
+      },
+      {
+        tipo: "p",
+        texto:
+          "Puedes probarlo gratis durante 12 días, sin tarjeta de crédito, y ver el impacto real en tu tasa de inasistencias antes de decidir si contratas. El proceso de configuración toma menos de una hora.",
+      },
+      { tipo: "cta" },
+    ],
+  },
 ]
 
 export function getPostBySlug(slug: string): Post | undefined {
