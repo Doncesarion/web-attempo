@@ -161,13 +161,13 @@ export default function HomePage() {
         <StatsSection />
         <FeaturesSection />
         <ScreenshotsSection />
+        <QuienesSomosSection />
         <HomePricingSection />
         <WebpaySection />
         <IntegracionesSection />
         <SeguridadSection />
         <EspecialidadesSection />
         <AttiaSection />
-        <QuienesSomosSection />
         <OnboardingSection />
         <TestimonialsSection />
         <CTASection />

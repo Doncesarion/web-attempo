@@ -110,7 +110,7 @@ export function HeroSection() {
             className="text-xl text-gray-600 mb-10 max-w-lg mx-auto lg:mx-0"
             style={{ animation: "fade-in-up 0.6s ease both 200ms" }}
           >
-            Con solo 3 inasistencias al mes pierdes más de $100.000. attempo cobra antes de confirmar la hora, envía recordatorios automáticos y, cuando no estás, agenda por ti las 24 horas.
+            Nacimos para que puedas enfocarte en atender, no en coordinar. attempo cobra antes de confirmar la hora, envía recordatorios automáticos y, cuando no estás, agenda por ti las 24 horas.
           </p>
 
           <div
@@ -569,13 +569,15 @@ export function FeaturesSection() {
                 <div className={`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 ${f.bg}`}>
                   <f.Icon className={`w-5 h-5 ${f.color}`} />
                 </div>
-                <div>
-                  <h3 className="font-semibold text-gray-900 text-base mb-1.5 group-hover:text-[#6C5CE4] transition-colors flex items-center gap-1.5">
+                <div className="flex-1">
+                  <h3 className="font-semibold text-gray-900 text-base mb-1.5 group-hover:text-[#6C5CE4] transition-colors">
                     {f.title}
-                    <span className="text-gray-300 group-hover:text-[#6C5CE4] transition-all opacity-0 group-hover:opacity-100 -translate-x-1 group-hover:translate-x-0 text-sm">→</span>
                   </h3>
                   <p className="text-sm text-gray-500 leading-relaxed">{f.desc}</p>
                 </div>
+                <span className="text-xs text-[#6C5CE4] font-medium opacity-0 group-hover:opacity-100 transition-opacity -translate-y-1 group-hover:translate-y-0 duration-200">
+                  Ver en plataforma →
+                </span>
               </Link>
             </m.div>
           ))}
@@ -933,7 +935,7 @@ export function TestimonialsSection() {
   const others = [
     { name: "Diego Fuentes", role: "Barbería The Cut · Ñuñoa", initials: "DF", metric: "−3 hrs/semana en admin", text: "El chatbot responde solo por Instagram. Me ahorré contratar a alguien para tomar reservas — tres horas semanales que ahora uso en lo mío." },
     { name: "Camila Reyes", role: "Nutricionista · Online", initials: "CR", metric: "2% tasa de inasistencia", text: "Mi tasa de inasistencia bajó al 2%. Historial, sesiones y cobros en un solo lugar. Cerré para siempre mis 12 archivos de Excel." },
-    { name: "Sofía Castillo", role: "Studio Sofía · Providencia", initials: "SC", metric: "+$90.000/mes recuperados", text: "Pasé de 5 ausencias semanales a casi cero. La seña obligatoria al reservar lo cambió todo. Recupero unos $90.000 al mes que antes perdía." },
+    { name: "Sofía Castillo", role: "Pestañas y uñas · Providencia", initials: "SC", metric: "+$90.000/mes recuperados", text: "Un cupo de extensiones de pestañas que no se confirma es plata y tiempo perdido. Con la seña obligatoria pasé de 5 ausencias semanales a casi cero. Recupero unos $90.000 al mes que antes perdía." },
   ]
 
   return (
@@ -1530,14 +1532,14 @@ export function HomePricingSection() {
     {
       nombre: "Pro",
       precio: 44990,
-      desc: "Todo lo anterior + boletas electrónicas y transcripción IA de consultas.",
+      desc: "Todo lo anterior + boletas electrónicas y transcripción IA. Suma el chatbot IA con el plan Clínica IA.",
       popular: true,
       cta: "Empieza gratis",
     },
     {
       nombre: "Clínica IA",
       precio: 119990,
-      desc: "Chatbot IA que agenda, cobra y recupera citas por WhatsApp las 24 hrs.",
+      desc: "Pro + chatbot IA en WhatsApp 24/7 que agenda, cobra y recupera citas por ti.",
       popular: false,
       cta: "Empieza gratis",
     },

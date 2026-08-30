@@ -92,7 +92,7 @@ const planes = [
     popular: true,
     cta: "Empieza gratis",
     href: "https://app.attempo.cl/registro",
-    nota: "El ahorro en comisiones de transferencias suele cubrir la diferencia de precio.",
+    nota: "El ahorro en comisiones de transferencias suele cubrir la diferencia. Si además quieres el chatbot IA, el siguiente paso es el Plan Clínica IA.",
     features: [
       "Todo lo del plan Inicio",
       "Emisión de boletas electrónicas",
@@ -108,7 +108,7 @@ const planes = [
     tag: "Automatización total IA",
     mensual: 119990,
     anual: 1151900,
-    desc: "El chatbot agenda, cobra y recupera citas por ti las 24 horas. Para quien quiere que el sistema trabaje mientras atiende.",
+    desc: "Plan Pro + chatbot IA en WhatsApp las 24 horas. Agenda, cobra y recupera citas mientras atiendes.",
     popular: false,
     cta: "Empieza gratis",
     href: "https://app.attempo.cl/registro",
@@ -417,7 +417,7 @@ export default function PreciosContent() {
                 href: "https://app.attempo.cl/registro",
               },
               {
-                nombre: "Attia Pro",
+                nombre: "Attia Avanzado",
                 tag: "Más popular",
                 mensajes: 5000,
                 precio: 49990,
