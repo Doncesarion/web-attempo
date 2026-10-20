@@ -30,30 +30,35 @@ const secciones = [
   {
     titulo: "5. Base legal",
     contenido:
-      "El tratamiento de tus datos se realiza en conformidad con la Ley N° 19.628 sobre Protección de la Vida Privada de Chile y sus modificaciones vigentes.",
+      "El tratamiento de tus datos se realiza en conformidad con la Ley N° 19.628 sobre Protección de la Vida Privada de Chile y la Ley N° 21.719 de Protección de Datos Personales, que entrará en plena vigencia el 1 de diciembre de 2026. En el período de transición, adoptamos proactivamente los estándares que esta nueva ley exige.",
   },
   {
     titulo: "6. Almacenamiento y seguridad",
     contenido:
-      "Tus datos se almacenan en servidores con cifrado TLS y controles de acceso estrictos. Contamos con medidas técnicas y organizativas para prevenir el acceso no autorizado, la pérdida o la alteración de la información.",
+      "Tus datos se almacenan en servidores de Supabase, ubicados en Estados Unidos, con cifrado TLS en tránsito y en reposo. Supabase cumple con los estándares SOC 2 Type II. Contamos además con controles de acceso estrictos y medidas organizativas para prevenir el acceso no autorizado, la pérdida o la alteración de la información.",
   },
   {
-    titulo: "7. Plazo de conservación",
+    titulo: "7. Procesamiento mediante inteligencia artificial",
+    contenido:
+      "attempo utiliza tecnología de inteligencia artificial de Anthropic (modelos Claude) para el asistente virtual Attia. Los mensajes procesados por Attia no son utilizados para entrenar modelos de IA. Las conversaciones pueden quedar almacenadas en los servidores de attempo para efectos del historial de atención. Te recomendamos no compartir información médica sensible a través del chat.",
+  },
+  {
+    titulo: "8. Plazo de conservación",
     contenido:
       "Conservamos tus datos mientras mantengas una cuenta activa en attempo. Una vez que solicites la eliminación de tu cuenta, tus datos serán suprimidos en un plazo máximo de 30 días hábiles, salvo obligación legal de conservación.",
   },
   {
-    titulo: "8. Tus derechos",
+    titulo: "9. Tus derechos",
     contenido:
-      "Tienes derecho a acceder, rectificar, cancelar u oponerte al tratamiento de tus datos (derechos ARCO). Para ejercerlos, escríbenos a contacto@attempo.cl con el asunto \"Solicitud de privacidad\" y te responderemos en un plazo máximo de 15 días hábiles.",
+      "Tienes derecho a acceder, rectificar, cancelar u oponerte al tratamiento de tus datos (derechos ARCO). Con la entrada en vigencia de la Ley N° 21.719, también podrás ejercer el derecho a la portabilidad de tus datos y a oponerte a decisiones automatizadas que te afecten. Para ejercer cualquiera de estos derechos, escríbenos a contacto@attempo.cl con el asunto \"Solicitud de privacidad\" y te responderemos en un plazo máximo de 15 días hábiles.",
   },
   {
-    titulo: "9. Cookies y tecnologías similares",
+    titulo: "10. Cookies y tecnologías similares",
     contenido:
       "Utilizamos cookies esenciales para el funcionamiento de la plataforma y cookies analíticas (Google Tag Manager) para entender el uso del sitio. Puedes configurar tu navegador para rechazar cookies, aunque esto puede afectar la experiencia de uso.",
   },
   {
-    titulo: "10. Cambios en esta política",
+    titulo: "11. Cambios en esta política",
     contenido:
       "Podemos actualizar esta política ocasionalmente. Si los cambios son significativos, te notificaremos por correo electrónico o mediante un aviso destacado en la plataforma. La fecha de última actualización aparece al pie de esta página.",
   },
@@ -67,7 +72,7 @@ export default function PrivacidadPage() {
           <p className="text-[#6C5CE4] text-xs font-semibold uppercase tracking-widest mb-4">Legal</p>
           <h1 className="text-4xl font-bold text-gray-900 tracking-tight mb-4">Política de Privacidad</h1>
           <p className="text-gray-500">
-            Última actualización: junio 2025
+            Última actualización: octubre 2026
           </p>
         </div>
       </section>

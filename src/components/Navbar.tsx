@@ -63,7 +63,7 @@ const navLinks: NavLink[] = [
     href: "/plataforma",
     dropdown: [
       { label: "Visión general", href: "/plataforma" },
-      { label: "Chatbot IA",     href: "/chatbot-ia" },
+      { label: "Attia",           href: "/chatbot-ia" },
     ],
   },
   {

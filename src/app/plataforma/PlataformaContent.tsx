@@ -193,7 +193,7 @@ export default function PlataformaContent() {
     { icon: <CreditCardIcon />, label: "Cobro con Webpay" },
     { icon: <PackageIcon />, label: "Paquetes de sesiones" },
     { icon: <DocumentIcon />, label: "Boleta de honorarios" },
-    { icon: <SparklesIcon />, label: "Chatbot IA" },
+    { icon: <SparklesIcon />, label: "Attia" },
     { icon: <ChartIcon />, label: "Reportes y estadísticas" },
     { icon: <GoogleCalendarIcon />, label: "Google Calendar" },
   ]

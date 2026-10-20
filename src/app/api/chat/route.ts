@@ -246,6 +246,9 @@ export async function POST(req: NextRequest) {
 
     const body = await req.json()
     const { messages, sessionId } = body
+    const safeSessionId = typeof sessionId === 'string' && /^[a-zA-Z0-9_-]{1,64}$/.test(sessionId)
+      ? sessionId
+      : ''
 
     if (!validateMessages(messages)) {
       return NextResponse.json({ error: "Mensajes inválidos" }, { status: 400 })
@@ -296,7 +299,7 @@ export async function POST(req: NextRequest) {
         if (block.name === "capturar_lead") {
           await ejecutarCapturarLead(
             block.input as { nombre?: string; email?: string; telefono?: string; interes?: string; resumen?: string },
-            typeof sessionId === "string" ? sessionId : "",
+            safeSessionId,
             ip
           )
           toolResults.push({ type: "tool_result", tool_use_id: block.id, content: JSON.stringify({ ok: true }) })
@@ -317,13 +320,13 @@ export async function POST(req: NextRequest) {
     }
 
     // Guardar intercambio vía backend de app.attempo.cl
-    if (sessionId && typeof sessionId === "string") {
+    if (safeSessionId) {
       const userMsg = messages[messages.length - 1]
       await fetch("https://app.attempo.cl/api/usuarios-admin?action=web-lead-save", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          session_id: sessionId.slice(0, 64),
+          session_id: safeSessionId,
           tipo: "chat",
           mensajes: [userMsg, { role: "assistant", content: text }],
           ip: ip !== "unknown" ? ip : null,
