@@ -245,8 +245,16 @@ export default function PreciosContent() {
       {/* ── Cards ──────────────────────────────────────────────────────────── */}
       <section className="pb-20 px-4">
         <m.div
-          className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-5 items-stretch"
+          className="max-w-5xl mx-auto"
           initial="hidden" animate="visible" variants={stagger}
+        >
+        <m.div variants={fadeUp} className="text-center mb-8">
+          <p className="text-xs font-bold text-[#6C5CE4] uppercase tracking-widest mb-1">Plataforma completa de gestión</p>
+          <p className="text-gray-500 text-sm">Agenda, cobros, recordatorios y base de clientes. Escoge el nivel que necesitas.</p>
+        </m.div>
+        <m.div
+          className="grid grid-cols-1 md:grid-cols-3 gap-5 items-stretch"
+          variants={stagger}
         >
           {planes.map((plan) => (
             <m.div
@@ -328,6 +336,7 @@ export default function PreciosContent() {
             </m.div>
           ))}
         </m.div>
+        </m.div>
 
         <p className="text-center text-xs text-gray-400 mt-6">Todos los precios en pesos chilenos + IVA.</p>
       </section>
@@ -351,7 +360,7 @@ export default function PreciosContent() {
               {
                 numero: "02",
                 titulo: "Quiero herramientas avanzadas",
-                desc: "Emito boletas, transcribo consultas y no quiero pagar comisión en transferencias.",
+                desc: "Emito boletas, acepto pagos en dólares y no quiero pagar comisión en transferencias.",
                 recomendacion: "Plan Pro",
                 href: "#pro",
               },

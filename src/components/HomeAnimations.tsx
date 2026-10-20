@@ -165,12 +165,12 @@ export function HeroSection() {
                 {/* App header */}
                 <div className="bg-[#6C5CE4] px-4 pt-9 pb-4 flex-shrink-0">
                   <p className="text-white/60 text-[9px] uppercase tracking-widest mb-0.5">attempo</p>
-                  <p className="text-white font-bold text-sm leading-tight">Dra. Valentina Mora</p>
-                  <p className="text-white/60 text-[10px] mt-0.5">Psicóloga clínica · Consulta online</p>
+                  <p className="text-white font-bold text-sm leading-tight">Barbería The Cut</p>
+                  <p className="text-white/60 text-[10px] mt-0.5">Reservas online · Ñuñoa</p>
                 </div>
                 {/* Day selector */}
                 <div className="px-3 pt-3 pb-2 bg-white border-b border-gray-100 flex-shrink-0">
-                  <p className="text-[8px] text-gray-400 uppercase tracking-wider mb-2">Julio 2025</p>
+                  <p className="text-[8px] text-gray-400 uppercase tracking-wider mb-2">Octubre 2026</p>
                   <div className="flex gap-1 justify-between">
                     {[
                       { d: "L", n: "28" },
@@ -998,7 +998,7 @@ export function TestimonialsSection() {
 }
 
 export function EspecialidadesSection() {
-  const clusters = [
+  const clusters: { nombre: string; numero: string; items: { slug: string; nombre: string }[] }[] = [
     {
       nombre: "Salud",
       numero: "01",
@@ -1012,31 +1012,38 @@ export function EspecialidadesSection() {
       ],
     },
     {
-      nombre: "Bienestar y Estética",
+      nombre: "Belleza y Estética",
       numero: "02",
       items: [
-        { slug: "nutricionistas",  nombre: "Nutricionistas" },
-        { slug: "yoga",            nombre: "Yoga y Pilates" },
-        { slug: "esteticas",       nombre: "Estéticas" },
-        { slug: "belleza",         nombre: "Peluquerías" },
-        { slug: "barberias",       nombre: "Barberías" },
+        { slug: "esteticas",      nombre: "Estéticas" },
+        { slug: "belleza",        nombre: "Peluquerías" },
+        { slug: "barberias",      nombre: "Barberías" },
+        { slug: "",               nombre: "Uñas y pestañas" },
+        { slug: "",               nombre: "Spa y masajes" },
+        { slug: "nutricionistas", nombre: "Nutricionistas" },
       ],
     },
     {
-      nombre: "Fitness y Deporte",
+      nombre: "Deporte y Actividad",
       numero: "03",
       items: [
         { slug: "personal-trainer", nombre: "Entrenador personal" },
-        { slug: "yoga",             nombre: "Clases grupales" },
+        { slug: "yoga",             nombre: "Yoga y Pilates" },
+        { slug: "",                 nombre: "Gimnasios" },
+        { slug: "",                 nombre: "Clases de baile" },
+        { slug: "",                 nombre: "Zumba" },
       ],
     },
     {
-      nombre: "Consultoría y Legal",
+      nombre: "Servicios y Comercio",
       numero: "04",
       items: [
-        { slug: "derecho",   nombre: "Abogados" },
-        { slug: "coach",     nombre: "Coach" },
-        { slug: "consultor", nombre: "Consultores" },
+        { slug: "",        nombre: "Restaurantes" },
+        { slug: "",        nombre: "Hoteles y hospedaje" },
+        { slug: "",        nombre: "Lavandería" },
+        { slug: "",        nombre: "Carting y aventura" },
+        { slug: "",        nombre: "Teatro y eventos" },
+        { slug: "derecho", nombre: "Abogados" },
       ],
     },
   ]
@@ -1052,8 +1059,8 @@ export function EspecialidadesSection() {
       >
         <m.div variants={fadeUp} className="text-center mb-14">
           <span className="text-[#6C5CE4] text-sm font-medium tracking-wider">Para quién</span>
-          <h2 className="text-4xl font-bold text-gray-900 mt-2 mb-4">Si cobras por tu tiempo,<br className="hidden sm:block" /> attempo es para ti</h2>
-          <p className="text-gray-500 max-w-xl mx-auto">Cualquier profesional o negocio que trabaje con citas, horas o reservas puede digitalizarse con attempo en menos de 5 minutos.</p>
+          <h2 className="text-4xl font-bold text-gray-900 mt-2 mb-4">Si tu negocio trabaja con citas,<br className="hidden sm:block" /> attempo es para ti</h2>
+          <p className="text-gray-500 max-w-xl mx-auto">Clínicas, barberías, spas, gimnasios, restaurantes, hoteles y más. Cualquier negocio que gestione reservas puede estar listo en menos de 5 minutos.</p>
         </m.div>
 
         <m.div variants={fadeUp} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-12">
@@ -1070,8 +1077,8 @@ export function EspecialidadesSection() {
               <div className="px-6 pb-6 flex flex-col gap-2.5">
                 {cluster.items.map((item) => (
                   <a
-                    key={item.slug}
-                    href={`/soluciones/${item.slug}`}
+                    key={item.nombre}
+                    href={item.slug ? `/soluciones/${item.slug}` : "/soluciones"}
                     className="flex items-center gap-2.5 text-sm text-gray-500 hover:text-[#6C5CE4] transition-colors group/item"
                   >
                     <span className="w-1.5 h-1.5 rounded-full bg-gray-200 group-hover/item:bg-[#6C5CE4] transition-colors flex-shrink-0" />
@@ -1627,12 +1634,12 @@ export function QuienesSomosSection() {
               Quiénes somos
             </span>
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-5 leading-tight">
-              Hecho en Chile,<br />para profesionales de la salud
+              Hecho en Chile,<br />para negocios de todos los rubros
             </h2>
             <p className="text-gray-500 text-base leading-relaxed mb-4">
-              attempo nació de la frustración de ver a psicólogos, kinesiólogos y médicos perdiendo tiempo
+              attempo nació de la frustración de ver a profesionales y negocios perdiendo tiempo
               en llamadas y mensajes de WhatsApp para coordinar citas. Lo construimos para que el sistema
-              trabaje por ti.
+              de agendamiento trabaje por ti, sea cual sea tu rubro.
             </p>
             <p className="text-gray-500 text-base leading-relaxed mb-8">
               Somos un equipo pequeño y obsesionado con hacer que la tecnología no se sienta como tecnología.
@@ -1647,7 +1654,7 @@ export function QuienesSomosSection() {
 
           <m.div variants={fadeUp} className="grid grid-cols-2 gap-4">
             {[
-              { n: "+500", label: "profesionales de la salud" },
+              { n: "+500", label: "negocios y profesionales activos" },
               { n: "24/7", label: "disponible para tus pacientes" },
               { n: "12", label: "días de prueba gratis" },
               { n: "100%", label: "hecho en Chile" },

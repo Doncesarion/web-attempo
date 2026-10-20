@@ -20,24 +20,27 @@ import {
 } from "@/components/HomeAnimations"
 
 export const metadata: Metadata = {
-  title: "attempo | Sistema de Agendamiento Online con Chatbot IA — Chile",
+  title: "attempo | Sistema de Agendamiento Online para Cualquier Negocio — Chile",
   description:
-    "Plataforma de agendamiento con chatbot IA para psicólogos, barberías, centros de estética, clínicas y más en Chile. Agenda online 24/7, cobro anticipado con Webpay y recordatorios automáticos por WhatsApp. Prueba gratis 12 días.",
+    "Sistema de agendamiento online con chatbot IA para clínicas, barberías, spas, gimnasios, restaurantes, hoteles y más en Chile. Agenda 24/7, cobro con Webpay y recordatorios automáticos por WhatsApp. Prueba gratis 12 días.",
   alternates: { canonical: "https://attempo.cl" },
   keywords: [
     "sistema de agendamiento online Chile",
     "agenda online Chile",
-    "software agendamiento médico Chile",
+    "software agendamiento Chile",
     "chatbot ia agendamiento Chile",
     "agenda online psicólogos Chile",
     "agenda online barberías Chile",
+    "agenda online spa Chile",
+    "agenda online gimnasio Chile",
+    "agenda online restaurante Chile",
     "cobro anticipado Webpay citas",
     "recordatorios automáticos WhatsApp",
   ],
   openGraph: {
-    title: "attempo | Sistema de Agendamiento Online con Chatbot IA — Chile",
+    title: "attempo | Sistema de Agendamiento Online para Cualquier Negocio — Chile",
     description:
-      "Plataforma de agendamiento con chatbot IA para psicólogos, barberías, centros de estética, clínicas y más en Chile. Agenda online 24/7, cobro con Webpay y recordatorios por WhatsApp.",
+      "Sistema de agendamiento para clínicas, barberías, spas, gimnasios, restaurantes, hoteles y más en Chile. Agenda 24/7, cobro con Webpay y recordatorios por WhatsApp.",
     url: "https://attempo.cl",
     siteName: "attempo",
     type: "website",
@@ -45,9 +48,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "attempo | Sistema de Agendamiento Online con Chatbot IA — Chile",
+    title: "attempo | Sistema de Agendamiento Online para Cualquier Negocio — Chile",
     description:
-      "Agenda online 24/7, chatbot IA para WhatsApp e Instagram, cobro con Webpay y recordatorios automáticos. Para psicólogos, barberías, clínicas y más.",
+      "Agenda online 24/7, chatbot IA para WhatsApp e Instagram, cobro con Webpay y recordatorios automáticos. Para clínicas, barberías, spas, gimnasios, restaurantes y más.",
     images: ["https://attempo.cl/opengraph-image"],
   },
 }
@@ -157,9 +160,9 @@ export default function HomePage() {
       <div className="flex flex-col">
         <HeroSection />
         <ContrasteSection />
-        <ROISection />
         <StatsSection />
         <FeaturesSection />
+        <ROISection />
         <ScreenshotsSection />
         <QuienesSomosSection />
         <HomePricingSection />
