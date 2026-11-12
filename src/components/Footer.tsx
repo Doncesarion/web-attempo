@@ -25,6 +25,7 @@ const footerLinks = {
   ],
   Empresa: [
     { label: "Quiénes somos", href: "/quienes-somos" },
+    { label: "Servicios digitales", href: "/servicios" },
     { label: "Contacto", href: "/contacto" },
   ],
 }
