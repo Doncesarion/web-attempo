@@ -41,7 +41,7 @@ const jsonLd = {
     },
     {
       "@type": "Offer",
-      name: "Clínica IA",
+      name: "Business",
       price: "119990",
       priceCurrency: "CLP",
       description: "Plan para centros y clínicas con múltiples profesionales y todas las funcionalidades.",

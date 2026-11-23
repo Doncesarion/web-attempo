@@ -92,7 +92,7 @@ const planes = [
     popular: true,
     cta: "Empieza gratis",
     href: "https://app.attempo.cl/registro",
-    nota: "El ahorro en comisiones de transferencias suele cubrir la diferencia. Si además quieres el chatbot IA, el siguiente paso es el Plan Clínica IA.",
+    nota: "El ahorro en comisiones de transferencias suele cubrir la diferencia. Si además quieres el chatbot IA, el siguiente paso es el Plan Business.",
     features: [
       "Todo lo del plan Inicio",
       "Emisión de boletas electrónicas",
@@ -102,7 +102,7 @@ const planes = [
   },
   {
     id: "clinica",
-    nombre: "Clínica IA",
+    nombre: "Business",
     tag: "Automatización total IA",
     mensual: 119990,
     anual: 1151900,
@@ -366,7 +366,7 @@ export default function PreciosContent() {
                 numero: "03",
                 titulo: "Quiero automatización total",
                 desc: "Necesito que el sistema atienda, agende y cobre sin que yo intervenga.",
-                recomendacion: "Plan Clínica IA",
+                recomendacion: "Plan Business",
                 href: "#clinica",
               },
             ].map((p) => (
@@ -516,7 +516,7 @@ export default function PreciosContent() {
                   <th className="text-left py-4 px-6 text-gray-400 font-medium w-1/2">Característica</th>
                   <th className="text-center py-4 px-5 text-gray-600 font-bold">Inicio</th>
                   <th className="text-center py-4 px-5 text-[#6C5CE4] font-bold bg-[#6C5CE4]/5 border-x border-[#6C5CE4]/10">Pro</th>
-                  <th className="text-center py-4 px-5 text-gray-600 font-bold">Clínica IA</th>
+                  <th className="text-center py-4 px-5 text-gray-600 font-bold">Business</th>
                 </tr>
               </thead>
               <tbody>
@@ -680,7 +680,7 @@ export default function PreciosContent() {
                   </div>
                 ))}
                 <div className="mt-2 pt-4 border-t border-[#6C5CE4]/20 flex items-center justify-between">
-                  <p className="text-white/70 text-sm font-semibold">Plan Clínica IA (todo incluido)</p>
+                  <p className="text-white/70 text-sm font-semibold">Plan Business (todo incluido)</p>
                   <p className="text-[#8B7FF0] font-bold text-lg">$119.990/mes</p>
                 </div>
               </div>

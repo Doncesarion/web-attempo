@@ -191,7 +191,7 @@ export default function ChatbotIAContent() {
     },
     {
       q: "¿El chatbot IA tiene costo adicional?",
-      a: "No. El chatbot Attia está incluido en los planes Pro y Clínica IA de attempo sin costo adicional. Tampoco requiere conocimientos técnicos para configurarlo.",
+      a: "No. El chatbot Attia está incluido en los planes Pro y Business de attempo sin costo adicional. Tampoco requiere conocimientos técnicos para configurarlo.",
     },
     {
       q: "¿Es seguro usar inteligencia artificial con datos de pacientes?",
@@ -329,7 +329,7 @@ export default function ChatbotIAContent() {
               Cuando un paciente escribe por WhatsApp a las 11 de la noche preguntando por una hora disponible, Attia responde de inmediato, verifica tu agenda en tiempo real y confirma la cita automáticamente. Sin que tengas que revisar el teléfono. Sin que el paciente quede esperando hasta el día siguiente.
             </m.p>
             <m.p variants={fadeUp} className="text-gray-600 leading-relaxed text-center">
-              Attia es parte de attempo, la plataforma integral de gestión para consultas y clínicas. Está incluido en los planes <strong>Pro</strong> y <strong>Clínica IA</strong> sin costo adicional y se conecta automáticamente a tu agenda, a tu base de pacientes y a los canales digitales de tu consulta.
+              Attia es parte de attempo, la plataforma integral de gestión para consultas y clínicas. Está incluido en los planes <strong>Pro</strong> y <strong>Business</strong> sin costo adicional y se conecta automáticamente a tu agenda, a tu base de pacientes y a los canales digitales de tu consulta.
             </m.p>
           </m.div>
         </div>
@@ -505,7 +505,7 @@ export default function ChatbotIAContent() {
                   "Nombre, tono y personalidad configurables",
                   "Bandeja unificada de conversaciones",
                   "Traspaso a atención humana",
-                  "Sin costo extra en planes Pro y Clínica IA",
+                  "Sin costo extra en planes Pro y Business",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3">
                     <CheckIcon />

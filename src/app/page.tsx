@@ -87,7 +87,7 @@ const jsonLd = {
         },
         {
           "@type": "Offer",
-          name: "Plan Clínica IA",
+          name: "Plan Business",
           price: "119990",
           priceCurrency: "CLP",
           priceSpecification: {

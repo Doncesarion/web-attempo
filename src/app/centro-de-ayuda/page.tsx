@@ -173,12 +173,12 @@ const categorias: Categoria[] = [
       },
       {
         Icon: ClipboardList,
-        title: "Diferencias entre Plan Inicio, Pro y Clínica IA",
+        title: "Diferencias entre Plan Inicio, Pro y Business",
         desc: "Compara las funciones incluidas en cada plan para elegir el que mejor se adapta a tu práctica.",
       },
       {
         Icon: Users,
-        title: "Cómo invitar profesionales adicionales (Plan Clínica IA)",
+        title: "Cómo invitar profesionales adicionales (Plan Business)",
         desc: "Agrega a tu equipo enviando una invitación por correo desde el panel de administración del centro.",
       },
       {

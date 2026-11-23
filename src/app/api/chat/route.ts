@@ -24,13 +24,13 @@ Plan Pro:
 - Incluye: todo lo del plan Inicio + emisión de boletas electrónicas + sin costo en transferencias + transcriptor IA de consultas + pagos en dólares + vitrina de talleres y contenido.
 - Para quién: profesionales que emiten boletas o quieren ahorrar la comisión del 1% en transferencias.
 
-Plan Clínica IA:
+Plan Business:
 - Mensual: $119.990/mes + IVA
 - Anual: $95.992/mes + IVA ($1.151.900/año, ahorras $287.980)
 - Incluye: todo lo del plan Pro + chatbot IA en WhatsApp 24/7 (Attia) + cobro automático por WhatsApp + recuperación de citas por IA + confirmaciones automáticas por WhatsApp + WhatsApp de evaluación post-cita + reportes avanzados + personalización de colores del perfil + correos masivos ilimitados + recetas médicas electrónicas + soporte prioritario (chat, correo y WhatsApp).
 - Para quién: clínicas o profesionales que quieren que el sistema trabaje solo — el chatbot agenda, cobra y recupera citas las 24 horas.
 
-IMPORTANTE: el chatbot IA (Attia en WhatsApp) solo está disponible en el Plan Clínica IA. Los planes Inicio y Pro no incluyen chatbot.
+IMPORTANTE: el chatbot IA (Attia en WhatsApp) solo está disponible en el Plan Business. Los planes Inicio y Pro no incluyen chatbot.
 
 PARA QUIÉN ES:
 Psicólogos, médicos, nutricionistas, kinesiólogos, dentistas, fonoaudiólogos, matronas, abogados, barberías, centros de estética, yoga, pilates y cualquier profesional que agenda citas.
@@ -87,7 +87,7 @@ Precios y prueba:
 - Si cancelas un plan anual antes de que termine, se emite una nota de crédito por el tiempo restante menos dos meses por término anticipado de contrato. Por ejemplo, si te quedan 6 meses, la nota cubre 4. Los detalles están en attempo.cl/privacidad.
 
 Capacidad y límites:
-- El plan Clínica IA admite hasta 15 profesionales bajo un mismo centro.
+- El plan Business admite hasta 15 profesionales bajo un mismo centro.
 - Los mensajes de WhatsApp están incluidos en el plan. Si tienes un volumen muy alto de pacientes, el equipo evalúa tu caso: escríbenos al +56957285407.
 - attempo está diseñado para citas individuales. No tiene gestión de clases grupales con cupos.
 - Si tienes dos consultorios o sedes en ciudades distintas, sí se puede configurar en attempo. Cada sede puede tener su propia agenda, horarios y profesionales. Para el setup según tu caso, el equipo te acompaña cuando activas tu plan.

@@ -53,7 +53,7 @@ const categorias: Categoria[] = [
       {
         id: "pr1",
         q: "¿Cuánto cuesta attempo?",
-        a: "Hay tres planes: Inicio a $24.990/mes, Pro a $44.990/mes y Clínica IA a $119.990/mes. Todos los precios son + IVA. Con pago anual tienes 20% de descuento.",
+        a: "Hay tres planes: Inicio a $24.990/mes, Pro a $44.990/mes y Business a $119.990/mes. Todos los precios son + IVA. Con pago anual tienes 20% de descuento.",
       },
       {
         id: "pr2",
@@ -84,7 +84,7 @@ const categorias: Categoria[] = [
       {
         id: "f2",
         q: "¿Puedo gestionar varios profesionales en una cuenta?",
-        a: "Sí, en los planes Pro y Clínica IA puedes añadir múltiples profesionales al mismo centro, cada uno con su propia agenda y disponibilidad.",
+        a: "Sí, en los planes Pro y Business puedes añadir múltiples profesionales al mismo centro, cada uno con su propia agenda y disponibilidad.",
       },
       {
         id: "f3",

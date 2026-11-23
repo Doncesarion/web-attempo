@@ -52,13 +52,13 @@ const jsonLdSoftware = {
     "Respuestas personalizadas por especialidad",
     "Base de conocimiento configurable",
     "Traspaso a atención humana cuando se requiere",
-    "Sin costo adicional en planes Pro y Clínica IA",
+    "Sin costo adicional en planes Pro y Business",
   ],
   offers: {
     "@type": "Offer",
     price: "0",
     priceCurrency: "CLP",
-    description: "Incluido en planes Pro y Clínica IA de attempo",
+    description: "Incluido en planes Pro y Business de attempo",
   },
 }
 
@@ -111,7 +111,7 @@ const jsonLdFaq = {
       name: "¿El chatbot IA tiene costo adicional?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "No. El chatbot Attia está incluido en los planes Pro y Clínica IA de attempo sin costo adicional. Tampoco requiere conocimientos técnicos para configurarlo.",
+        text: "No. El chatbot Attia está incluido en los planes Pro y Business de attempo sin costo adicional. Tampoco requiere conocimientos técnicos para configurarlo.",
       },
     },
     {

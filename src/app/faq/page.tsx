@@ -19,7 +19,7 @@ const jsonLd = {
   "@type": "FAQPage",
   mainEntity: [
     { "@type": "Question", name: "¿Puedo probar attempo gratis?", acceptedAnswer: { "@type": "Answer", text: "Sí. Tienes 12 días de prueba completa en cualquier plan. Puedes explorar todas las funcionalidades sin compromiso." } },
-    { "@type": "Question", name: "¿Cuánto cuesta attempo?", acceptedAnswer: { "@type": "Answer", text: "Hay tres planes: Inicio a $24.990/mes, Pro a $44.990/mes y Clínica IA a $119.990/mes. Todos los precios son + IVA. Con pago anual tienes 20% de descuento." } },
+    { "@type": "Question", name: "¿Cuánto cuesta attempo?", acceptedAnswer: { "@type": "Answer", text: "Hay tres planes: Inicio a $24.990/mes, Pro a $44.990/mes y Business a $119.990/mes. Todos los precios son + IVA. Con pago anual tienes 20% de descuento." } },
     { "@type": "Question", name: "¿Hay descuento por pago anual?", acceptedAnswer: { "@type": "Answer", text: "Sí, al pagar el año completo obtienes un 20% de descuento en cualquier plan." } },
     { "@type": "Question", name: "¿Puedo cambiar de plan en cualquier momento?", acceptedAnswer: { "@type": "Answer", text: "Sí. Puedes subir o bajar de plan cuando quieras. El cambio se aplica de forma inmediata." } },
     { "@type": "Question", name: "¿Cómo funcionan los recordatorios automáticos?", acceptedAnswer: { "@type": "Answer", text: "attempo envía recordatorios automáticos a tus pacientes antes de cada cita por WhatsApp, email o SMS. Tú defines con cuánta anticipación se envían." } },
