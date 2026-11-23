@@ -1575,14 +1575,14 @@ export function HomePricingSection() {
     {
       nombre: "Pro",
       precio: 44990,
-      desc: "Todo lo anterior + boletas electrónicas y transcripción IA. Suma el chatbot IA con el plan Business.",
+      desc: "Todo lo anterior + boletas electrónicas y sin costo en transferencias.",
       popular: true,
       cta: "Empieza gratis",
     },
     {
       nombre: "Business",
       precio: 119990,
-      desc: "Pro + chatbot IA en WhatsApp 24/7 que agenda, cobra y recupera citas por ti.",
+      desc: "Todo integrado: agenda, boletas, chatbot IA con 5.000 mensajes/mes y automatizaciones conectadas en un solo sistema.",
       popular: false,
       cta: "Empieza gratis",
     },
