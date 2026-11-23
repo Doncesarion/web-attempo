@@ -110,7 +110,7 @@ export function HeroSection() {
             className="text-lg sm:text-xl text-gray-600 mb-6 max-w-lg mx-auto lg:mx-0 leading-relaxed"
             style={{ animation: "fade-in-up 0.6s ease both 200ms" }}
           >
-            Para psicólogos, barberías, spas, fisioterapeutas, nutricionistas y más. attempo cobra antes de confirmar la hora, envía recordatorios automáticos y, cuando no estás, agenda por ti las 24 horas.
+            attempo cobra antes de confirmar la hora, envía recordatorios automáticos y, cuando no estás, agenda por ti las 24 horas. Para cualquier negocio que trabaja con citas.
           </p>
 
           {/* Rubros pill row */}
@@ -118,7 +118,7 @@ export function HeroSection() {
             className="flex flex-wrap gap-2 justify-center lg:justify-start mb-8"
             style={{ animation: "fade-in-up 0.6s ease both 250ms" }}
           >
-            {["Psicólogos", "Barberías", "Spas", "Kinesiólogos", "Nutricionistas", "Estéticas"].map((r) => (
+            {["Psicólogos", "Barberías", "Abogados", "Nutricionistas", "Fotógrafos", "Coaches", "Spas", "Veterinarios", "Tutores", "Kinesiólogos", "Entrenadores", "Estéticas"].map((r) => (
               <span key={r} className="text-xs font-semibold bg-white border border-gray-200 text-gray-500 px-3 py-1 rounded-full shadow-sm">
                 {r}
               </span>
@@ -1058,6 +1058,30 @@ export function EspecialidadesSection() {
         { slug: "derecho", nombre: "Abogados" },
       ],
     },
+    {
+      nombre: "Educación y Consultoría",
+      numero: "05",
+      items: [
+        { slug: "", nombre: "Coaches y mentores" },
+        { slug: "", nombre: "Tutores y profesores" },
+        { slug: "", nombre: "Contadores" },
+        { slug: "", nombre: "Consultores" },
+        { slug: "", nombre: "Capacitaciones" },
+        { slug: "", nombre: "Clases particulares" },
+      ],
+    },
+    {
+      nombre: "Mascotas y Hogar",
+      numero: "06",
+      items: [
+        { slug: "", nombre: "Veterinarios" },
+        { slug: "", nombre: "Peluquería canina" },
+        { slug: "", nombre: "Fotógrafos" },
+        { slug: "", nombre: "Mecánicos" },
+        { slug: "", nombre: "Técnicos del hogar" },
+        { slug: "", nombre: "Cerrajeros" },
+      ],
+    },
   ]
 
   return (
@@ -1072,10 +1096,10 @@ export function EspecialidadesSection() {
         <m.div variants={fadeUp} className="text-center mb-14">
           <span className="text-[#6C5CE4] text-sm font-medium tracking-wider">Para quién</span>
           <h2 className="text-4xl font-bold text-gray-900 mt-2 mb-4">Si tu negocio trabaja con citas,<br className="hidden sm:block" /> attempo es para ti</h2>
-          <p className="text-gray-500 max-w-xl mx-auto">Psicólogos, barberías, spas, fisioterapeutas, nutricionistas, estéticas, entrenadores personales y más. Cualquier negocio con reservas puede estar listo en menos de 5 minutos.</p>
+          <p className="text-gray-500 max-w-xl mx-auto">Salud, belleza, educación, servicios y más. Cualquier negocio que trabaja con citas puede estar listo en menos de 5 minutos.</p>
         </m.div>
 
-        <m.div variants={fadeUp} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-12">
+        <m.div variants={fadeUp} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-5 mb-12">
           {clusters.map((cluster) => (
             <div key={cluster.nombre} className="rounded-2xl border border-gray-200 bg-white overflow-hidden shadow-sm hover:shadow-md hover:border-[#6C5CE4]/30 transition-all group">
               <div className="h-1 w-full bg-[#6C5CE4]" />
@@ -1084,7 +1108,7 @@ export function EspecialidadesSection() {
                   {cluster.numero}
                 </span>
                 <h3 className="font-bold text-gray-900 text-base leading-snug">{cluster.nombre}</h3>
-                <p className="text-xs text-gray-400 mt-0.5">{cluster.items.length} especialidades</p>
+                <p className="text-xs text-gray-400 mt-0.5">{cluster.items.length} rubros</p>
               </div>
               <div className="px-6 pb-6 flex flex-col gap-2.5">
                 {cluster.items.map((item) => (
