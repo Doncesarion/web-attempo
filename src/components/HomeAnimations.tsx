@@ -56,7 +56,7 @@ export function HeroSection() {
   return (
     <>
     {demoOpen && <DemoModal onClose={() => setDemoOpen(false)} />}
-    <section className="relative min-h-[95vh] flex items-center overflow-hidden bg-gradient-to-br from-[#f5f3ff] via-white to-[#ede9fe] px-4">
+    <section className="relative min-h-[80vh] lg:min-h-[95vh] flex items-center overflow-hidden bg-gradient-to-br from-[#f5f3ff] via-white to-[#ede9fe] px-4">
       {/* Dot grid */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -79,18 +79,18 @@ export function HeroSection() {
         className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-[#4F46E5] rounded-full blur-3xl translate-x-1/3 translate-y-1/3 pointer-events-none"
       />
 
-      <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-8 lg:gap-12 items-center py-8 lg:py-20">
+      <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-6 lg:gap-12 items-center pt-20 pb-10 lg:py-20">
         {/* Left — CSS animations, visible immediately for LCP */}
         <div className="text-center lg:text-left order-1 lg:order-1">
           <div style={{ animation: "fade-in-up 0.6s ease both 0ms" }}>
-            <span className="inline-flex items-center gap-2 bg-[#6C5CE4]/10 text-[#6C5CE4] px-4 py-1.5 rounded-full text-sm font-medium mb-6">
+            <span className="inline-flex items-center gap-2 bg-[#6C5CE4]/10 text-[#6C5CE4] px-4 py-1.5 rounded-full text-sm font-medium mb-5">
               <span className="w-2 h-2 bg-[#6C5CE4] rounded-full animate-pulse" />
-              Agenda online · Webpay · IA que agenda sola 24/7
+              Agenda online con cobro y recordatorios automáticos
             </span>
           </div>
 
           <h1
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6"
+            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-5"
             style={{ animation: "fade-in-up 0.6s ease both 100ms" }}
           >
             Tu agenda,{" "}
@@ -107,11 +107,23 @@ export function HeroSection() {
           </h1>
 
           <p
-            className="text-xl text-gray-600 mb-10 max-w-lg mx-auto lg:mx-0"
+            className="text-lg sm:text-xl text-gray-600 mb-6 max-w-lg mx-auto lg:mx-0 leading-relaxed"
             style={{ animation: "fade-in-up 0.6s ease both 200ms" }}
           >
-            Nacimos para que puedas enfocarte en atender, no en coordinar. attempo cobra antes de confirmar la hora, envía recordatorios automáticos y, cuando no estás, agenda por ti las 24 horas.
+            Para psicólogos, barberías, spas, fisioterapeutas, nutricionistas y más. attempo cobra antes de confirmar la hora, envía recordatorios automáticos y, cuando no estás, agenda por ti las 24 horas.
           </p>
+
+          {/* Rubros pill row */}
+          <div
+            className="flex flex-wrap gap-2 justify-center lg:justify-start mb-8"
+            style={{ animation: "fade-in-up 0.6s ease both 250ms" }}
+          >
+            {["Psicólogos", "Barberías", "Spas", "Kinesiólogos", "Nutricionistas", "Estéticas"].map((r) => (
+              <span key={r} className="text-xs font-semibold bg-white border border-gray-200 text-gray-500 px-3 py-1 rounded-full shadow-sm">
+                {r}
+              </span>
+            ))}
+          </div>
 
           <div
             className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
@@ -138,7 +150,7 @@ export function HeroSection() {
           </p>
 
           <div
-            className="mt-10 flex items-center gap-6 justify-center lg:justify-start text-sm text-gray-500"
+            className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 justify-center lg:justify-start text-sm text-gray-500"
             style={{ animation: "fade-in-up 0.6s ease both 400ms" }}
           >
             <span className="flex items-center gap-1.5"><Check className="w-4 h-4 text-green-500 flex-shrink-0" /> Listo en 5 minutos</span>
@@ -154,7 +166,7 @@ export function HeroSection() {
           transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] as const }}
           className="flex justify-center lg:justify-end relative order-2 lg:order-2"
         >
-          <div className="relative scale-[0.78] sm:scale-90 lg:scale-100 origin-top">
+          <div className="relative scale-[0.72] sm:scale-90 lg:scale-100 origin-top">
             <div className="absolute inset-0 bg-[#6C5CE4]/20 blur-3xl rounded-full scale-75 pointer-events-none" />
             {/* Phone frame */}
             <div className="relative w-[270px] bg-gray-900 rounded-[3rem] p-[10px] shadow-2xl ring-1 ring-white/10">
@@ -1060,7 +1072,7 @@ export function EspecialidadesSection() {
         <m.div variants={fadeUp} className="text-center mb-14">
           <span className="text-[#6C5CE4] text-sm font-medium tracking-wider">Para quién</span>
           <h2 className="text-4xl font-bold text-gray-900 mt-2 mb-4">Si tu negocio trabaja con citas,<br className="hidden sm:block" /> attempo es para ti</h2>
-          <p className="text-gray-500 max-w-xl mx-auto">Clínicas, barberías, spas, gimnasios, restaurantes, hoteles y más. Cualquier negocio que gestione reservas puede estar listo en menos de 5 minutos.</p>
+          <p className="text-gray-500 max-w-xl mx-auto">Psicólogos, barberías, spas, fisioterapeutas, nutricionistas, estéticas, entrenadores personales y más. Cualquier negocio con reservas puede estar listo en menos de 5 minutos.</p>
         </m.div>
 
         <m.div variants={fadeUp} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-12">

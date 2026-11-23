@@ -470,7 +470,7 @@ export default function PlataformaContent() {
               className="inline-flex items-center gap-2 text-xs font-semibold text-white/70 uppercase tracking-widest bg-white/15 px-3 py-1 rounded-full mb-6"
             >
               <SparklesIcon />
-              Chatbot IA · Plan Clínica
+              Chatbot IA · Plan Business
             </m.span>
             <m.h2 variants={fadeUp} className="text-3xl sm:text-4xl font-bold text-white tracking-tight mb-4">
               Un asistente que agenda por ti las 24 horas
