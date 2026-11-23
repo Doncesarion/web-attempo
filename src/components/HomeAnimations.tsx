@@ -155,7 +155,7 @@ export function HeroSection() {
           >
             <span className="flex items-center gap-1.5"><Check className="w-4 h-4 text-green-500 flex-shrink-0" /> Listo en 5 minutos</span>
             <span className="flex items-center gap-1.5"><Check className="w-4 h-4 text-green-500 flex-shrink-0" /> Soporte en español</span>
-            <span className="flex items-center gap-1.5"><Check className="w-4 h-4 text-green-500 flex-shrink-0" /> Pago con Webpay</span>
+            <span className="flex items-center gap-1.5"><Check className="w-4 h-4 text-green-500 flex-shrink-0" /> Cobro online incluido</span>
           </div>
         </div>
 
@@ -233,7 +233,7 @@ export function HeroSection() {
                     <p className="text-white text-sm font-bold">Reservar 11:00 →</p>
                   </div>
                   <p className="text-[9px] text-gray-400 text-center mt-1.5 flex items-center justify-center gap-1">
-                    <Lock className="w-2.5 h-2.5" /> Pago seguro con Webpay
+                    <Lock className="w-2.5 h-2.5" /> Pago seguro con tarjeta
                   </p>
                 </div>
               </div>
@@ -545,7 +545,7 @@ export function FeaturesSection() {
   const features: { Icon: LucideIcon; title: string; desc: string; href: string; color: string; bg: string }[] = [
     { Icon: CalendarDays, title: "Agenda inteligente",        desc: "Vista semanal, diaria y en lista. Gestiona citas, bloqueos y disponibilidad en tiempo real.",                             href: "/plataforma#agenda",        color: "text-[#6C5CE4]", bg: "bg-[#6C5CE4]/10" },
     { Icon: Bell,         title: "Recordatorios automáticos", desc: "WhatsApp y email antes de cada cita. Reduce las inasistencias sin hacer nada.",                                           href: "/plataforma#recordatorios", color: "text-emerald-600", bg: "bg-emerald-50" },
-    { Icon: Bot,          title: "Chatbot IA",                desc: "Attia agenda, cobra y recupera citas por ti en WhatsApp, Instagram y Messenger las 24 horas. Ya activo.",               href: "/chatbot-ia",              color: "text-violet-600",  bg: "bg-violet-50" },
+    { Icon: Bot,          title: "Chatbot IA",                desc: "Attia agenda, cobra y recupera citas por ti en WhatsApp, Instagram y Messenger las 24 horas. Disponible en Plan Business.",               href: "/chatbot-ia",              color: "text-violet-600",  bg: "bg-violet-50" },
     { Icon: Banknote,     title: "Control de ventas",         desc: "Registra pagos, revisa ingresos por día y lleva el control de citas sin cobrar.",                                         href: "/plataforma#cobros",        color: "text-sky-600",    bg: "bg-sky-50" },
     { Icon: Users,        title: "Base de clientes",          desc: "Ficha completa por paciente con historial, datos de contacto y citas anteriores.",                                        href: "/plataforma#clientes",      color: "text-orange-600",  bg: "bg-orange-50" },
     { Icon: BarChart2,    title: "Reportes y métricas",       desc: "Evolución de reservas, servicios más populares y rendimiento de tu negocio.",                                             href: "/plataforma#reportes",      color: "text-pink-600",    bg: "bg-pink-50" },
@@ -775,10 +775,10 @@ export function WebpaySection() {
           <m.div variants={fadeUp}>
             <span className="text-[#6C5CE4] text-sm font-medium uppercase tracking-wider">Pagos en línea</span>
             <h2 className="text-4xl font-bold text-gray-900 mt-2 mb-4">
-              Cobra con Webpay,<br />el estándar de Chile
+              Cobra antes de confirmar,<br />sin perseguir a nadie
             </h2>
             <p className="text-gray-500 text-lg mb-8 leading-relaxed">
-              Integra el método de pago más utilizado en Chile directamente en tu flujo de agendamiento. Tus clientes pagan al reservar y tú cobras sin perseguir a nadie.
+              Integra cobro online directamente en tu flujo de agendamiento. Tarjeta de débito, crédito o transferencia — tus clientes pagan al reservar y tú cobras sin cuentas pendientes.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
               {beneficios.map((b) => (
@@ -794,7 +794,7 @@ export function WebpaySection() {
               ))}
             </div>
             <a href="/precios" className="inline-flex items-center gap-2 px-6 py-3 bg-[#6C5CE4] text-white font-semibold rounded-xl hover:bg-[#4F46E5] transition-all hover:-translate-y-0.5 shadow-lg shadow-[#6C5CE4]/25">
-              Activar Webpay en mi cuenta →
+              Ver métodos de cobro →
             </a>
           </m.div>
 
@@ -1286,7 +1286,7 @@ export function AttiaSection() {
                 { quien: "Cliente", texto: "Hola, ¿tienen hora disponible el viernes a las 18:00?", lado: "izq" },
                 { quien: "Attia", texto: "¡Hola! Sí, tenemos disponibilidad el viernes 22 a las 18:00. ¿Lo reservamos? El costo es $35.000.", lado: "der" },
                 { quien: "Cliente", texto: "Sí, perfecto.", lado: "izq" },
-                { quien: "Attia", texto: "Listo 🎉 Te envío el link de pago por Webpay para confirmar la reserva →", lado: "der" },
+                { quien: "Attia", texto: "Listo 🎉 Te envío el link de pago para confirmar la reserva →", lado: "der" },
                 { quien: "Attia", texto: "✅ Pago recibido. Tu hora está confirmada para el viernes 22 a las 18:00. ¡Te esperamos!", lado: "der" },
               ].map((msg, i) => (
                 <div key={i} className={`flex ${msg.lado === "der" ? "justify-end" : "justify-start"}`}>
@@ -1324,7 +1324,7 @@ export function ContrasteSection() {
     },
     {
       antes: "Cobrar después o perseguir al cliente por el pago",
-      despues: "Cobro con Webpay al momento de reservar. Sin cuentas pendientes",
+      despues: "Cobro online al momento de reservar. Sin cuentas pendientes",
     },
     {
       antes: "Ver citas en attempo y en el calendario del celular por separado",
@@ -1568,7 +1568,7 @@ export function HomePricingSection() {
     {
       nombre: "Inicio",
       precio: 24990,
-      desc: "Agenda digital, cobros por Webpay y recordatorios automáticos.",
+      desc: "Agenda digital, cobro online y recordatorios automáticos.",
       popular: false,
       cta: "Empieza gratis",
     },

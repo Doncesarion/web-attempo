@@ -72,7 +72,7 @@ export default function Footer() {
               <span className="font-bold text-xl text-white">attempo</span>
             </Link>
             <p className="text-sm leading-relaxed mb-6 max-w-xs">
-              Todo a tu tiempo. La plataforma de agendamiento para profesionales de la salud y servicios en Chile.
+              Todo a tu tiempo. La plataforma de agendamiento para cualquier negocio que trabaja con citas en Chile.
             </p>
             <p className="text-xs text-gray-600 mb-3">Pagos seguros con</p>
             <div className="bg-white rounded-xl px-4 py-2 inline-block mb-6">

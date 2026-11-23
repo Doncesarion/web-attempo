@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     template: "%s | attempo",
   },
   description:
-    "attempo es la plataforma de agendamiento de citas para profesionales de la salud y servicios en Chile. Recordatorios automáticos por WhatsApp, chatbot IA, cobro con Webpay y agenda online. Listo en 5 minutos.",
+    "attempo es el sistema de agendamiento para cualquier negocio que trabaja con citas en Chile. Recordatorios automáticos por WhatsApp, chatbot IA, cobro online y agenda 24/7. Listo en 5 minutos.",
   metadataBase: new URL("https://attempo.cl"),
   openGraph: {
     siteName: "attempo",
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     type: "website",
     title: "attempo — Todo a tu tiempo",
     description:
-      "Plataforma de agendamiento para profesionales de la salud en Chile. Agenda online, recordatorios automáticos por WhatsApp y cobro con Webpay.",
+      "Sistema de agendamiento para cualquier negocio con citas en Chile. Agenda online, recordatorios automáticos por WhatsApp y cobro online.",
     url: "https://attempo.cl",
     images: [{ url: "https://attempo.cl/opengraph-image", width: 1200, height: 630, alt: "attempo — Todo a tu tiempo" }],
   },
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "attempo — Todo a tu tiempo",
     description:
-      "Plataforma de agendamiento para profesionales de la salud en Chile. Agenda online, recordatorios automáticos por WhatsApp y cobro con Webpay.",
+      "Sistema de agendamiento para cualquier negocio con citas en Chile. Agenda online, recordatorios automáticos por WhatsApp y cobro online.",
     images: ["https://attempo.cl/opengraph-image"],
   },
   robots: {

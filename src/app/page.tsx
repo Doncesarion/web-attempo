@@ -99,7 +99,7 @@ const jsonLd = {
       provider: { "@id": "https://attempo.cl/#organization" },
       url: "https://attempo.cl",
       description:
-        "Agenda online, recordatorios automáticos por WhatsApp, cobro con Webpay y chatbot IA para profesionales de la salud en Chile.",
+        "Agenda online, recordatorios automáticos por WhatsApp, cobro online y chatbot IA para cualquier negocio con citas en Chile.",
     },
     {
       "@type": "FAQPage",
@@ -109,7 +109,7 @@ const jsonLd = {
           name: "¿Qué es attempo?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "attempo es un sistema de agendamiento online para profesionales de la salud y servicios en Chile. Incluye agenda online 24/7, recordatorios automáticos por WhatsApp, cobro anticipado con Webpay y chatbot con inteligencia artificial.",
+            text: "attempo es un sistema de agendamiento online para cualquier negocio que trabaja con citas en Chile. Incluye agenda online 24/7, recordatorios automáticos por WhatsApp, cobro anticipado online y chatbot con inteligencia artificial.",
           },
         },
         {
@@ -122,10 +122,10 @@ const jsonLd = {
         },
         {
           "@type": "Question",
-          name: "¿attempo tiene integración con Webpay?",
+          name: "¿Qué métodos de cobro acepta attempo?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Sí, attempo integra Webpay (Transbank) de forma nativa en el flujo de reserva. El paciente puede pagar con tarjeta de crédito o débito al momento de agendar su cita, antes de confirmarla.",
+            text: "attempo integra cobro online de forma nativa: tarjeta de débito y crédito, transferencia bancaria y otros métodos locales. El cliente paga al momento de reservar, antes de confirmar la cita.",
           },
         },
         {
