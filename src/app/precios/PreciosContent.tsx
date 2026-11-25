@@ -109,7 +109,7 @@ const planes = [
     popular: false,
     cta: "Empieza gratis",
     href: "https://app.attempo.cl/registro",
-    nota: "Equivale a Plan Pro + Attia Avanzado ($109.980/mes) pero integrado en un solo sistema, una sola configuración y un solo soporte.",
+    nota: "El chatbot Attia del plan Business está integrado con tu agenda y cobros: cobra antes de confirmar la cita, recupera clientes que cancelaron y envía confirmaciones y evaluaciones automáticas. Funciones que un chatbot independiente no puede hacer.",
     features: [
       "Todo lo del plan Pro",
       "Chatbot IA en WhatsApp, Instagram y Messenger 24/7",
