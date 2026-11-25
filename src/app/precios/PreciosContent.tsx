@@ -97,7 +97,6 @@ const planes = [
       "Todo lo del plan Inicio",
       "Emisión de boletas electrónicas",
       "Sin costo en transferencias",
-      "Vitrina de talleres y contenido",
     ],
   },
   {
@@ -152,12 +151,6 @@ const categorias: { nombre: string; rows: { label: string; inicio: CeldaVal; pro
       { label: "Comisión crédito (tarjeta)",        inicio: "2,95% + IVA", pro: "2,95% + IVA",  clinica: "2,95% + IVA" },
       { label: "Emisión de boletas electrónicas",   inicio: false,         pro: true,           clinica: true },
       { label: "Cobro automático por WhatsApp",     inicio: false,         pro: false,          clinica: true },
-    ],
-  },
-  {
-    nombre: "Contenido y herramientas",
-    rows: [
-      { label: "Vitrina de talleres y contenido",   inicio: false, pro: true,  clinica: true },
     ],
   },
   {

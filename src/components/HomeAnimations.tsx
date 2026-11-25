@@ -85,7 +85,7 @@ export function HeroSection() {
           <div style={{ animation: "fade-in-up 0.6s ease both 0ms" }}>
             <span className="inline-flex items-center gap-2 bg-[#6C5CE4]/10 text-[#6C5CE4] px-4 py-1.5 rounded-full text-sm font-medium mb-5">
               <span className="w-2 h-2 bg-[#6C5CE4] rounded-full animate-pulse" />
-              Agenda online con cobro y recordatorios automáticos
+              Cobro anticipado · IA 24/7 · Sin comisión por cita
             </span>
           </div>
 
@@ -93,7 +93,7 @@ export function HeroSection() {
             className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-5"
             style={{ animation: "fade-in-up 0.6s ease both 100ms" }}
           >
-            Tu agenda,{" "}
+            Llena tu agenda,{" "}
             <span
               style={{
                 backgroundImage: "linear-gradient(135deg, #6C5CE4 0%, #8B7FF0 45%, #4F46E5 100%)",
@@ -110,7 +110,7 @@ export function HeroSection() {
             className="text-lg sm:text-xl text-gray-600 mb-6 max-w-lg mx-auto lg:mx-0 leading-relaxed"
             style={{ animation: "fade-in-up 0.6s ease both 200ms" }}
           >
-            attempo cobra antes de confirmar la hora, envía recordatorios automáticos y, cuando no estás, agenda por ti las 24 horas. Para cualquier negocio que trabaja con citas.
+            El sistema que llena tu agenda, cobra la seña al reservar y atiende en WhatsApp las 24 horas — sin que tú hagas nada. Para restaurantes, barberías, psicólogos, spas y cualquier negocio con citas en Chile.
           </p>
 
           {/* Rubros pill row */}
@@ -514,7 +514,7 @@ function DemoModal({ onClose }: { onClose: () => void }) {
 export function StatsSection() {
   const stats = [
     { value: "-80%", label: "Inasistencias con cobro anticipado" },
-    { value: "3", label: "Canales de chatbot IA" },
+    { value: "-3h", label: "Por semana en gestión" },
     { value: "0%", label: "Comisión por cita" },
     { value: "5 min", label: "Para configurar" },
   ]
@@ -1157,11 +1157,11 @@ export function CTASection() {
           Es hora de estar a tiempo
         </m.h2>
         <m.p variants={fadeUp} className="text-purple-200 mb-10 text-xl">
-          14 días gratis. Sin compromiso. Listo en 5 minutos.
+          14 días gratis. Sin tarjeta. Listo en 5 minutos.
         </m.p>
         <m.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4 justify-center">
           <a href="https://app.attempo.cl/registro" className="px-8 py-4 bg-white text-[#6C5CE4] font-bold rounded-xl hover:bg-purple-50 transition-all text-lg shadow-lg hover:-translate-y-0.5">
-            Crear cuenta gratis
+            Probar gratis 14 días
           </a>
           <a href="/contacto" className="px-8 py-4 bg-white/10 text-white font-semibold rounded-xl hover:bg-white/20 transition-all text-lg border border-white/20">
             Hablar con nosotros
@@ -1350,7 +1350,7 @@ export function ContrasteSection() {
             <span className="text-[#8B7FF0]">enfoques en lo tuyo</span>
           </h2>
           <p className="text-gray-400 max-w-xl mx-auto text-lg">
-            Sin WhatsApp interminable. Sin planillas. Sin cobros pendientes.
+            Sin WhatsApp sin responder. Sin planillas de Excel. Sin cobros pendientes.
           </p>
         </m.div>
 
@@ -1506,7 +1506,7 @@ export function OnboardingSection() {
     {
       n: "03",
       titulo: "Comparte tu link y empieza a recibir citas",
-      desc: "Ponlo en tu bio de Instagram, WhatsApp o donde quieras. Tus clientes reservan solos, tú ves todo en tiempo real.",
+      desc: "Ponlo en tu Instagram o WhatsApp. Desde ese momento, attempo cobra, confirma y recuerda por ti. Tú solo atiendes.",
       detalle: "El cobro anticipado y los recordatorios corren solos desde el primer día.",
     },
   ]
