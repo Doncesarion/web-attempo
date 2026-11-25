@@ -21,8 +21,8 @@ Plan Inicio:
 Plan Pro:
 - Mensual: $44.990/mes + IVA
 - Anual: $35.992/mes + IVA ($431.900/año, ahorras $107.980)
-- Incluye: todo lo del plan Inicio + emisión de boletas electrónicas + sin comisión en pagos con tarjeta (attempo absorbe el 2,59% de MercadoPago).
-- Para quién: profesionales que emiten boletas o quieren ahorrar el 2,59% de comisión en cada pago.
+- Incluye: todo lo del plan Inicio + emisión de boletas electrónicas + cobro sin comisión (attempo cubre el 2,59% de MercadoPago por ti, recibes el monto completo).
+- Para quién: profesionales que emiten boletas o quieren cobrar sin que MercadoPago les descuente el 2,59% en cada pago.
 
 Plan Business:
 - Mensual: $119.990/mes + IVA

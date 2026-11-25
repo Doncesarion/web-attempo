@@ -88,11 +88,11 @@ const planes = [
     tag: "Si emites boletas",
     mensual: 44990,
     anual: 431900,
-    desc: "Emite boletas electrónicas y ahorra el 2,59% de comisión en pagos. Todo por $20.000 más al mes.",
+    desc: "Emite boletas electrónicas y cobra sin comisión — attempo cubre el 2,59% de MercadoPago por ti. Todo por $20.000 más al mes.",
     popular: true,
     cta: "Empieza gratis",
     href: "https://app.attempo.cl/registro",
-    nota: "El ahorro del 2,59% de comisión en cada pago suele cubrir el costo del plan. Si además quieres el chatbot IA, el siguiente paso es el Plan Business.",
+    nota: "attempo cubre el 2,59% de MercadoPago en cada cobro. Con más de $775.000 en pagos al mes, la diferencia del plan se paga sola. Si además quieres el chatbot IA, el siguiente paso es el Plan Business.",
     features: [
       "Todo lo del plan Inicio",
       "Emisión de boletas electrónicas",
@@ -175,7 +175,7 @@ const categorias: { nombre: string; rows: { label: string; inicio: CeldaVal; pro
 const faqs = [
   { q: "¿Cómo funciona el cobro?", a: "Si pagas mensual, el cobro es automático cada mes. Si eliges anual, pagas una sola vez y equivale a 10 meses (ahorras 2 meses completos). Siempre recibirás un correo antes de cada cobro. Puedes cancelar en cualquier momento." },
   { q: "¿Puedo pagar el plan anual en cuotas?", a: "Sí. Tenemos convenio de hasta 12 cuotas sin interés con tarjeta de crédito de cualquier banco. Puedes darte de baja en cualquier momento sin costo adicional." },
-  { q: "¿Hay comisión en los pagos con tarjeta?", a: "Sí. Los pagos con tarjeta procesados por MercadoPago tienen una comisión de 2,59%. En el plan Inicio esta comisión la asume el profesional; en los planes Pro y Business attempo la absorbe, así que no pagas nada extra por cada pago." },
+  { q: "¿Hay comisión en los pagos con tarjeta?", a: "MercadoPago cobra un 2,59% por cada pago con tarjeta. En el plan Inicio esa comisión la paga el profesional directamente a MercadoPago. En los planes Pro y Business, attempo cubre ese costo por ti, así que recibes el monto completo." },
   { q: "¿Qué pasa cuando termina la prueba gratis?", a: "Al terminar los 14 días, te pedimos que elijas un plan. Si no lo haces, tu cuenta pasa a modo limitado. No se cobra nada sin que tú lo confirmes primero." },
   { q: "¿Puedo cambiar de plan?", a: "Sí, en cualquier momento. Si subes de plan, el cambio aplica de inmediato. Si bajas, aplica al inicio del siguiente período." },
   { q: "¿Los precios incluyen IVA?", a: "No. Los precios mostrados son antes de IVA (19%). El total con IVA se detalla al momento de suscribirte." },
