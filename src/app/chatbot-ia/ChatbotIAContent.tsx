@@ -186,16 +186,16 @@ export default function ChatbotIAContent() {
       a: "Desde el panel de administración de attempo puedes definir el nombre del asistente, su género, tono de voz, saludo inicial, preguntas frecuentes con sus respuestas y una base de conocimiento personalizada con información de tu consulta o clínica.",
     },
     {
-      q: "¿Qué pasa cuando el paciente necesita atención humana?",
-      a: "El asistente detecta cuándo una consulta requiere intervención humana y puede pausar el bot para que el profesional o su equipo retome la conversación directamente desde la bandeja de mensajes de attempo.",
+      q: "¿Qué pasa cuando el cliente necesita atención humana?",
+      a: "El asistente detecta cuándo una consulta requiere intervención humana y puede pausar el bot para que tú o tu equipo retomen la conversación directamente desde la bandeja de mensajes de attempo.",
     },
     {
       q: "¿El chatbot IA tiene costo adicional?",
-      a: "No. El chatbot Attia está incluido en los planes Pro y Business de attempo sin costo adicional. Tampoco requiere conocimientos técnicos para configurarlo.",
+      a: "El chatbot Attia está incluido en el plan Business de attempo. Si solo necesitas el chatbot sin la agenda, existen planes independientes de Attia desde $39.990/mes. Los mensajes funcionan vía API oficial de WhatsApp Business de Meta — las primeras 1.000 conversaciones de servicio al mes son gratuitas según Meta y están absorbidas en el plan. No se requieren conocimientos técnicos para configurarlo.",
     },
     {
-      q: "¿Es seguro usar inteligencia artificial con datos de pacientes?",
-      a: "Sí. attempo no almacena datos clínicos sensibles en el chatbot. La IA responde con la información que tú mismo configuras (horarios, servicios, precios, ubicación), sin acceso a fichas médicas ni historial clínico.",
+      q: "¿Es seguro usar inteligencia artificial con datos de mis clientes?",
+      a: "Sí. attempo no almacena datos sensibles en el chatbot. La IA responde con la información que tú mismo configuras (horarios, servicios, precios, ubicación), sin acceso a fichas ni historial de clientes.",
     },
     {
       q: "¿Funciona para psicólogos, dentistas y otras especialidades?",
@@ -218,20 +218,20 @@ export default function ChatbotIAContent() {
             >
               <m.div variants={fadeUp} className="inline-flex items-center gap-2 bg-[#6C5CE4]/10 text-[#6C5CE4] text-sm font-medium px-3 py-1.5 rounded-full mb-6">
                 <SparklesIcon />
-                Inteligencia Artificial para la salud
+                Inteligencia Artificial para tu negocio
               </m.div>
 
               <m.h1 variants={fadeUp} className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-6">
                 Chatbot IA para{" "}
-                <span className="text-[#6C5CE4]">médicos y clínicas</span>{" "}
+                <span className="text-[#6C5CE4]">negocios con citas</span>{" "}
                 en Chile
               </m.h1>
 
               <m.p variants={fadeUp} className="text-lg text-gray-600 leading-relaxed mb-4">
-                <strong>Attia</strong> es el asistente virtual con inteligencia artificial de attempo. Responde las consultas de tus pacientes las 24 horas, agenda citas automáticamente y opera en WhatsApp, Instagram y Messenger.
+                <strong>Attia</strong> es el asistente virtual con inteligencia artificial de attempo. Responde las consultas de tus clientes las 24 horas, agenda citas automáticamente y opera en WhatsApp, Instagram y Messenger — vía API oficial de Meta.
               </m.p>
               <m.p variants={fadeUp} className="text-gray-500 leading-relaxed mb-8">
-                Sin programación. Sin costo extra. Listo en minutos desde tu panel de administración.
+                Sin programación. Incluido en el plan Business o como producto independiente desde $39.990/mes. Listo en minutos desde tu panel.
               </m.p>
 
               <m.div variants={fadeUp} className="flex flex-col sm:flex-row gap-3">
@@ -323,13 +323,13 @@ export default function ChatbotIAContent() {
               ¿Qué es el chatbot IA de attempo?
             </m.h2>
             <m.p variants={fadeUp} className="text-gray-600 text-lg leading-relaxed text-center mb-6">
-              <strong>Attia</strong> es un asistente virtual con inteligencia artificial diseñado específicamente para profesionales de la salud en Chile. A diferencia de los chatbots genéricos, Attia conoce tu especialidad, tus horarios de atención, tus servicios y tus tarifas porque tú mismo lo configuras desde el panel de attempo.
+              <strong>Attia</strong> es un asistente virtual con inteligencia artificial diseñado para cualquier negocio que trabaje con citas en Chile. A diferencia de los chatbots genéricos, Attia conoce tus horarios de atención, tus servicios y tus tarifas porque tú mismo lo configuras desde el panel de attempo.
             </m.p>
             <m.p variants={fadeUp} className="text-gray-600 leading-relaxed text-center mb-6">
-              Cuando un paciente escribe por WhatsApp a las 11 de la noche preguntando por una hora disponible, Attia responde de inmediato, verifica tu agenda en tiempo real y confirma la cita automáticamente. Sin que tengas que revisar el teléfono. Sin que el paciente quede esperando hasta el día siguiente.
+              Cuando un cliente escribe por WhatsApp a las 11 de la noche preguntando por una hora disponible, Attia responde de inmediato vía API oficial de Meta, verifica tu agenda en tiempo real y confirma la cita automáticamente. Sin que tengas que revisar el teléfono. Sin que el cliente quede esperando hasta el día siguiente.
             </m.p>
             <m.p variants={fadeUp} className="text-gray-600 leading-relaxed text-center">
-              Attia es parte de attempo, la plataforma integral de gestión para consultas y clínicas. Está incluido en los planes <strong>Pro</strong> y <strong>Business</strong> sin costo adicional y se conecta automáticamente a tu agenda, a tu base de pacientes y a los canales digitales de tu consulta.
+              Attia es parte de attempo, la plataforma integral de gestión para negocios con citas. Está incluido en el plan <strong>Business</strong> sin costo adicional, y también disponible como producto independiente desde $39.990/mes. Se conecta automáticamente a tu agenda, a tu base de clientes y a los canales digitales de tu negocio.
             </m.p>
           </m.div>
         </div>

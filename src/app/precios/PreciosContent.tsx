@@ -491,7 +491,9 @@ export default function PreciosContent() {
               </m.div>
             ))}
           </div>
-          <p className="text-center text-xs text-gray-400 mt-6">Todos los precios en pesos chilenos + IVA. Al superar el límite mensual, el chatbot responde indicando que se comunicarán a la brevedad.</p>
+          <p className="text-center text-xs text-gray-400 mt-6">
+            Todos los precios en pesos chilenos + IVA. Los mensajes se envían vía <span className="font-medium text-gray-500">API oficial de WhatsApp Business de Meta</span> — las primeras 1.000 conversaciones de servicio al mes son gratuitas según Meta y ya están incluidas en el plan. Al superar el límite mensual, el chatbot pausa automáticamente y te notificamos para que puedas ampliar tu plan o contratar conversaciones adicionales sin interrumpir tu servicio.
+          </p>
         </m.div>
       </section>
 

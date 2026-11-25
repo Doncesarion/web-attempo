@@ -88,7 +88,7 @@ Precios y prueba:
 
 Capacidad y límites:
 - El plan Business admite hasta 15 profesionales bajo un mismo centro.
-- Los mensajes de WhatsApp están incluidos en el plan. Si tienes un volumen muy alto de clientes, el equipo evalúa tu caso: escríbenos al +56957285407.
+- Los mensajes de WhatsApp funcionan vía API oficial de WhatsApp Business de Meta. Cada plan incluye un volumen mensual de mensajes: el plan Business de attempo incluye 5.000 mensajes IA al mes. Los planes independientes de Attia incluyen desde 2.000 hasta 8.000 mensajes al mes según el plan. Las primeras 1.000 conversaciones de servicio al mes son gratuitas según Meta y están absorbidas en el costo del plan. Al superar el límite mensual, el chatbot pausa y attempo notifica al negocio para que pueda ampliar su plan. Para volúmenes muy altos, escríbenos al +56957285407.
 - attempo está diseñado para citas individuales. No tiene gestión de clases grupales con cupos.
 - Si tienes dos consultorios o sedes en ciudades distintas, sí se puede configurar en attempo. Cada sede puede tener su propia agenda, horarios y profesionales. Para el setup según tu caso, el equipo te acompaña cuando activas tu plan.
 
