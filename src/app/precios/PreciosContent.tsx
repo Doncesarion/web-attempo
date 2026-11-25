@@ -69,7 +69,7 @@ const planes = [
     popular: false,
     cta: "Empieza gratis",
     href: "https://app.attempo.cl/registro",
-    nota: "1% de costo en transferencias",
+    nota: "2,59% de comisión en pagos con tarjeta (MercadoPago)",
     features: [
       "Perfil de agendamiento online",
       "Agenda y calendario digital",
@@ -88,7 +88,7 @@ const planes = [
     tag: "Si emites boletas",
     mensual: 44990,
     anual: 431900,
-    desc: "Emite boletas electrónicas y ahorra el 1% en comisión de transferencias. Todo por $20.000 más al mes.",
+    desc: "Emite boletas electrónicas y ahorra el 2,59% de comisión en pagos. Todo por $20.000 más al mes.",
     popular: true,
     cta: "Empieza gratis",
     href: "https://app.attempo.cl/registro",
@@ -146,7 +146,7 @@ const categorias: { nombre: string; rows: { label: string; inicio: CeldaVal; pro
     nombre: "Pagos y facturación",
     rows: [
       { label: "Pagos por transferencia y tarjeta",  inicio: true,          pro: true,           clinica: true },
-      { label: "Costo en transferencias",           inicio: "1% costo",    pro: "Sin costo",    clinica: "Sin costo" },
+      { label: "Comisión en pagos con tarjeta",      inicio: "2,59% (MP)",  pro: "Sin costo",    clinica: "Sin costo" },
       { label: "Comisión débito (tarjeta)",          inicio: "1,49% + IVA", pro: "1,49% + IVA",  clinica: "1,49% + IVA" },
       { label: "Comisión crédito (tarjeta)",        inicio: "2,95% + IVA", pro: "2,95% + IVA",  clinica: "2,95% + IVA" },
       { label: "Emisión de boletas electrónicas",   inicio: false,         pro: true,           clinica: true },

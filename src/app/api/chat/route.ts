@@ -15,14 +15,14 @@ Hay dos modalidades de pago: mensual o anual (20% de descuento pagando el año �
 Plan Inicio:
 - Mensual: $24.990/mes + IVA
 - Anual: $19.992/mes + IVA ($239.900/año, ahorras $59.980)
-- Incluye: perfil de agendamiento online, agenda y calendario digital, servicios ilimitados, recordatorios por correo y WhatsApp, pagos por transferencia y WebPay, evaluaciones en tu perfil, fichas clínicas, marcar citas como pagadas, soporte vía chat. Tiene un costo del 1% en transferencias.
+- Incluye: perfil de agendamiento online, agenda y calendario digital, servicios ilimitados, recordatorios por correo y WhatsApp, pagos por transferencia y WebPay, evaluaciones en tu perfil, fichas clínicas, marcar citas como pagadas, soporte vía chat. Los pagos con tarjeta tienen una comisión del 2,59% de MercadoPago.
 - Para quién: profesionales que quieren digitalizar su agenda y recibir pagos online.
 
 Plan Pro:
 - Mensual: $44.990/mes + IVA
 - Anual: $35.992/mes + IVA ($431.900/año, ahorras $107.980)
-- Incluye: todo lo del plan Inicio + emisión de boletas electrónicas + sin costo en transferencias + transcriptor IA de consultas + pagos en dólares + vitrina de talleres y contenido.
-- Para quién: profesionales que emiten boletas o quieren ahorrar la comisión del 1% en transferencias.
+- Incluye: todo lo del plan Inicio + emisión de boletas electrónicas + sin comisión en pagos con tarjeta (attempo absorbe el 2,59% de MercadoPago).
+- Para quién: profesionales que emiten boletas o quieren ahorrar el 2,59% de comisión en cada pago.
 
 Plan Business:
 - Mensual: $119.990/mes + IVA
