@@ -169,7 +169,7 @@ export default function CasosDeExitoPage() {
               href="/registro"
               className="px-6 py-3 bg-transparent border border-purple-300 text-white font-semibold rounded-xl hover:bg-purple-600 transition-colors"
             >
-              Empieza gratis 12 días
+              Empieza gratis 14 días
             </Link>
           </div>
         </div>

@@ -146,7 +146,7 @@ export function HeroSection() {
             className="text-sm text-gray-400 mt-2 text-center lg:text-left"
             style={{ animation: "fade-in-up 0.6s ease both 400ms" }}
           >
-            12 días gratis · desde $24.990/mes · sin tarjeta
+            14 días gratis · desde $24.990/mes · sin tarjeta
           </p>
 
           <div
@@ -373,7 +373,7 @@ function DemoModal({ onClose }: { onClose: () => void }) {
     },
     {
       titulo: "Recibe confirmación por WhatsApp",
-      desc: "Tu paciente recibe el comprobante al instante. Tú no haces nada — la cita ya está en tu agenda.",
+      desc: "Tu cliente recibe el comprobante al instante. Tú no haces nada — la cita ya está en tu agenda.",
       screen: (
         <div className="bg-[#e5ddd5] rounded-2xl overflow-hidden">
           <div className="bg-[#075e54] px-4 py-3 flex items-center gap-3">
@@ -404,7 +404,7 @@ function DemoModal({ onClose }: { onClose: () => void }) {
   const pasosProfesional = [
     {
       titulo: "La cita aparece en tu agenda al instante",
-      desc: "No tienes que hacer nada. En cuanto el paciente paga, la cita queda confirmada en tu calendario.",
+      desc: "No tienes que hacer nada. En cuanto el cliente paga, la cita queda confirmada en tu calendario.",
       img: "/desktop-agenda.png",
     },
     {
@@ -414,12 +414,12 @@ function DemoModal({ onClose }: { onClose: () => void }) {
     },
     {
       titulo: "Los recordatorios salen solos",
-      desc: "24h y 2h antes de cada cita, tu paciente recibe un WhatsApp automático. Tú no tocas nada.",
+      desc: "24h y 2h antes de cada cita, tu cliente recibe un WhatsApp automático. Tú no tocas nada.",
       img: "/desktop-config.png",
     },
     {
-      titulo: "Tienes el historial completo del paciente",
-      desc: "Cada cita, cada pago y cada nota queda guardada en la ficha del paciente para consultar cuando quieras.",
+      titulo: "Tienes el historial completo del cliente",
+      desc: "Cada cita, cada pago y cada nota queda guardada en la ficha del cliente para consultar cuando quieras.",
       img: "/desktop-clientes.png",
     },
   ]
@@ -455,7 +455,7 @@ function DemoModal({ onClose }: { onClose: () => void }) {
         {/* Tabs */}
         <div className="flex px-7 pt-5 gap-3">
           {[
-            { key: "paciente", label: "👤 Tu paciente reserva" },
+            { key: "paciente", label: "👤 Tu cliente reserva" },
             { key: "profesional", label: "📊 Tú lo ves todo" },
           ].map(t => (
             <button
@@ -547,11 +547,11 @@ export function FeaturesSection() {
     { Icon: Bell,         title: "Recordatorios automáticos", desc: "WhatsApp y email antes de cada cita. Reduce las inasistencias sin hacer nada.",                                           href: "/plataforma#recordatorios", color: "text-emerald-600", bg: "bg-emerald-50" },
     { Icon: Bot,          title: "Chatbot IA",                desc: "Attia agenda, cobra y recupera citas por ti en WhatsApp, Instagram y Messenger las 24 horas. Disponible en Plan Business.",               href: "/chatbot-ia",              color: "text-violet-600",  bg: "bg-violet-50" },
     { Icon: Banknote,     title: "Control de ventas",         desc: "Registra pagos, revisa ingresos por día y lleva el control de citas sin cobrar.",                                         href: "/plataforma#cobros",        color: "text-sky-600",    bg: "bg-sky-50" },
-    { Icon: Users,        title: "Base de clientes",          desc: "Ficha completa por paciente con historial, datos de contacto y citas anteriores.",                                        href: "/plataforma#clientes",      color: "text-orange-600",  bg: "bg-orange-50" },
+    { Icon: Users,        title: "Base de clientes",          desc: "Ficha completa por cliente con historial, datos de contacto y citas anteriores.",                                        href: "/plataforma#clientes",      color: "text-orange-600",  bg: "bg-orange-50" },
     { Icon: BarChart2,    title: "Reportes y métricas",       desc: "Evolución de reservas, servicios más populares y rendimiento de tu negocio.",                                             href: "/plataforma#reportes",      color: "text-pink-600",    bg: "bg-pink-50" },
     { Icon: Package,      title: "Paquetes de sesiones",      desc: "Vende sesiones en bloque y controla el avance de cada paquete por cliente.",                                             href: "/plataforma#paquetes",      color: "text-amber-600",   bg: "bg-amber-50" },
     { Icon: FileText,     title: "Boleta de honorarios",      desc: "Genera boletas de honorarios directamente desde la plataforma. Integración SII.",                                        href: "/plataforma#boleta",        color: "text-teal-600",    bg: "bg-teal-50" },
-    { Icon: Globe,        title: "Página de reservas online", desc: "Tu propio link de reservas personalizado para compartir con tus pacientes.",                                              href: "/plataforma#agenda",        color: "text-indigo-600",  bg: "bg-indigo-50" },
+    { Icon: Globe,        title: "Página de reservas online", desc: "Tu propio link de reservas personalizado para compartir con tus clientes.",                                              href: "/plataforma#agenda",        color: "text-indigo-600",  bg: "bg-indigo-50" },
     { Icon: CalendarDays, title: "Google Calendar",           desc: "Vincula tu cuenta y cada cita aparece al instante. Al cancelar, desaparece automáticamente.",                            href: "/plataforma#google-calendar", color: "text-red-500",   bg: "bg-red-50" },
   ]
 
@@ -1132,7 +1132,7 @@ export function EspecialidadesSection() {
             href="https://app.attempo.cl/registro"
             className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-[#6C5CE4] text-white font-semibold rounded-xl hover:bg-[#5A4BD1] transition-colors text-sm shadow-lg shadow-[#6C5CE4]/20"
           >
-            Probar gratis 12 días →
+            Probar gratis 14 días →
           </a>
           <p className="text-xs text-gray-400 mt-3">Sin tarjeta · Listo en 5 minutos</p>
         </m.div>
@@ -1157,7 +1157,7 @@ export function CTASection() {
           Es hora de estar a tiempo
         </m.h2>
         <m.p variants={fadeUp} className="text-purple-200 mb-10 text-xl">
-          12 días gratis. Sin compromiso. Listo en 5 minutos.
+          14 días gratis. Sin compromiso. Listo en 5 minutos.
         </m.p>
         <m.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4 justify-center">
           <a href="https://app.attempo.cl/registro" className="px-8 py-4 bg-white text-[#6C5CE4] font-bold rounded-xl hover:bg-purple-50 transition-all text-lg shadow-lg hover:-translate-y-0.5">
@@ -1176,15 +1176,15 @@ export function SeguridadSection() {
   const puntos = [
     {
       titulo: "Datos cifrados en tránsito y en reposo",
-      desc: "Toda la información se transmite con TLS 1.3 y se almacena cifrada. Nadie sin autorización accede a los datos de tus pacientes.",
+      desc: "Toda la información se transmite con TLS 1.3 y se almacena cifrada. Nadie sin autorización accede a los datos de tus clientes.",
     },
     {
       titulo: "Cumplimiento Ley 19.628",
-      desc: "attempo cumple con la Ley de Protección de Datos Personales de Chile. Tus pacientes saben cómo se usan sus datos y pueden solicitar su eliminación.",
+      desc: "attempo cumple con la Ley de Protección de Datos Personales de Chile. Tus clientes saben cómo se usan sus datos y pueden solicitar su eliminación.",
     },
     {
       titulo: "Acceso controlado por cuenta",
-      desc: "Solo tú y las personas que autoricen acceden a tu agenda y fichas de pacientes. Sin acceso cruzado entre negocios.",
+      desc: "Solo tú y las personas que autoricen acceden a tu agenda y fichas de clientes. Sin acceso cruzado entre negocios.",
     },
     {
       titulo: "Backups automáticos diarios",
@@ -1203,8 +1203,8 @@ export function SeguridadSection() {
       >
         <m.div variants={fadeUp} className="text-center mb-12">
           <span className="text-[#6C5CE4] text-sm font-medium tracking-wider block mb-3">Seguridad y privacidad</span>
-          <h2 className="text-3xl font-bold text-gray-900 mb-3">Los datos de tus pacientes<br className="hidden sm:block" /> están seguros con nosotros</h2>
-          <p className="text-gray-500 max-w-xl mx-auto">Construido desde el primer día con estándares de seguridad para el manejo de datos sensibles de salud.</p>
+          <h2 className="text-3xl font-bold text-gray-900 mb-3">Los datos de tus clientes<br className="hidden sm:block" /> están seguros con nosotros</h2>
+          <p className="text-gray-500 max-w-xl mx-auto">Construido desde el primer día con estándares de seguridad para el manejo de datos sensibles de tus clientes.</p>
         </m.div>
         <m.div variants={fadeUp} className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           {puntos.map((p) => (
@@ -1479,7 +1479,7 @@ export function ROISection() {
               >
                 Empieza gratis y deja de perder ese dinero →
               </a>
-              <p className="text-center text-xs text-gray-400">12 días gratis · Sin tarjeta · Listo en 5 minutos</p>
+              <p className="text-center text-xs text-gray-400">14 días gratis · Sin tarjeta · Listo en 5 minutos</p>
             </div>
           </div>
         </m.div>
@@ -1494,7 +1494,7 @@ export function OnboardingSection() {
     {
       n: "01",
       titulo: "Crea tu cuenta gratis",
-      desc: "Registra tu negocio en 2 minutos. Sin tarjeta, sin letra chica. Tienes 12 días para probar todo.",
+      desc: "Registra tu negocio en 2 minutos. Sin tarjeta, sin letra chica. Tienes 14 días para probar todo.",
       detalle: "Solo tu nombre, email y tipo de negocio. Listo.",
     },
     {
@@ -1506,7 +1506,7 @@ export function OnboardingSection() {
     {
       n: "03",
       titulo: "Comparte tu link y empieza a recibir citas",
-      desc: "Ponlo en tu bio de Instagram, WhatsApp o donde quieras. Tus pacientes reservan solos, tú ves todo en tiempo real.",
+      desc: "Ponlo en tu bio de Instagram, WhatsApp o donde quieras. Tus clientes reservan solos, tú ves todo en tiempo real.",
       detalle: "El cobro anticipado y los recordatorios corren solos desde el primer día.",
     },
   ]
@@ -1556,7 +1556,7 @@ export function OnboardingSection() {
           >
             Empieza gratis ahora →
           </a>
-          <p className="text-xs text-gray-400 mt-3">Sin tarjeta · 12 días de prueba · Cancela cuando quieras</p>
+          <p className="text-xs text-gray-400 mt-3">Sin tarjeta · 14 días de prueba · Cancela cuando quieras</p>
         </m.div>
       </m.div>
     </section>
@@ -1691,8 +1691,8 @@ export function QuienesSomosSection() {
           <m.div variants={fadeUp} className="grid grid-cols-2 gap-4">
             {[
               { n: "+500", label: "negocios y profesionales activos" },
-              { n: "24/7", label: "disponible para tus pacientes" },
-              { n: "12", label: "días de prueba gratis" },
+              { n: "24/7", label: "disponible para tus clientes" },
+              { n: "14", label: "días de prueba gratis" },
               { n: "100%", label: "hecho en Chile" },
             ].map((stat) => (
               <div key={stat.n} className="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm">

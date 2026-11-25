@@ -120,7 +120,7 @@ export default async function Image({
               fontWeight: 600,
             }}
           >
-            Prueba gratis 12 días →
+            Prueba gratis 14 días →
           </div>
         </div>
       </div>

@@ -109,7 +109,7 @@ export default function BlogPage() {
             href="https://app.attempo.cl/registro"
             className="inline-flex items-center justify-center px-7 py-3.5 bg-[#6C5CE4] text-white font-semibold rounded-xl hover:bg-[#5A4BD1] transition-colors duration-200 cursor-pointer"
           >
-            Probar gratis 12 días
+            Probar gratis 14 días
           </Link>
         </div>
       </section>

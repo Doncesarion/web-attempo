@@ -226,7 +226,7 @@ export default function PlataformaContent() {
               href="https://app.attempo.cl/registro"
               className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#6C5CE4] text-white font-semibold rounded-xl hover:bg-[#5A4BD1] transition-colors duration-200 cursor-pointer"
             >
-              Probar gratis 12 días
+              Probar gratis 14 días
             </Link>
             <Link
               href="/precios"
@@ -264,7 +264,7 @@ export default function PlataformaContent() {
         id="agenda"
         badge="Agenda online"
         title="Tu calendario inteligente, disponible 24/7"
-        description="Comparte tu link de agendamiento y tus pacientes reservan solos en segundos. Sin llamadas, sin WhatsApp de ida y vuelta."
+        description="Comparte tu link de agendamiento y tus clientes reservan solos en segundos. Sin llamadas, sin WhatsApp de ida y vuelta."
         bullets={[
           "Link personalizado para compartir donde quieras",
           "Vista diaria, semanal y mensual",
@@ -316,7 +316,7 @@ export default function PlataformaContent() {
       <FeatureBlock
         id="clientes"
         badge="Portal de pacientes"
-        title="Tus pacientes gestionan sus propias citas"
+        title="Tus clientes gestionan sus propias citas"
         description="Cada paciente tiene acceso a su historial, puede reagendar o cancelar sin necesidad de llamarte. Menos interrupciones, más orden."
         bullets={[
           "Historial completo de citas pasadas y próximas",
@@ -367,7 +367,7 @@ export default function PlataformaContent() {
               Vende paquetes de sesiones con descuento
             </m.h2>
             <m.p variants={fadeUp} className="text-white/75 max-w-xl mx-auto leading-relaxed">
-              Ofrece paquetes de 4, 8 o 12 sesiones a precio especial. Tus pacientes pagan por adelantado y tú garantizas la continuidad del tratamiento.
+              Ofrece paquetes de 4, 8 o 12 sesiones a precio especial. Tus clientes pagan por adelantado y tú garantizas la continuidad del tratamiento.
             </m.p>
           </div>
 
@@ -442,11 +442,11 @@ export default function PlataformaContent() {
         id="reportes"
         badge="Reportes y estadísticas"
         title="Entiende tu negocio de un vistazo"
-        description="Visualiza tus ingresos, tasa de inasistencia, pacientes más frecuentes y el rendimiento de tu agenda. Todo en tiempo real."
+        description="Visualiza tus ingresos, tasa de inasistencia, clientes más frecuentes y el rendimiento de tu agenda. Todo en tiempo real."
         bullets={[
           "Ingresos del día, semana, mes y año",
           "Tasa de asistencia y análisis de cancelaciones",
-          "Ranking de pacientes por frecuencia y monto",
+          "Ranking de clientes por frecuencia y monto",
           "Exportación en Excel o CSV",
         ]}
         image="/desktop-reportes.png"
@@ -476,7 +476,7 @@ export default function PlataformaContent() {
               Un asistente que agenda por ti las 24 horas
             </m.h2>
             <m.p variants={fadeUp} className="text-white/75 max-w-xl mx-auto leading-relaxed mb-10">
-              El chatbot de IA responde a tus pacientes, consulta disponibilidad y confirma citas automáticamente, incluso cuando estás atendiendo o durmiendo.
+              El chatbot de IA responde a tus clientes, consulta disponibilidad y confirma citas automáticamente, incluso cuando estás atendiendo o durmiendo.
             </m.p>
             <m.div variants={stagger} className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-2xl mx-auto text-left">
               {[
@@ -514,7 +514,7 @@ export default function PlataformaContent() {
             Empieza gratis hoy
           </m.h2>
           <m.p variants={fadeUp} className="text-gray-500 mb-8">
-            12 días de prueba en cualquier plan. Sin compromiso.
+            14 días de prueba en cualquier plan. Sin compromiso.
           </m.p>
           <m.div variants={fadeUp} className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link

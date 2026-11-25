@@ -45,17 +45,17 @@ const metaOverrides: Record<string, { title: string; description: string }> = {
   psicologos: {
     title: "Agenda Online para Psicólogos en Chile 2026 | attempo",
     description:
-      "Software de agendamiento para psicólogos en Chile. Cobra anticipado con Webpay, gestiona paquetes de sesiones y reduce inasistencias con recordatorios automáticos por WhatsApp. Prueba gratis 12 días.",
+      "Software de agendamiento para psicólogos en Chile. Cobra anticipado con Webpay, gestiona paquetes de sesiones y reduce inasistencias con recordatorios automáticos por WhatsApp. Prueba gratis 14 días.",
   },
   psiquiatras: {
     title: "Agenda Online para Psiquiatras en Chile 2026 | attempo",
     description:
-      "Sistema de agendamiento para psiquiatras en Chile. Lista de espera automática, controles de seguimiento y recordatorios por WhatsApp. Prueba gratis 12 días.",
+      "Sistema de agendamiento para psiquiatras en Chile. Lista de espera automática, controles de seguimiento y recordatorios por WhatsApp. Prueba gratis 14 días.",
   },
   "medicos-generales": {
     title: "Sistema de Agendamiento para Médicos Generales en Chile | attempo",
     description:
-      "Agenda online para médicos generales en Chile. Gestiona citas presenciales y telemedicina, cobro anticipado Webpay y recordatorios automáticos. Prueba gratis 12 días.",
+      "Agenda online para médicos generales en Chile. Gestiona citas presenciales y telemedicina, cobro anticipado Webpay y recordatorios automáticos. Prueba gratis 14 días.",
   },
   "centros-clinicos": {
     title: "Software de Gestión para Centros Clínicos en Chile | attempo",
@@ -65,17 +65,17 @@ const metaOverrides: Record<string, { title: string; description: string }> = {
   barberias: {
     title: "Agenda Online para Barberías en Chile 2026 | attempo",
     description:
-      "Software de agendamiento para barberías en Chile. Reservas online 24/7, recordatorios automáticos y cobro anticipado. Elimina los no-shows. Prueba gratis 12 días.",
+      "Software de agendamiento para barberías en Chile. Reservas online 24/7, recordatorios automáticos y cobro anticipado. Elimina los no-shows. Prueba gratis 14 días.",
   },
   derecho: {
     title: "Sistema de Citas para Abogados y Estudios Jurídicos en Chile | attempo",
     description:
-      "Agenda online para abogados en Chile. Gestiona consultas y reuniones, cobra anticipadamente y automatiza los recordatorios a clientes. Prueba gratis 12 días.",
+      "Agenda online para abogados en Chile. Gestiona consultas y reuniones, cobra anticipadamente y automatiza los recordatorios a clientes. Prueba gratis 14 días.",
   },
   nutricion: {
     title: "Agenda Online para Nutricionistas en Chile 2026 | attempo",
     description:
-      "Software de agendamiento para nutricionistas en Chile. Paquetes de sesiones, cobro anticipado Webpay y recordatorios automáticos por WhatsApp. Prueba gratis 12 días.",
+      "Software de agendamiento para nutricionistas en Chile. Paquetes de sesiones, cobro anticipado Webpay y recordatorios automáticos por WhatsApp. Prueba gratis 14 días.",
   },
   matronas: {
     title: "Sistema de Agendamiento para Matronas en Chile | attempo",
@@ -90,7 +90,7 @@ const metaOverrides: Record<string, { title: string; description: string }> = {
   fisioterapeutas: {
     title: "Agenda Online para Fisioterapeutas y Kinesiólogos en Chile | attempo",
     description:
-      "Sistema de agendamiento para fisioterapeutas y kinesiólogos en Chile. Paquetes de sesiones, cobro Webpay y recordatorios automáticos. Prueba gratis 12 días.",
+      "Sistema de agendamiento para fisioterapeutas y kinesiólogos en Chile. Paquetes de sesiones, cobro Webpay y recordatorios automáticos. Prueba gratis 14 días.",
   },
   yoga: {
     title: "Sistema de Agendamiento para Clases de Yoga y Pilates en Chile | attempo",
@@ -100,32 +100,32 @@ const metaOverrides: Record<string, { title: string; description: string }> = {
   nutricionistas: {
     title: "Agenda Online para Nutricionistas en Chile 2026 | attempo",
     description:
-      "Sistema de agendamiento para nutricionistas en Chile. Gestiona paquetes de consultas, cobra anticipado con Webpay y reduce el abandono de tratamientos con recordatorios automáticos. Prueba gratis 12 días.",
+      "Sistema de agendamiento para nutricionistas en Chile. Gestiona paquetes de consultas, cobra anticipado con Webpay y reduce el abandono de tratamientos con recordatorios automáticos. Prueba gratis 14 días.",
   },
   kinesiologos: {
     title: "Agenda Online para Kinesiólogos en Chile 2026 | attempo",
     description:
-      "Software de agendamiento para kinesiólogos en Chile. Gestiona planes de rehabilitación, cobra el paquete completo anticipado y elimina el abandono de tratamientos. Prueba gratis 12 días.",
+      "Software de agendamiento para kinesiólogos en Chile. Gestiona planes de rehabilitación, cobra el paquete completo anticipado y elimina el abandono de tratamientos. Prueba gratis 14 días.",
   },
   dentistas: {
     title: "Sistema de Agendamiento para Dentistas en Chile 2026 | attempo",
     description:
-      "Agenda online para dentistas y clínicas dentales en Chile. Confirmación automática por WhatsApp, lista de espera activa y control de tratamientos de múltiples sesiones. Prueba gratis 12 días.",
+      "Agenda online para dentistas y clínicas dentales en Chile. Confirmación automática por WhatsApp, lista de espera activa y control de tratamientos de múltiples sesiones. Prueba gratis 14 días.",
   },
   medicos: {
     title: "Agenda Online para Médicos en Chile 2026 | attempo",
     description:
-      "Sistema de agendamiento para médicos en Chile. Reservas online 24/7, chatbot IA para consultas, recordatorios automáticos y ficha del paciente integrada. Prueba gratis 12 días.",
+      "Sistema de agendamiento para médicos en Chile. Reservas online 24/7, chatbot IA para consultas, recordatorios automáticos y ficha del paciente integrada. Prueba gratis 14 días.",
   },
   belleza: {
     title: "Agenda Online para Peluquerías y Salones de Belleza en Chile 2026 | attempo",
     description:
-      "Software de agendamiento para peluquerías, salones de uñas, extensiones de pestañas y botox en Chile. Seña anticipada con Webpay, reservas 24/7 desde Instagram y recordatorios automáticos. Elimina los no-shows. Prueba gratis 12 días.",
+      "Software de agendamiento para peluquerías, salones de uñas, extensiones de pestañas y botox en Chile. Seña anticipada con Webpay, reservas 24/7 desde Instagram y recordatorios automáticos. Elimina los no-shows. Prueba gratis 14 días.",
   },
   "personal-trainer": {
     title: "Agenda Online para Entrenadores Personales en Chile 2026 | attempo",
     description:
-      "Sistema de agendamiento para entrenadores personales en Chile. Paquetes de sesiones, cobro anticipado con Webpay y recordatorios automáticos por WhatsApp. Elimina las cancelaciones de último minuto. Prueba gratis 12 días.",
+      "Sistema de agendamiento para entrenadores personales en Chile. Paquetes de sesiones, cobro anticipado con Webpay y recordatorios automáticos por WhatsApp. Elimina las cancelaciones de último minuto. Prueba gratis 14 días.",
   },
 }
 
@@ -141,7 +141,7 @@ export async function generateMetadata({
   const title = override?.title ?? `Agenda Online para ${data.nombre} en Chile | attempo`
   const description =
     override?.description ??
-    `Sistema de agendamiento para ${data.nombre} en Chile. ${data.descripcion} Recordatorios automáticos, cobro con Webpay y chatbot IA. Prueba gratis 12 días.`
+    `Sistema de agendamiento para ${data.nombre} en Chile. ${data.descripcion} Recordatorios automáticos, cobro con Webpay y chatbot IA. Prueba gratis 14 días.`
   return {
     title,
     description,
@@ -309,7 +309,7 @@ export default async function EspecialidadPage({
                 href="https://app.attempo.cl/registro"
                 className="inline-block px-8 py-4 bg-[#6C5CE4] hover:bg-[#4F46E5] text-white font-semibold rounded-xl transition-colors text-lg"
               >
-                Prueba gratis 12 días
+                Prueba gratis 14 días
               </a>
             </div>
           </div>

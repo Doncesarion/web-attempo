@@ -22,7 +22,7 @@ import {
 export const metadata: Metadata = {
   title: "attempo | Sistema de Agendamiento Online para Cualquier Negocio — Chile",
   description:
-    "Sistema de agendamiento online con chatbot IA para clínicas, barberías, spas, gimnasios, restaurantes, hoteles y más en Chile. Agenda 24/7, cobro con Webpay y recordatorios automáticos por WhatsApp. Prueba gratis 12 días.",
+    "Sistema de agendamiento online con chatbot IA para clínicas, barberías, spas, gimnasios, restaurantes, hoteles y más en Chile. Agenda 24/7, cobro con Webpay y recordatorios automáticos por WhatsApp. Prueba gratis 14 días.",
   alternates: { canonical: "https://attempo.cl" },
   keywords: [
     "sistema de agendamiento online Chile",
@@ -117,7 +117,7 @@ const jsonLd = {
           name: "¿Cuánto cuesta attempo?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "attempo tiene planes desde $24.990 CLP al mes. Incluye una prueba gratuita de 12 días con acceso a todas las funcionalidades.",
+            text: "attempo tiene planes desde $24.990 CLP al mes. Incluye una prueba gratuita de 14 días con acceso a todas las funcionalidades.",
           },
         },
         {

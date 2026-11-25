@@ -370,7 +370,7 @@ export default function SolucionesContent() {
               href="https://app.attempo.cl/registro"
               className="inline-flex items-center justify-center px-7 py-3.5 bg-white text-[#6C5CE4] font-semibold rounded-xl hover:bg-[#f5f3ff] transition-colors duration-200 cursor-pointer"
             >
-              Probar gratis 12 días
+              Probar gratis 14 días
             </Link>
             <Link
               href="/contacto"

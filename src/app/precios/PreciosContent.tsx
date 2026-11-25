@@ -183,7 +183,7 @@ const faqs = [
   { q: "¿Cómo funciona el cobro?", a: "Si pagas mensual, el cobro es automático cada mes. Si eliges anual, pagas una sola vez y equivale a 10 meses (ahorras 2 meses completos). Siempre recibirás un correo antes de cada cobro. Puedes cancelar en cualquier momento." },
   { q: "¿Puedo pagar el plan anual en cuotas?", a: "Sí. Tenemos convenio de hasta 12 cuotas sin interés con tarjeta de crédito de cualquier banco. Puedes darte de baja en cualquier momento sin costo adicional." },
   { q: "¿Hay comisión en los pagos con tarjeta?", a: "Sí. Los pagos con WebPay tienen una comisión de 1,49% + IVA para débito y 2,95% + IVA para crédito. Esto aplica en todos los planes y lo asume el profesional." },
-  { q: "¿Qué pasa cuando termina la prueba gratis?", a: "Al terminar los 12 días, te pedimos que elijas un plan. Si no lo haces, tu cuenta pasa a modo limitado. No se cobra nada sin que tú lo confirmes primero." },
+  { q: "¿Qué pasa cuando termina la prueba gratis?", a: "Al terminar los 14 días, te pedimos que elijas un plan. Si no lo haces, tu cuenta pasa a modo limitado. No se cobra nada sin que tú lo confirmes primero." },
   { q: "¿Puedo cambiar de plan?", a: "Sí, en cualquier momento. Si subes de plan, el cambio aplica de inmediato. Si bajas, aplica al inicio del siguiente período." },
   { q: "¿Los precios incluyen IVA?", a: "No. Los precios mostrados son antes de IVA (19%). El total con IVA se detalla al momento de suscribirte." },
   { q: "¿Los precios son fijos?", a: "Sí. A diferencia de otras plataformas que usan UF, en attempo los precios están en pesos chilenos fijos. Lo que ves es lo que pagas, sin sorpresas por variaciones de la UF." },
@@ -210,7 +210,7 @@ export default function PreciosContent() {
       <section className="pt-20 pb-10 lg:pt-24 lg:pb-16 px-4 bg-gradient-to-b from-[#f5f3ff] to-white">
         <m.div className="max-w-2xl mx-auto text-center" initial="hidden" animate="visible" variants={stagger}>
           <m.span variants={fadeUp} className="inline-flex items-center gap-2 bg-[#6C5CE4]/10 text-[#6C5CE4] text-sm font-semibold px-4 py-2 rounded-full mb-6">
-            <GiftIcon /> 12 días de prueba gratis · Sin compromiso
+            <GiftIcon /> 14 días de prueba gratis · Sin compromiso
           </m.span>
           <m.h1 variants={fadeUp} className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4 leading-[1.1] tracking-tight">
             Planes claros,<br />sin sorpresas
@@ -708,7 +708,7 @@ export default function PreciosContent() {
               <ShieldIcon />
             </div>
             <h2 className="text-3xl font-bold text-gray-900 mb-3 tracking-tight">Sin riesgos. Empieza gratis.</h2>
-            <p className="text-gray-500">12 días de prueba en cualquier plan. Sin tarjeta. Si no es para ti, no pagas nada.</p>
+            <p className="text-gray-500">14 días de prueba en cualquier plan. Sin tarjeta. Si no es para ti, no pagas nada.</p>
           </m.div>
           <m.div variants={stagger} className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {[
@@ -771,7 +771,7 @@ export default function PreciosContent() {
           initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} variants={stagger}
         >
           <m.h2 variants={fadeUp} className="text-4xl font-bold text-gray-900 mb-3 tracking-tight">¿Listo para empezar?</m.h2>
-          <m.p variants={fadeUp} className="text-gray-500 mb-8">12 días gratis. Sin tarjeta. Sin letra chica.</m.p>
+          <m.p variants={fadeUp} className="text-gray-500 mb-8">14 días gratis. Sin tarjeta. Sin letra chica.</m.p>
           <m.a
             variants={fadeUp}
             href="https://app.attempo.cl/registro"

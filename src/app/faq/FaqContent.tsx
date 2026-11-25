@@ -27,12 +27,12 @@ const categorias: Categoria[] = [
       {
         id: "p1",
         q: "¿Puedo probar attempo gratis?",
-        a: "Sí. Tienes 12 días de prueba completa en cualquier plan. Puedes explorar todas las funcionalidades sin compromiso.",
+        a: "Sí. Tienes 14 días de prueba completa en cualquier plan. Puedes explorar todas las funcionalidades sin compromiso.",
       },
       {
         id: "p2",
         q: "¿Cuánto tiempo tarda configurar mi cuenta?",
-        a: "Menos de 5 minutos. Solo creas tu perfil, defines tu disponibilidad horaria y ya puedes compartir tu link de agendamiento con tus pacientes o clientes.",
+        a: "Menos de 5 minutos. Solo creas tu perfil, defines tu disponibilidad horaria y ya puedes compartir tu link de agendamiento con tus clientes.",
       },
       {
         id: "p3",
@@ -79,7 +79,7 @@ const categorias: Categoria[] = [
       {
         id: "f1",
         q: "¿Cómo funciona el agendamiento en línea?",
-        a: "Tienes un link único (por ejemplo attempo.cl/tu-nombre) que puedes compartir por WhatsApp, redes sociales o tu sitio web. Tus pacientes eligen el horario disponible y la cita se registra automáticamente en tu agenda.",
+        a: "Tienes un link único (por ejemplo attempo.cl/tu-nombre) que puedes compartir por WhatsApp, redes sociales o tu sitio web. Tus clientes eligen el horario disponible y la cita se registra automáticamente en tu agenda.",
       },
       {
         id: "f2",
@@ -88,8 +88,8 @@ const categorias: Categoria[] = [
       },
       {
         id: "f3",
-        q: "¿Los pacientes tienen un portal propio?",
-        a: "Sí. Tus pacientes pueden acceder a su historial de citas, reagendar o cancelar sin necesidad de llamarte. Esto reduce las llamadas y mejora la experiencia.",
+        q: "¿Tus clientes tienen un portal propio?",
+        a: "Sí. Tus clientes pueden acceder a su historial de citas, reagendar o cancelar sin necesidad de llamarte. Esto reduce las llamadas y mejora la experiencia.",
       },
       {
         id: "f4",
@@ -105,17 +105,17 @@ const categorias: Categoria[] = [
       {
         id: "r1",
         q: "¿Cómo funcionan los recordatorios automáticos?",
-        a: "attempo envía recordatorios automáticos a tus pacientes antes de cada cita por WhatsApp, email o SMS. Tú defines con cuánta anticipación se envían (24h, 48h, 1 semana).",
+        a: "attempo envía recordatorios automáticos a tus clientes antes de cada cita por WhatsApp, email o SMS. Tú defines con cuánta anticipación se envían (24h, 48h, 1 semana).",
       },
       {
         id: "r2",
         q: "¿Puedo personalizar los mensajes de recordatorio?",
-        a: "Sí. Puedes editar el texto con tu nombre, el nombre del paciente, la fecha y hora de la cita, y cualquier indicación adicional que necesites incluir.",
+        a: "Sí. Puedes editar el texto con tu nombre, el nombre del cliente, la fecha y hora de la cita, y cualquier indicación adicional que necesites incluir.",
       },
       {
         id: "r3",
-        q: "¿Qué pasa si un paciente cancela su cita?",
-        a: "Recibes una notificación inmediata y el horario queda disponible automáticamente para que otro paciente pueda reservarlo.",
+        q: "¿Qué pasa si un cliente cancela su cita?",
+        a: "Recibes una notificación inmediata y el horario queda disponible automáticamente para que otro cliente pueda reservarlo.",
       },
     ],
   },
@@ -125,8 +125,8 @@ const categorias: Categoria[] = [
     preguntas: [
       {
         id: "s1",
-        q: "¿Los datos de mis pacientes están seguros?",
-        a: "Sí. Usamos cifrado TLS para toda la comunicación y almacenamos los datos en servidores seguros. La información de tus pacientes nunca se comparte con terceros.",
+        q: "¿Los datos de mis clientes están seguros?",
+        a: "Sí. Usamos cifrado TLS para toda la comunicación y almacenamos los datos en servidores seguros. La información de tus clientes nunca se comparte con terceros.",
       },
       {
         id: "s2",
@@ -136,7 +136,7 @@ const categorias: Categoria[] = [
       {
         id: "s3",
         q: "¿Puedo exportar mis datos si decido no seguir usando attempo?",
-        a: "Sí. Puedes exportar toda tu información (agenda, historial de citas, fichas de pacientes) en formato Excel o CSV en cualquier momento.",
+        a: "Sí. Puedes exportar toda tu información (agenda, historial de citas, fichas de clientes) en formato Excel o CSV en cualquier momento.",
       },
     ],
   },
@@ -314,7 +314,7 @@ export default function FaqContent() {
               href="https://app.attempo.cl/registro"
               className="inline-flex items-center justify-center px-7 py-3.5 bg-white/15 text-white font-semibold rounded-xl border border-white/30 hover:bg-white/25 transition-colors duration-200 cursor-pointer"
             >
-              Probar gratis 12 días
+              Probar gratis 14 días
             </Link>
           </m.div>
         </m.div>

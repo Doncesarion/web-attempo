@@ -211,7 +211,7 @@ export const posts: Post[] = [
       {
         tipo: "ul",
         items: [
-          "attempo — cobro anticipado Webpay nativo, paquetes de sesiones, chatbot IA, recordatorios WhatsApp. Desde $24.990/mes. Prueba gratis 12 días. Diseñado para el profesional independiente chileno.",
+          "attempo — cobro anticipado Webpay nativo, paquetes de sesiones, chatbot IA, recordatorios WhatsApp. Desde $24.990/mes. Prueba gratis 14 días. Diseñado para el profesional independiente chileno.",
           "Encuadrado — fuerte en agenda y boletas electrónicas SII. Precio en UF (≈$37.000 CLP). No siempre incluye cobro Webpay nativo en los planes base.",
           "AgendaPro — amplia base de clientes, principalmente orientado a estética y wellness. Para psicólogos las funcionalidades específicas (paquetes, política de cancelación médica) son menos especializadas.",
           "Calendly (plan gratis) — útil para reuniones, no para práctica clínica. Sin cobro integrado, sin recordatorios WhatsApp ni paquetes de sesiones.",
@@ -1117,7 +1117,7 @@ export const posts: Post[] = [
       {
         tipo: "p",
         texto:
-          "No tienes que elegir entre \"gratis con limitaciones\" y \"pago sin garantías\". attempo ofrece 12 días de prueba gratuita con acceso completo a todas las funcionalidades: cobro Webpay, recordatorios WhatsApp, chatbot IA y gestión de paquetes. Si en 12 días no sientes la diferencia, no pagas. Si la sientes, estás pagando por algo que ya comprobaste que funciona para tu práctica.",
+          "No tienes que elegir entre \"gratis con limitaciones\" y \"pago sin garantías\". attempo ofrece 14 días de prueba gratuita con acceso completo a todas las funcionalidades: cobro Webpay, recordatorios WhatsApp, chatbot IA y gestión de paquetes. Si en 14 días no sientes la diferencia, no pagas. Si la sientes, estás pagando por algo que ya comprobaste que funciona para tu práctica.",
       },
       { tipo: "cta" },
     ],
@@ -1480,7 +1480,7 @@ export const posts: Post[] = [
       {
         tipo: "p",
         texto:
-          "Si eres profesional de salud en Chile y quieres dejar de gestionar citas por teléfono o WhatsApp, attempo tiene un plan de prueba gratuito de 12 días sin tarjeta de crédito. Puedes configurar tu agenda completa y empezar a recibir reservas automáticas el mismo día.",
+          "Si eres profesional de salud en Chile y quieres dejar de gestionar citas por teléfono o WhatsApp, attempo tiene un plan de prueba gratuito de 14 días sin tarjeta de crédito. Puedes configurar tu agenda completa y empezar a recibir reservas automáticas el mismo día.",
       },
       { tipo: "cta" },
     ],
@@ -1623,7 +1623,7 @@ export const posts: Post[] = [
       {
         tipo: "p",
         texto:
-          "Puedes probarlo gratis durante 12 días, sin tarjeta de crédito, y ver el impacto real en tu tasa de inasistencias antes de decidir si contratas. El proceso de configuración toma menos de una hora.",
+          "Puedes probarlo gratis durante 14 días, sin tarjeta de crédito, y ver el impacto real en tu tasa de inasistencias antes de decidir si contratas. El proceso de configuración toma menos de una hora.",
       },
       { tipo: "cta" },
     ],

@@ -30,7 +30,7 @@ const valores: { num: string; Icon: LucideIcon; title: string; desc: string }[] 
     num: "03",
     Icon: ShieldCheck,
     title: "Confianza",
-    desc: "Datos protegidos y pagos seguros con los mismos estándares de la banca en Chile. Tu información y la de tus pacientes, segura.",
+    desc: "Datos protegidos y pagos seguros con los mismos estándares de la banca en Chile. Tu información y la de tus clientes, segura.",
   },
   {
     num: "04",
@@ -212,7 +212,7 @@ export default function QuienesSomosContent() {
             Devolver el tiempo a los profesionales para que puedan enfocarse en lo que más importa.
           </m.p>
           <m.p variants={fadeUp} className="text-2xl font-light text-[#8B7FF0]">
-            Su trabajo. Sus pacientes. Su vida.
+            Su trabajo. Sus clientes. Su vida.
           </m.p>
 
           <m.div
