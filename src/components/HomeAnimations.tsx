@@ -1568,21 +1568,21 @@ export function HomePricingSection() {
     {
       nombre: "Inicio",
       precio: 24990,
-      desc: "Agenda digital, cobro online y recordatorios automáticos.",
+      desc: "Agenda online 24/7, cobro anticipado con Webpay y recordatorios automáticos por WhatsApp y email.",
       popular: false,
       cta: "Empieza gratis",
     },
     {
       nombre: "Pro",
       precio: 44990,
-      desc: "Todo lo anterior + boletas electrónicas y sin costo en transferencias.",
+      desc: "Todo Inicio + boletas electrónicas, transferencias sin costo y reportes avanzados de ingresos.",
       popular: true,
       cta: "Empieza gratis",
     },
     {
       nombre: "Business",
       precio: 119990,
-      desc: "Todo integrado: agenda, boletas, chatbot IA con 5.000 mensajes/mes y automatizaciones conectadas en un solo sistema.",
+      desc: "Agenda completa + Attia responde en WhatsApp e Instagram las 24 horas con 5.000 mensajes/mes. Boletas incluidas.",
       popular: false,
       cta: "Empieza gratis",
     },
@@ -1644,10 +1644,16 @@ export function HomePricingSection() {
           ))}
         </div>
 
-        <m.div variants={fadeUp} className="text-center">
+        <m.div variants={fadeUp} className="text-center space-y-3">
           <a href="/precios" className="text-sm text-[#6C5CE4] font-medium hover:underline underline-offset-4">
             Ver comparativa completa de planes →
           </a>
+          <p className="text-xs text-gray-400">
+            ¿Solo necesitas el bot? Attia disponible como plan independiente desde $39.990/mes.{" "}
+            <a href="/precios#attia" className="text-[#6C5CE4] font-medium hover:underline underline-offset-2">
+              Ver planes Attia →
+            </a>
+          </p>
         </m.div>
       </m.div>
     </section>
